@@ -13,6 +13,8 @@ Editorial changes that improve the readability of the spec or correct spelling o
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md), about licensing contributions.
 
+**Issues against this specification must be raised in the [Repository for Web Publications](https://github.com/w3c/wpub).**
+
 ## Code of Conduct
 
 W3C functions under a [code of conduct](https://www.w3.org/Consortium/cepc/).
