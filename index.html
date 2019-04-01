@@ -121,7 +121,7 @@
 
 					<p>If the table of contents is not located in the <a href="https://w3c.github.io/wpub/index#wp-primary-entry-page">primary entry page</a>, the manifest SHOULD <a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
 
-					<p>When an Audiobook contains additional resources (i.e. supplemental content) a table of contents MUST be included, the table of contents MUST include a link to all <a href="#audio-resources">resources</a>, and all links SHOULD refer to <a href="#audio-resources">resources</a> within <a href="#audio-bounds">publication bounds</a>. </p>
+					<p>When an Audiobook contains additional resources (i.e. <dfn>supplemental content</dfn>) a table of contents MUST be included, the table of contents MUST include a link to all <a href="#audio-resources">resources</a>, and all links SHOULD refer to <a href="#audio-resources">resources</a> within <a href="#audio-bounds">publication bounds</a>.</p>
 
 					<p class="issue">The requirement for a table of contents if supplemental content is present is being discussed in <a href="https://github.com/w3c/wpub/issues/408">WPUB #408</a>.</p>
 
@@ -191,11 +191,7 @@
 				<section id="audio-type">
 					<h3>Publication Type</h3>
 
-					<p>An <a>audiobook's</a>
-						<a>manifest</a> MUST define its <dfn>Publication Type</dfn> using the <code
-							data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[json-ld]]. The type MUST
-						be <a href="https://schema.org/Audiobook"
-						><code>Audiobook</code></a>&#160;[[schema.org]].</p>
+					<p>An <a>audiobook's</a> <a>manifest</a> MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
 	{
@@ -291,7 +287,7 @@
 
 								<p>A <dfn>creator</dfn> is an individual or entity responsible for the creation of the <a>Web Publication</a>. The Audiobooks profile can use the full list of <a href="https://w3c.github.io/wpub/index.html#creators">creators</a> specified in <a>Web Publications</a>.</p>
 
-								<p>The creators list includes two required creators for Audiobooks:</p>
+								<p>The creators list includes two recommended creators for Audiobooks:</p>
 
 								<ul>
 									<li><a href="https://schema.org/author">author</a></li>
@@ -360,7 +356,9 @@
 									</tbody>
 								</table>
 
-								<p>Duration can be expressed for the entirety of the audiobook as part of the manifest, and at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
+								<p>Duration MUST be expressed for the entirety of the audiobook as part of the manifest, and SHOULD be present at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
+
+								<p class="issue">The question of whether <code>duration</code> is required is being discussed in issue<a href="https://github.com/w3c/wpub/issues/420">#420</a>.</p>
 
 								<pre class="example" title="Duration of an Audiobook in Hours">
 									{
@@ -406,7 +404,7 @@
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
 									"readingOrder" : [{
-										"type"	: "LinkedResource",
+										"type"	: "MediaObject",
 										"url"   : "audio/janeeyre.mp3",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Jane Eyre",
@@ -422,13 +420,13 @@
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
 									"readingOrder" : [{
-										"type"	: "LinkedResource",
+										"type"	: "MediaObject",
 										"url"   : "audio/part001.mp3#0",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Chapter 1",
 										"duration" : "457.931"
 									}, {
-										"type"  : "LinkedResource",
+										"type"  : "MediaObject",
 										"url"   : "audio/part001.mp3#457.932",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Chapter 2",
@@ -518,7 +516,50 @@
 						{"url": "haworth_house.pdf", "encodingFormat": "application/pdf"}
 						]
 					}
+				</pre>
 			</section>
+		</section>
+
+		<section id="audio-toc-examples" class="appendix informative">
+			<h2>Table of Contents Examples</h2>
+
+			<section id="toc-simple">
+				<h3>Simple Table of Contents</h3>
+
+				<p>A table of contents for a simple audiobook.</p>
+				<pre class="example">
+					&lt;nav role="doc-toc">
+						 &lt;h2>JANE EYRE&lt;/h2>
+
+						 &lt;ol>
+							&lt;li>&lt;a href="audio/chapter001.mp3">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="audio/chapter002.mp3">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="audio/chapter003.mp3">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
+							&#8230;
+						 &lt;/ol>
+						&lt;/nav>
+				</pre>
+			</section>
+
+			<section id="toc-mediafragments">
+				<h3>Table of Contents with Media Fragments</h3>
+
+				<p>A table of contents using media fragment references to locations in a single audio track.</p>
+
+				<pre class="example">
+					&lt;nav role="doc-toc">
+						&lt;h2>JANE EYRE&lt;/h2>
+
+						&lt;ol>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3">Chapter 1&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#456.789">Chapter 2&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#1234.567">Chapter 3&lt;/a>&lt;/li>
+						&lt;/ol>
+					&lt;/nav>
+				</pre>
+			</section>
+
+		</section>
 
 		<div data-include="common/html/acknowledgements.html" data-include-replace="true"></div>
 	</body>
