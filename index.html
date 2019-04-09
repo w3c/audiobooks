@@ -55,9 +55,11 @@
 
 			<p>This specification is a module of the <a>Web Publication</a> specification. It will describe the requirements to create an Audiobook profile of a Web Publication.</p>
 
-			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or packaged using a specification to be determined by the Working Group.</p>
+			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or packaged.</p>
 
-			<p>This specification is intended to bring clear standards to the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents.</p>
+			<p class="ednote">The Publishing Working Group is currently working on this topic.</p>
+
+			<p>This specification is intended to standardize the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents.</p>
 
 			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of afforances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
 
@@ -97,9 +99,9 @@
 				<section id="audio-pep">
 					<h3>Primary Entry Page</h3>
 
-					<p>The <dfn>primary entry page</dfn> represents the preferred starting <a href="https://w3c.github.io/wpub/indexwp-resources">resource</a> for an Audiobook and enables discovery of its <a>manifest</a>. For the full specification of the primary entry page, please refer to [[wpub]].</p>
+					<p>The <dfn>primary entry page</dfn> represents the preferred starting <a href="https://w3c.github.io/wpub/index#wp-resources">resource</a> for an Audiobook and enables discovery of its <a>manifest</a>. For the full specification of the primary entry page, please refer to [[wpub]].</p>
 
-					<p>It is not required that the primary entry page be included in the <a href="#audio-readingorder">default reading order</a>, as the Audiobooks profile requires that only audio resources be present. The primary entry page should instead, if present, be included as a <a href="https://w3c.github.io/wpub/index.html/#wp-resources">resource</a>.</p>
+					<p>It is not required that the primary entry page be included in the <a href="#audio-readingorder">default reading order</a>, as the Audiobooks profile requires that only audio resources be present. The primary entry page should instead, if present, be included as a <a href="https://w3c.github.io/wpub/index.html#wp-resources">resource</a>.</p>
 				</section>
 
 				<section id="audio-toc">
@@ -107,13 +109,13 @@
 
 					<p>The table of contents provides a hierarchical list of links that reflects the structural outline of the major sections of the Audiobook.</p>
 
-					<p>The Web Publication specification [[wpub]] defines the <a href="https://w3c.github.io/wpub/index.html#wp-table-contents">general structure</a> of the Table of Contents, defined in HTML [[html]].</p>
+					<p>The Web Publication specification [[wpub]] defines the <a href="https://w3c.github.io/wpub/index.html#wp-table-contents">general structure</a> of the Table of Contents in HTML [[html]].</p>
 
 					<p>When an Audiobook contains additional resources (i.e. <dfn>supplemental content</dfn>) a table of contents MUST be included, the table of contents MUST include a link to all <a href="#audio-resources">resources</a>, and all links SHOULD refer to <a href="#audio-resources">resources</a> within <a href="#audio-bounds">publication bounds</a>.</p>
 
 					<p class="issue">The requirement for a table of contents if supplemental content is present is being discussed in <a href="https://github.com/w3c/wpub/issues/408">WPUB #408</a>.</p>
 
-					<p>Refer to the <a href="https://w3c.github.io/wpub/indextable-of-contents">table of contents property definition</a> for more information on how to identify which resource contains the table of contents.</p>
+					<p>Refer to the <a href="https://w3c.github.io/wpub/index#table-of-contents">table of contents property definition</a> for more information on how to identify which resource contains the table of contents.</p>
 				</section>
 			</section>
 
@@ -173,13 +175,13 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmladdress">address</a>
+											<a href="https://w3c.github.io/wpub/index.html#address">address</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/indexdefault-reading-order">default reading order</a>
+											<a href="https://w3c.github.io/wpub/index#default-reading-order">default reading order</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlwp-title">title</a>
+											<a href="https://w3c.github.io/wpub/index.html#wp-title">title</a>
 										</li>
 									</ul>
 								</dd>
@@ -187,46 +189,46 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlaccessibility">accessibility</a>
+											<a href="https://w3c.github.io/wpub/index.html#accessibility">accessibility</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlaccessibility-report">accessibility report</a>
+											<a href="https://w3c.github.io/wpub/index.html#accessibility-report">accessibility report</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllanguage-and-dir">base direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#language-and-dir">base direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcanonical-identifier">canonical identifier</a>
+											<a href="https://w3c.github.io/wpub/index.html#canonical-identifier">canonical identifier</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcover">cover</a>
+											<a href="https://w3c.github.io/wpub/index.html#cover">cover</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcreators">creators</a>
+											<a href="https://w3c.github.io/wpub/index.html#creators">creators</a>
 										</li>
 										<li>
 											<a href="#duration">duration</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllanguage-and-dir">language and base direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#language-and-dir">language and base direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllinks">links</a>
+											<a href="https://w3c.github.io/wpub/index.html#links">links</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllast-modification-date">last modification date</a>
+											<a href="https://w3c.github.io/wpub/index.html#last-modification-date">last modification date</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlpublication-date">publication date</a>
+											<a href="https://w3c.github.io/wpub/index.html#publication-date">publication date</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlprivacy-policy">privacy policy</a>
+											<a href="https://w3c.github.io/wpub/index.html#privacy-policy">privacy policy</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlreading-progression-direction">reading progression direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#reading-progression-direction">reading progression direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlresource-list">resource list</a>
+											<a href="https://w3c.github.io/wpub/index.html#resource-list">resource list</a>
 										</li>
 										<li>
 											<a href="#table-of-contents">table of contents</a>
