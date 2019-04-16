@@ -55,9 +55,11 @@
 
 			<p>This specification is a module of the <a>Web Publication</a> specification. It will describe the requirements to create an Audiobook profile of a Web Publication.</p>
 
-			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or packaged using the <a href="https://w3c.github.io/wpub/index.htmlpackaged-web-publications">Packaged Web Publications</a> specification.</p>
+			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or packaged.</p>
 
-			<p>This specification is intended to bring clear standards to the audiobooks distribution model on the web. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents.</p>
+			<p class="ednote">The Publishing Working Group is currently working on this topic.</p>
+
+			<p>This specification is intended to standardize the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents.</p>
 
 			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of afforances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
 
@@ -97,19 +99,9 @@
 				<section id="audio-pep">
 					<h3>Primary Entry Page</h3>
 
-					<p class="ednote">This section is taken directly from <a href="https://w3c.github.io/wpub/index.html#primary-entry-page">Web Publications Primary Entry Page</a> and requires some changes for Audiobooks.</p>
+					<p>The <dfn>primary entry page</dfn> represents the preferred starting <a href="https://w3c.github.io/wpub/index#wp-resources">resource</a> for an Audiobook and enables discovery of its <a>manifest</a>. For the full specification of the primary entry page, please refer to [[wpub]].</p>
 
-					<p>The <dfn>primary entry page</dfn> represents the preferred starting <a href="https://w3c.github.io/wpub/indexwp-resources">resource</a> for an Audiobook and enables discovery of its <a>manifest</a>. It is the resource that is returned when accessing the Audiobook's <a>address</a>, and MUST be included in either the <a>default reading order</a> or the <a>resource list</a>.</p>
-
-					<p>Although any resource can link to the Audiobook manifest, the primary entry page typically introduces the publication and provides access to the content. It might contain all the content, in the case of a single-page Audiobook, or provide navigational aids to begin reading a multi-document Audiobook. To facilitate the user ease of consumption, the primary entry page SHOULD contain the <a href="#audio-table-of-contents">table of contents</a>.</p>
-
-					<p>It is not required that the primary entry page be included in the <a href="#default-reading-order">default reading order</a>, nor that it be the first document listed when it is included. This specification leaves the exact nature of the document intentionally underspecified to provide flexibility for different approaches. If a default reading order is not provided, however, user agents will <a href="https://w3c.github.io/wpub/indexno-reading-order">create one using the primary entry page</a>.</p>
-
-					<p>The primary entry page is the only resource in which <a href="https://w3c.github.io/wpub/indexmanifest-embedding">a manifest can be embedded</a>. To ensure discovery of the manifest, the primary entry page MUST provide a <a href="https://w3c.github.io/wpub/indexmanifest-linking">link to the manifest</a>, regardless of whether the manifest is embedded within the page or external to it.</p>
-
-					<p>The address of the primary entry page is also the <a>canonical identifier</a> for the Audiobook (i.e., it serves as the unique identifier for the Audiobook).</p>
-
-					<p>In certain cases where information has been omitted from the manifest, user agents will sometimes use the primary entry page as a fallback source of information (see <a href="https://w3c.github.io/wpub/indexlanguage-and-dir">language and base direction</a> and <a href="https://w3c.github.io/wpub/indextitle">title</a>).</p>
+					<p>It is not required that the primary entry page be included in the <a href="#audio-readingorder">default reading order</a>, as the Audiobooks profile requires that only audio resources be present. The primary entry page should instead, if present, be included as a <a href="https://w3c.github.io/wpub/index.html#wp-resources">resource</a>.</p>
 				</section>
 
 				<section id="audio-toc">
@@ -117,15 +109,13 @@
 
 					<p>The table of contents provides a hierarchical list of links that reflects the structural outline of the major sections of the Audiobook.</p>
 
-					<p>The table of contents is expressed via an [[html]]&#160;element (typically a <a href="https://www.w3.org/TR/html/sections.html#the-nav-element"><code>nav</code> element</a>) in one of the <a href="https://w3c.github.io/wpub/indexwp-resources">resources</a>. This element MUST be identified by the <code>role</code> attribute&#160;[[html]] value "<code>doc-toc</code>"&#160;[[dpub-aria-1.0]], and MUST be the first element in the document &#8212; in <a href="https://dom.spec.whatwg.org/#concept-tree-order">document tree order</a>&#160;[[dom]] &#8212; with that <code>role</code> value.</p>
-
-					<p>If the table of contents is not located in the <a href="https://w3c.github.io/wpub/index#wp-primary-entry-page">primary entry page</a>, the manifest SHOULD <a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
+					<p>The Web Publication specification [[wpub]] defines the <a href="https://w3c.github.io/wpub/index.html#wp-table-contents">general structure</a> of the Table of Contents in HTML [[html]].</p>
 
 					<p>When an Audiobook contains additional resources (i.e. <dfn>supplemental content</dfn>) a table of contents MUST be included, the table of contents MUST include a link to all <a href="#audio-resources">resources</a>, and all links SHOULD refer to <a href="#audio-resources">resources</a> within <a href="#audio-bounds">publication bounds</a>.</p>
 
 					<p class="issue">The requirement for a table of contents if supplemental content is present is being discussed in <a href="https://github.com/w3c/wpub/issues/408">WPUB #408</a>.</p>
 
-					<p>Refer to the <a href="https://w3c.github.io/wpub/indextable-of-contents">table of contents property definition</a> for more information on how to identify which resource contains the table of contents.</p>
+					<p>Refer to the <a href="https://w3c.github.io/wpub/index#table-of-contents">table of contents property definition</a> for more information on how to identify which resource contains the table of contents.</p>
 				</section>
 			</section>
 
@@ -135,38 +125,8 @@
 				<section id="audio-properties-intro" class="informative">
 					<h3>Introduction</h3>
 
-					<p>The Audibook manifest is defined by a set of properties that describe the basic information a user agent requires to process and render an Audiobook. These properties are categorized as followed:</p>
+					<p>The Audiobook manifest is defined by a set of properties that describe the basic information a user agent requires to process and render an Audiobook. These properties are categorized in Web Publications [[wpub]]. Where these properties are extended from Web Publications is specified in this section.</p>
 
-					<dl>
-						<dt>
-							<a href="https://w3c.github.io/wpub/indexdescriptive-properties">descriptive properties</a>
-						</dt>
-						<dd>
-							<p>Descriptive properties describe aspects of an Audiobook, such as its <a href="https://w3c.github.io/wpub/indexwp-title">title</a>, <a href="https://w3c.github.io/wpub/indexcreators">creator</a>, and <a href="https://w3c.github.io/wpub/indexlanguage-and-dir">language</a>. These properties are primarily drawn from <a href="https://schema.org">Schema.org</a> and its <a href="https://schema.org/docs/schemas.html">hosted extensions</a>&#160;[[schema.org]], so they map to one or several Schema.org properties and inherit their syntax and semantics. (The following property categories typically do not have Schema.org equivalents, so are defined specifically for Audiobooks.)</p>
-						</dd>
-						<dt>
-							<a href="https://w3c.github.io/wpub/index.html#resource-categorization-properties">resource categorization</a>
-						</dt>
-						<dd>
-							<p>Resource categorization properties describe or identify common sets of resources, such as the <a href="https://w3c.github.io/wpub/index.html#resource-list">resource list</a> and <a href="https://w3c.github.io/wpub/index.html#default-reading-order">default reading order</a>. These properties refer to one or more resources, such as HTML documents, audio files, script files, and separate metadata files.</p>
-						</dd>
-						<dt>
-							<a href="https://w3c.github.io/wpub/index.html#informative-properties">informative properties</a>
-						</dt>
-						<dd>
-							<p>Informative properties identify resources that contain additional information about the Audiobook, such as its <a href="https://w3c.github.io/wpub/index.html#privacy-policy">privacy policy</a> or <a href="https://w3c.github.io/wpub/index.html#accessibility-report">accessibility report</a>.</p>
-						</dd>
-						<dt>
-							<a href="https://w3c.github.io/wpub/index.html#structural-properties">structural properties</a>
-						</dt>
-						<dd>
-							<p>Structural properties identify key meta structures of the Audiobook, such as the <a href="https://w3c.github.io/wpub/index.html#cover">cover image</a>, and <a href="https://w3c.github.io/wpub/index.html#table-of-contents">table of contents</a>.</p>
-						</dd>
-					</dl>
-
-					<p class="note">The categorization of properties is done to simplify comprehension of their purpose; the groupings have no relevance outside this specification (i.e., the groupings do not exist in the manifest).</p>
-
-					<p class="ednote">There are discussion on whether a best practices document would be created, referring to more schema.org terms. If so, it should be linked from here.</p>
 				</section>
 
 				<section id="audio-context">
@@ -215,13 +175,13 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmladdress">address</a>
+											<a href="https://w3c.github.io/wpub/index.html#address">address</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/indexdefault-reading-order">default reading order</a>
+											<a href="https://w3c.github.io/wpub/index#default-reading-order">default reading order</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlwp-title">title</a>
+											<a href="https://w3c.github.io/wpub/index.html#wp-title">title</a>
 										</li>
 									</ul>
 								</dd>
@@ -229,46 +189,46 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlaccessibility">accessibility</a>
+											<a href="https://w3c.github.io/wpub/index.html#accessibility">accessibility</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlaccessibility-report">accessibility report</a>
+											<a href="https://w3c.github.io/wpub/index.html#accessibility-report">accessibility report</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllanguage-and-dir">base direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#language-and-dir">base direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcanonical-identifier">canonical identifier</a>
+											<a href="https://w3c.github.io/wpub/index.html#canonical-identifier">canonical identifier</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcover">cover</a>
+											<a href="https://w3c.github.io/wpub/index.html#cover">cover</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlcreators">creators</a>
+											<a href="https://w3c.github.io/wpub/index.html#creators">creators</a>
 										</li>
 										<li>
 											<a href="#duration">duration</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllanguage-and-dir">language and base direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#language-and-dir">language and base direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllinks">links</a>
+											<a href="https://w3c.github.io/wpub/index.html#links">links</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmllast-modification-date">last modification date</a>
+											<a href="https://w3c.github.io/wpub/index.html#last-modification-date">last modification date</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlpublication-date">publication date</a>
+											<a href="https://w3c.github.io/wpub/index.html#publication-date">publication date</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlprivacy-policy">privacy policy</a>
+											<a href="https://w3c.github.io/wpub/index.html#privacy-policy">privacy policy</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlreading-progression-direction">reading progression direction</a>
+											<a href="https://w3c.github.io/wpub/index.html#reading-progression-direction">reading progression direction</a>
 										</li>
 										<li>
-											<a href="https://w3c.github.io/wpub/index.htmlresource-list">resource list</a>
+											<a href="https://w3c.github.io/wpub/index.html#resource-list">resource list</a>
 										</li>
 										<li>
 											<a href="#table-of-contents">table of contents</a>
@@ -280,6 +240,8 @@
 							<p>These properties do not all have to be serialized in the <a>authored manifest</a>. Refer to each
 								property's definition to determine whether it is required in the manifest or can be compiled into
 								the <a>canonical manifest</a> from other information.</p>
+
+								<p class="issue">The question of whether <code>duration</code> is required is being discussed in issue<a href="https://github.com/w3c/wpub/issues/420">#420</a>.</p>
 						</section>
 
 						<section id="audio-creators">
