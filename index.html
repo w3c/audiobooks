@@ -256,7 +256,7 @@
 
 								<pre class="example" title="Author of a book">
 		{
-		    "type"     : "Book",
+		    "type"     : "Audiobook",
 		    "@context" : ["https://schema.org","https://www.w3.org/ns/wp-context"],
 		    &#8230;
 		    "url"      : "https://publisher.example.org/janeeyre",
@@ -269,7 +269,7 @@
 
 								<pre class="example" title="Author and Narrator of an Audiobook">
 		{
-				"type"		: "Book";
+				"type"		: "Audiobook";
 				"@context": ["https://schema.org", "https://www.w3.org/ns/wp-context"],
 				&#8230;
 				"url"			: "https://publisher.example.org/janeeyre",
@@ -294,7 +294,7 @@
 
 								<pre class="example" title="Duration of an Audiobook in Hours">
 									{
-									    "type"     : "Book",
+									    "type"     : "Audiobook",
 									    "@context" : ["https://schema.org","https://www.w3.org/ns/wp-context"],
 									    &#8230;
 									    "url"      : "https://publisher.example.org/janeeyre",
@@ -308,7 +308,7 @@
 
 								<pre class="example" title="Duration of an Audiobook in Seconds">
 									{
-											"type"     : "Book",
+											"type"     : "Audiobook",
 											"@context" : ["https://schema.org","https://www.w3.org/ns/wp-context"],
 											&#8230;
 											"url"      : "https://publisher.example.org/janeeyre",
@@ -327,7 +327,7 @@
 
 							<p>The <a href="https://w3c.github.io/wpub/index.html#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
 
-							<p>The default reading order MUST contain at least one audio resource.</p>
+							<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://schema.org/AudioObject"><code>AudioObject</code></a> [[schema.org]].</p>
 
 							<pre class="example" title="Audiobook Reading Order for a Single Resource">
 								{
@@ -336,7 +336,7 @@
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
 									"readingOrder" : [{
-										"type"	: "MediaObject",
+										"type"	: "AudioObject",
 										"url"   : "audio/janeeyre.mp3",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Jane Eyre",
@@ -352,13 +352,13 @@
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
 									"readingOrder" : [{
-										"type"	: "MediaObject",
+										"type"	: "AudioObject",
 										"url"   : "audio/part001.mp3#0",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Chapter 1",
 										"duration" : "457.931"
 									}, {
-										"type"  : "MediaObject",
+										"type"  : "AudioObject",
 										"url"   : "audio/part001.mp3#457.932",
 										"encodingFormat" : "audio/mp3",
 										"name"  : "Chapter 2",
@@ -411,7 +411,7 @@
 			<section id="audio-simple">
 				<h3>Simple Audiobook</h3>
 				<p>A manifest for an audiobook. The <a
-						href="https://w3c.github.io/wpub/experiments/audiobook/flatland-canonical.json">canonical
+						href="https://github.com/w3c/wpub/blob/master/experiments/audiobook/flatland-canonical.json">canonical
 						version</a> of this manifest is also available.</p>
 				<pre class="example" data-include="https://github.com/w3c/wpub/experiments/audiobook/flatland.json" data-include-format="text"></pre>
 			</section>
