@@ -10,7 +10,7 @@
 		<!-- <link href="../common/css/common.css" rel="stylesheet" type="text/css" /> -->
 		<script class="remove">
           var respecConfig = {
-							postProcess: [show_orcid, create_wp],
+			  postProcess: [create_wp],
               wg: "Publishing Working Group",
               wgURI: "https://www.w3.org/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
@@ -25,7 +25,7 @@
               		name: "Wendy Reid",
               		company: "Rakuten/Kobo",
               		companyURL: "https://www.kobo.com/",
-									"w3cid": 102009
+					"w3cid": 102009
               	}
               ],
               processVersion: 2018,
@@ -33,10 +33,10 @@
               permalinkEdge:     true,
               permalinkHide:     false,
               diffTool:          "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
-							github:			 {
-								repoURL: "https://github.com/w3c/audiobooks",
-								branch: "master"
-							},
+			github:			 {
+				repoURL: "https://github.com/w3c/audiobooks",
+				branch: "master"
+			},
               localBiblio: biblio
           };
       </script>
@@ -89,7 +89,7 @@
 
 				<section id="audio-bounds">
 					<h3>Bounds</h3>
-						<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that represent its content. This extent is known as its bounds and is defined within its manifest &#8212; it is obtained from the union of resources listed in the <a href="#default-reading-order">default reading order</a> and <a href="#resource-list">resource list</a>.</p>
+						<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that represent its content. This extent is known as its bounds and is defined within its manifest &#8212; it is obtained from the union of resources listed in the <a data-cite ="!wpub/#default-reading-order">default reading order</a> and <a data-cite ="!wpub/#resource-list">resource list</a>.</p>
 
 						<p>To determine whether a resource is within the bounds of an Audiobook, user agents MUST compare the absolute URL of a resource to the absolute URLs of the resources obtained from the union. If the resource is identified in the enumeration, it is within the bounds of the Audiobook. All other resources are external to the Audiobook.</p>
 
