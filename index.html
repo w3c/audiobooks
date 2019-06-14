@@ -12,7 +12,7 @@
           var respecConfig = {
 			  postProcess: [create_wp],
               wg: "Publishing Working Group",
-              wgURI: "https://www.w3.org/groups/publ-wg/",
+              wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
               edDraftURI: "https://w3c.github.io/audiobooks/index.html",
               specStatus: "ED",
@@ -32,6 +32,7 @@
               includePermalinks: true,
               permalinkEdge:     true,
               permalinkHide:     false,
+              wgPatentURI:       "https://www.w3.org/2004/01/pp-impl/100074/status",
               diffTool:          "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 			github:			 {
 				repoURL: "https://github.com/w3c/audiobooks",
@@ -66,7 +67,7 @@
 			<section id="audio-terminology">
 				<h2>Terminology</h2>
 
-				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a href="epub-spec.html#audio-terminology">terms and definitions</a> is provided in [[wpub]].</p>
+				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a data-cite="!wpub/#terminology">terms and definitions</a> is provided in [[wpub]].</p>
 
 				<p>Only the first instance of a term in a section is linked to its definition.</p>
 
@@ -237,9 +238,9 @@
 								</dd>
 							</dl>
 
-							<p>These properties do not all have to be serialized in the <a href="https://w3c.github.io/wpub/index.html#authored-manifest">authored manifest</a>. Refer to each
+							<p>These properties do not all have to be serialized in the <a data-cite="!wpub/#dfn-authored-publication-manifest">authored manifest</a>. Refer to each
 								property's definition to determine whether it is required in the manifest or can be compiled into
-								the <a href="https://w3c.github.io/wpub/index.html#canonical-manifest">canonical manifest</a> from other information.</p>
+								the <a data-cite="!wpub/#dfn-canonical-manifest">canonical manifest</a> from other information.</p>
 						</section>
 
 						<section id="audio-creators">
@@ -288,7 +289,7 @@
 						<section id="audio-duration">
 							<h4>Duration</h4>
 
-								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://w3c.github.io/wpub/index.htmk#duration">Web Publications</a> specification.</p>
+								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://w3c.github.io/wpub/index.html#duration">Web Publications</a> specification.</p>
 
 								<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and SHOULD be present at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
 
@@ -406,7 +407,7 @@
 			</section>
 
 		</section>
-		
+
 		<section id="security">
 			<h3>Security</h3>
 
