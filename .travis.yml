@@ -1,0 +1,17 @@
+language: node_js
+
+branches:
+  only:
+    - publish_wd
+
+env:
+  global:
+    - URL="https://raw.githack.com/w3c/audiobooks/publish_wd/snapshot/ECHIDNA"
+    - DECISION="https://www.w3.org/publishing/groups/publ-wg/Meetings/Minutes/2019/2019-07-08-pwg#resolution4"
+    - secure: "RlU182txICeSon0+6FnsoDztLdafGzCQottUeYTM9GmHtj5zg5AB1H3sLYLpSr9kAGmnTGuZUBYMszqPVQN8TRjeB9zW75FWWTGdtwv5VDTTTGIpbelRiRSJZvSXeWWX7u1FbCqwSj/fA9t1VoTI3oiTyZkkzuP+dvNiroog6Gn0/zye4Zh04kEmNF5edR/HT2IeECybFJF+IIjKiNXBAuTFNmhTF82P3Npu8zgDYzT3hWVvJEUPxLOmVbfwkqEIyGes4mGYvSUNXTjDaV0ctnu/S6dwk6PrrwJqjAtGuc0z/gy1gem9dsj4O7EHzapMSK+sWcBT9Na/lziw5GkzyNljTq9QYeF4XPtFlEJ3lvf/RAPrK8XTCn5mAn0uq8jjgr84VQ2pjGT9hnDGnrFfP4Sj9O2+YFIMr/a0LiIj5dy9e865/f4MrqwkoomUk8QjyLmUQl6ltP6qo8gAxcdNBnnV1Mr9vcIXoJiWzptdpSy/2Vxheq48qJJmAv2xPWm1Na8lP3YcT/9VpJ0b3TrhdVPs8Lz4XM8a+KTqFY2ahBbI8RsiAB317VSxcg2N4GsihW1segvVFi7OS8lxn1NqvmeuYSfvjjeLfgblhVD8aBjbJndYhPMOgQJHU7D0Fw6PSvCVL/8lkyT1Mg6OlUo9etJlDRor2aKSf/0X9R49F8s="
+
+script:
+  - echo "ok"
+
+after_success:
+  - test $TRAVIS_PULL_REQUEST = false && curl "https://labs.w3.org/echidna/api/request" --data "url=$URL" --data "decision=$DECISION" --data "token=$TOKEN"
