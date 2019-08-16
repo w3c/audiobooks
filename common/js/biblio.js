@@ -94,6 +94,32 @@ var biblio = {
       ],
       "date": "2018-01-04"
     },
+    "pub-manifest": {
+      "title": "Publication Manifest",
+      "href": "https://www.w3.org/TR/pub-manifest/",
+      "authors": [
+        "Matt Garrish",
+        "Ivan Herman"
+      ],
+      "date": "2018-08-16"
+    },
+    "lpf": {
+      "title": "Lightweight Packaging Format (LPF)",
+      "href": "https://w3c.github.io/lpf/",
+      "authors": [
+        "Laurent Le Meur"
+      ],
+      "date": "2018-08-07"
+    },
+    "sync-media-pub": {
+      "title": "Packaging Synchronized Narration for Web Publications",
+      "href": "https://w3c.github.io/sync-media-pub/packaging.html",
+      "authors" : [
+        "Marisa DeMeglio",
+        "Daniel Weck"
+      ],
+      "date": "2019-07-12"
+    },
     "string-meta": {
       "title": "Requirements for Language and Direction Metadata in Data Formats",
       "href": "https://w3c.github.io/string-meta/",

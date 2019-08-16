@@ -46,7 +46,7 @@
 	</head>
 	<body>
 		<section id="abstract">
-			<p>This specification provides a draft version of an Audiobook specification for the web. It references the [[pub-manifest]] for its vocabulary. This document also contains references to [[lpf]] and [[sync-media]].</p>
+			<p>This specification provides a draft version of an Audiobook specification for the web. It references the [[pub-manifest]] for its vocabulary. This document also contains references to [[lpf]] and [[sync-media-pub]].</p>
 		</section>
 
 		<section id="sotd">
@@ -62,12 +62,12 @@
 
 			<p>This specification is intended to standardize the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents. This specification does not outline what file types or formats should be used by content creators, only a manifest format for delivering them.</p>
 
-			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of afforances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
+			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of affordances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
 
 			<section id="audio-terminology">
 				<h2>Terminology</h2>
 
-				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a data-cite="!wpub/#terminology">terms and definitions</a> is provided in [[wpub]].</p>
+				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a data-cite="!pub-manifest/#terminology">terms and definitions</a> is provided in [[pub-manifest]].</p>
 
 				<p>Only the first instance of a term in a section is linked to its definition.</p>
 
@@ -90,7 +90,7 @@
 
 				<section id="audio-bounds">
 					<h3>Bounds</h3>
-						<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that represent its content. This extent is known as its bounds and is defined within its manifest &#8212; it is obtained from the union of resources listed in the <a data-cite ="#audio-readingorder">default reading order</a> and <a data-cite ="#audio-resourcelist">resource list</a>.</p>
+						<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that represent its content. This extent is known as its bounds and is defined within its manifest &#8212; it is obtained from the union of resources listed in the <a href="#audio-readingorder">default reading order</a> and <a href="#audio-resourcelist">resource list</a>.</p>
 
 						<p>To determine whether a resource is within the bounds of an Audiobook, user agents MUST compare the absolute URL of a resource to the absolute URLs of the resources obtained from the union. If the resource is identified in the enumeration, it is within the bounds of the Audiobook. All other resources are external to the Audiobook.</p>
 
@@ -110,17 +110,17 @@
 				<section id="audio-toc">
 					<h3>Table of Contents</h3>
 
-					<p>The table of contents provides a hierarchical list of links that reflects the structural outline of the major sections of the Audiobook and any supplmental content it may contain.</p>
+					<p>The table of contents provides a hierarchical list of links that reflects the structural outline of the major sections of the Audiobook and any supplemental content it may contain.</p>
 
-					<p>The table of contents is expressed via an [[!html]]&#160;element (typically a <a href="https://www.w3.org/TR/html/sections.html#the-nav-element"><code>nav</code> element</a>) in one of the <a href="#audio-resourcelist">resources</a>. This element MUST be identified by the <code>role</code> attribute&#160;[[!html]] value "<code>doc-toc</code>"&#160;[[!dpub-aria-1.0]], and MUST be the first element in the document — in <a href="https://dom.spec.whatwg.org/#concept-tree-order">document tree order</a>&#160;[[!dom]] — with that <code>role</code> value.</p>
+					<p>The table of contents is expressed via an [[html]]&#160;element (typically a <a href="https://www.w3.org/TR/html/sections.html#the-nav-element"><code>nav</code> element</a>) in one of the <a href="#audio-resourcelist">resources</a>. This element MUST be identified by the <code>role</code> attribute&#160;[[html]] value "<code>doc-toc</code>"&#160;[[dpub-aria-1.0]], and MUST be the first element in the document — in <a href="https://dom.spec.whatwg.org/#concept-tree-order">document tree order</a>&#160;[[dom]] — with that <code>role</code> value.</p>
 
-					<p>If the table of contents is not located in the <a href="#primary-entry-page">primary entry page</a>, the manifest SHOULD <a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
+					<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the manifest SHOULD <a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
 
 					<p>When an Audiobook contains additional resources (i.e. supplemental content) a table of contents SHOULD be included, the table of contents SHOULD include a link to all <a href="#audio-resourcelist">resources</a>, and all links SHOULD refer to <a href="#audio-resourcelist">resources</a> within <a href="#audio-bounds">publication bounds</a>.</p>
 				</section>
 			</section>
 
-			<section id="audio-manifest">
+			<section id="audio-manifest" class=normative>
 				<h2>Manifest</h2>
 
 				<section id="audio-properties-intro" class="informative">
@@ -130,10 +130,10 @@
 
 				</section>
 
-				<section id="audio-context">
+				<section id="audio-context" class=normative>
 					<h3>Manifest Contexts</h3>
 
-					<p>An Audiobook manifest MUST start by setting the JSON-LD context [[json-ld]]. The context has the following two major components:</p>
+					<p>An Audiobook manifest MUST start by setting the JSON-LD context [[!json-ld]]. The context has the following two major components:</p>
 
 					<ul>
 						<li>the [[schema.org]] context: <code>https://schema.org</code></li>
@@ -152,7 +152,7 @@
 				<section id="audio-type">
 					<h3>Publication Type</h3>
 
-					<p>An audiobook's< manifest MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
+					<p>An audiobook's< manifest MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
 	{
@@ -176,13 +176,13 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="/pub-manifest/#address">address</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
 										</li>
 										<li>
-											<a href="/pub-manifest/#default-reading-order">default reading order</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading order</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#wp-title">title</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#wp-title">title</a>
 										</li>
 									</ul>
 								</dd>
@@ -190,46 +190,46 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="pub-manifest/#accessibility">accessibility</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
 										</li>
 										<li>
-											<a href="pub-manifest/accessibility-report">accessibility report</a>
+											<a href="https://www.w3.org/TR/pub-manifest/accessibility-report">accessibility report</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#language-and-dir">base direction</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">base direction</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#canonical-identifier">canonical identifier</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical identifier</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#cover">cover</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#creators">creators</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#creators">creators</a>
 										</li>
 										<li>
 											<a href="#audio-duration">duration</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#language-and-dir">language and base direction</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">language and base direction</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#links">links</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#links">links</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#last-modification-date">last modification date</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification date</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#publication-date">publication date</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#privacy-policy">privacy policy</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#privacy-policy">privacy policy</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#reading-progression-direction">reading progression direction</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading progression direction</a>
 										</li>
 										<li>
-											<a href="pub-manifest/#resource-list">resource list</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
 										</li>
 										<li>
 											<a href="#table-of-contents">table of contents</a>
@@ -238,13 +238,13 @@
 								</dd>
 							</dl>
 
-							<p>These properties do not all have to be serialized in the <a data-cite="!pub-manifest/#manifest-authored-canonical">authored manifest</a>. Refer to each property's definition to determine whether it is required in the manifest or can be compiled into the <a data-cite="!/pub-manifest/#manifest-authored-canonical">canonical manifest</a> from other information.</p>
+							<p>These properties do not all have to be serialized in the <a data-cite="!pub-manifest/#manifest-authored-canonical">authored manifest</a>. Refer to each property's definition to determine whether it is required in the manifest or can be compiled into the <a data-cite="!pub-manifest/#manifest-authored-canonical">canonical manifest</a> from other information.</p>
 						</section>
 
 						<section id="audio-creators">
 							<h4>Creators</h4>
 
-								<p>A <dfn>creator</dfn> is an individual or entity responsible for the creation of the Web Publication. The Audiobooks profile can use the full list of <a href="pub-manifest/#creators">creators</a> specified in Web Publications.</p>
+								<p>A <dfn>creator</dfn> is an individual or entity responsible for the creation of the Web Publication. The Audiobooks profile can use the full list of <a href="https://www.w3.org/TR/pub-manifest/#creators">creators</a> specified in Web Publications.</p>
 
 								<p>The creators list includes two recommended creators for Audiobooks:</p>
 
@@ -287,7 +287,7 @@
 						<section id="audio-duration">
 							<h4>Duration</h4>
 
-								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="pub-manifest/#duration">Web Publications</a> specification.</p>
+								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Web Publications</a> specification.</p>
 
 								<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and SHOULD be present at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
 
@@ -324,9 +324,9 @@
 						<section id="audio-readingorder">
 							<h4>Default Reading Order</h4>
 
-							<p>The <a href="pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
+							<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
 
-							<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+							<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
 
 							<pre class="example" title="Audiobook Reading Order for a Single Resource">
 								{
@@ -464,7 +464,7 @@
 			<section id="audio-simple">
 				<h3>Simple Audiobook</h3>
 				<p>A manifest for an audiobook. The <a
-						href="https://github.com/w3c/wpub/blob/master/experiments/audiobook/flatland-canonical.json">canonical
+						href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json">canonical
 						version</a> of this manifest is also available.</p>
 				<pre class="example" data-include="experiments/flatland.json" data-include-format="text"></pre>
 			</section>
