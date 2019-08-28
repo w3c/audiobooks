@@ -93,7 +93,7 @@ input.task-list-item-checkbox {
 }
 </style>
 		
-		<title>Audiobook Profile for Web Publications</title>
+		<title>Audiobook Profile for Publication Manifest</title>
 		
 		
 		
@@ -775,7 +775,7 @@ var[data-type]:hover::before {
   "generatedSubtitle": "Editor's Draft 28 August 2019"
 }</script><meta name="description" content="This specification provides a draft version of an Audiobook specification for the web. It references the [pub-manifest] for its vocabulary. This document also contains references to [lpf] and [sync-media-pub]."><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
 	<body class="h-entry informative"><div class="head">
-      <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title p-name">Audiobook Profile for Web Publications</h1>
+      <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title p-name">Audiobook Profile for Publication Manifest</h1>
       
       <h2>
         W3C Editor's Draft
@@ -1116,29 +1116,13 @@ var[data-type]:hover::before {
 						<section id="audio-duration">
 							<h5 id="x2-2-4-3-duration"><bdi class="secno">2.2.4.3 </bdi>Duration<a class="self-link" aria-label="§" href="#audio-duration"></a></h5>
 
-								<p>A <dfn data-dfn-type="dfn" id="dfn-duration">duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Web Publications</a> specification.</p>
+								<p>A <dfn data-dfn-type="dfn" id="dfn-duration">duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Publication Manifest</a> specification.</p>
 
 								<p>Duration <em class="rfc2119" title="SHOULD">SHOULD</em> be expressed for the entirety of the audiobook as part of the manifest, and <em class="rfc2119" title="SHOULD">SHOULD</em> be present at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
 
-								<div class="example" id="example-5-duration-of-an-audiobook-in-hours">
+								<div class="example" id="example-5-duration-of-an-audiobook-in-seconds">
           <div class="marker">
-      <a class="self-link" href="#example-5-duration-of-an-audiobook-in-hours">Example<bdi> 5</bdi></a><span class="example-title">: Duration of an Audiobook in Hours</span>
-    </div> <pre aria-busy="false"><code class="hljs javascript">{
-    <span class="hljs-string">"type"</span>     : <span class="hljs-string">"Audiobook"</span>,
-    <span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
-    …
-    <span class="hljs-string">"url"</span>      : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
-    <span class="hljs-string">"author"</span>   : {
-        <span class="hljs-string">"type"</span>  : <span class="hljs-string">"Person"</span>,
-        <span class="hljs-string">"name"</span>  : <span class="hljs-string">"Charlotte Bronte"</span>
-    },
-		<span class="hljs-string">"duration"</span> : <span class="hljs-string">"123456789.123"</span>
-}</code></pre>
-        </div>
-
-								<div class="example" id="example-6-duration-of-an-audiobook-in-seconds">
-          <div class="marker">
-      <a class="self-link" href="#example-6-duration-of-an-audiobook-in-seconds">Example<bdi> 6</bdi></a><span class="example-title">: Duration of an Audiobook in Seconds</span>
+      <a class="self-link" href="#example-5-duration-of-an-audiobook-in-seconds">Example<bdi> 5</bdi></a><span class="example-title">: Duration of an Audiobook in Seconds</span>
     </div> <pre aria-busy="false"><code class="hljs javascript">{
 		<span class="hljs-string">"type"</span>     : <span class="hljs-string">"Audiobook"</span>,
 		<span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
@@ -1161,9 +1145,9 @@ var[data-type]:hover::before {
 
 							<p>The default reading order <em class="rfc2119" title="MUST">MUST</em> contain at least one audio resource, which <em class="rfc2119" title="MAY">MAY</em> be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
 
-							<div class="example" id="example-7-audiobook-reading-order-for-a-single-resource">
+							<div class="example" id="example-6-audiobook-reading-order-for-a-single-resource">
           <div class="marker">
-      <a class="self-link" href="#example-7-audiobook-reading-order-for-a-single-resource">Example<bdi> 7</bdi></a><span class="example-title">: Audiobook Reading Order for a Single Resource</span>
+      <a class="self-link" href="#example-6-audiobook-reading-order-for-a-single-resource">Example<bdi> 6</bdi></a><span class="example-title">: Audiobook Reading Order for a Single Resource</span>
     </div> <pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
 	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
@@ -1179,9 +1163,9 @@ var[data-type]:hover::before {
 }</code></pre>
         </div>
 
-							<div class="example" id="example-8-audiobook-reading-order-for-multiple-resources">
+							<div class="example" id="example-7-audiobook-reading-order-for-multiple-resources">
           <div class="marker">
-      <a class="self-link" href="#example-8-audiobook-reading-order-for-multiple-resources">Example<bdi> 8</bdi></a><span class="example-title">: Audiobook Reading Order for Multiple Resources</span>
+      <a class="self-link" href="#example-7-audiobook-reading-order-for-multiple-resources">Example<bdi> 7</bdi></a><span class="example-title">: Audiobook Reading Order for Multiple Resources</span>
     </div> <pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
 	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
@@ -1212,9 +1196,9 @@ var[data-type]:hover::before {
 
 							<p>If an audiobook includes supplemental content it <em class="rfc2119" title="MUST">MUST</em> be referenced in the resource list.</p>
 
-							<div class="example" id="example-9-audiobook-with-supplemental-content">
+							<div class="example" id="example-8-audiobook-with-supplemental-content">
           <div class="marker">
-      <a class="self-link" href="#example-9-audiobook-with-supplemental-content">Example<bdi> 9</bdi></a><span class="example-title">: Audiobook with Supplemental Content</span>
+      <a class="self-link" href="#example-8-audiobook-with-supplemental-content">Example<bdi> 8</bdi></a><span class="example-title">: Audiobook with Supplemental Content</span>
     </div> <pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
 	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
@@ -1250,9 +1234,9 @@ var[data-type]:hover::before {
 
 				<p>Alternatively, a content creator can provide the text equivalent as HTML [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">html</a></cite>] resources in the <a href="#audio-resourcelist">resources</a>.</p>
 
-				<div class="example" id="example-10-audiobook-with-synchronized-media">
+				<div class="example" id="example-9-audiobook-with-synchronized-media">
           <div class="marker">
-      <a class="self-link" href="#example-10-audiobook-with-synchronized-media">Example<bdi> 10</bdi></a><span class="example-title">: Audiobook with Synchronized Media</span>
+      <a class="self-link" href="#example-9-audiobook-with-synchronized-media">Example<bdi> 9</bdi></a><span class="example-title">: Audiobook with Synchronized Media</span>
     </div> <pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
 	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
@@ -1308,9 +1292,9 @@ var[data-type]:hover::before {
 				<h3 id="a-1-simple-audiobook"><bdi class="secno">A.1 </bdi>Simple Audiobook<a class="self-link" aria-label="§" href="#audio-simple"></a></h3>
 				<p>A manifest for an audiobook. The <a href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json">canonical
 						version</a> of this manifest is also available.</p>
-				<div class="example" id="example-11">
+				<div class="example" id="example-10">
           <div class="marker">
-      <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
+      <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
     </div> <pre aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Audiobook"</span>,
@@ -1395,9 +1379,9 @@ var[data-type]:hover::before {
 				<h3 id="a-2-audiobook-with-supplemental-content"><bdi class="secno">A.2 </bdi>Audiobook with Supplemental Content<a class="self-link" aria-label="§" href="#audio-supplemental"></a></h3>
 
 				<p>A manifest for an audiobook with supplemental content.
-				</p><div class="example" id="example-12">
+				</p><div class="example" id="example-11">
           <div class="marker">
-      <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
+      <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
     </div> <pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3/org/ns/wp-context"</span>],
 	<span class="hljs-attr">"type"</span>: <span class="hljs-string">"Audiobook"</span>,
@@ -1436,9 +1420,9 @@ var[data-type]:hover::before {
 				<h3 id="b-1-primary-entry-page-with-a-table-of-contents"><bdi class="secno">B.1 </bdi>Primary Entry Page with a Table of Contents<a class="self-link" aria-label="§" href="#toc-pep"></a></h3>
 
 				<p>A primary entry page with a simple table of contents for an audiobook.</p>
-				<div class="example" id="example-13">
+				<div class="example" id="example-12">
           <div class="marker">
-      <a class="self-link" href="#example-13">Example<bdi> 13</bdi></a>
+      <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
     </div> <pre aria-busy="false"><code class="hljs xml">	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="javascript">
@@ -1471,9 +1455,9 @@ var[data-type]:hover::before {
 				<h3 id="b-2-simple-table-of-contents"><bdi class="secno">B.2 </bdi>Simple Table of Contents<a class="self-link" aria-label="§" href="#toc-simple"></a></h3>
 
 				<p>A table of contents for a simple audiobook.</p>
-				<div class="example" id="example-14">
+				<div class="example" id="example-13">
           <div class="marker">
-      <a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
+      <a class="self-link" href="#example-13">Example<bdi> 13</bdi></a>
     </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
 	 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 
@@ -1492,9 +1476,9 @@ var[data-type]:hover::before {
 
 				<p>A table of contents using media fragment references to locations in a single audio track.</p>
 
-				<div class="example" id="example-15">
+				<div class="example" id="example-14">
           <div class="marker">
-      <a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
+      <a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
     </div> <pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 
