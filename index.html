@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-		<title>Audiobook Profile for Web Publications</title>
+		<title>Audiobook Profile for Publication Manifest</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"  defer="defer"></script>
 		<script src="common/js/biblio.js" class="remove"></script>
 		<script src="common/js/orcid.js" class="remove"></script>
@@ -15,7 +15,7 @@
               wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
 			  edDraftURI: "https://w3c.github.io/audiobooks/",
-			  previousPublishDate: "2019-08-27",
+			  previousPublishDate: "2019-08-28",
 			  previousMaturity: "FPWD",
               specStatus: "ED",
               noRecTrack: false,
@@ -182,7 +182,7 @@
 											<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading order</a>
 										</li>
 										<li>
-											<a href="https://www.w3.org/TR/pub-manifest/#wp-title">title</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
 										</li>
 									</ul>
 								</dd>
@@ -193,7 +193,7 @@
 											<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
 										</li>
 										<li>
-											<a href="https://www.w3.org/TR/pub-manifest/accessibility-report">accessibility report</a>
+											<a href="https://www.w3.org/TR/pub-manifest/#accessibility-report">accessibility report</a>
 										</li>
 										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">base direction</a>
@@ -287,23 +287,9 @@
 						<section id="audio-duration">
 							<h4>Duration</h4>
 
-								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Web Publications</a> specification.</p>
+								<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Publication Manifest</a> specification.</p>
 
 								<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and SHOULD be present at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
-
-								<pre class="example" title="Duration of an Audiobook in Hours">
-									{
-									    "type"     : "Audiobook",
-									    "@context" : ["https://schema.org","https://www.w3.org/ns/wp-context"],
-									    &#8230;
-									    "url"      : "https://publisher.example.org/janeeyre",
-									    "author"   : {
-									        "type"  : "Person",
-									        "name"  : "Charlotte Bronte"
-									    },
-											"duration" : "123456789.123"
-									}
-								</pre>
 
 								<pre class="example" title="Duration of an Audiobook in Seconds">
 									{
