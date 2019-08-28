@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content="ReSpec 24.30.5" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<style>
+			/* --- EXAMPLES --- */
+			span.example-title {
+				text-transform: none;
+			}
+			aside.example,
+			div.example,
+			div.illegal-example {
+				padding: 0.5em;
+				margin: 1em 0;
+				position: relative;
+				clear: both;
+			}
+			div.illegal-example {
+				color: red
+			}
+			div.illegal-example p {
+				color: black
+			}
+			aside.example,
+			div.example {
+				padding: .5em;
+				border-left-width: .5em;
+				border-left-style: solid;
+				border-color: #e0cb52;
+				background: #fcfaee;
+			}
+			
+			aside.example div.example {
+				border-left-width: .1em;
+				border-color: #999;
+				background: #fff;
+			}
+			aside.example div.example span.example-title {
+				color: #999;
+			}</style>
+		<style>
+			/* --- ISSUES/NOTES --- */
+			.issue-label {
+				text-transform: initial;
+			}
+			
+			.warning > p:first-child {
+				margin-top: 0
+			}
+			.warning {
+				padding: .5em;
+				border-left-width: .5em;
+				border-left-style: solid;
+			}
+			span.warning {
+				padding: .1em .5em .15em;
+			}
+			
+			.issue.closed span.issue-number {
+				text-decoration: line-through;
+			}
+			
+			.warning {
+				border-color: #f11;
+				border-width: .2em;
+				border-style: solid;
+				background: #fbe9e9;
+			}
+			
+			.warning-title:before {
+				content: "⚠"; /*U+26A0 WARNING SIGN*/
+				font-size: 3em;
+				float: left;
+				height: 100%;
+				padding-right: .3em;
+				vertical-align: top;
+				margin-top: -0.5em;
+			}
+			
+			li.task-list-item {
+				list-style: none;
+			}
+			
+			input.task-list-item-checkbox {
+				margin: 0 0.35em 0.25em -1.6em;
+				vertical-align: middle;
+			}
+			
+			.issue a.respec-gh-label {
+				padding: 5px;
+				margin: 0 2px 0 2px;
+				font-size: 10px;
+				text-transform: none;
+				text-decoration: none;
+				font-weight: bold;
+				border-radius: 4px;
+				position: relative;
+				bottom: 2px;
+				border: none;
+			}
+			
+			.issue a.respec-label-dark {
+				color: #fff;
+				background-color: #000;
+			}
+			
+			.issue a.respec-label-light {
+				color: #000;
+				background-color: #fff;
+			}</style>
+
+		<title>Audiobook Profile for Web Publications</title>
+
+
+
+
+
+
+		<style id="respec-mainstyle">
+			/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+			
+			@keyframes pop {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.25, 1.25);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+			
+			/* Override code highlighter background */
+			.hljs {
+				background: transparent !important;
+			}
+			
+			/* --- INLINES --- */
+			h1 abbr,
+			h2 abbr,
+			h3 abbr,
+			h4 abbr,
+			h5 abbr,
+			h6 abbr,
+			a abbr {
+				border: none;
+			}
+			
+			dfn {
+				font-weight: bold;
+			}
+			
+			a.internalDFN {
+				color: inherit;
+				border-bottom: 1px solid #99c;
+				text-decoration: none;
+			}
+			
+			a.externalDFN {
+				color: inherit;
+				border-bottom: 1px dotted #ccc;
+				text-decoration: none;
+			}
+			
+			a.bibref {
+				text-decoration: none;
+			}
+			
+			.respec-offending-element:target {
+				animation: pop 0.25s ease-in-out 0s 1;
+			}
+			
+			.respec-offending-element,
+			a[href].respec-offending-element {
+				text-decoration: red wavy underline;
+			}
+			@supports not (text-decoration: red wavy underline) {
+  .respec-offending-element:not(pre) {
+    display: inline-block;
+  }
+  .respec-offending-element {
+    /* Red squiggly line */
+    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
+      bottom repeat-x;
+  }
+}
+			
+			#references :target {
+				background: #eaf3ff;
+				animation: pop 0.4s ease-in-out 0s 1;
+			}
+			
+			cite .bibref {
+				font-style: normal;
+			}
+			
+			code {
+				color: #c83500;
+			}
+			
+			th code {
+				color: inherit;
+			}
+			
+			a[href].orcid {
+				padding-left: 4px;
+				padding-right: 4px;
+			}
+			
+			a[href].orcid > svg {
+				margin-bottom: -2px;
+			}
+			
+			/* --- TOC --- */
+			
+			.toc a,
+			.tof a {
+				text-decoration: none;
+			}
+			
+			a .secno,
+			a .figno {
+				color: #000;
+			}
+			
+			ul.tof,
+			ol.tof {
+				list-style: none outside none;
+			}
+			
+			.caption {
+				margin-top: 0.5em;
+				font-style: italic;
+			}
+			
+			/* --- TABLE --- */
+			
+			table.simple {
+				border-spacing: 0;
+				border-collapse: collapse;
+				border-bottom: 3px solid #005a9c;
+			}
+			
+			.simple th {
+				background: #005a9c;
+				color: #fff;
+				padding: 3px 5px;
+				text-align: left;
+			}
+			
+			.simple th[scope = "row"] {
+				background: inherit;
+				color: inherit;
+				border-top: 1px solid #ddd;
+			}
+			
+			.simple td {
+				padding: 3px 10px;
+				border-top: 1px solid #ddd;
+			}
+			
+			.simple tr:nth-child(even) {
+				background: #f0f6ff;
+			}
+			
+			/* --- DL --- */
+			
+			.section dd > p:first-child {
+				margin-top: 0;
+			}
+			
+			.section dd > p:last-child {
+				margin-bottom: 0;
+			}
+			
+			.section dd {
+				margin-bottom: 1em;
+			}
+			
+			.section dl.attrs dd,
+			.section dl.eldef dd {
+				margin-bottom: 0;
+			}
+			
+			#issue-summary > ul,
+			.respec-dfn-list {
+				column-count: 2;
+			}
+			
+			#issue-summary li,
+			.respec-dfn-list li {
+				list-style: none;
+			}
+			
+			details.respec-tests-details {
+				margin-left: 1em;
+				display: inline-block;
+				vertical-align: top;
+			}
+			
+			details.respec-tests-details > * {
+				padding-right: 2em;
+			}
+			
+			details.respec-tests-details[open] {
+				z-index: 999999;
+				position: absolute;
+				border: thin solid #cad3e2;
+				border-radius: 0.3em;
+				background-color: white;
+				padding-bottom: 0.5em;
+			}
+			
+			details.respec-tests-details[open] > summary {
+				border-bottom: thin solid #cad3e2;
+				padding-left: 1em;
+				margin-bottom: 1em;
+				line-height: 2em;
+			}
+			
+			details.respec-tests-details > ul {
+				width: 100%;
+				margin-top: -0.3em;
+			}
+			
+			details.respec-tests-details > li {
+				padding-left: 1em;
+			}
+			
+			a[href].self-link:hover {
+				opacity: 1;
+				text-decoration: none;
+				background-color: transparent;
+			}
+			
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				position: relative;
+			}
+			
+			aside.example .marker > a.self-link {
+				color: inherit;
+			}
+			
+			h2 > a.self-link,
+			h3 > a.self-link,
+			h4 > a.self-link,
+			h5 > a.self-link,
+			h6 > a.self-link {
+				border: none;
+				color: inherit;
+				font-size: 83%;
+				height: 2em;
+				left: -1.6em;
+				opacity: 0.5;
+				position: absolute;
+				text-align: center;
+				text-decoration: none;
+				top: 0;
+				transition: opacity 0.2s;
+				width: 2em;
+			}
+			
+			h2 > a.self-link::before,
+			h3 > a.self-link::before,
+			h4 > a.self-link::before,
+			h5 > a.self-link::before,
+			h6 > a.self-link::before {
+				content: "§";
+				display: block;
+			}
+			
+			@media (max-width : 767px) {
+				dd {
+					margin-left: 0;
+				}
+			
+				/* Don't position self-link in headings off-screen */
+				h2 > a.self-link,
+				h3 > a.self-link,
+				h4 > a.self-link,
+				h5 > a.self-link,
+				h6 > a.self-link {
+					left: auto;
+					top: auto;
+				}
+			}
+			
+			@media print {
+				.removeOnSave {
+					display: none;
+				}
+			}</style>
+		<link rel="canonical" href="https://www.w3.org/TR/audiobooks/" />
+		<style>
+			/*
+
+github.com style (c) Vasily Polovnyov &lt;vast@whiteants.net>
+
+*/
+			
+			.hljs {
+				display: block;
+				overflow-x: auto;
+				padding: 0.5em;
+				color: #333;
+				background: #f8f8f8;
+			}
+			
+			.hljs-comment,
+			.hljs-quote {
+				color: #998;
+				font-style: italic;
+			}
+			
+			.hljs-keyword,
+			.hljs-selector-tag,
+			.hljs-subst {
+				color: #333;
+				font-weight: bold;
+			}
+			
+			.hljs-number,
+			.hljs-literal,
+			.hljs-variable,
+			.hljs-template-variable,
+			.hljs-tag .hljs-attr {
+				color: #008080;
+			}
+			
+			.hljs-string,
+			.hljs-doctag {
+				color: #d14;
+			}
+			
+			.hljs-title,
+			.hljs-section,
+			.hljs-selector-id {
+				color: #900;
+				font-weight: bold;
+			}
+			
+			.hljs-subst {
+				font-weight: normal;
+			}
+			
+			.hljs-type,
+			.hljs-class .hljs-title {
+				color: #458;
+				font-weight: bold;
+			}
+			
+			.hljs-tag,
+			.hljs-name,
+			.hljs-attribute {
+				color: #000080;
+				font-weight: normal;
+			}
+			
+			.hljs-regexp,
+			.hljs-link {
+				color: #009926;
+			}
+			
+			.hljs-symbol,
+			.hljs-bullet {
+				color: #990073;
+			}
+			
+			.hljs-built_in,
+			.hljs-builtin-name {
+				color: #0086b3;
+			}
+			
+			.hljs-meta {
+				color: #999;
+				font-weight: bold;
+			}
+			
+			.hljs-deletion {
+				background: #fdd;
+			}
+			
+			.hljs-addition {
+				background: #dfd;
+			}
+			
+			.hljs-emphasis {
+				font-style: italic;
+			}
+			
+			.hljs-strong {
+				font-weight: bold;
+			}</style>
+		<style>
+			var {
+				position: relative;
+				cursor: pointer;
+			}
+			
+			var[data-type]::before,
+			var[data-type]::after {
+				position: absolute;
+				left: 50%;
+				top: -6px;
+				opacity: 0;
+				transition: opacity 0.4s;
+				pointer-events: none;
+			}
+			
+			/* the triangle or arrow or caret or whatever */
+			var[data-type]::before {
+				content: "";
+				transform: translateX(-50%);
+				border-width: 4px 6px 0 6px;
+				border-style: solid;
+				border-color: transparent;
+				border-top-color: #000;
+			}
+			
+			/* actual text */
+			var[data-type]::after {
+				content: attr(data-type);
+				transform: translateX(-50%) translateY(-100%);
+				background: #000;
+				text-align: center;
+				/* additional styling */
+				font-family: "Dank Mono", "Fira Code", monospace;
+				font-style: normal;
+				padding: 6px;
+				border-radius: 3px;
+				color: #daca88;
+				text-indent: 0;
+				font-weight: normal;
+			}
+			
+			var[data-type]:hover::after,
+			var[data-type]:hover::before {
+				opacity: 1;
+			}</style>
+		<link rel="publication" href="#wp_manifest" />
+		<script type="application/ld+json" id="wp_manifest">{
+    "@context": [
+        "https://schema.org",
+        "https://www.w3.org/ns/wp-context"
+    ],
+    "type": "TechArticle",
+    "accessMode": [
+        "textual",
+        "diagramOnVisual"
+    ],
+    "accessModeSufficient": [
+        "textual"
+    ],
+    "resources": [
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/StyleSheets/TR/2016/logos/W3C",
+            "encodingFormat": "image/svg+xml",
+            "description": "W3C Logo"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/StyleSheets/TR/2016/base.css",
+            "rel": "stylesheet",
+            "encodingFormat": "text/css",
+            "description": "Generic CSS file for W3C TR documents"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/StyleSheets/TR/2016/W3C-WD",
+            "rel": "stylesheet",
+            "encodingFormat": "text/css",
+            "description": "CSS file depending on the status of the document"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/StyleSheets/TR/2016/logos/WD",
+            "encodingFormat": "image/svg+xml",
+            "description": "Sidebar logo reflecting the status of the document"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "/pub-manifest/#address"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "/pub-manifest/#canonical-identifier"
+        }
+    ],
+    "links": [
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/Consortium/Legal/privacy-statement-20140324",
+            "encodingFormat": "text/html",
+            "rel": "privacy-policy"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+            "encodingFormat": "text/html",
+            "rel": "license describedby"
+        },
+        {
+            "type": "LinkedResource",
+            "url": "http://www.w3.org/Consortium/Legal/ipr-notice#Copyright",
+            "encodingFormat": "text/html",
+            "rel": "copyright"
+        }
+    ],
+    "id": "https://www.w3.org/TR/audiobooks/",
+    "url": "https://www.w3.org/TR/2019/WD-audiobooks-20190828/",
+    "datePublished": "2019-08-28",
+    "editor": [
+        {
+            "type": "Person",
+            "name": "Wendy Reid",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Rakuten/Kobo",
+                "url": "https://www.kobo.com/"
+            }
+        }
+    ]
+}</script>
+		<script id="initialUserConfig" type="application/json">{
+  "postProcess": [
+    null
+  ],
+  "wg": "Publishing Working Group",
+  "wgURI": "https://www.w3.org/publishing/groups/publ-wg/",
+  "wgPublicList": "public-publ-wg",
+  "edDraftURI": "https://w3c.github.io/audiobooks/",
+  "previousPublishDate": "2019-08-27",
+  "previousMaturity": "FPWD",
+  "specStatus": "WD",
+  "noRecTrack": false,
+  "shortName": "audiobooks",
+  "copyrightStart": "2019",
+  "editors": [
+    {
+      "name": "Wendy Reid",
+      "company": "Rakuten/Kobo",
+      "companyURL": "https://www.kobo.com/",
+      "w3cid": 102009
+    }
+  ],
+  "processVersion": 2019,
+  "includePermalinks": true,
+  "permalinkEdge": true,
+  "permalinkHide": false,
+  "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/100074/status",
+  "diffTool": "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
+  "github": {
+    "repoURL": "https://github.com/w3c/audiobooks",
+    "branch": "master"
+  },
+  "localBiblio": {
+    "link-relation": {
+      "title": "Identifier: A Link Relation to Convey a Preferred URI for Referencing",
+      "authors": [
+        "H. Van de Sompel",
+        "M. Nelson",
+        "G. Bilder",
+        "J. Kunze",
+        "S. Warner"
+      ],
+      "rawDate": "2017-08",
+      "publisher": "IETF",
+      "href": "https://tools.ietf.org/html/draft-vandesompel-identifier-00"
+    },
+    "cfi": {
+      "authors": [
+        "Peter Sorotokin",
+        "Garth Conboy",
+        "Brady Duga",
+        "John Rivlin",
+        "Don Beaver",
+        "Kevin Ballard",
+        "Alastair Fettes",
+        "Daniel Weck"
+      ],
+      "title": "EPUB Canonical Fragment Identifiers 1.1",
+      "href": "http://www.idpf.org/epub/linking/cfi/epub-cfi.html",
+      "publisher": "IDPF",
+      "rawDate": "2017-01-05",
+      "status": "Recommended Specification"
+    },
+    "css": {
+      "title": "CSS Snapshot",
+      "authors": [
+        "Tab Atkins Jr.",
+        "Elika J. Etemad",
+        "Florian Rivoal"
+      ],
+      "status": "W3C Working Group Note",
+      "href": "https://www.w3.org/TR/CSS/",
+      "publisher": "W3C"
+    },
+    "doi": {
+      "title": "Information and documentation — Digital object identifier system",
+      "date": "2012-05",
+      "status": "Published",
+      "href": "https://www.iso.org/standard/43506.html"
+    },
+    "iana-link-relations": {
+      "title": "Link Relations",
+      "href": "https://www.iana.org/assignments/link-relations/link-relations.xhtml"
+    },
+    "wpub-ann": {
+      "title": "Web Annotation Extensions for Web Publications",
+      "href": "https://www.w3.org/TR/wpub-ann/",
+      "authors": [
+        "Timothy W. Cole",
+        "Ivan Herman"
+      ],
+      "date": "2018-01-04"
+    },
+    "pwpub": {
+      "title": "Packaged Web Publications",
+      "href": "https://www.w3.org/TR/pwpub/",
+      "authors": [
+        "David Wood"
+      ],
+      "date": "2018-01-04"
+    },
+    "wpub": {
+      "title": "Web Publications",
+      "href": "https://www.w3.org/TR/wpub/",
+      "authors": [
+        "Matt Garrish",
+        "Ivan Herman"
+      ],
+      "date": "2018-01-04"
+    },
+    "pub-manifest": {
+      "title": "Publication Manifest",
+      "href": "https://www.w3.org/TR/pub-manifest/",
+      "authors": [
+        "Matt Garrish",
+        "Ivan Herman"
+      ],
+      "date": "2018-08-16",
+      "id": "pub-manifest"
+    },
+    "lpf": {
+      "title": "Lightweight Packaging Format (LPF)",
+      "href": "https://w3c.github.io/lpf/",
+      "authors": [
+        "Laurent Le Meur"
+      ],
+      "date": "2018-08-07",
+      "id": "lpf"
+    },
+    "sync-media-pub": {
+      "title": "Packaging Synchronized Narration for Web Publications",
+      "href": "https://w3c.github.io/sync-media-pub/packaging.html",
+      "authors": [
+        "Marisa DeMeglio",
+        "Daniel Weck"
+      ],
+      "date": "2019-07-12",
+      "id": "sync-media-pub"
+    },
+    "string-meta": {
+      "title": "Requirements for Language and Direction Metadata in Data Formats",
+      "href": "https://w3c.github.io/string-meta/",
+      "authors": [
+        "Addison Phillips",
+        "Richard Ishida"
+      ],
+      "date": "2017-12-01"
+    },
+    "schema.org": {
+      "title": "Schema.org",
+      "href": "https://schema.org",
+      "id": "schema.org"
+    },
+    "onix": {
+      "title": "ONIX for Books",
+      "href": "http://www.editeur.org/83/Overview"
+    },
+    "bibtex": {
+      "title": "BibTeX Format Description",
+      "href": "http://www.bibtex.org/Format/"
+    }
+  },
+  "publishDate": "2019-08-28",
+  "publishISODate": "2019-08-28T00:00:00.000Z",
+  "generatedSubtitle": "Working Draft 28 August 2019"
+}</script>
+		<meta name="description"
+			content="This specification provides a draft version of an Audiobook specification for the web. It references the [pub-manifest] for its vocabulary. This document also contains references to [lpf] and [sync-media-pub]." />
+		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" />
+	</head>
+	<body class="h-entry informative"><div class="head">
+			<a class="logo" href="https://www.w3.org/"><img alt="W3C"
+					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72" height="48" /></a>
+			<h1 id="title" class="title p-name">Audiobook Profile for Web Publications</h1>
+
+			<h2> W3C Working Draft <time class="dt-published" datetime="2019-08-28">28 August 2019</time>
+			</h2>
+			<dl>
+				<dt>This version:</dt>
+				<dd>
+					<a class="u-url" href="https://www.w3.org/TR/2019/WD-audiobooks-20190828/"
+						>https://www.w3.org/TR/2019/WD-audiobooks-20190828/</a>
+				</dd>
+				<dt>Latest published version:</dt>
+				<dd>
+					<a href="https://www.w3.org/TR/audiobooks/">https://www.w3.org/TR/audiobooks/</a>
+				</dd>
+				<dt>Latest editor's draft:</dt>
+				<dd><a href="https://w3c.github.io/audiobooks/">https://w3c.github.io/audiobooks/</a></dd>
+
+
+
+
+				<dt>Previous version:</dt>
+				<dd><a href="https://www.w3.org/TR/2019/WD-audiobooks-20190827/"
+						>https://www.w3.org/TR/2019/WD-audiobooks-20190827/</a></dd>
+
+				<dt>Editor:</dt>
+				<dd class="p-author h-card vcard" data-editor-id="102009"><span class="p-name fn">Wendy Reid</span> (<a
+						class="p-org org h-org h-card" href="https://www.kobo.com/">Rakuten/Kobo</a>) </dd>
+
+
+				<dt>Participate:</dt>
+				<dd>
+					<a href="https://github.com/w3c/audiobooks/">GitHub w3c/audiobooks</a>
+				</dd>
+				<dd>
+					<a href="https://github.com/w3c/audiobooks/issues/">File a bug</a>
+				</dd>
+				<dd>
+					<a href="https://github.com/w3c/audiobooks/commits/master">Commit history</a>
+				</dd>
+				<dd>
+					<a href="https://github.com/w3c/audiobooks/pulls/">Pull requests</a>
+				</dd>
+			</dl>
+
+
+
+			<p class="copyright">
+				<a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a
+					href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a
+					href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology"
+				>MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr
+						title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a
+					href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a
+					href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a
+					href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a
+					rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"
+					>permissive document license</a> rules apply. </p>
+			<hr title="Separator for header" />
+		</div>
+		<section id="abstract" class="introductory">
+			<h2>Abstract</h2>
+			<p>This specification provides a draft version of an Audiobook specification for the web. It references the
+						[<cite><a class="bibref" href="#bib-pub-manifest" title="Publication Manifest"
+						data-link-type="biblio">pub-manifest</a></cite>] for its vocabulary. This document also contains
+				references to [<cite><a class="bibref" href="#bib-lpf" title="Lightweight Packaging Format (LPF)"
+						data-link-type="biblio">lpf</a></cite>] and [<cite><a class="bibref" href="#bib-sync-media-pub"
+						title="Packaging Synchronized Narration for Web Publications" data-link-type="biblio"
+						>sync-media-pub</a></cite>].</p>
+		</section>
+		<section id="sotd" class="introductory">
+			<h2>Status of This Document</h2>
+			<p><em>This section describes the status of this document at the time of its publication. Other documents
+					may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
+					publications and the latest revision of this technical report can be found in the <a
+						href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical
+						reports index</a> at https://www.w3.org/TR/.</em></p>
+			<p>This draft is still under consideration within the Publishing Working Group and is subject to change. The
+				most prominent issues will be referenced in the document with links provided.</p>
+			<p> This document was published by the <a href="https://www.w3.org/publishing/groups/publ-wg/">Publishing
+					Working Group</a> as a Working Draft. This document is intended to become a <abbr
+					title="World Wide Web Consortium">W3C</abbr> Recommendation. </p>
+			<p>
+				<a href="https://github.com/w3c/audiobooks/issues/">GitHub Issues</a> are preferred for discussion of
+				this specification. Alternatively, you can send comments to our mailing list. Please send them to <a
+					href="mailto:public-publ-wg@w3.org">public-publ-wg@w3.org</a> (<a
+					href="https://lists.w3.org/Archives/Public/public-publ-wg/">archives</a>). </p>
+			<p> Publication as a Working Draft does not imply endorsement by the <abbr title="World Wide Web Consortium"
+					>W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other
+				documents at any time. It is inappropriate to cite this document as other than work in progress. </p>
+			<p> This document was produced by a group operating under the <a
+					href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium"
+						>W3C</abbr> Patent Policy</a>. <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a
+					rel="disclosure" href="https://www.w3.org/2004/01/pp-impl/100074/status">public list of any patent
+					disclosures</a> made in connection with the deliverables of the group; that page also includes
+				instructions for disclosing a patent. An individual who has actual knowledge of a patent which the
+				individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential"
+					>Essential Claim(s)</a> must disclose the information in accordance with <a
+					href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr
+						title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>. </p>
+			<p> This document is governed by the <a id="w3c_process_revision"
+					href="https://www.w3.org/2019/Process-20190301/">1 March 2019 <abbr
+						title="World Wide Web Consortium">W3C</abbr> Process Document</a>. </p>
+		</section><nav id="toc" role="doc-toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol
+				class="toc">
+				<li class="tocline"><a class="tocxref" href="#audio-introduction"><span class="secno">1.
+						</span>Introduction</a><ol class="toc">
+						<li class="tocline"><a class="tocxref" href="#audio-terminology"><span class="secno">1.1
+								</span>Terminology</a></li>
+					</ol></li>
+				<li class="tocline"><a class="tocxref" href="#audio-specification"><span class="secno">2.
+						</span>Specification</a><ol class="toc">
+						<li class="tocline"><a class="tocxref" href="#audio-construction"><span class="secno">2.1
+								</span>Construction</a><ol class="toc">
+								<li class="tocline"><a class="tocxref" href="#audio-bounds"><span class="secno">2.1.1
+										</span>Bounds</a></li>
+								<li class="tocline"><a class="tocxref" href="#audio-pep"><span class="secno">2.1.2
+										</span>Primary Entry Page</a></li>
+								<li class="tocline"><a class="tocxref" href="#audio-toc"><span class="secno">2.1.3
+										</span>Table of Contents</a></li>
+							</ol></li>
+						<li class="tocline"><a class="tocxref" href="#audio-manifest"><span class="secno">2.2
+								</span>Manifest</a><ol class="toc">
+								<li class="tocline"><a class="tocxref" href="#audio-properties-intro"><span
+											class="secno">2.2.1 </span>Introduction</a></li>
+								<li class="tocline"><a class="tocxref" href="#audio-context"><span class="secno">2.2.2
+										</span>Manifest Contexts</a></li>
+								<li class="tocline"><a class="tocxref" href="#audio-type"><span class="secno">2.2.3
+										</span>Publication Type</a></li>
+								<li class="tocline"><a class="tocxref" href="#audio-properties"><span class="secno"
+											>2.2.4 </span>Properties</a><ol class="toc">
+										<li class="tocline"><a class="tocxref" href="#audio-requirements"><span
+													class="secno">2.2.4.1 </span>Requirements</a></li>
+										<li class="tocline"><a class="tocxref" href="#audio-creators"><span
+													class="secno">2.2.4.2 </span>Creators</a></li>
+										<li class="tocline"><a class="tocxref" href="#audio-duration"><span
+													class="secno">2.2.4.3 </span>Duration</a></li>
+										<li class="tocline"><a class="tocxref" href="#audio-readingorder"><span
+													class="secno">2.2.4.4 </span>Default Reading Order</a></li>
+										<li class="tocline"><a class="tocxref" href="#audio-resourcelist"><span
+													class="secno">2.2.4.5 </span>Resource List</a></li>
+									</ol></li>
+							</ol></li>
+						<li class="tocline"><a class="tocxref" href="#audio-packaging"><span class="secno">2.3
+								</span>Packaging</a></li>
+						<li class="tocline"><a class="tocxref" href="#audio-accessibility"><span class="secno">2.4
+								</span>Accessibility</a></li>
+					</ol></li>
+				<li class="tocline"><a class="tocxref" href="#security"><span class="secno">3. </span>Security</a></li>
+				<li class="tocline"><a class="tocxref" href="#privacy"><span class="secno">4. </span>Privacy</a></li>
+				<li class="tocline"><a class="tocxref" href="#audio-manifest-examples"><span class="secno">A.
+						</span>Manifest Examples</a><ol class="toc">
+						<li class="tocline"><a class="tocxref" href="#audio-simple"><span class="secno">A.1
+								</span>Simple Audiobook</a></li>
+						<li class="tocline"><a class="tocxref" href="#audio-supplemental"><span class="secno">A.2
+								</span>Audiobook with Supplemental Content</a></li>
+					</ol></li>
+				<li class="tocline"><a class="tocxref" href="#audio-toc-examples"><span class="secno">B. </span>Table of
+						Contents Examples</a><ol class="toc">
+						<li class="tocline"><a class="tocxref" href="#toc-pep"><span class="secno">B.1 </span>Primary
+								Entry Page with a Table of Contents</a></li>
+						<li class="tocline"><a class="tocxref" href="#toc-simple"><span class="secno">B.2 </span>Simple
+								Table of Contents</a></li>
+						<li class="tocline"><a class="tocxref" href="#toc-mediafragments"><span class="secno">B.3
+								</span>Table of Contents with Media Fragments</a></li>
+					</ol></li>
+				<li class="tocline"><a class="tocxref" href="#ack"><span class="secno">C.
+					</span>Acknowledgements</a></li>
+				<li class="tocline"><a class="tocxref" href="#references"><span class="secno">D.
+						</span>References</a><ol class="toc">
+						<li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">D.1
+								</span>Normative references</a></li>
+						<li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">D.2
+								</span>Informative references</a></li>
+					</ol></li>
+			</ol></nav>
+		<section id="audio-introduction">
+			<h2 id="x1-introduction"><span class="secno">1. </span>Introduction<a class="self-link" aria-label="§"
+					href="#audio-introduction"></a></h2>
+
+			<p>This specification is a profile of the <dfn data-dfn-type="dfn" id="dfn-publication-manifest">Publication
+					Manifest</dfn> specification. It will describe the requirements to create an Audiobook.</p>
+
+			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata,
+				and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or as a
+				packaged entity.</p>
+
+			<p>This specification is intended to standardize the audiobooks distribution model on the web and between
+				businesses. It should facilitate different user agent architectures for the consumption of Audiobooks.
+				The primary goal is to bring clarity to a part of the publishing industry currently underserved by
+				standards, while opening Audiobooks to the Open Web Platform and new user agents. This specification
+				does not outline what file types or formats should be used by content creators, only a manifest format
+				for delivering them.</p>
+
+			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the
+				types of affordances that user agents can provide to enhance the reading experience for users are
+				instead defined in [<cite><a class="bibref" href="#bib-pwp-ucr"
+						title="Web Publications Use Cases and Requirements" data-link-type="biblio"
+				>PWP-UCR</a></cite>].</p>
+
+			<section id="audio-terminology">
+				<h3 id="x1-1-terminology"><span class="secno">1.1 </span>Terminology<a class="self-link" aria-label="§"
+						href="#audio-terminology"></a></h3>
+
+				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g.,
+					"Reading System"). A complete list of these <a
+						href="https://www.w3.org/TR/pub-manifest/#terminology">terms and definitions</a> is provided in
+							[<cite><a class="bibref" href="#bib-pub-manifest" title="Publication Manifest"
+							data-link-type="biblio">pub-manifest</a></cite>].</p>
+
+				<p>Only the first instance of a term in a section is linked to its definition.</p>
+
+				<p>In addition, the following terminology is defined for use in this specification:</p>
+
+				<dl class="termlist">
+					<dt><dfn id="dfn-file-name" data-lt="file names|supplemental content" data-dfn-type="dfn"
+							>Supplemental Content</dfn></dt>
+					<dd>
+						<p>Supplemental content is any content relating to the audiobook content but not required for
+							the full experience of the publication. Examples of supplemental content include
+							photographs, charts, or data relating to topics mentioned in the audiobook.</p>
+					</dd>
+				</dl>
+			</section>
+		</section>
+		<section id="audio-specification">
+			<h2 id="x2-specification"><span class="secno">2. </span>Specification<a class="self-link" aria-label="§"
+					href="#audio-specification"></a></h2>
+
+			<section id="audio-construction">
+				<h3 id="x2-1-construction"><span class="secno">2.1 </span>Construction<a class="self-link"
+						aria-label="§" href="#audio-construction"></a></h3>
+
+				<section id="audio-bounds">
+					<h4 id="x2-1-1-bounds"><span class="secno">2.1.1 </span>Bounds<a class="self-link" aria-label="§"
+							href="#audio-bounds"></a></h4>
+					<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that
+						represent its content. This extent is known as its bounds and is defined within its manifest —
+						it is obtained from the union of resources listed in the <a href="#audio-readingorder">default
+							reading order</a> and <a href="#audio-resourcelist">resource list</a>.</p>
+
+					<p>To determine whether a resource is within the bounds of an Audiobook, user agents <em
+							class="rfc2119" title="MUST">MUST</em> compare the absolute URL of a resource to the
+						absolute URLs of the resources obtained from the union. If the resource is identified in the
+						enumeration, it is within the bounds of the Audiobook. All other resources are external to the
+						Audiobook.</p>
+
+					<p>Resources within the bounds of a Audiobook do not have to share the same domain.</p>
+				</section>
+
+				<section id="audio-pep">
+					<h4 id="x2-1-2-primary-entry-page"><span class="secno">2.1.2 </span>Primary Entry Page<a
+							class="self-link" aria-label="§" href="#audio-pep"></a></h4>
+
+					<p>The <dfn data-dfn-type="dfn" id="dfn-primary-entry-page">primary entry page</dfn> represents the
+						preferred starting <a href="#audio-resourcelist">resource</a> for an Audiobook and enables
+						discovery of its manifest.</p>
+
+					<p>The primary entry page is an HTML resource that typically introduces the audiobook and provides
+						access to the content. It <em class="rfc2119" title="SHOULD">SHOULD</em> contain the <a
+							href="#audio-toc">table of contents</a> to facilitate user consumption. The <a
+							href="/pub-manifest/#address">address</a> of the primary entry page is also the <a
+							href="/pub-manifest/#canonical-identifier">canonical identifier</a> (i.e., it serves as its
+						unique identifier) for the audiobook when present.</p>
+
+					<p>It is not required that the primary entry page be included in the <a href="#audio-readingorder"
+							>default reading order</a>, as the Audiobooks profile requires that only audio resources be
+						present. The primary entry page should instead, if present, be included as a <a
+							href="#audio-resourcelist">resource</a>.</p>
+				</section>
+
+				<section id="audio-toc">
+					<h4 id="x2-1-3-table-of-contents"><span class="secno">2.1.3 </span>Table of Contents<a
+							class="self-link" aria-label="§" href="#audio-toc"></a></h4>
+
+					<p>The table of contents provides a hierarchical list of links that reflects the structural outline
+						of the major sections of the Audiobook and any supplemental content it may contain.</p>
+
+					<p>The table of contents is expressed via an [<cite><a class="bibref" href="#bib-html"
+								title="HTML Standard" data-link-type="biblio">html</a></cite>]&#160;element (typically a
+							<a href="https://www.w3.org/TR/html/sections.html#the-nav-element"><code>nav</code>
+							element</a>) in one of the <a href="#audio-resourcelist">resources</a>. This element <em
+							class="rfc2119" title="MUST">MUST</em> be identified by the <code>role</code>
+								attribute&#160;[<cite><a class="bibref" href="#bib-html" title="HTML Standard"
+								data-link-type="biblio">html</a></cite>] value "<code>doc-toc</code>"&#160;[<cite><a
+								class="bibref" href="#bib-dpub-aria-1.0" title="Digital Publishing WAI-ARIA Module 1.0"
+								data-link-type="biblio">dpub-aria-1.0</a></cite>], and <em class="rfc2119" title="MUST"
+							>MUST</em> be the first element in the document — in <a
+							href="https://dom.spec.whatwg.org/#concept-tree-order">document tree
+								order</a>&#160;[<cite><a class="bibref" href="#bib-dom" title="DOM Standard"
+								data-link-type="biblio">dom</a></cite>] — with that <code>role</code> value.</p>
+
+					<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the
+						manifest <em class="rfc2119" title="SHOULD">SHOULD</em>
+						<a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
+
+					<p>When an Audiobook contains additional resources (i.e. supplemental content) a table of contents
+							<em class="rfc2119" title="SHOULD">SHOULD</em> be included, the table of contents <em
+							class="rfc2119" title="SHOULD">SHOULD</em> include a link to all <a
+							href="#audio-resourcelist">resources</a>, and all links <em class="rfc2119" title="SHOULD"
+							>SHOULD</em> refer to <a href="#audio-resourcelist">resources</a> within <a
+							href="#audio-bounds">publication bounds</a>.</p>
+				</section>
+			</section>
+
+			<section id="audio-manifest" class="normative">
+				<h3 id="x2-2-manifest"><span class="secno">2.2 </span>Manifest<a class="self-link" aria-label="§"
+						href="#audio-manifest"></a></h3>
+
+				<section id="audio-properties-intro" class="informative">
+					<h4 id="x2-2-1-introduction"><span class="secno">2.2.1 </span>Introduction<a class="self-link"
+							aria-label="§" href="#audio-properties-intro"></a></h4>
+					<p><em>This section is non-normative.</em></p>
+
+					<p>The Audiobook manifest is defined by a set of properties that describe the basic information a
+						user agent requires to process and render an Audiobook. These properties are categorized in the
+						Publication Manifest [<cite><a class="bibref" href="#bib-pub-manifest"
+								title="Publication Manifest" data-link-type="biblio">pub-manifest</a></cite>]. Where
+						these properties are extended from the Publication Manifest is specified in this section.</p>
+
+				</section>
+
+				<section id="audio-context" class="normative">
+					<h4 id="x2-2-2-manifest-contexts"><span class="secno">2.2.2 </span>Manifest Contexts<a
+							class="self-link" aria-label="§" href="#audio-context"></a></h4>
+
+					<p>An Audiobook manifest <em class="rfc2119" title="MUST">MUST</em> start by setting the JSON-LD
+						context [<cite><a class="bibref" href="#bib-json-ld" title="JSON-LD 1.0" data-link-type="biblio"
+								>json-ld</a></cite>]. The context has the following two major components:</p>
+
+					<ul>
+						<li>the [<cite><a class="bibref" href="#bib-schema.org" title="Schema.org"
+									data-link-type="biblio">schema.org</a></cite>] context:
+								<code>https://schema.org</code></li>
+						<li>the publication context: <code>https://www.w3.org/ns/wp-context</code></li>
+					</ul>
+
+					<div class="example" id="example-1-the-context-declaration">
+						<div class="marker">
+							<a class="self-link" href="#example-1-the-context-declaration">Example<span> 1</span></a>
+							<span class="example-title">: The context declaration.</span>
+						</div>
+						<pre aria-busy="false"><code class="hljs javascript">{
+	<span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+	…
+}</code></pre>
+					</div>
+
+				</section>
+
+				<section id="audio-type">
+					<h4 id="x2-2-3-publication-type"><span class="secno">2.2.3 </span>Publication Type<a
+							class="self-link" aria-label="§" href="#audio-type"></a></h4>
+
+					<p>An audiobook's&lt; manifest <em class="rfc2119" title="MUST">MUST</em> define its <dfn
+							data-dfn-type="dfn" id="dfn-publication-type">Publication Type</dfn> using the <code
+							data-dfn-for="PublicationManifest"><dfn data-dfn-type="dfn" id="dfn-type">type</dfn></code>
+								term&#160;[<cite><a class="bibref" href="#bib-pub-manifest" title="Publication Manifest"
+								data-link-type="biblio">pub-manifest</a></cite>], [<cite><a class="bibref"
+								href="#bib-json-ld" title="JSON-LD 1.0" data-link-type="biblio">json-ld</a></cite>]. The
+						type <em class="rfc2119" title="MUST">MUST</em> be <a href="https://schema.org/Audiobook"
+								><code>Audiobook</code></a>&#160;[<cite><a class="bibref" href="#bib-schema.org"
+								title="Schema.org" data-link-type="biblio">schema.org</a></cite>].</p>
+
+					<div class="example" id="example-2-setting-a-publication-s-type-to-audiobook">
+						<div class="marker">
+							<a class="self-link" href="#example-2-setting-a-publication-s-type-to-audiobook"
+									>Example<span> 2</span></a>
+							<span class="example-title">: Setting a publication's type to Audiobook.</span>
+						</div>
+						<pre aria-busy="false"><code class="hljs json">{
+		<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+		<span class="hljs-attr">"type"</span>     : <span class="hljs-string">"Audiobook"</span>
+		…
+}</code></pre>
+					</div>
+
+				</section>
+
+				<section id="audio-properties">
+					<h4 id="x2-2-4-properties"><span class="secno">2.2.4 </span>Properties<a class="self-link"
+							aria-label="§" href="#audio-properties"></a></h4>
+
+					<section id="audio-requirements">
+						<h5 id="x2-2-4-1-requirements"><span class="secno">2.2.4.1 </span>Requirements<a
+								class="self-link" aria-label="§" href="#audio-requirements"></a></h5>
+						<p>The requirements for the expression of Audiobook properties are defined as follows:</p>
+
+						<dl>
+							<dt><em class="rfc2119" title="REQUIRED">REQUIRED</em>:</dt>
+							<dd>
+								<ul>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default
+											reading order</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#wp-title">title</a>
+									</li>
+								</ul>
+							</dd>
+							<dt><em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>:</dt>
+							<dd>
+								<ul>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/accessibility-report">accessibility
+											report</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">base
+											direction</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
+											identifier</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#creators">creators</a>
+									</li>
+									<li>
+										<a href="#audio-duration">duration</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">language and base
+											direction</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#links">links</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last
+											modification date</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication
+											date</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#privacy-policy">privacy policy</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction"
+											>reading progression direction</a>
+									</li>
+									<li>
+										<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+									</li>
+									<li>
+										<a href="#table-of-contents">table of contents</a>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+
+						<p>These properties do not all have to be serialized in the <a
+								href="https://www.w3.org/TR/pub-manifest/#manifest-authored-canonical">authored
+								manifest</a>. Refer to each property's definition to determine whether it is required in
+							the manifest or can be compiled into the <a
+								href="https://www.w3.org/TR/pub-manifest/#manifest-authored-canonical">canonical
+								manifest</a> from other information.</p>
+					</section>
+
+					<section id="audio-creators">
+						<h5 id="x2-2-4-2-creators"><span class="secno">2.2.4.2 </span>Creators<a class="self-link"
+								aria-label="§" href="#audio-creators"></a></h5>
+
+						<p>A <dfn data-dfn-type="dfn" id="dfn-creator">creator</dfn> is an individual or entity
+							responsible for the creation of the Web Publication. The Audiobooks profile can use the full
+							list of <a href="https://www.w3.org/TR/pub-manifest/#creators">creators</a> specified in Web
+							Publications.</p>
+
+						<p>The creators list includes two recommended creators for Audiobooks:</p>
+
+						<ul>
+							<li><a href="https://schema.org/author">author</a></li>
+							<li><a href="https://schema.org/readBy">readBy</a></li>
+						</ul>
+
+						<div class="example" id="example-3-author-of-a-book">
+							<div class="marker">
+								<a class="self-link" href="#example-3-author-of-a-book">Example<span> 3</span></a>
+								<span class="example-title">: Author of a book</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs javascript">{
+    <span class="hljs-string">"type"</span>     : <span class="hljs-string">"Audiobook"</span>,
+    <span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+    …
+    <span class="hljs-string">"url"</span>      : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+    <span class="hljs-string">"author"</span>   : {
+        <span class="hljs-string">"type"</span>  : <span class="hljs-string">"Person"</span>,
+        <span class="hljs-string">"name"</span>  : <span class="hljs-string">"Charlotte Bronte"</span>
+    }
+}</code></pre>
+						</div>
+
+						<div class="example" id="example-4-author-and-narrator-of-an-audiobook">
+							<div class="marker">
+								<a class="self-link" href="#example-4-author-and-narrator-of-an-audiobook">Example<span>
+										4</span></a>
+								<span class="example-title">: Author and Narrator of an Audiobook</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs javascript">{
+		<span class="hljs-string">"type"</span>		: <span class="hljs-string">"Audiobook"</span>;
+		<span class="hljs-string">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+		…
+		<span class="hljs-string">"url"</span>			: <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+		<span class="hljs-string">"author"</span>	: {
+				<span class="hljs-string">"type"</span>: <span class="hljs-string">"Person"</span>,
+				<span class="hljs-string">"name"</span>: <span class="hljs-string">"Charlotte Bronte"</span>
+		}
+		<span class="hljs-string">"readBy"</span>	: {
+				<span class="hljs-string">"type"</span>: <span class="hljs-string">"Person"</span>,
+				<span class="hljs-string">"name"</span>: <span class="hljs-string">"Ivan Herman"</span>,
+				<span class="hljs-string">"id"</span>	: <span class="hljs-string">"https://www.w3.org/People/Ivan/"</span>
+		}
+}</code></pre>
+						</div>
+					</section>
+
+					<section id="audio-duration">
+						<h5 id="x2-2-4-3-duration"><span class="secno">2.2.4.3 </span>Duration<a class="self-link"
+								aria-label="§" href="#audio-duration"></a></h5>
+
+						<p>A <dfn data-dfn-type="dfn" id="dfn-duration">duration</dfn> is the length of the audio
+							resources in an Audiobook. The duration property is fully defined in the <a
+								href="https://www.w3.org/TR/pub-manifest/#duration">Web Publications</a>
+							specification.</p>
+
+						<p>Duration <em class="rfc2119" title="SHOULD">SHOULD</em> be expressed for the entirety of the
+							audiobook as part of the manifest, and <em class="rfc2119" title="SHOULD">SHOULD</em> be
+							present at the item level in the <a href="#audio-readingorder">default reading
+							order</a>.</p>
+
+						<div class="example" id="example-5-duration-of-an-audiobook-in-hours">
+							<div class="marker">
+								<a class="self-link" href="#example-5-duration-of-an-audiobook-in-hours">Example<span>
+										5</span></a>
+								<span class="example-title">: Duration of an Audiobook in Hours</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs javascript">{
+    <span class="hljs-string">"type"</span>     : <span class="hljs-string">"Audiobook"</span>,
+    <span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+    …
+    <span class="hljs-string">"url"</span>      : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+    <span class="hljs-string">"author"</span>   : {
+        <span class="hljs-string">"type"</span>  : <span class="hljs-string">"Person"</span>,
+        <span class="hljs-string">"name"</span>  : <span class="hljs-string">"Charlotte Bronte"</span>
+    },
+		<span class="hljs-string">"duration"</span> : <span class="hljs-string">"123456789.123"</span>
+}</code></pre>
+						</div>
+
+						<div class="example" id="example-6-duration-of-an-audiobook-in-seconds">
+							<div class="marker">
+								<a class="self-link" href="#example-6-duration-of-an-audiobook-in-seconds">Example<span>
+										6</span></a>
+								<span class="example-title">: Duration of an Audiobook in Seconds</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs javascript">{
+		<span class="hljs-string">"type"</span>     : <span class="hljs-string">"Audiobook"</span>,
+		<span class="hljs-string">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+		…
+		<span class="hljs-string">"url"</span>      : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+		<span class="hljs-string">"author"</span>   : {
+				<span class="hljs-string">"type"</span>  : <span class="hljs-string">"Person"</span>,
+				<span class="hljs-string">"name"</span>  : <span class="hljs-string">"Charlotte Bronte"</span>
+		},
+		<span class="hljs-string">"duration"</span> : <span class="hljs-string">"12345.235"</span>
+}</code></pre>
+						</div>
+
+					</section>
+
+					<section id="audio-readingorder">
+						<h5 id="x2-2-4-4-default-reading-order"><span class="secno">2.2.4.4 </span>Default Reading
+								Order<a class="self-link" aria-label="§" href="#audio-readingorder"></a></h5>
+
+						<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn
+									data-dfn-type="dfn" id="dfn-default-reading-order">default reading order</dfn></a>
+							is a specific progression through the audio resources in the audiobook.</p>
+
+						<p>The default reading order <em class="rfc2119" title="MUST">MUST</em> contain at least one
+							audio resource, which <em class="rfc2119" title="MAY">MAY</em> be identified by the
+								<code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"
+									><code>LinkedResource</code></a>.</p>
+
+						<div class="example" id="example-7-audiobook-reading-order-for-a-single-resource">
+							<div class="marker">
+								<a class="self-link" href="#example-7-audiobook-reading-order-for-a-single-resource"
+										>Example<span> 7</span></a>
+								<span class="example-title">: Audiobook Reading Order for a Single Resource</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs json">{
+	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
+	<span class="hljs-attr">"url"</span>			 : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+	<span class="hljs-attr">"name"</span>		 : <span class="hljs-string">"Jane Eyre"</span>,
+	<span class="hljs-attr">"readingOrder"</span> : [{
+		<span class="hljs-attr">"type"</span>	: <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span>   : <span class="hljs-string">"audio/janeeyre.mp3"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/mp3"</span>,
+		<span class="hljs-attr">"name"</span>  : <span class="hljs-string">"Jane Eyre"</span>,
+		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"124503.123"</span>
+	}]
+}</code></pre>
+						</div>
+
+						<div class="example" id="example-8-audiobook-reading-order-for-multiple-resources">
+							<div class="marker">
+								<a class="self-link" href="#example-8-audiobook-reading-order-for-multiple-resources"
+										>Example<span> 8</span></a>
+								<span class="example-title">: Audiobook Reading Order for Multiple Resources</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs json">{
+	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
+	<span class="hljs-attr">"url"</span>			 : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+	<span class="hljs-attr">"name"</span>		 : <span class="hljs-string">"Jane Eyre"</span>,
+	<span class="hljs-attr">"readingOrder"</span> : [{
+		<span class="hljs-attr">"type"</span>	: <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span>   : <span class="hljs-string">"audio/part001.wav#0"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
+		<span class="hljs-attr">"name"</span>  : <span class="hljs-string">"Chapter 1"</span>,
+		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"457.931"</span>
+	}, {
+		<span class="hljs-attr">"type"</span>  : <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span>   : <span class="hljs-string">"audio/part001.wav#457.932"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
+		<span class="hljs-attr">"name"</span>  : <span class="hljs-string">"Chapter 2"</span>,
+		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"234.245"</span>
+	}]
+}</code></pre>
+						</div>
+
+					</section>
+
+					<section id="audio-resourcelist">
+						<h5 id="x2-2-4-5-resource-list"><span class="secno">2.2.4.5 </span>Resource List<a
+								class="self-link" aria-label="§" href="#audio-resourcelist"></a></h5>
+
+						<p>The <dfn data-dfn-type="dfn" id="dfn-resource-list">resource list</dfn> enumerates any
+							additional resources used in the processing and rendering of an audiobook that are not
+							listed in the reading order. It is expressed using the <code>resources</code> property.</p>
+
+						<p>If an audiobook includes supplemental content it <em class="rfc2119" title="MUST">MUST</em>
+							be referenced in the resource list.</p>
+
+						<div class="example" id="example-9-audiobook-with-supplemental-content">
+							<div class="marker">
+								<a class="self-link" href="#example-9-audiobook-with-supplemental-content">Example<span>
+										9</span></a>
+								<span class="example-title">: Audiobook with Supplemental Content</span>
+							</div>
+							<pre aria-busy="false"><code class="hljs json">{
+	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
+	<span class="hljs-attr">"url"</span>			 : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+	<span class="hljs-attr">"name"</span>		 : <span class="hljs-string">"Jane Eyre"</span>,
+	<span class="hljs-attr">"resources"</span> : [
+		<span class="hljs-string">"cover.jpg"</span>,
+		<span class="hljs-string">"portrait_CB.jpg"</span>,
+		<span class="hljs-string">"supplement.pdf"</span>
+	]
+}</code></pre>
+						</div>
+
+					</section>
+
+				</section>
+
+			</section>
+
+			<section id="audio-packaging" class="informative">
+				<h3 id="x2-3-packaging"><span class="secno">2.3 </span>Packaging<a class="self-link" aria-label="§"
+						href="#audio-packaging"></a></h3>
+				<p><em>This section is non-normative.</em></p>
+
+				<p>Audiobooks will be packaged using the method described in the <a href="https://www.w3.org/TR/lpf/"
+						>Lightweight Packaging Format</a> note.</p>
+
+			</section>
+
+			<section id="audio-accessibility" class="informative">
+				<h3 id="x2-4-accessibility"><span class="secno">2.4 </span>Accessibility<a class="self-link"
+						aria-label="§" href="#audio-accessibility"></a></h3>
+				<p><em>This section is non-normative.</em></p>
+
+				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible
+					audiobook, it is recommended to use the <a
+						href="https://w3c.github.io/sync-media-pub/packaging.html">Synchronized Media</a> note to create
+					documents where text and audio can be completely synchronized.</p>
+
+				<p>To create an accessible audiobook using Synchronized Media, you need to both reference the
+					alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list
+					the file in the <a href="#audio-resourcelist">resources</a>.</p>
+
+				<p>Alternatively, a content creator can provide the text equivalent as HTML [<cite><a class="bibref"
+							href="#bib-html" title="HTML Standard" data-link-type="biblio">html</a></cite>] resources in
+					the <a href="#audio-resourcelist">resources</a>.</p>
+
+				<div class="example" id="example-10-audiobook-with-synchronized-media">
+					<div class="marker">
+						<a class="self-link" href="#example-10-audiobook-with-synchronized-media">Example<span>
+								10</span></a>
+						<span class="example-title">: Audiobook with Synchronized Media</span>
+					</div>
+					<pre aria-busy="false"><code class="hljs json">{
+	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+	<span class="hljs-attr">"type"</span>		 : <span class="hljs-string">"Audiobook"</span>,
+	<span class="hljs-attr">"url"</span>      : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+	<span class="hljs-attr">"name"</span>     : <span class="hljs-string">"Jane Eyre"</span>,
+	<span class="hljs-attr">"readingOrder"</span> : [{
+		<span class="hljs-attr">"type"</span>	: <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span>   : <span class="hljs-string">"audio/part001.wav#0"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
+		<span class="hljs-attr">"name"</span>  : <span class="hljs-string">"Chapter 1"</span>,
+		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"457.931"</span>,
+		<span class="hljs-attr">"alternative"</span> : <span class="hljs-string">"sync-media/part001-1.json"</span>
+	}, {
+		<span class="hljs-attr">"type"</span>  : <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span>   : <span class="hljs-string">"audio/part001.wav#457.932"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
+		<span class="hljs-attr">"name"</span>  : <span class="hljs-string">"Chapter 2"</span>,
+		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"234.245"</span>,
+		<span class="hljs-attr">"alternative"</span> : <span class="hljs-string">"sync-media/part001-2.json"</span>
+	}],
+	<span class="hljs-attr">"resources"</span> : [{
+     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"LinkedResource"</span>,
+     <span class="hljs-attr">"url"</span>: <span class="hljs-string">"sync-media/part001-1.json"</span>,
+     <span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.wp-sync-media+json"</span>
+   }, {
+		<span class="hljs-attr">"type"</span>: <span class="hljs-string">"LinkedResource"</span>,
+		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"sync-media/part001-2.json"</span>,
+		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.wp-sync-media+json"</span>
+	}...
+	]
+}</code></pre>
+				</div>
+			</section>
+
+		</section>
+		<section id="security">
+			<h2 id="x3-security"><span class="secno">3. </span>Security<a class="self-link" aria-label="§"
+					href="#security"></a></h2>
+
+			<div class="note" id="issue-container-generatedID">
+				<div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3">
+					<span>Editor's note</span>
+				</div>
+				<div class="">Placeholder for security issues.</div>
+			</div>
+		</section>
+		<section id="privacy">
+			<h2 id="x4-privacy"><span class="secno">4. </span>Privacy<a class="self-link" aria-label="§" href="#privacy"
+				></a></h2>
+
+			<div class="note" id="issue-container-generatedID-0">
+				<div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="3">
+					<span>Editor's note</span>
+				</div>
+				<div class="">Placeholder for privacy issues.</div>
+			</div>
+		</section>
+		<section id="audio-manifest-examples" class="appendix informative">
+			<h2 id="a-manifest-examples"><span class="secno">A. </span>Manifest Examples<a class="self-link"
+					aria-label="§" href="#audio-manifest-examples"></a></h2>
+			<p><em>This section is non-normative.</em></p>
+
+			<section id="audio-simple">
+				<h3 id="a-1-simple-audiobook"><span class="secno">A.1 </span>Simple Audiobook<a class="self-link"
+						aria-label="§" href="#audio-simple"></a></h3>
+				<p>A manifest for an audiobook. The <a
+						href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json"
+						>canonical version</a> of this manifest is also available.</p>
+				<div class="example" id="example-11">
+					<div class="marker">
+						<a class="self-link" href="#example-11">Example<span> 11</span></a>
+					</div>
+					<pre aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Audiobook"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/"</span>,
+  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://w3c.github.io/wpub/experiments/audiobook/"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Flatland: A Romance of Many Dimensions"</span>,
+  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"Edwin Abbott Abbott"</span>,
+  <span class="hljs-attr">"readBy"</span>: <span class="hljs-string">"Ruth Golding"</span>,
+  <span class="hljs-attr">"publisher"</span>: <span class="hljs-string">"Librivox"</span>,
+  <span class="hljs-attr">"inLanguage"</span>: <span class="hljs-string">"en"</span>,
+  <span class="hljs-attr">"dateModified"</span>: <span class="hljs-string">"2018-06-14T19:32:18Z"</span>,
+  <span class="hljs-attr">"datePublished"</span>: <span class="hljs-string">"2008-10-12"</span>,
+  <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"PT15153S"</span>,
+  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"https://creativecommons.org/publicdomain/zero/1.0/"</span>,
+
+  <span class="hljs-attr">"resources"</span>: [
+    {
+      <span class="hljs-attr">"rel"</span>: <span class="hljs-string">"cover"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://ia800704.us.archive.org/9/items/LibrivoxCdCoverArt12/Flatland_1109.jpg"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"image/jpeg"</span>
+    },{
+      <span class="hljs-attr">"rel"</span>: <span class="hljs-string">"contents"</span>, 
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"toc.html"</span>, 
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"text/html"</span>
+    }
+  ],
+
+  <span class="hljs-attr">"readingOrder"</span>: [
+    {
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_1_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1371</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 1, Sections 1 - 3"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>, 
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1669</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 1, Sections 4 - 5"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_3_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1506</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 1, Sections 6 - 7"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_4_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1669</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 1, Sections 8 - 10"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_5_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1506</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 1, Sections 11 - 12"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_6_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1798</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 2, Sections 13 - 14"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_7_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1225</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 2, Sections 15 - 17"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_8_abbott.mp3"</span>,
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1371</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 2, Sections 18 - 20"</span>
+    },{
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://www.archive.org/download/flatland_rg_librivox/flatland_9_abbott.mp3"</span>, 
+      <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/mpeg"</span>,
+      <span class="hljs-attr">"length"</span>: <span class="hljs-number">1659</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 2, Sections 21 - 22"</span>
+    }
+  ]
+}
+</code></pre>
+				</div>
+			</section>
+
+			<section id="audio-supplemental">
+				<h3 id="a-2-audiobook-with-supplemental-content"><span class="secno">A.2 </span>Audiobook with
+					Supplemental Content<a class="self-link" aria-label="§" href="#audio-supplemental"></a></h3>
+
+				<p>A manifest for an audiobook with supplemental content. </p>
+				<div class="example" id="example-12">
+					<div class="marker">
+						<a class="self-link" href="#example-12">Example<span> 12</span></a>
+					</div>
+					<pre aria-busy="false"><code class="hljs json">{
+	<span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3/org/ns/wp-context"</span>],
+	<span class="hljs-attr">"type"</span>: <span class="hljs-string">"Audiobook"</span>,
+	<span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://publisher.example.com/janeeyre"</span>,
+	<span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://publisher.example.com/janeeyre"</span>,
+	<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jane Eyre"</span>,
+	<span class="hljs-attr">"author"</span>: <span class="hljs-string">"Charlotte Bronte"</span>,
+	<span class="hljs-attr">"readBy"</span>: <span class="hljs-string">"Jane Doe"</span>,
+	<span class="hljs-attr">"duration"</span>: <span class="hljs-string">"123456.789"</span>,
+	<span class="hljs-attr">"inLanguage"</span>: <span class="hljs-string">"en"</span>,
+	<span class="hljs-attr">"dateModified"</span>: <span class="hljs-string">"2019-03-29T15:59:00Z"</span>,
+	<span class="hljs-attr">"datePublished"</span>: <span class="hljs-string">"2019-03-29"</span>,
+
+	<span class="hljs-attr">"readingOrder"</span>: [
+		{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"audio/chapter001.aac"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/aac"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Chapter 1"</span>, <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"1234.567"</span>},
+		{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"audio/chapter002.aac"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/aac"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Chapter 2"</span>, <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"890.123"</span>},
+		{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"audio/chapter003.aac"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/aac"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Chapter 3"</span>, <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"456.789"</span>},
+		{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"audio/chapter004.aac"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/aac"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Chapter 4"</span>, <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"987.654"</span>},
+		{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"audio/chapter005.aac"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"audio/aac"</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Chapter 5"</span>, <span class="hljs-attr">"duration"</span>: <span class="hljs-string">"321.987"</span>}
+	],
+
+	<span class="hljs-attr">"resources"</span>: [
+	{<span class="hljs-attr">"rel"</span>: <span class="hljs-string">"cover"</span>, <span class="hljs-attr">"url"</span>: <span class="hljs-string">"images/cover.jpg"</span>, <span class="hljs-attr">"encordingFormat"</span>: <span class="hljs-string">"image/jpeg"</span>},
+	{<span class="hljs-attr">"rel"</span>: <span class="hljs-string">"contents"</span>, <span class="hljs-attr">"url"</span>: <span class="hljs-string">"toc.html"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"text/html"</span>},
+	{<span class="hljs-attr">"url"</span>: <span class="hljs-string">"haworth_house.pdf"</span>, <span class="hljs-attr">"encodingFormat"</span>: <span class="hljs-string">"application/pdf"</span>}
+	]
+}</code></pre>
+				</div>
+			</section>
+		</section>
+		<section id="audio-toc-examples" class="appendix informative">
+			<h2 id="b-table-of-contents-examples"><span class="secno">B. </span>Table of Contents Examples<a
+					class="self-link" aria-label="§" href="#audio-toc-examples"></a></h2>
+			<p><em>This section is non-normative.</em></p>
+
+			<section id="toc-pep">
+				<h3 id="b-1-primary-entry-page-with-a-table-of-contents"><span class="secno">B.1 </span>Primary Entry
+					Page with a Table of Contents<a class="self-link" aria-label="§" href="#toc-pep"></a></h3>
+
+				<p>A primary entry page with a simple table of contents for an audiobook.</p>
+				<div class="example" id="example-13">
+					<div class="marker">
+						<a class="self-link" href="#example-13">Example<span> 13</span></a>
+					</div>
+					<pre aria-busy="false"><code class="hljs xml">	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    …
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="javascript">
+    {
+        <span class="hljs-string">"@context"</span>        : [<span class="hljs-string">"https://schema.org"</span>,<span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+        <span class="hljs-string">"type"</span>            : <span class="hljs-string">"Audiobook"</span>,
+        …
+        <span class="hljs-string">"url"</span>             : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
+        …
+    }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    …
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    …
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+			 <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter001.wav"</span>&gt;</span>Chapter 1. There was no possibility of taking a walk that day...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+			 <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter002.wav"</span>&gt;</span>Chapter 2. I resisted all the way:...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+			 <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter003.wav"</span>&gt;</span>Chapter 3. The next thing I remember is,...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+			 …
+			<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    …
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+				</div>
+			</section>
+
+			<section id="toc-simple">
+				<h3 id="b-2-simple-table-of-contents"><span class="secno">B.2 </span>Simple Table of Contents<a
+						class="self-link" aria-label="§" href="#toc-simple"></a></h3>
+
+				<p>A table of contents for a simple audiobook.</p>
+				<div class="example" id="example-14">
+					<div class="marker">
+						<a class="self-link" href="#example-14">Example<span> 14</span></a>
+					</div>
+					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
+	 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+	 <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter001.mp3"</span>&gt;</span>Chapter 1. There was no possibility of taking a walk that day...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter002.mp3"</span>&gt;</span>Chapter 2. I resisted all the way:...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"audio/chapter003.mp3"</span>&gt;</span>Chapter 3. The next thing I remember is,...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		…
+	 <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></code></pre>
+				</div>
+			</section>
+
+			<section id="toc-mediafragments">
+				<h3 id="b-3-table-of-contents-with-media-fragments"><span class="secno">B.3 </span>Table of Contents
+					with Media Fragments<a class="self-link" aria-label="§" href="#toc-mediafragments"></a></h3>
+
+				<p>A table of contents using media fragment references to locations in a single audio track.</p>
+
+				<div class="example" id="example-15">
+					<div class="marker">
+						<a class="self-link" href="#example-15">Example<span> 15</span></a>
+					</div>
+					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+	<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3"</span>&gt;</span>Chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#456.789"</span>&gt;</span>Chapter 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#1234.567"</span>&gt;</span>Chapter 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></code></pre>
+				</div>
+			</section>
+
+		</section>
+		<section id="ack" class="appendix informative">
+			<h2 id="c-acknowledgements"><span class="secno">C. </span>Acknowledgements<a class="self-link"
+					aria-label="§" href="#ack"></a></h2>
+			<p><em>This section is non-normative.</em></p>
+			<p>The editors would like to specially thank the following individuals for making significant contributions
+				to the authoring and editing of this specification:</p>
+
+			<ul class="ack">
+				<li>Luc Audrain (Hachette Livre)</li>
+				<li>Garth Conboy (Google, Inc., co-chair)</li>
+				<li>Dave Cramer (Hachette Livre)</li>
+				<li>Romain Deltour (DAISY Consortium)</li>
+				<li>Brady Duga (Google, Inc.)</li>
+				<li>Hadrien Gardeur (Feedbooks)</li>
+				<li>Matt Garrish (DAISY Consortium)</li>
+				<li>Ivan Herman (<abbr title="World Wide Web Consortium">W3C</abbr> Staff)</li>
+				<li>Geoff Jukes (Blackstone)</li>
+				<li>George Kerscher (DAISY Consortium)</li>
+				<li>Laurent Le Meur (EDRLab)</li>
+				<li>Marisa DeMeglio (DAISY Consortium)</li>
+				<li>Tzviya Siegman (Wiley, co-chair)</li>
+				<li>Avneesh Singh (DAISY Consortium)</li>
+				<li>Daniel Weck (EDRLab, DAISY Consortium)</li>
+				<li>Benjamin Young (Wiley)</li>
+				<li>Jeff Xu (Rakuten,Inc.)</li>
+			</ul>
+
+			<p>Additionally, the following people were members of the Working Group at the time of publication:</p>
+
+			<ul class="ack">
+				<li>Greg Albers (J. Paul Getty Trust)</li>
+				<li>Franco Alvarado (Macmillan Learning)</li>
+				<li>Boris Anthony (The Rebus Foundation)</li>
+				<li>Christopher Auclair (VitalSource | Ingram Content Group)</li>
+				<li>Mike Baker (Houghton Mifflin Harcourt (HMH))</li>
+				<li>Laura Brady (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Experts)</li>
+				<li>Steve Breault (Scenarex Inc.)</li>
+				<li>Nick Brown (VitalSource | Ingram Content Group)</li>
+				<li>Kaylin Bugbee (Earth Science Data Systems Program)</li>
+				<li>Yu-Wei Chang (Taiwan Digital Publishing Forum)</li>
+				<li>Fred Chasen (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Experts)</li>
+				<li>Simon Collinson (Rakuten,Inc.)</li>
+				<li>Juan Corona (Evident Point Software)</li>
+				<li>Christopher Cosner (Stanford University)</li>
+				<li>Greg Davis (Pearson plc)</li>
+				<li>Vagner Diniz (NIC.br - Brazilian Network Information Center)</li>
+				<li>Brady Duga (Google, Inc.)</li>
+				<li>Ben Dugas (Rakuten,Inc.)</li>
+				<li>Roger Espinosa (University of Michigan)</li>
+				<li>Reinaldo Ferraz (NIC.br - Brazilian Network Information Center)</li>
+				<li>Heather Flanagan (RFC Editor)</li>
+				<li>Teenya Franklin (Pearson plc)</li>
+				<li>Jun Gamo (Voyager Japan, Inc.)</li>
+				<li>Michael Goodman (Wiley)</li>
+				<li>Markku Hakkinen (Educational Testing Service)</li>
+				<li>Katie Haritos-Shea (Knowbility, Inc)</li>
+				<li>Caroline Hayes (W. W. Norton &amp; Company)</li>
+				<li>Rick Johnson (VitalSource | Ingram Content Group)</li>
+				<li>Bill Kasdorf (Book Industry Study Group)</li>
+				<li>Yuya Kato (Kodansha, Publishers, Ltd.)</li>
+				<li>Yuri Khramov (Evident Point Software)</li>
+				<li>Toshiaki Koike (Voyager Japan, Inc.)</li>
+				<li>Charles LaPierre (Benetech)</li>
+				<li>Mustapha Lazrek (Microsoft Corp.)</li>
+				<li>Vladimir Levantovsky (Monotype)</li>
+				<li>Mia Lipner (Pearson plc)</li>
+				<li>Phil Madans (Hachette Livre)</li>
+				<li>Christopher Maden (University of Illinois at Urbana-Champaign)</li>
+				<li>Dmitry Markushevich (Evident Point Software)</li>
+				<li>Jonathan McGlone (University of Michigan)</li>
+				<li>Hugh McGuire (The Rebus Foundation)</li>
+				<li>Nellie McKesson (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Experts)</li>
+				<li>Selma Morais (NIC.br - Brazilian Network Information Center)</li>
+				<li>Jasmine Mulliken (Stanford University)</li>
+				<li>Cristina Mussinelli (Fondazione LIA)</li>
+				<li>Christos Nikolakakos (Wiley)</li>
+				<li>Gregorio Pellegrino (Fondazione LIA)</li>
+				<li>Fernando Pinto da Silva (EDRLab)</li>
+				<li>Chris Powell (University of Michigan)</li>
+				<li>Jeff Printy (Macmillan Learning)</li>
+				<li>Ryan Pugatch (Hachette Livre)</li>
+				<li>Florian Rivoal (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Experts)</li>
+				<li>Leonard Rosenthol (Adobe Systems Inc.)</li>
+				<li>Nicholas Ruffilo (VitalSource | Ingram Content Group)</li>
+				<li>Robert Sanderson (J. Paul Getty Trust)</li>
+				<li>Jodi Schneider (University of Illinois at Urbana-Champaign)</li>
+				<li>Ben Schroeter (Pearson plc)</li>
+				<li>Adam Sisco (Earth Science Data Systems Program)</li>
+				<li>David Stroup (Pearson plc)</li>
+				<li>Mateus Teixeira (W. W. Norton &amp; Company)</li>
+				<li>Jonathan Thurston (Pearson plc)</li>
+				<li>Yukio Tomikura (Kodansha, Publishers, Ltd.)</li>
+				<li>Ben Walters (Microsoft Corp.)</li>
+				<li>John Weise (University of Michigan)</li>
+				<li>Jason White (Educational Testing Service)</li>
+				<li>Richard Wright (EDRLab)</li>
+				<li>Evan Yamanishi (W. W. Norton &amp; Company)</li>
+				<li>Maurice York (University of Michigan)</li>
+				<li>Junichi Yoshii (Kodansha, Publishers, Ltd.)</li>
+				<li>Mohamed ZERGAOUI (INNOVIMAX)</li>
+			</ul>
+		</section>
+		<section id="references" class="appendix">
+			<h2 id="d-references"><span class="secno">D. </span>References<a class="self-link" aria-label="§"
+					href="#references"></a></h2>
+
+			<section id="normative-references">
+				<h3 id="d-1-normative-references"><span class="secno">D.1 </span>Normative references<a
+						class="self-link" aria-label="§" href="#normative-references"></a></h3>
+				<dl class="bibliography">
+					<dt id="bib-json-ld">[json-ld]</dt>
+					<dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg
+						Kellogg; Markus Lanthaler. W3C. 16 January 2014. W3C Recommendation. URL: <a
+							href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></dd>
+					<dt id="bib-pub-manifest">[pub-manifest]</dt>
+					<dd><a href="https://www.w3.org/TR/pub-manifest/"><cite>Publication Manifest</cite></a>. Matt
+						Garrish; Ivan Herman. 2018-08-16. URL: <a href="https://www.w3.org/TR/pub-manifest/"
+							>https://www.w3.org/TR/pub-manifest/</a></dd>
+					<dt id="bib-schema.org">[schema.org]</dt>
+					<dd><a href="https://schema.org"><cite>Schema.org</cite></a>. URL: <a href="https://schema.org"
+							>https://schema.org</a></dd>
+				</dl>
+			</section>
+			<section id="informative-references">
+				<h3 id="d-2-informative-references"><span class="secno">D.2 </span>Informative references<a
+						class="self-link" aria-label="§" href="#informative-references"></a></h3>
+				<dl class="bibliography">
+					<dt id="bib-dom">[dom]</dt>
+					<dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren. WHATWG.
+						Living Standard. URL: <a href="https://dom.spec.whatwg.org/"
+						>https://dom.spec.whatwg.org/</a></dd>
+					<dt id="bib-dpub-aria-1.0">[dpub-aria-1.0]</dt>
+					<dd><a href="https://www.w3.org/TR/dpub-aria-1.0/"><cite>Digital Publishing WAI-ARIA Module
+								1.0</cite></a>. Matt Garrish; Tzviya Siegman; Markus Gylling; Shane McCarron. W3C. 14
+						December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aria-1.0/"
+							>https://www.w3.org/TR/dpub-aria-1.0/</a></dd>
+					<dt id="bib-html">[html]</dt>
+					<dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van
+						Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters. WHATWG. Living
+						Standard. URL: <a href="https://html.spec.whatwg.org/multipage/"
+							>https://html.spec.whatwg.org/multipage/</a></dd>
+					<dt id="bib-lpf">[lpf]</dt>
+					<dd><a href="https://w3c.github.io/lpf/"><cite>Lightweight Packaging Format (LPF)</cite></a>.
+						Laurent Le Meur. 2018-08-07. URL: <a href="https://w3c.github.io/lpf/"
+							>https://w3c.github.io/lpf/</a></dd>
+					<dt id="bib-pwp-ucr">[PWP-UCR]</dt>
+					<dd><a href="https://www.w3.org/TR/pwp-ucr/"><cite>Web Publications Use Cases and
+								Requirements</cite></a>. Franco Alvarado; Joshua Pyle. W3C. 13 August 2019. W3C Note.
+						URL: <a href="https://www.w3.org/TR/pwp-ucr/">https://www.w3.org/TR/pwp-ucr/</a></dd>
+					<dt id="bib-sync-media-pub">[sync-media-pub]</dt>
+					<dd><a href="https://w3c.github.io/sync-media-pub/packaging.html"><cite>Packaging Synchronized
+								Narration for Web Publications</cite></a>. Marisa DeMeglio; Daniel Weck. 2019-07-12.
+						URL: <a href="https://w3c.github.io/sync-media-pub/packaging.html"
+							>https://w3c.github.io/sync-media-pub/packaging.html</a></dd>
+				</dl>
+			</section>
+		</section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top"
+		>↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body>
+</html>
