@@ -14,9 +14,9 @@
               wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
 			  edDraftURI: "https://w3c.github.io/audiobooks/",
-			  previousPublishDate: "2019-06-20",
-			  previousMaturity: "FPWD",
-              specStatus: "WD",
+			  previousPublishDate: "2019-09-11",
+			  previousMaturity: "WD",
+              specStatus: "ED",
               noRecTrack: false,
               shortName: "audiobooks",
               // prevRecURI: "",
@@ -154,12 +154,12 @@
 					<p>An audiobook's< manifest MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
-	{
-			"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
-			"type"     : "Audiobook"
-			&#8230;
-	}
-	</pre>
+						{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"     : "Audiobook"
+								&#8230;
+						}
+					</pre>
 
 				</section>
 
@@ -188,6 +188,9 @@
 								<dt>RECOMMENDED:</dt>
 								<dd>
 									<ul>
+										<li>
+											<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+										</li>
 										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
 										</li>
@@ -306,75 +309,114 @@
 
 						</section>
 
-						<section id="audio-readingorder">
-							<h4>Default Reading Order</h4>
+					</section>
 
-							<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
+					<section id="audio-readingorder">
+						<h3>Default Reading Order</h4>
 
-							<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+						<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
 
-							<pre class="example" title="Audiobook Reading Order for a Single Resource">
+						<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+
+						<pre class="example" title="Audiobook Reading Order for a Single Resource">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"readingOrder" : [{
+									"type"	: "LinkedResource",
+									"url"   : "audio/janeeyre.mp3",
+									"encodingFormat" : "audio/mp3",
+									"name"  : "Jane Eyre",
+									"duration" : "124503.123"
+								}]
+							}
+						</pre>
+
+						<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"readingOrder" : [{
+									"type"	: "LinkedResource",
+									"url"   : "audio/part001.wav#0",
+									"encodingFormat" : "audio/vnd-wav",
+									"name"  : "Chapter 1",
+									"duration" : "457.931"
+								}, {
+									"type"  : "LinkedResource",
+									"url"   : "audio/part001.wav#457.932",
+									"encodingFormat" : "audio/vnd-wav",
+									"name"  : "Chapter 2",
+									"duration" : "234.245"
+								}]
+							}
+						</pre>
+
+					</section>
+
+					<section id="audio-resourcelist">
+						<h3>Resource List</h4>
+
+						<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
+
+						<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
+
+						<pre class="example" title="Audiobook with Supplemental Content">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"resources" : [
+									"cover.jpg",
+									"portrait_CB.jpg",
+									"supplement.pdf"
+								]
+							}
+						</pre>
+
+						<section id="audio-preview">
+							<h4>Audiobook Previews</h4>
+
+							<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
+
+							<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+
+							<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
+
+							<pre class="example" title="Audiobook with an External Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
 									"type"		 : "Audiobook",
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
-									"readingOrder" : [{
-										"type"	: "LinkedResource",
-										"url"   : "audio/janeeyre.mp3",
-										"encodingFormat" : "audio/mp3",
-										"name"  : "Jane Eyre",
-										"duration" : "124503.123"
+									"resources" : [{
+										"type" : "LinkedResource",
+										"url" : "https://publisher.example.org/jane-eyre-preview.wav",
+										"encodingFormat" : "audio/wav",
+										"rel" : "preview"
 									}]
 								}
 							</pre>
 
-							<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+							<pre class="example" title="Audiobook with an Internal Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
 									"type"		 : "Audiobook",
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
-									"readingOrder" : [{
-										"type"	: "LinkedResource",
-										"url"   : "audio/part001.wav#0",
-										"encodingFormat" : "audio/vnd-wav",
-										"name"  : "Chapter 1",
-										"duration" : "457.931"
-									}, {
-										"type"  : "LinkedResource",
-										"url"   : "audio/part001.wav#457.932",
-										"encodingFormat" : "audio/vnd-wav",
-										"name"  : "Chapter 2",
-										"duration" : "234.245"
+									"resources" : [{
+										"type" : "LinkedResource",
+										"url"	: "preview.wav",
+										"encodingFormat" : "audio/wav",
+										"rel"	: "preview"
 									}]
 								}
 							</pre>
-
-						</section>
-
-						<section id="audio-resourcelist">
-							<h4>Resource List</h4>
-
-							<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
-
-							<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
-
-							<pre class="example" title="Audiobook with Supplemental Content">
-								{
-									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
-									"type"		 : "Audiobook",
-									"url"			 : "https://publisher.example.org/janeeyre",
-									"name"		 : "Jane Eyre",
-									"resources" : [
-										"cover.jpg",
-										"portrait_CB.jpg",
-										"supplement.pdf"
-									]
-								}
-							</pre>
-
-						</section>
 
 					</section>
 
@@ -408,14 +450,14 @@
 							"encodingFormat" : "audio/vnd-wav",
 							"name"  : "Chapter 1",
 							"duration" : "457.931",
-							"alternative" : "sync-media/part001-1.json"
+							"alternate" : "sync-media/part001-1.json"
 						}, {
 							"type"  : "LinkedResource",
 							"url"   : "audio/part001.wav#457.932",
 							"encodingFormat" : "audio/vnd-wav",
 							"name"  : "Chapter 2",
 							"duration" : "234.245",
-							"alternative" : "sync-media/part001-2.json"
+							"alternate" : "sync-media/part001-2.json"
 						}],
 						"resources" : [{
 				      "type": "LinkedResource",
@@ -433,16 +475,17 @@
 
 		</section>
 
-		<section id="security">
-			<h3>Security</h3>
+		<section id="security-privacy">
+			<h3>Security and Privacy Considerations</h3>
 
-			<div class="ednote">Placeholder for security issues.</div>
-		</section>
+			<p>As Audiobooks is a profile of Publication Manifest [[pub-manifest]], all <a href="https://w3c.org/TR/pub-manifest/#security-privacy">security and privacy</a> considerations detailed in that specification are applicable to this profile.</p>
 
-		<section id="privacy">
-			<h3>Privacy</h3>
+			<p>This profile acknowledges the following considerations:</p>
 
-			<div class="ednote">Placeholder for privacy issues.</div>
+			<ul>
+				<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resources">Resource List</a> can be references to both remote and local resources. In an audiobook manifest, all remote resources should share the same origin as the manifest file where possible.</li>
+			</ul>
+
 		</section>
 
 		<section id="audio-manifest-examples" class="appendix informative">
@@ -470,6 +513,7 @@
 						"author": "Charlotte Bronte",
 						"readBy": "Jane Doe",
 						"duration": "123456.789",
+						"abridged": "false",
 						"inLanguage": "en",
 						"dateModified": "2019-03-29T15:59:00Z",
 						"datePublished": "2019-03-29",
