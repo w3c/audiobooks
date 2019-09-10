@@ -5,7 +5,6 @@
 		<title>Audiobook Profile for Publication Manifest</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"  defer="defer"></script>
 		<script src="common/js/biblio.js" class="remove"></script>
-		<script src="common/js/orcid.js" class="remove"></script>
 		<script src="common/js/wp.js" class="remove"></script>
 		<!-- <link href="../common/css/common.css" rel="stylesheet" type="text/css" /> -->
 		<script class="remove">
@@ -15,9 +14,9 @@
               wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
 			  edDraftURI: "https://w3c.github.io/audiobooks/",
-			  previousPublishDate: "2019-08-28",
-			  previousMaturity: "FPWD",
-              specStatus: "WD",
+			  previousPublishDate: "2019-08-30",
+			  previousMaturity: "WD",
+              specStatus: "ED",
               noRecTrack: false,
               shortName: "audiobooks",
               // prevRecURI: "",
@@ -155,12 +154,12 @@
 					<p>An audiobook's< manifest MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
-	{
-			"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
-			"type"     : "Audiobook"
-			&#8230;
-	}
-	</pre>
+						{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"     : "Audiobook"
+								&#8230;
+						}
+					</pre>
 
 				</section>
 
@@ -189,6 +188,9 @@
 								<dt>RECOMMENDED:</dt>
 								<dd>
 									<ul>
+										<li>
+											<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+										</li>
 										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
 										</li>
@@ -307,75 +309,114 @@
 
 						</section>
 
-						<section id="audio-readingorder">
-							<h4>Default Reading Order</h4>
+					</section>
 
-							<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
+					<section id="audio-readingorder">
+						<h3>Default Reading Order</h4>
 
-							<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+						<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
 
-							<pre class="example" title="Audiobook Reading Order for a Single Resource">
+						<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+
+						<pre class="example" title="Audiobook Reading Order for a Single Resource">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"readingOrder" : [{
+									"type"	: "LinkedResource",
+									"url"   : "audio/janeeyre.mp3",
+									"encodingFormat" : "audio/mp3",
+									"name"  : "Jane Eyre",
+									"duration" : "124503.123"
+								}]
+							}
+						</pre>
+
+						<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"readingOrder" : [{
+									"type"	: "LinkedResource",
+									"url"   : "audio/part001.wav#0",
+									"encodingFormat" : "audio/vnd-wav",
+									"name"  : "Chapter 1",
+									"duration" : "457.931"
+								}, {
+									"type"  : "LinkedResource",
+									"url"   : "audio/part001.wav#457.932",
+									"encodingFormat" : "audio/vnd-wav",
+									"name"  : "Chapter 2",
+									"duration" : "234.245"
+								}]
+							}
+						</pre>
+
+					</section>
+
+					<section id="audio-resourcelist">
+						<h3>Resource List</h4>
+
+						<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
+
+						<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
+
+						<pre class="example" title="Audiobook with Supplemental Content">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+								"type"		 : "Audiobook",
+								"url"			 : "https://publisher.example.org/janeeyre",
+								"name"		 : "Jane Eyre",
+								"resources" : [
+									"cover.jpg",
+									"portrait_CB.jpg",
+									"supplement.pdf"
+								]
+							}
+						</pre>
+
+						<section id="audio-preview">
+							<h4>Audiobook Previews</h4>
+
+							<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
+
+							<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+
+							<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
+
+							<pre class="example" title="Audiobook with an External Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
 									"type"		 : "Audiobook",
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
-									"readingOrder" : [{
-										"type"	: "LinkedResource",
-										"url"   : "audio/janeeyre.mp3",
-										"encodingFormat" : "audio/mp3",
-										"name"  : "Jane Eyre",
-										"duration" : "124503.123"
+									"resources" : [{
+										"type" : "LinkedResource",
+										"url" : "https://publisher.example.org/jane-eyre-preview.wav",
+										"encodingFormat" : "audio/wav",
+										"rel" : "preview"
 									}]
 								}
 							</pre>
 
-							<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+							<pre class="example" title="Audiobook with an Internal Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
 									"type"		 : "Audiobook",
 									"url"			 : "https://publisher.example.org/janeeyre",
 									"name"		 : "Jane Eyre",
-									"readingOrder" : [{
-										"type"	: "LinkedResource",
-										"url"   : "audio/part001.wav#0",
-										"encodingFormat" : "audio/vnd-wav",
-										"name"  : "Chapter 1",
-										"duration" : "457.931"
-									}, {
-										"type"  : "LinkedResource",
-										"url"   : "audio/part001.wav#457.932",
-										"encodingFormat" : "audio/vnd-wav",
-										"name"  : "Chapter 2",
-										"duration" : "234.245"
+									"resources" : [{
+										"type" : "LinkedResource",
+										"url"	: "preview.wav",
+										"encodingFormat" : "audio/wav",
+										"rel"	: "preview"
 									}]
 								}
 							</pre>
-
-						</section>
-
-						<section id="audio-resourcelist">
-							<h4>Resource List</h4>
-
-							<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
-
-							<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
-
-							<pre class="example" title="Audiobook with Supplemental Content">
-								{
-									"@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
-									"type"		 : "Audiobook",
-									"url"			 : "https://publisher.example.org/janeeyre",
-									"name"		 : "Jane Eyre",
-									"resources" : [
-										"cover.jpg",
-										"portrait_CB.jpg",
-										"supplement.pdf"
-									]
-								}
-							</pre>
-
-						</section>
 
 					</section>
 
