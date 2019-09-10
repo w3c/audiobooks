@@ -409,14 +409,14 @@
 							"encodingFormat" : "audio/vnd-wav",
 							"name"  : "Chapter 1",
 							"duration" : "457.931",
-							"alternative" : "sync-media/part001-1.json"
+							"alternate" : "sync-media/part001-1.json"
 						}, {
 							"type"  : "LinkedResource",
 							"url"   : "audio/part001.wav#457.932",
 							"encodingFormat" : "audio/vnd-wav",
 							"name"  : "Chapter 2",
 							"duration" : "234.245",
-							"alternative" : "sync-media/part001-2.json"
+							"alternate" : "sync-media/part001-2.json"
 						}],
 						"resources" : [{
 				      "type": "LinkedResource",
@@ -434,16 +434,17 @@
 
 		</section>
 
-		<section id="security">
-			<h3>Security</h3>
+		<section id="security-privacy">
+			<h3>Security and Privacy Considerations</h3>
 
-			<div class="ednote">Placeholder for security issues.</div>
-		</section>
+			<p>As Audiobooks is a profile of Publication Manifest [[pub-manifest]], all <a href="https://w3c.org/TR/pub-manifest/#security-privacy">security and privacy</a> considerations detailed in that specification are applicable to this profile.</p>
 
-		<section id="privacy">
-			<h3>Privacy</h3>
+			<p>This profile acknowledges the following considerations:</p>
 
-			<div class="ednote">Placeholder for privacy issues.</div>
+			<ul>
+				<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resources">Resource List</a> can be references to both remote and local resources. In an audiobook manifest, all remote resources should share the same origin as the manifest file where possible.</li>
+			</ul>
+
 		</section>
 
 		<section id="audio-manifest-examples" class="appendix informative">
@@ -471,6 +472,7 @@
 						"author": "Charlotte Bronte",
 						"readBy": "Jane Doe",
 						"duration": "123456.789",
+						"abridged": "false",
 						"inLanguage": "en",
 						"dateModified": "2019-03-29T15:59:00Z",
 						"datePublished": "2019-03-29",
