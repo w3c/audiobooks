@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-		<title>Audiobook Profile for Publication Manifest</title>
+		<title>Audiobooks</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"  defer="defer"></script>
 		<script src="common/js/biblio.js" class="remove"></script>
 		<script src="common/js/wp.js" class="remove"></script>
@@ -54,7 +54,7 @@
 		<section id="audio-introduction">
 			<h1>Introduction</h1>
 
-			<p>This specification is a profile of the <dfn>Publication Manifest</dfn> specification. It will describe the requirements to create an Audiobook.</p>
+			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the <dfn>Publication Manifest</dfn> specification.</p>
 
 			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or as a packaged entity.</p>
 
@@ -174,9 +174,6 @@
 								<dd>
 									<ul>
 										<li>
-											<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
-										</li>
-										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading order</a>
 										</li>
 										<li>
@@ -195,6 +192,9 @@
 										</li>
 										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#accessibility-report">accessibility report</a>
+										</li>
+										<li>
+											<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
 										</li>
 										<li>
 											<a href="https://www.w3.org/TR/pub-manifest/#language-and-dir">base direction</a>
@@ -431,7 +431,7 @@
 			<section id="audio-accessibility" class="informative">
 				<h2>Accessibility</h2>
 
-				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use the <a href="https://w3c.github.io/sync-media-pub/packaging.html">Synchronized Media</a> note to create documents where text and audio can be completely synchronized.</p>
+				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use the <a href="https://w3c.github.io/sync-media-pub/">Synchronized Media</a> note to create documents where text and audio can be completely synchronized.</p>
 
 				<p>To create an accessible audiobook using Synchronized Media, you need to both reference the alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list the file in the <a href="#audio-resourcelist">resources</a>.</p>
 
@@ -482,7 +482,7 @@
 			<p>This profile acknowledges the following considerations:</p>
 
 			<ul>
-				<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resourcelist">Resource List</a> can be references to both remote and local resources. In an audiobook manifest, all remote resources should share the same origin as the manifest file where possible.</li>
+				<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resourcelist">Resource List</a> can be references to both remote and local resources.</li>
 			</ul>
 
 		</section>
