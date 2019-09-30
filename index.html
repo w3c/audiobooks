@@ -470,6 +470,29 @@
 						]
 					}
 				</pre>
+
+				<pre class="example" title="Audiobook with Alternate Text">
+					{
+						"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+						"type"		 : "Audiobook",
+						"url"      : "https://publisher.example.org/janeeyre",
+						"name"     : "Jane Eyre",
+						"readingOrder" : {
+							"type"	: "LinkedResource",
+							"url"   : "audio/part001.wav#0",
+							"encodingFormat" : "audio/vnd-wav",
+							"name"  : "Chapter 1",
+							"duration" : "457.931",
+							"alternate" : "text/part001-1.html"
+						},
+						"resources" : [{
+				      "type": "LinkedResource",
+				      "url": "text/part001-1.html",
+				      "encodingFormat" : "text/html"
+				    }...
+						]
+					}
+				</pre>
 			</section>
 
 		</section>
