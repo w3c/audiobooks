@@ -92,7 +92,7 @@
 
 						<p>To determine whether a resource is within the bounds of an Audiobook, user agents MUST compare the absolute URL of a resource to the absolute URLs of the resources obtained from the union. If the resource is identified in the enumeration, it is within the bounds of the Audiobook. All other resources are external to the Audiobook.</p>
 
-						<p>Resources within the bounds of a Audiobook do not have to share the same domain.</p>
+						<p>Resources within the bounds of an Audiobook do not have to share the same domain.</p>
 				</section>
 
 				<section id="audio-pep">
@@ -148,14 +148,14 @@
 				</section>
 
 				<section id="audio-type">
-					<h3>Publication Type</h3>
+					<h3>Publication Conformance</h3>
 
-					<p>An audiobook's< manifest MUST define its <dfn>Publication Type</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>type</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The type MUST be <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[schema.org]].</p>
+					<p>An audiobook's< manifest MUST define its <dfn>Conformance URL</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>conformsTo</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The conformance URL MUST be <a href="https://www.w3.org/TR/audiobooks"><code>https://www.w3.org/TR/audiobooks</code></a>&#160;[[schema.org]].</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
 						{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"type"     : "Audiobook"
+								"conformsTo" : "https://www.w3.org/TR/audiobooks"
 								&#8230;
 						}
 					</pre>
@@ -233,7 +233,7 @@
 											<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
 										</li>
 										<li>
-											<a href="#table-of-contents">table of contents</a>
+											<a href-"https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
 										</li>
 									</ul>
 								</dd>
@@ -256,28 +256,28 @@
 
 								<pre class="example" title="Author of a book">
 		{
-		    "type"     : "Audiobook",
+		    "conformsTo" : "https://www.w3.org/TR/audiobooks",
 		    "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
 		    &#8230;
-		    "url"      : "https://publisher.example.org/janeeyre",
-		    "author"   : {
-		        "type"  : "Person",
-		        "name"  : "Charlotte Bronte"
+		    "url" : "https://publisher.example.org/janeeyre",
+		    "author" : {
+		        "type" : "Person",
+		        "name" : "Charlotte Bronte"
 		    }
 		}
 		</pre>
 
 								<pre class="example" title="Author and Narrator of an Audiobook">
 		{
-				"type"		: "Audiobook";
+				"conformsTo" : "https://www.w3.org/TR/audiobooks";
 				"@context": ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 				&#8230;
-				"url"			: "https://publisher.example.org/janeeyre",
-				"author"	: {
+				"url"	: "https://publisher.example.org/janeeyre",
+				"author" : {
 						"type": "Person",
 						"name": "Charlotte Bronte"
 				}
-				"readBy"	: {
+				"readBy" : {
 						"type": "Person",
 						"name": "Ivan Herman",
 						"id"	: "https://www.w3.org/People/Ivan/"
@@ -294,15 +294,15 @@
 
 								<pre class="example" title="Duration of an Audiobook in Seconds">
 									{
-											"type"     : "Audiobook",
+											"conformsTo" : "https://www.w3.org/TR/audiobooks",
 											"@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
 											&#8230;
-											"url"      : "https://publisher.example.org/janeeyre",
-											"author"   : {
+											"url" : "https://publisher.example.org/janeeyre",
+											"author" : {
 													"type"  : "Person",
 													"name"  : "Charlotte Bronte"
 											},
-											"duration" : "12345.235"
+											"duration" : "PT12345.235S"
 									}
 								</pre>
 
@@ -320,15 +320,15 @@
 						<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"type"		 : "Audiobook",
-								"url"			 : "https://publisher.example.org/janeeyre",
-								"name"		 : "Jane Eyre",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
+								"url" : "https://publisher.example.org/janeeyre",
+								"name" : "Jane Eyre",
 								"readingOrder" : [{
-									"type"	: "LinkedResource",
-									"url"   : "audio/janeeyre.mp3",
+									"type" : "LinkedResource",
+									"url" : "audio/janeeyre.mp3",
 									"encodingFormat" : "audio/mp3",
-									"name"  : "Jane Eyre",
-									"duration" : "124503.123"
+									"name" : "Jane Eyre",
+									"duration" : "PT124503.123S"
 								}]
 							}
 						</pre>
@@ -336,21 +336,21 @@
 						<pre class="example" title="Audiobook Reading Order for Multiple Resources">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"type"		 : "Audiobook",
-								"url"			 : "https://publisher.example.org/janeeyre",
-								"name"		 : "Jane Eyre",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
+								"url" : "https://publisher.example.org/janeeyre",
+								"name" : "Jane Eyre",
 								"readingOrder" : [{
-									"type"	: "LinkedResource",
-									"url"   : "audio/part001.wav#0",
+									"type": "LinkedResource",
+									"url" : "audio/part001.wav#0",
 									"encodingFormat" : "audio/vnd-wav",
-									"name"  : "Chapter 1",
-									"duration" : "457.931"
+									"name" : "Chapter 1",
+									"duration" : "PT457.931S"
 								}, {
-									"type"  : "LinkedResource",
-									"url"   : "audio/part001.wav#457.932",
+									"type" : "LinkedResource",
+									"url" : "audio/part001.wav#457.932",
 									"encodingFormat" : "audio/vnd-wav",
-									"name"  : "Chapter 2",
-									"duration" : "234.245"
+									"name" : "Chapter 2",
+									"duration" : "PT234.245S"
 								}]
 							}
 						</pre>
@@ -367,9 +367,9 @@
 						<pre class="example" title="Audiobook with Supplemental Content">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"type"		 : "Audiobook",
-								"url"			 : "https://publisher.example.org/janeeyre",
-								"name"		 : "Jane Eyre",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
+								"url" : "https://publisher.example.org/janeeyre",
+								"name" : "Jane Eyre",
 								"resources" : [
 									"cover.jpg",
 									"portrait_CB.jpg",
@@ -390,9 +390,9 @@
 							<pre class="example" title="Audiobook with an External Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-									"type"		 : "Audiobook",
-									"url"			 : "https://publisher.example.org/janeeyre",
-									"name"		 : "Jane Eyre",
+									"conformsTo" : "https://www.w3.org/TR/audiobooks",
+									"url"	: "https://publisher.example.org/janeeyre",
+									"name" : "Jane Eyre",
 									"resources" : [{
 										"type" : "LinkedResource",
 										"url" : "https://publisher.example.org/jane-eyre-preview.wav",
@@ -405,9 +405,9 @@
 							<pre class="example" title="Audiobook with an Internal Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-									"type"		 : "Audiobook",
-									"url"			 : "https://publisher.example.org/janeeyre",
-									"name"		 : "Jane Eyre",
+									"conformsTo" : "https://www.w3.org/TR/audiobooks",
+									"url"	: "https://publisher.example.org/janeeyre",
+									"name" : "Jane Eyre",
 									"resources" : [{
 										"type" : "LinkedResource",
 										"url"	: "preview.wav",
@@ -440,23 +440,29 @@
 				<pre class="example" title="Audiobook with Synchronized Media">
 					{
 						"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-						"type"		 : "Audiobook",
-						"url"      : "https://publisher.example.org/janeeyre",
-						"name"     : "Jane Eyre",
+						"conformsTo" : "https://www.w3.org/TR/audiobooks",
+						"url" : "https://publisher.example.org/janeeyre",
+						"name" : "Jane Eyre",
 						"readingOrder" : [{
-							"type"	: "LinkedResource",
-							"url"   : "audio/part001.wav#0",
+							"type" : "LinkedResource",
+							"url" : "audio/part001.wav",
 							"encodingFormat" : "audio/vnd-wav",
-							"name"  : "Chapter 1",
-							"duration" : "457.931",
-							"alternate" : "sync-media/part001-1.json"
+							"name" : "Chapter 1",
+							"duration" : "PT457.931S",
+							"alternate" : {
+								"type" : "LinkedResource",
+								"url" : "sync-media/part001-1.json",
+								"encodingFormat" : "application/vnd.wp-sync-media+json"}
 						}, {
-							"type"  : "LinkedResource",
-							"url"   : "audio/part001.wav#457.932",
+							"type" : "LinkedResource",
+							"url" : "audio/part001.wav#t=457.932",
 							"encodingFormat" : "audio/vnd-wav",
-							"name"  : "Chapter 2",
-							"duration" : "234.245",
-							"alternate" : "sync-media/part001-2.json"
+							"name" : "Chapter 2",
+							"duration" : "PT234.245S",
+							"alternate" : {
+								"type" : "LinkedResource",
+								"url" : "sync-media/part001-2.json",
+								"encodingFormat" : "application/vnd.wp-sync-media+json"}
 						}],
 						"resources" : [{
 				      "type": "LinkedResource",
@@ -474,16 +480,19 @@
 				<pre class="example" title="Audiobook with Alternate Text">
 					{
 						"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-						"type"		 : "Audiobook",
-						"url"      : "https://publisher.example.org/janeeyre",
-						"name"     : "Jane Eyre",
+						"conformsTo" : "https://www.w3.org/TR/audiobooks",
+						"url" : "https://publisher.example.org/janeeyre",
+						"name" : "Jane Eyre",
 						"readingOrder" : {
-							"type"	: "LinkedResource",
-							"url"   : "audio/part001.wav#0",
+							"type" : "LinkedResource",
+							"url" : "audio/part001.wav#0",
 							"encodingFormat" : "audio/vnd-wav",
-							"name"  : "Chapter 1",
-							"duration" : "457.931",
-							"alternate" : "text/part001-1.html"
+							"name" : "Chapter 1",
+							"duration" : "PT457.931S",
+							"alternate" : {
+								"type" : "LinkedResource"
+								"url" : "text/part001-1.html",
+								"encodingFormat" : "text/html"}
 						},
 						"resources" : [{
 				      "type": "LinkedResource",
@@ -510,6 +519,55 @@
 
 		</section>
 
+		<section id="audio-ua-behaviour">
+			<h2>User Agent Behaviours for Audiobooks</h2>
+
+			<p>This section will outline the expected user agent behaviours for implementation of audiobooks. For processing instructions, user agents should refer to the <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour described there. This section will outline any additional user agent behaviours for audiobooks.</p>
+
+			<p>All user agent behaviours described in this section are intended to provide implementors with guidance, not strict requirements. Behaviours in this document will be mainly taken from the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note published by the working group.</p>
+
+			<section id="audio-ua-navigation">
+				<h3>Opening and Navigating the Contents of an Audiobook</h3>
+
+				<p>When a user requests for a User Agent to open an audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
+
+				<p>Resources within the Reading Order and Resource list that are non-audio resources should have a method for display, if possible for the User Agent. If the content cannot be displayed in the User Agent for any reason, it is recommended that the User Agent inform the user that the content is present by displaying it in the table of contents (if available), and provide a method for accessing it (see the section on <a href="#audio-ua-packaging">Packaging</a>.</p>
+
+				<p>If an audiobook has a <a href="#audio-pep">Primary Entry Page</a>, the User Agent can choose to display that as the Table of Contents.</p>
+
+			</section>
+
+			<section id="audio-ua-playback">
+				<h3>Audiobook Playability</h3>
+
+				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note, an audiobook should be navigable in the User Agent. This means that a User Agent should provide methods for the user to move through the audiobook in a linear or non-linear fashion by either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move through individual audio files in short time increments.</p>
+
+				<p>For an audiobook, the User Agent should provide a <a href="https://www.w3.org/TR/pwp-ucr/#player">player interface</a> that will allow the user to navigate, play, or pause the audiobook. This interface can be represented to the user in any way (i.e. physical buttons, visual interface, keyboard input, or voice commands), but should be accessible at any point in the listening experience.</p>
+
+			</section>
+
+			<section id="audio-ua-packaging">
+				<h3>Audiobook Packaging and Offlining</h3>
+
+				<p>The <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note recommends that content be available offline and that any packaged formats should not affect the iterations of the publications. This means that even if the content is copied many times to many users via multiple User Agents, the core manifest and it's identifier are never changed.</p>
+
+				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging Format</a> for packaging audiobook content, but this is a requirement. Audiobook User Agents should be able to ingest LPF files for play, and should display content according to the requirements and recommendations in this document.</p>
+
+				<p>If a User Agent is serving the content directly from their service (i.e. as a retailer or repository of content), it is recommended that they provide a method for offlining or downloading the content to the user. This can be in any format they choose, but the audiobook should be complete and valid and the contents listed in the manifest should be served in their entirety. Even if a User Agent does not support the display of a certain resource (i.e. an image file or data table), it should still be available to the user for download.</p>
+
+				<p>This specification does not provide a method for content creators to protect or watermark their content, as there are existing methods available in the market today. User Agents who work with content creators that wish to protect or limit the distribution of their content can choose a method that works best for their requirements.</p>
+
+			</section>
+
+			<section id="audio-ua-accessibility">
+				<h3>Audiobooks Accessibility</h3>
+
+				<p>This specification recommends and provides a method for content creators to create fully accessible audiobooks. User Agents should use this information, in the section on <a href="#audio-accessiblity">Accessibility</a>, to implement accessible audiobook interfaces. Depending on the limitations of the user agent, it is recommended that User Agents provide accessible player interfaces, as well as a method for content creators who have provided <code>alternate</code> content to have that content displayed.</p>
+
+			</section>
+
+		</section>
+
 		<section id="audio-manifest-examples" class="appendix informative">
 			<h2>Manifest Examples</h2>
 
@@ -527,25 +585,25 @@
 				<p>A manifest for an audiobook with supplemental content.</a>
 				<pre class="example">
 					{
-						"@context": ["https://schema.org", "https://www.w3/org/ns/pub-context"],
-						"type": "Audiobook",
-						"id": "https://publisher.example.com/janeeyre",
-						"url": "https://publisher.example.com/janeeyre",
-						"name": "Jane Eyre",
-						"author": "Charlotte Bronte",
-						"readBy": "Jane Doe",
-						"duration": "123456.789",
-						"abridged": "false",
-						"inLanguage": "en",
-						"dateModified": "2019-03-29T15:59:00Z",
-						"datePublished": "2019-03-29",
+						"@context" : ["https://schema.org", "https://www.w3/org/ns/pub-context"],
+						"conformsTo" : "https://www.w3.org/TR/audiobooks",
+						"id" : "https://publisher.example.com/janeeyre",
+						"url" : "https://publisher.example.com/janeeyre",
+						"name" : "Jane Eyre",
+						"author" : "Charlotte Bronte",
+						"readBy" : "Jane Doe",
+						"duration" : "PT123456.789S",
+						"abridged" : "false",
+						"inLanguage" : "en",
+						"dateModified" : "2019-03-29T15:59:00Z",
+						"datePublished" : "2019-03-29",
 
 						"readingOrder": [
-							{"url": "audio/chapter001.aac", "encodingFormat": "audio/aac", "name": "Chapter 1", "duration": "1234.567"},
-							{"url": "audio/chapter002.aac", "encodingFormat": "audio/aac", "name": "Chapter 2", "duration": "890.123"},
-							{"url": "audio/chapter003.aac", "encodingFormat": "audio/aac", "name": "Chapter 3", "duration": "456.789"},
-							{"url": "audio/chapter004.aac", "encodingFormat": "audio/aac", "name": "Chapter 4", "duration": "987.654"},
-							{"url": "audio/chapter005.aac", "encodingFormat": "audio/aac", "name": "Chapter 5", "duration": "321.987"}
+							{"url": "audio/chapter001.aac", "encodingFormat": "audio/aac", "name": "Chapter 1", "duration": "PT1234.567S"},
+							{"url": "audio/chapter002.aac", "encodingFormat": "audio/aac", "name": "Chapter 2", "duration": "PT890.123S"},
+							{"url": "audio/chapter003.aac", "encodingFormat": "audio/aac", "name": "Chapter 3", "duration": "PT456.789S"},
+							{"url": "audio/chapter004.aac", "encodingFormat": "audio/aac", "name": "Chapter 4", "duration": "PT987.654S"},
+							{"url": "audio/chapter005.aac", "encodingFormat": "audio/aac", "name": "Chapter 5", "duration": "PT321.987S"}
 						],
 
 						"resources": [
@@ -570,10 +628,10 @@
 				    &#8230;
 				    &lt;script type="application/ld+json"&gt;
 				    {
-				        "@context"        : ["https://schema.org","https://www.w3.org/ns/pub-context"],
-				        "type"            : "Audiobook",
+				        "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
+				        "conformsTo" : "https://www.w3.org/TR/audiobooks",
 				        &#8230;
-				        "url"             : "https://publisher.example.org/janeeyre",
+				        "url" : "https://publisher.example.org/janeeyre",
 				        &#8230;
 				    }
 				    &lt;/script&gt;
@@ -623,8 +681,8 @@
 
 						&lt;ol>
 							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3">Chapter 1&lt;/a>&lt;/li>
-							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#456.789">Chapter 2&lt;/a>&lt;/li>
-							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#1234.567">Chapter 3&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=456.789">Chapter 2&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=1234.567">Chapter 3&lt;/a>&lt;/li>
 						&lt;/ol>
 					&lt;/nav>
 				</pre>
