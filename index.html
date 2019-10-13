@@ -150,7 +150,7 @@
 				<section id="audio-type">
 					<h3>Publication Conformance</h3>
 
-					<p>An audiobook's< manifest MUST define its <dfn>Conformance URL</dfn> using the <code data-dfn-for="PublicationManifest"><dfn>conformsTo</dfn></code> term&#160;[[!pub-manifest]], [[!json-ld]]. The conformance URL MUST be <a href="https://www.w3.org/TR/audiobooks"><code>https://www.w3.org/TR/audiobooks</code></a>&#160;[[schema.org]].</p>
+					<p>The conformance URL expressed in the <a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code> term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks</code>".</p>
 
 					<pre class="example" title="Setting a publication's type to Audiobook.">
 						{
@@ -258,6 +258,7 @@
 		{
 		    "conformsTo" : "https://www.w3.org/TR/audiobooks",
 		    "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
+				"type" : "Audiobook",
 		    &#8230;
 		    "url" : "https://publisher.example.org/janeeyre",
 		    "author" : {
@@ -519,19 +520,19 @@
 
 		</section>
 
-		<section id="audio-ua-behaviour">
+		<section id="audio-ua-behaviour" class="informative">
 			<h2>User Agent Behaviours for Audiobooks</h2>
 
-			<p>This section will outline the expected user agent behaviours for implementation of audiobooks. For processing instructions, user agents should refer to the <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour described there. This section will outline any additional user agent behaviours for audiobooks.</p>
+			<p>This section outlines the expected user agent behaviours for implementation of audiobooks. For processing instructions, user agents should refer to the <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour described there.</p>
 
-			<p>All user agent behaviours described in this section are intended to provide implementors with guidance, not strict requirements. Behaviours in this document will be mainly taken from the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note published by the working group.</p>
+			<p>All user agent behaviours described in this section are intended to provide implementors with guidance, not strict requirements. Behaviours in this document are taken mainly from the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note published by the working group.</p>
 
 			<section id="audio-ua-navigation">
 				<h3>Opening and Navigating the Contents of an Audiobook</h3>
 
-				<p>When a user requests for a User Agent to open an audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
+				<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
 
-				<p>Resources within the Reading Order and Resource list that are non-audio resources should have a method for display, if possible for the User Agent. If the content cannot be displayed in the User Agent for any reason, it is recommended that the User Agent inform the user that the content is present by displaying it in the table of contents (if available), and provide a method for accessing it (see the section on <a href="#audio-ua-packaging">Packaging</a>.</p>
+				<p>User agents should provide a means of rendering non-audio resources within the Reading Order and Resource list. If the content cannot be rendered by the user agent, it is recommended that the user agent inform the user that the content is present but cannot be rendered.</p>
 
 				<p>If an audiobook has a <a href="#audio-pep">Primary Entry Page</a>, the User Agent can choose to display that as the Table of Contents.</p>
 
@@ -540,7 +541,7 @@
 			<section id="audio-ua-playback">
 				<h3>Audiobook Playability</h3>
 
-				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note, an audiobook should be navigable in the User Agent. This means that a User Agent should provide methods for the user to move through the audiobook in a linear or non-linear fashion by either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move through individual audio files in short time increments.</p>
+				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note, an audiobook must be navigable in the User Agent. This means that a User Agent must provide methods for the user to move through the audiobook in a linear or non-linear fashion by either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move through individual audio files in short time increments.</p>
 
 				<p>For an audiobook, the User Agent should provide a <a href="https://www.w3.org/TR/pwp-ucr/#player">player interface</a> that will allow the user to navigate, play, or pause the audiobook. This interface can be represented to the user in any way (i.e. physical buttons, visual interface, keyboard input, or voice commands), but should be accessible at any point in the listening experience.</p>
 
@@ -551,7 +552,7 @@
 
 				<p>The <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note recommends that content be available offline and that any packaged formats should not affect the iterations of the publications. This means that even if the content is copied many times to many users via multiple User Agents, the core manifest and it's identifier are never changed.</p>
 
-				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging Format</a> for packaging audiobook content, but this is a requirement. Audiobook User Agents should be able to ingest LPF files for play, and should display content according to the requirements and recommendations in this document.</p>
+				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents should be able to ingest LPF files for play, and should display content according to the requirements and recommendations in this document.</p>
 
 				<p>If a User Agent is serving the content directly from their service (i.e. as a retailer or repository of content), it is recommended that they provide a method for offlining or downloading the content to the user. This can be in any format they choose, but the audiobook should be complete and valid and the contents listed in the manifest should be served in their entirety. Even if a User Agent does not support the display of a certain resource (i.e. an image file or data table), it should still be available to the user for download.</p>
 
@@ -562,7 +563,7 @@
 			<section id="audio-ua-accessibility">
 				<h3>Audiobooks Accessibility</h3>
 
-				<p>This specification recommends and provides a method for content creators to create fully accessible audiobooks. User Agents should use this information, in the section on <a href="#audio-accessiblity">Accessibility</a>, to implement accessible audiobook interfaces. Depending on the limitations of the user agent, it is recommended that User Agents provide accessible player interfaces, as well as a method for content creators who have provided <code>alternate</code> content to have that content displayed.</p>
+				<p>This specification recommends and provides a method for content creators to create fully <a href="#audio-accessiblity">accessible audiobooks</a>. User Agents should use this information, in the section on Accessibility, to implement accessible audiobook interfaces. It is recommended that User Agents provide accessible player interfaces, as well as a method for content creators who have provided <code>alternate</code> content to have that content displayed.</p>
 
 			</section>
 
