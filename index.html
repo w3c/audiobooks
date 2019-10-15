@@ -530,11 +530,11 @@
 			<section id="audio-ua-navigation">
 				<h3>Opening and Navigating the Contents of an Audiobook</h3>
 
-				<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
+				<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. A User Agent should be able to provide a list of the contents of the audiobook available to the user when requested. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
 
 				<p>User agents should provide a means of rendering non-audio resources within the Reading Order and Resource list. If the content cannot be rendered by the user agent, it is recommended that the user agent inform the user that the content is present but cannot be rendered.</p>
 
-				<p>If an audiobook has a <a href="#audio-pep">Primary Entry Page</a>, the User Agent can choose to display that as the Table of Contents.</p>
+				<p>The <a href="#audio-pep">Primary Entry Page</a> is intended to be, when available, the entry point to the audiobook. If a content creator has provided a primary entry page, and the User Agent is capable of rendering or processing HTML content, it should be the first thing presented to the user. The Primary Entry Page may or may not contain a Table of Contents, if included using the <code>role="doc-toc"</code> it should be treated as the Table of Contents. If the Table of Contents is a separate document, it can be rendered however the User Agent chooses as long as it meets the requirements laid out above. If no Table of Contents is included in the Primary Entry Page or elsewhere, the User Agent should refer to the Reading Order.</p>
 
 			</section>
 
