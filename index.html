@@ -83,15 +83,6 @@
 			<section id="audio-construction">
 				<h3>Construction</h3>
 
-				<section id="audio-bounds">
-					<h4>Bounds</h4>
-					<p>An Audiobook consists of a finite set of <a href="#audio-resourcelist">resources</a> that represent its content. This extent is known as its bounds and is defined within its manifest &#8212; it is obtained from the union of resources listed in the <a href="#audio-readingorder">default reading order</a> and <a href="#audio-resourcelist">resource list</a>.</p>
-
-					<p>To determine whether a resource is within the bounds of an Audiobook, user agents MUST compare the absolute URL of a resource to the absolute URLs of the resources obtained from the union. If the resource is identified in the enumeration, it is within the bounds of the Audiobook. All other resources are external to the Audiobook.</p>
-
-					<p>Resources within the bounds of an Audiobook do not have to share the same domain.</p>
-				</section>
-
 				<section id="audio-pep">
 					<h4>Primary Entry Page</h4>
 
@@ -111,7 +102,19 @@
 
 					<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the manifest SHOULD <a href="#table-of-contents">identify the resource</a> that contains the structure.</p>
 
-					<p>When an Audiobook contains additional resources (i.e. supplemental content) a table of contents SHOULD be included, the table of contents SHOULD include a link to all <a href="#audio-resourcelist">resources</a>, and all links SHOULD refer to <a href="#audio-resourcelist">resources</a> within <a href="#audio-bounds">publication bounds</a>.</p>
+					<p>When an Audiobook contains additional resources (i.e. supplemental content):</p>
+
+					<ul>
+						<li>
+							<p>a table of contents SHOULD be included;</p>
+						</li>
+						<li>
+							<p>the table of contents SHOULD include a link to all <a href="#audio-resourcelist">resources</a>; and</p>
+						</li>
+						<li>
+							<p>and all links SHOULD refer to <a href="https://www.w3.org/TR/pub-manifest/#publication-resources">publication resources</a>&#160;[[!pub-manifest]].</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 
@@ -373,19 +376,19 @@
 									"portrait_CB.jpg",
 									"supplement.pdf"
 								]
-							}
-						</pre>
+							}</pre>
+				</section>
 
-					<section id="audio-preview">
-						<h4>Audiobook Previews</h4>
+				<section id="audio-preview">
+					<h4>Audiobook Previews</h4>
 
-						<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
+					<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
 
-						<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+					<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
 
-						<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
+					<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
 
-						<pre class="example" title="Audiobook with an External Preview">
+					<pre class="example" title="Audiobook with an External Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 									"conformsTo" : "https://www.w3.org/TR/audiobooks",
@@ -397,10 +400,9 @@
 										"encodingFormat" : "audio/wav",
 										"rel" : "preview"
 									}]
-								}
-							</pre>
+								}</pre>
 
-						<pre class="example" title="Audiobook with an Internal Preview">
+					<pre class="example" title="Audiobook with an Internal Preview">
 								{
 									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 									"conformsTo" : "https://www.w3.org/TR/audiobooks",
@@ -412,11 +414,7 @@
 										"encodingFormat" : "audio/wav",
 										"rel"	: "preview"
 									}]
-								}
-							</pre>
-
-					</section>
-
+								}</pre>
 				</section>
 
 				<section id="audio-packaging" class="informative">
