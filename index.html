@@ -44,47 +44,41 @@
 	</head>
 	<body>
 		<section id="abstract">
-			<p>This specification provides a draft version of an Audiobook specification for the web. It references the [[pub-manifest]] for its vocabulary. This document also contains references to [[lpf]] and [[sync-media-pub]].</p>
+			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the <dfn>Publication Manifest</dfn> specification.</p>
 		</section>
 
 		<section id="sotd">
 			<p>This draft is still under consideration within the Publishing Working Group and is subject to change. The most prominent issues will be referenced in the document with links provided.</p>
 		</section>
 
-		<section id="conformance">
-
-		</section>
-
-		<section id="audio-introduction">
-			<h2>Introduction</h2>
-
-			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the <dfn>Publication Manifest</dfn> specification.</p>
-
-			<h3>Scope</h3>
-
-			<p>An Audiobook is defined as a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or as a packaged entity.</p>
-
+		<section id="intro" class="informative">
+			<h3>Introduction</h3>
+			
+			<p>An Audiobook is a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or as a packaged entity.</p>
+			
 			<p>This specification is intended to standardize the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents. This specification does not outline what file types or formats should be used by content creators, only a manifest format for delivering them.</p>
 
 			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of affordances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
-
-			<section id="audio-terminology">
-				<h3>Terminology</h3>
-
-				<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a data-cite="!pub-manifest/#terminology">terms and definitions</a> is provided in [[pub-manifest]].</p>
-
-				<p>Only the first instance of a term in a section is linked to its definition.</p>
-
-				<p>In addition, the following terminology is defined for use in this specification:</p>
-
-				<dl class="termlist">
-					<dt><dfn id="dfn-file-name" data-lt="File Names">Supplemental Content</dfn></dt>
-					<dd>
-						<p>Supplemental content is any content relating to the audiobook content but not required for the full experience of the publication. Examples of supplemental content include photographs, charts, or data relating to topics mentioned in the audiobook.</p>
-					</dd>
-				</dl>
-			</section>
 		</section>
+		
+		<section id="audio-terminology">
+			<h3>Terminology</h3>
+
+			<p>Terms with meanings specific to the publishing industry are capitalized in this document (e.g., "Reading System"). A complete list of these <a data-cite="!pub-manifest/#terminology">terms and definitions</a> is provided in [[pub-manifest]].</p>
+
+			<p>Only the first instance of a term in a section is linked to its definition.</p>
+
+			<p>In addition, the following terminology is defined for use in this specification:</p>
+
+			<dl class="termlist">
+				<dt><dfn id="dfn-file-name" data-lt="File Names">Supplemental Content</dfn></dt>
+				<dd>
+					<p>Supplemental content is any content relating to the audiobook content but not required for the full experience of the publication. Examples of supplemental content include photographs, charts, or data relating to topics mentioned in the audiobook.</p>
+				</dd>
+			</dl>
+		</section>
+		
+		<section id="conformance"></section>
 
 		<section id="audio-construction">
 			<h2>Construction</h2>
