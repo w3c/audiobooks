@@ -46,15 +46,10 @@
 		<section id="abstract">
 			<p>This specification provides a draft version of an Audiobook specification for the web. It references the [[pub-manifest]] for its vocabulary. This document also contains references to [[lpf]] and [[sync-media-pub]].</p>
 		</section>
-
 		<section id="sotd">
 			<p>This draft is still under consideration within the Publishing Working Group and is subject to change. The most prominent issues will be referenced in the document with links provided.</p>
 		</section>
-
-		<section id="conformance">
-
-		</section>
-
+		<section id="conformance"> </section>
 		<section id="audio-introduction">
 			<h2>Introduction</h2>
 
@@ -85,7 +80,6 @@
 				</dl>
 			</section>
 		</section>
-
 		<section id="audio-construction">
 			<h2>Construction</h2>
 
@@ -123,7 +117,6 @@
 				</ul>
 			</section>
 		</section>
-
 		<section id="audio-manifest" class="normative">
 			<h2>Manifest</h2>
 
@@ -363,7 +356,7 @@
 							}
 					</pre>
 
-					<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+				<pre class="example" title="Audiobook Reading Order for Multiple Resources">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 								"conformsTo" : "https://www.w3.org/TR/audiobooks",
@@ -385,231 +378,344 @@
 							}
 						</pre>
 
-				</section>
+			</section>
 
-				<section id="audio-resourcelist">
-					<h3>Resource List</h3>
+			<section id="audio-resourcelist">
+				<h3>Resource List</h3>
 
-					<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
+				<p>The <dfn>resource list</dfn> enumerates any additional resources used in the processing and rendering of an audiobook that are not listed in the reading order. It is expressed using the <code>resources</code> property.</p>
 
-					<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
+				<p>If an audiobook includes supplemental content it MUST be referenced in the resource list.</p>
 
-					<pre class="example" title="Audiobook with Supplemental Content">
+				<pre class="example" title="Audiobook with Supplemental Content">
+						{
+							"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+							"conformsTo" : "https://www.w3.org/TR/audiobooks",
+							"url" : "https://publisher.example.org/janeeyre",
+							"name" : "Jane Eyre",
+							"resources" : [
+								"cover.jpg",
+								"portrait_CB.jpg",
+								"supplement.pdf"
+							]
+						}</pre>
+			</section>
+
+			<section id="audio-preview">
+				<h3>Audiobook Previews</h3>
+
+				<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
+
+				<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+
+				<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
+
+				<pre class="example" title="Audiobook with an External Preview">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 								"conformsTo" : "https://www.w3.org/TR/audiobooks",
-								"url" : "https://publisher.example.org/janeeyre",
+								"url"	: "https://publisher.example.org/janeeyre",
 								"name" : "Jane Eyre",
-								"resources" : [
-									"cover.jpg",
-									"portrait_CB.jpg",
-									"supplement.pdf"
-								]
+								"resources" : [{
+									"type" : "LinkedResource",
+									"url" : "https://publisher.example.org/jane-eyre-preview.wav",
+									"encodingFormat" : "audio/wav",
+									"rel" : "preview"
+								}]
 							}</pre>
-				</section>
 
-				<section id="audio-preview">
-					<h3>Audiobook Previews</h3>
+				<pre class="example" title="Audiobook with an Internal Preview">
+							{
+								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
+								"url"	: "https://publisher.example.org/janeeyre",
+								"name" : "Jane Eyre",
+								"resources" : [{
+									"type" : "LinkedResource",
+									"url"	: "preview.wav",
+									"encodingFormat" : "audio/wav",
+									"rel"	: "preview"
+								}]
+							}</pre>
+			</section>
 
-					<p>Previews are a common way to provide users an experience of the full content before purchasing or downloading the full audiobook.</p>
+			<section id="audio-packaging" class="informative">
+				<h3>Packaging</h3>
 
-					<p>A <a href="https://w3.org/TR/pub-manifest/#preview">preview</a> is identified using the <code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+				<p>Audiobooks will be packaged using the method described in the <a href="https://www.w3.org/TR/lpf/">Lightweight Packaging Format</a> note.</p>
 
-					<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
+			</section>
 
-					<pre class="example" title="Audiobook with an External Preview">
-								{
-									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-									"conformsTo" : "https://www.w3.org/TR/audiobooks",
-									"url"	: "https://publisher.example.org/janeeyre",
-									"name" : "Jane Eyre",
-									"resources" : [{
-										"type" : "LinkedResource",
-										"url" : "https://publisher.example.org/jane-eyre-preview.wav",
-										"encodingFormat" : "audio/wav",
-										"rel" : "preview"
-									}]
-								}</pre>
+			<section id="audio-accessibility" class="informative">
+				<h3>Accessibility</h3>
 
-					<pre class="example" title="Audiobook with an Internal Preview">
-								{
-									"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-									"conformsTo" : "https://www.w3.org/TR/audiobooks",
-									"url"	: "https://publisher.example.org/janeeyre",
-									"name" : "Jane Eyre",
-									"resources" : [{
-										"type" : "LinkedResource",
-										"url"	: "preview.wav",
-										"encodingFormat" : "audio/wav",
-										"rel"	: "preview"
-									}]
-								}</pre>
-				</section>
+				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use the <a href="https://w3c.github.io/sync-media-pub/">Synchronized Media</a> note to create documents where text and audio can be completely synchronized.</p>
 
-				<section id="audio-packaging" class="informative">
-					<h3>Packaging</h3>
+				<p>To create an accessible audiobook using Synchronized Media, you need to both reference the alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list the file in the <a href="#audio-resourcelist">resources</a>.</p>
 
-					<p>Audiobooks will be packaged using the method described in the <a href="https://www.w3.org/TR/lpf/">Lightweight Packaging Format</a> note.</p>
+				<p>Alternatively, a content creator can provide the text equivalent as HTML [[html]] resources in the <a href="#audio-resourcelist">resources</a>.</p>
 
-				</section>
+				<p class="ednote">At the time of this publication, a <a href="https://w3c.github.io/sync-media-pub">Synchronized Media</a> specification suitable for use in audiobooks is in development. It is believed this specification can already meet synchronization needs, though reliance on a developing specification clearly carries no guarantee of backward compatibility. Participation and comments from the digital publishing community, and especially from implementors are encouraged.</p>
 
-				<section id="audio-accessibility" class="informative">
-					<h3>Accessibility</h3>
-
-					<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use the <a href="https://w3c.github.io/sync-media-pub/">Synchronized Media</a> note to create documents where text and audio can be completely synchronized.</p>
-
-					<p>To create an accessible audiobook using Synchronized Media, you need to both reference the alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list the file in the <a href="#audio-resourcelist">resources</a>.</p>
-
-					<p>Alternatively, a content creator can provide the text equivalent as HTML [[html]] resources in the <a href="#audio-resourcelist">resources</a>.</p>
-
-					<p class="ednote">At the time of this publication, a <a href="https://w3c.github.io/sync-media-pub">Synchronized Media</a> specification suitable for use in audiobooks is in development. It is believed this specification can already meet synchronization needs, though reliance on a developing specification clearly carries no guarantee of backward compatibility. Participation and comments from the digital publishing community, and especially from implementors are encouraged.</p>
-
-					<pre class="example" title="Audiobook with Synchronized Media">
-					{
-						"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-						"conformsTo" : "https://www.w3.org/TR/audiobooks",
-						"url" : "https://publisher.example.org/janeeyre",
-						"name" : "Jane Eyre",
-						"readingOrder" : [{
+				<pre class="example" title="Audiobook with Synchronized Media">
+				{
+					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+					"conformsTo" : "https://www.w3.org/TR/audiobooks",
+					"url" : "https://publisher.example.org/janeeyre",
+					"name" : "Jane Eyre",
+					"readingOrder" : [{
+						"type" : "LinkedResource",
+						"url" : "audio/part001.wav",
+						"encodingFormat" : "audio/vnd-wav",
+						"name" : "Chapter 1",
+						"duration" : "PT457.931S",
+						"alternate" : {
 							"type" : "LinkedResource",
-							"url" : "audio/part001.wav",
-							"encodingFormat" : "audio/vnd-wav",
-							"name" : "Chapter 1",
-							"duration" : "PT457.931S",
-							"alternate" : {
-								"type" : "LinkedResource",
-								"url" : "sync-media/part001-1.json",
-								"encodingFormat" : "application/vnd.wp-sync-media+json"}
-						}, {
+							"url" : "sync-media/part001-1.json",
+							"encodingFormat" : "application/vnd.wp-sync-media+json"}
+					}, {
+						"type" : "LinkedResource",
+						"url" : "audio/part001.wav#t=457.932",
+						"encodingFormat" : "audio/vnd-wav",
+						"name" : "Chapter 2",
+						"duration" : "PT234.245S",
+						"alternate" : {
 							"type" : "LinkedResource",
-							"url" : "audio/part001.wav#t=457.932",
-							"encodingFormat" : "audio/vnd-wav",
-							"name" : "Chapter 2",
-							"duration" : "PT234.245S",
-							"alternate" : {
-								"type" : "LinkedResource",
-								"url" : "sync-media/part001-2.json",
-								"encodingFormat" : "application/vnd.wp-sync-media+json"}
-						}],
-						"resources" : [{
-				      "type": "LinkedResource",
-				      "url": "sync-media/part001-1.json",
-				      "encodingFormat" : "application/vnd.wp-sync-media+json"
-				    }, {
-							"type": "LinkedResource",
 							"url" : "sync-media/part001-2.json",
-							"encodingFormat" : "application/vnd.wp-sync-media+json"
-						}...
-						]
-					}
-				</pre>
+							"encodingFormat" : "application/vnd.wp-sync-media+json"}
+					}],
+					"resources" : [{
+			      "type": "LinkedResource",
+			      "url": "sync-media/part001-1.json",
+			      "encodingFormat" : "application/vnd.wp-sync-media+json"
+			    }, {
+						"type": "LinkedResource",
+						"url" : "sync-media/part001-2.json",
+						"encodingFormat" : "application/vnd.wp-sync-media+json"
+					}...
+					]
+				}
+			</pre>
 
-					<pre class="example" title="Audiobook with Alternate Text">
-					{
-						"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-						"conformsTo" : "https://www.w3.org/TR/audiobooks",
-						"url" : "https://publisher.example.org/janeeyre",
-						"name" : "Jane Eyre",
-						"readingOrder" : {
-							"type" : "LinkedResource",
-							"url" : "audio/part001.wav#0",
-							"encodingFormat" : "audio/vnd-wav",
-							"name" : "Chapter 1",
-							"duration" : "PT457.931S",
-							"alternate" : {
-								"type" : "LinkedResource"
-								"url" : "text/part001-1.html",
-								"encodingFormat" : "text/html"}
-						},
-						"resources" : [{
-				      "type": "LinkedResource",
-				      "url": "text/part001-1.html",
-				      "encodingFormat" : "text/html"
-				    }...
-						]
-					}
-				</pre>
-				</section>
+				<pre class="example" title="Audiobook with Alternate Text">
+				{
+					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+					"conformsTo" : "https://www.w3.org/TR/audiobooks",
+					"url" : "https://publisher.example.org/janeeyre",
+					"name" : "Jane Eyre",
+					"readingOrder" : {
+						"type" : "LinkedResource",
+						"url" : "audio/part001.wav#0",
+						"encodingFormat" : "audio/vnd-wav",
+						"name" : "Chapter 1",
+						"duration" : "PT457.931S",
+						"alternate" : {
+							"type" : "LinkedResource"
+							"url" : "text/part001-1.html",
+							"encodingFormat" : "text/html"}
+					},
+					"resources" : [{
+			      "type": "LinkedResource",
+			      "url": "text/part001-1.html",
+			      "encodingFormat" : "text/html"
+			    }...
+					]
+				}
+			</pre>
+			</section>
+
+		</section>
+		<section id="audio-manifest-processing">
+			<h2>Manifest Processing</h2>
+
+			<p><em>This section depends on the Infra Standard [[!infra]].</em></p>
+
+			<p>The specification extends the Publication Manifest <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">processing algorithms</a>&#160;[[!pub-manifest]] as follows:</p>
+
+			<dl>
+				<dt>Genreating the Internal Representation</dt>
+
+				<dd>
+					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension steps</a> are added for Audiobook manifests:</p>
+					<ol>
+						<li>
+							<p>(<a href="#audio-requirements"></a>) If <var>lang</var> is an empty string, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>. If <var>dir</var> is an empty string, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+						</li>
+						<li>
+							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) Check that a table of contents is present as follows:</p>
+							<ol>
+								<li>
+									<p>if <var>document</var> is defined and no [[!html]] element of <var>document</var> has the role <code>doc-toc</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								</li>
+								<li>
+									<p>otherwise:</p>
+									<ol>
+										<li>
+											<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
+										</li>
+										<li>
+											<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+												<var>resource</var> of <var>processed["readingOrder"]</var> and <var>processed["resources"]</var>, when defined, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
+										</li>
+										<li>
+											<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+										</li>
+
+									</ol>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</dd>
+
+				<dt>Data Validation</dt>
+
+				<dd>
+					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#validate-extension">extension steps</a> are added for Audiobook manifests:</p>
+					<ol>
+						<li>
+							<p>(<a href="#audio-readingorder"></a>) If <var>data["readingOrder"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure. Otherwise, if <var>data["readingOrder"]</var> does not <a href="https://infra.spec.whatwg.org/#list-contain">contain</a> at least one <a href="https://infra.spec.whatwg.org/#list-item">item</a> with an audio media type, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure.</p>
+						</li>
+						<li>
+							<p>(<a href="#audio-requirements"></a>) Check that each of the following properties is set. If not, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for each one.</p>
+							<ul>
+								<li><var>data["abridged"]</var></li>
+								<li><var>data["accessMode"]</var></li>
+								<li><var>data["accessModeSufficient"]</var></li>
+								<li><var>data["accessibilityFeatture"]</var></li>
+								<li><var>data["accessibilityHazard"]</var></li>
+								<li><var>data["accessibilitySummary"]</var></li>
+								<li><var>data["address"]</var></li>
+								<li><var>data["author"]</var></li>
+								<li><var>data["dateModified"]</var></li>
+								<li><var>data["datePublished"]</var></li>
+								<li><var>data["duration"]</var></li>
+								<li><var>data["id"]</var></li>
+								<li><var>data["links"]</var></li>
+								<li><var>data["name"]</var></li>
+								<li><var>data["readBy"]</var></li>
+								<li><var>data["readingProgression"]</var></li>
+								<li><var>data["resources"]</var></li>
+								<li><var>data["type"]</var></li>
+							</ul>
+						</li>
+						<li>
+							<p>(<a href="#audio-requirements"></a>) Check that the recommended resources are included as follows:</p>
+							<ol>
+								<li>
+									<p>Let <var>resources</var> be the value of <var>data["readingOrder"]</var>. Extend <var>resources</var> with <var>data["resources"]</var>, when defined. Extend <var>resources</var> with <var>data["links"]</var>, when defined.</p>
+								</li>
+								<li>
+									<p>Let <var>cover</var>, <var>a11y</var> and <var>privacy</var> be <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> values set to <code>false</code>.</p>
+								</li>
+								<li>
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
+										<var>resource</var> of <var>resources</var>, if <var>resource["rel"]</var> is defined:</p>
+									<ol>
+										<li>if <var>resource["rel"]</var>
+											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>cover</code>, set <var>cover</var> to true.</li>
+										<li>if <var>resource["rel"]</var>
+											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>accessibility-report</code>, set <var>a11y</var> to true.</li>
+										<li>if <var>resource["rel"]</var>
+											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>privacy-policy</code>, set <var>privacy</var> to true.</li>
+									</ol>
+								</li>
+								<li>
+									<p>If <var>cover</var>, <var>a11y</var> or <var>privacy</var> is <code>false</code>, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for the corresponding missing resource.</p>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
+							<ol>
+								<li>
+									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								</li>
+								<li>
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
+										<var>resource</var> of <var>data["readingOrder"]</var>, if <var>resource["length"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</dd>
+			</dl>
+		</section>
+		<section id="security-privacy">
+			<h2>Security and Privacy Considerations</h2>
+
+			<p>As Audiobooks is a profile of Publication Manifest [[pub-manifest]], all <a href="https://www.w3.org/TR/pub-manifest/#security-privacy">security and privacy</a> considerations detailed in that specification are applicable to this profile.</p>
+
+			<p>This profile acknowledges the following considerations:</p>
+
+			<ul>
+				<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resourcelist">Resource List</a> can be references to both remote and local resources.</li>
+			</ul>
+
+		</section>
+		<section id="audio-ua-behaviour" class="informative">
+			<h2>User Agent Behaviours for Audiobooks</h2>
+
+			<p>This section outlines the expected user agent behaviours for implementation of audiobooks. For processing instructions, user agents should refer to the <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour described there.</p>
+
+			<p>All user agent behaviours described in this section are intended to provide implementors with guidance, not strict requirements. Behaviours in this document are taken mainly from the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note published by the working group.</p>
+
+			<section id="audio-ua-navigation">
+				<h3>Opening and Navigating the Contents of an Audiobook</h3>
+
+				<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. A User Agent should be able to provide a list of the contents of the audiobook available to the user when requested. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
+
+				<p>User agents should provide a means of rendering non-audio resources within the Reading Order and Resource list. If the content cannot be rendered by the user agent, it is recommended that the user agent inform the user that the content is present but cannot be rendered.</p>
+
+				<p>The <a href="#audio-pep">Primary Entry Page</a> is intended to be, when available, the entry point to the audiobook. If a content creator has provided a primary entry page, and the User Agent is capable of rendering or processing HTML content, it should be the first thing presented to the user. The Primary Entry Page may or may not contain a Table of Contents, if included using the <code>role="doc-toc"</code> it should be treated as the Table of Contents. If the Table of Contents is a separate document, it can be rendered however the User Agent chooses as long as it meets the requirements laid out above. If no Table of Contents is included in the Primary Entry Page or elsewhere, the User Agent should refer to the Reading Order.</p>
 
 			</section>
 
-			<section id="security-privacy">
-				<h2>Security and Privacy Considerations</h2>
+			<section id="audio-ua-playback">
+				<h3>Audiobook Playability</h3>
 
-				<p>As Audiobooks is a profile of Publication Manifest [[pub-manifest]], all <a href="https://www.w3.org/TR/pub-manifest/#security-privacy">security and privacy</a> considerations detailed in that specification are applicable to this profile.</p>
+				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note, an audiobook must be navigable in the User Agent. This means that a User Agent must provide methods for the user to move through the audiobook in a linear or non-linear fashion by either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move through individual audio files in short time increments.</p>
 
-				<p>This profile acknowledges the following considerations:</p>
-
-				<ul>
-					<li>References within the <a href="#audio-readingorder">Reading Order</a> and <a href="#audio-resourcelist">Resource List</a> can be references to both remote and local resources.</li>
-				</ul>
+				<p>For an audiobook, the User Agent should provide a <a href="https://www.w3.org/TR/pwp-ucr/#player">player interface</a> that will allow the user to navigate, play, or pause the audiobook. This interface can be represented to the user in any way (i.e. physical buttons, visual interface, keyboard input, or voice commands), but should be accessible at any point in the listening experience.</p>
 
 			</section>
 
-			<section id="audio-ua-behaviour" class="informative">
-				<h2>User Agent Behaviours for Audiobooks</h2>
+			<section id="audio-ua-packaging">
+				<h3>Audiobook Packaging and Offlining</h3>
 
-				<p>This section outlines the expected user agent behaviours for implementation of audiobooks. For processing instructions, user agents should refer to the <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour described there.</p>
+				<p>The <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note recommends that content be available offline and that any packaged formats should not affect the iterations of the publications. This means that even if the content is copied many times to many users via multiple User Agents, the core manifest and it's identifier are never changed.</p>
 
-				<p>All user agent behaviours described in this section are intended to provide implementors with guidance, not strict requirements. Behaviours in this document are taken mainly from the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note published by the working group.</p>
+				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents should be able to ingest LPF files for play, and should display content according to the requirements and recommendations in this document.</p>
 
-				<section id="audio-ua-navigation">
-					<h3>Opening and Navigating the Contents of an Audiobook</h3>
+				<p>If a User Agent is serving the content directly from their service (i.e. as a retailer or repository of content), it is recommended that they provide a method for offlining or downloading the content to the user. This can be in any format they choose, but the audiobook should be complete and valid and the contents listed in the manifest should be served in their entirety. Even if a User Agent does not support the display of a certain resource (i.e. an image file or data table), it should still be available to the user for download.</p>
 
-					<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in <a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. A User Agent should be able to provide a list of the contents of the audiobook available to the user when requested. If a non-audio resource is present in the Reading Order, the User Agent can choose to present it to the user or skip it.</p>
-
-					<p>User agents should provide a means of rendering non-audio resources within the Reading Order and Resource list. If the content cannot be rendered by the user agent, it is recommended that the user agent inform the user that the content is present but cannot be rendered.</p>
-
-					<p>The <a href="#audio-pep">Primary Entry Page</a> is intended to be, when available, the entry point to the audiobook. If a content creator has provided a primary entry page, and the User Agent is capable of rendering or processing HTML content, it should be the first thing presented to the user. The Primary Entry Page may or may not contain a Table of Contents, if included using the <code>role="doc-toc"</code> it should be treated as the Table of Contents. If the Table of Contents is a separate document, it can be rendered however the User Agent chooses as long as it meets the requirements laid out above. If no Table of Contents is included in the Primary Entry Page or elsewhere, the User Agent should refer to the Reading Order.</p>
-
-				</section>
-
-				<section id="audio-ua-playback">
-					<h3>Audiobook Playability</h3>
-
-					<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note, an audiobook must be navigable in the User Agent. This means that a User Agent must provide methods for the user to move through the audiobook in a linear or non-linear fashion by either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move through individual audio files in short time increments.</p>
-
-					<p>For an audiobook, the User Agent should provide a <a href="https://www.w3.org/TR/pwp-ucr/#player">player interface</a> that will allow the user to navigate, play, or pause the audiobook. This interface can be represented to the user in any way (i.e. physical buttons, visual interface, keyboard input, or voice commands), but should be accessible at any point in the listening experience.</p>
-
-				</section>
-
-				<section id="audio-ua-packaging">
-					<h3>Audiobook Packaging and Offlining</h3>
-
-					<p>The <a href="https://www.w3.org/TR/pwp-ucr">Use Cases and Requirements</a> note recommends that content be available offline and that any packaged formats should not affect the iterations of the publications. This means that even if the content is copied many times to many users via multiple User Agents, the core manifest and it's identifier are never changed.</p>
-
-					<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents should be able to ingest LPF files for play, and should display content according to the requirements and recommendations in this document.</p>
-
-					<p>If a User Agent is serving the content directly from their service (i.e. as a retailer or repository of content), it is recommended that they provide a method for offlining or downloading the content to the user. This can be in any format they choose, but the audiobook should be complete and valid and the contents listed in the manifest should be served in their entirety. Even if a User Agent does not support the display of a certain resource (i.e. an image file or data table), it should still be available to the user for download.</p>
-
-					<p>This specification does not provide a method for content creators to protect or watermark their content, as there are existing methods available in the market today. User Agents who work with content creators that wish to protect or limit the distribution of their content can choose a method that works best for their requirements.</p>
-
-				</section>
-
-				<section id="audio-ua-accessibility">
-					<h3>Audiobooks Accessibility</h3>
-
-					<p>This specification recommends and provides a method for content creators to create fully <a href="#audio-accessibility">accessible audiobooks</a>. User Agents should use this information, in the section on Accessibility, to implement accessible audiobook interfaces. It is recommended that User Agents provide accessible player interfaces, as well as a method for content creators who have provided <code>alternate</code> content to have that content displayed.</p>
-
-				</section>
+				<p>This specification does not provide a method for content creators to protect or watermark their content, as there are existing methods available in the market today. User Agents who work with content creators that wish to protect or limit the distribution of their content can choose a method that works best for their requirements.</p>
 
 			</section>
 
-			<section id="audio-manifest-examples" class="appendix informative">
-				<h2>Manifest Examples</h2>
+			<section id="audio-ua-accessibility">
+				<h3>Audiobooks Accessibility</h3>
 
-				<section id="audio-simple">
-					<h3>Simple Audiobook</h3>
-					<p>A manifest for an audiobook. The <a href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json">canonical version</a> of this manifest is also available.</p>
-					<pre class="example" data-include="experiments/flatland.json" data-include-format="text"></pre>
-				</section>
+				<p>This specification recommends and provides a method for content creators to create fully <a href="#audio-accessibility">accessible audiobooks</a>. User Agents should use this information, in the section on Accessibility, to implement accessible audiobook interfaces. It is recommended that User Agents provide accessible player interfaces, as well as a method for content creators who have provided <code>alternate</code> content to have that content displayed.</p>
 
-				<section id="audio-supplemental">
-					<h3>Audiobook with Supplemental Content</h3>
+			</section>
 
-					<p>A manifest for an audiobook with supplemental content.</p>
+		</section>
+		<section id="audio-manifest-examples" class="appendix informative">
+			<h2>Manifest Examples</h2>
 
-					<pre class="example">
+			<section id="audio-simple">
+				<h3>Simple Audiobook</h3>
+				<p>A manifest for an audiobook. The <a href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json">canonical version</a> of this manifest is also available.</p>
+				<pre class="example" data-include="experiments/flatland.json" data-include-format="text"></pre>
+			</section>
+
+			<section id="audio-supplemental">
+				<h3>Audiobook with Supplemental Content</h3>
+
+				<p>A manifest for an audiobook with supplemental content.</p>
+
+				<pre class="example">
 					{
 						"@context" : ["https://schema.org", "https://www.w3/org/ns/pub-context"],
 						"conformsTo" : "https://www.w3.org/TR/audiobooks",
@@ -639,17 +745,16 @@
 						]
 					}
 				</pre>
-				</section>
 			</section>
+		</section>
+		<section id="audio-toc-examples" class="appendix informative">
+			<h2>Table of Contents Examples</h2>
 
-			<section id="audio-toc-examples" class="appendix informative">
-				<h2>Table of Contents Examples</h2>
+			<section id="toc-pep">
+				<h3>Primary Entry Page with a Table of Contents</h3>
 
-				<section id="toc-pep">
-					<h3>Primary Entry Page with a Table of Contents</h3>
-
-					<p>A primary entry page with a simple table of contents for an audiobook.</p>
-					<pre class="example">
+				<p>A primary entry page with a simple table of contents for an audiobook.</p>
+				<pre class="example">
 					&lt;head&gt;
 				    &#8230;
 				    &lt;script type="application/ld+json"&gt;
@@ -676,13 +781,13 @@
 				    &#8230;
 				&lt;/body&gt;
 					</pre>
-				</section>
+			</section>
 
-				<section id="toc-simple">
-					<h3>Simple Table of Contents</h3>
+			<section id="toc-simple">
+				<h3>Simple Table of Contents</h3>
 
-					<p>A table of contents for a simple audiobook.</p>
-					<pre class="example">
+				<p>A table of contents for a simple audiobook.</p>
+				<pre class="example">
 					&lt;nav role="doc-toc">
 						 &lt;h2>JANE EYRE&lt;/h2>
 
@@ -694,14 +799,14 @@
 						 &lt;/ol>
 						&lt;/nav>
 				</pre>
-				</section>
+			</section>
 
-				<section id="toc-mediafragments">
-					<h3>Table of Contents with Media Fragments</h3>
+			<section id="toc-mediafragments">
+				<h3>Table of Contents with Media Fragments</h3>
 
-					<p>A table of contents using media fragment references to locations in a single audio track.</p>
+				<p>A table of contents using media fragment references to locations in a single audio track.</p>
 
-					<pre class="example">
+				<pre class="example">
 					&lt;nav role="doc-toc">
 						&lt;h2>JANE EYRE&lt;/h2>
 
@@ -712,7 +817,6 @@
 						&lt;/ol>
 					&lt;/nav>
 				</pre>
-				</section>
 			</section>
 		</section>
 		<div data-include="common/html/acknowledgements.html" data-include-replace="true"></div>
