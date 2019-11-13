@@ -46,21 +46,18 @@
 		<section id="abstract">
 			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the <dfn>Publication Manifest</dfn> specification.</p>
 		</section>
-
 		<section id="sotd">
 			<p>This draft is still under consideration within the Publishing Working Group and is subject to change. The most prominent issues will be referenced in the document with links provided.</p>
 		</section>
-
 		<section id="intro" class="informative">
 			<h3>Introduction</h3>
-			
+
 			<p>An Audiobook is a collection of audio resources grouped together by a reading order, metadata, and resources, all contained in a manifest. This Audiobook can live on the Open Web Platform, or as a packaged entity.</p>
-			
+
 			<p>This specification is intended to standardize the audiobooks distribution model on the web and between businesses. It should facilitate different user agent architectures for the consumption of Audiobooks. The primary goal is to bring clarity to a part of the publishing industry currently underserved by standards, while opening Audiobooks to the Open Web Platform and new user agents. This specification does not outline what file types or formats should be used by content creators, only a manifest format for delivering them.</p>
 
 			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the types of affordances that user agents can provide to enhance the reading experience for users are instead defined in [[PWP-UCR]].</p>
 		</section>
-		
 		<section id="audio-terminology">
 			<h3>Terminology</h3>
 
@@ -77,9 +74,7 @@
 				</dd>
 			</dl>
 		</section>
-		
 		<section id="conformance"></section>
-
 		<section id="audio-construction">
 			<h2>Construction</h2>
 
@@ -537,9 +532,6 @@
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension steps</a> are added for Audiobook manifests:</p>
 					<ol>
 						<li>
-							<p>(<a href="#audio-requirements"></a>) If <var>lang</var> is an empty string, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>. If <var>dir</var> is an empty string, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
-						</li>
-						<li>
 							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) Check that a table of contents is present as follows:</p>
 							<ol>
 								<li>
@@ -589,6 +581,7 @@
 								<li><var>data["datePublished"]</var></li>
 								<li><var>data["duration"]</var></li>
 								<li><var>data["id"]</var></li>
+								<li><var>data["inLanguage"]</var></li>
 								<li><var>data["links"]</var></li>
 								<li><var>data["name"]</var></li>
 								<li><var>data["readBy"]</var></li>
@@ -630,8 +623,22 @@
 									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 								<li>
+									<p>Let <var>resourceDuration</var> be an empty string that will hold the total duration of individual resources.</p>
+								</li>
+								<li>
 									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-										<var>resource</var> of <var>data["readingOrder"]</var>, if <var>resource["length"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
+									<ol>
+										<li>
+											<p>if <var>resource["duration"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+										</li>
+										<li>
+											<p>otherwise, add <var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
+										</li>
+									</ol>
+								</li>
+								<li>
+									<p>If <var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
@@ -816,6 +823,7 @@
 					&lt;/nav>
 				</pre>
 			</section>
+		</section>
 		<div data-include="common/html/acknowledgements.html" data-include-replace="true"></div>
 	</body>
 </html>
