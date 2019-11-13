@@ -251,7 +251,7 @@
 						</dd>
 					</dl>
 
-					<p>These properties do not all have to be serialized in the <a data-cite="!pub-manifest/#manifest-authored-canonical">authored manifest</a>. Refer to each property's definition to determine whether it is required in the manifest or can be compiled into the <a data-cite="!pub-manifest/#manifest-authored-canonical">canonical manifest</a> from other information.</p>
+					<p class="note">Some properties are implicitly required, as they are compiled from alternative information when not explicitly authored. See <a href="#app-internal-rep-data-model"></a> for more information.</p>
 				</section>
 
 				<section id="audio-creators">
@@ -331,7 +331,9 @@
 
 				<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
 
-				<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>.</p>
+				<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the <code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#app-linkedResource"><code>LinkedResource</code></a>. The default reading order MUST NOT contain non-audio resources.</p>
+
+				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags">media fragments</a> [[media-frags]] to locate the exact starting point.</p>
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
@@ -349,7 +351,7 @@
 							}
 					</pre>
 
-				<pre class="example" title="Audiobook Reading Order for Multiple Resources">
+				<pre class="example" title="Audiobook Reading Order for Multiple Resources using Media Fragments">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 								"conformsTo" : "https://www.w3.org/TR/audiobooks",
