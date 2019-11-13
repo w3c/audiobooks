@@ -530,24 +530,24 @@
 
 				<dd>
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension steps</a> are added for Audiobook manifests:</p>
-					<ol>
+					<ol id="processing-toc">
 						<li>
 							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) Check that a table of contents is present as follows:</p>
 							<ol>
-								<li>
+								<li id="processing-toc-pep">
 									<p>if <var>document</var> is defined and no [[!html]] element of <var>document</var> has the role <code>doc-toc</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
-								<li>
+								<li id="processing-toc-resources">
 									<p>otherwise:</p>
 									<ol>
-										<li>
+										<li id="processing-toc-res-var">
 											<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
 										</li>
-										<li>
+										<li id="processing-toc-res-iterate">
 											<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
 												<var>resource</var> of <var>processed["readingOrder"]</var> and <var>processed["resources"]</var>, when defined, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
 										</li>
-										<li>
+										<li id="processing-toc-res-result">
 											<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 										</li>
 
@@ -563,10 +563,20 @@
 				<dd>
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#validate-extension">extension steps</a> are added for Audiobook manifests:</p>
 					<ol>
-						<li>
-							<p>(<a href="#audio-readingorder"></a>) If <var>data["readingOrder"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure. Otherwise, if <var>data["readingOrder"]</var> does not <a href="https://infra.spec.whatwg.org/#list-contain">contain</a> at least one <a href="https://infra.spec.whatwg.org/#list-item">item</a> with an audio media type, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure.</p>
+						<li id="validate-readingorder">
+							<p>(<a href="#audio-readingorder"></a>) Check the reading order as follows:</p>
+							<ol>
+								<li id="validate-ro-empty">
+									<p>if <var>data["readingOrder"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure. Otherwise, if <var>data["readingOrder"]</var> does not <a href="https://infra.spec.whatwg.org/#list-contain">contain</a> at least one <a href="https://infra.spec.whatwg.org/#list-item">item</a> with an audio media type, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure.</p>
+								</li>
+								<li id="validate-ro-audio">
+									<p>otherwise, <a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+										<var>resource</var> in <var>data["readingOrder"]</var>, if <var>resource</var> is not an audio resource, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, <a href="https://infra.spec.whatwg.org/#list-remove">remove</a>
+										<var>resource</var> from <var>data["readingOrder"]</var>.</p>
+								</li>
+							</ol>
 						</li>
-						<li>
+						<li id="validate-rec-properties">
 							<p>(<a href="#audio-requirements"></a>) Check that each of the following properties is set. If not, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for each one.</p>
 							<ul>
 								<li><var>data["abridged"]</var></li>
@@ -590,55 +600,66 @@
 								<li><var>data["type"]</var></li>
 							</ul>
 						</li>
-						<li>
+						<li id="validate-rec-relations">
 							<p>(<a href="#audio-requirements"></a>) Check that the recommended resources are included as follows:</p>
 							<ol>
-								<li>
-									<p>Let <var>resources</var> be the value of <var>data["readingOrder"]</var>. Extend <var>resources</var> with <var>data["resources"]</var>, when defined. Extend <var>resources</var> with <var>data["links"]</var>, when defined.</p>
+								<li id="validate-rel-list">
+									<p>Let <var>resources</var> be the value of <var>data["readingOrder"]</var>. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
+										<var>resources</var> with <var>data["resources"]</var>, when defined. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
+										<var>resources</var> with <var>data["links"]</var>, when defined.</p>
 								</li>
-								<li>
+								<li id="validate-rel-var">
 									<p>Let <var>cover</var>, <var>a11y</var> and <var>privacy</var> be <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> values set to <code>false</code>.</p>
 								</li>
-								<li>
+								<li id="validate-rel-iterate">
 									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
 										<var>resource</var> of <var>resources</var>, if <var>resource["rel"]</var> is defined:</p>
 									<ol>
-										<li>if <var>resource["rel"]</var>
-											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>cover</code>, set <var>cover</var> to true.</li>
-										<li>if <var>resource["rel"]</var>
-											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>accessibility-report</code>, set <var>a11y</var> to true.</li>
-										<li>if <var>resource["rel"]</var>
-											<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>privacy-policy</code>, set <var>privacy</var> to true.</li>
+										<li id="validate-rel-has-cover">
+											<p>if <var>resource["rel"]</var>
+												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>cover</code>, set <var>cover</var> to true.</p>
+										</li>
+										<li id="validate-rel-has-a11y">
+											<p>if <var>resource["rel"]</var>
+												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>accessibility-report</code>, set <var>a11y</var> to true.</p>
+										</li>
+										<li id="validate-rel-has-privacy">
+											<p>if <var>resource["rel"]</var>
+												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>privacy-policy</code>, set <var>privacy</var> to true.</p>
+										</li>
+										<li id="validate-rel-break">
+											<p>if <var>cover</var>, <var>a11y</var> and <var>privacy</var> are <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a></p>
+										</li>
 									</ol>
 								</li>
-								<li>
-									<p>If <var>cover</var>, <var>a11y</var> or <var>privacy</var> is <code>false</code>, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for the corresponding missing resource.</p>
+								<li id="validate-rel-err">
+									<p>If <var>cover</var>, <var>a11y</var> or <var>privacy</var> is <code>false</code>, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for the corresponding missing resource(s).</p>
 								</li>
 							</ol>
 						</li>
-						<li>
+						<li id="validate-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li>
+								<li id="validate-duration-none">
 									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
-								<li>
-									<p>Let <var>resourceDuration</var> be an empty string that will hold the total duration of individual resources.</p>
+								<li id="validate-duration-var">
+									<p>Let <var>resourceDuration</var> hold the total duration of individual resources.</p>
 								</li>
-								<li>
+								<li id="validate-duration-iterate">
 									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
 										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
 									<ol>
-										<li>
+										<li id="validate-duration-res-none">
 											<p>if <var>resource["duration"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 										</li>
-										<li>
+										<li id="validate-duration-add">
 											<p>otherwise, add <var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
 										</li>
 									</ol>
 								</li>
 								<li>
-									<p>If <var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+									<p>If <var>data["duration"] is defined and </var><var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
