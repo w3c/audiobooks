@@ -580,13 +580,10 @@
 								<li><var>data["author"]</var></li>
 								<li><var>data["dateModified"]</var></li>
 								<li><var>data["datePublished"]</var></li>
-								<li><var>data["duration"]</var></li>
 								<li><var>data["id"]</var></li>
 								<li><var>data["inLanguage"]</var></li>
 								<li><var>data["links"]</var></li>
-								<li><var>data["name"]</var></li>
 								<li><var>data["readBy"]</var></li>
-								<li><var>data["readingProgression"]</var></li>
 								<li><var>data["resources"]</var></li>
 							</ul>
 						</li>
@@ -630,9 +627,6 @@
 						<li id="validate-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li id="validate-duration-none">
-									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
-								</li>
 								<li id="validate-duration-var">
 									<p>Let <var>resourceDuration</var> hold the total duration of individual resources.</p>
 								</li>
@@ -648,8 +642,8 @@
 										</li>
 									</ol>
 								</li>
-								<li>
-									<p>If <var>data["duration"] is defined and </var><var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								<li id="validate-duration-total">
+									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>. Otherwise, if <var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
