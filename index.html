@@ -532,25 +532,17 @@
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension steps</a> are added for Audiobook manifests:</p>
 					<ol id="processing-toc">
 						<li>
-							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) Check that a table of contents is present as follows:</p>
+							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) If <var>document</var> is not defined or does not include an [[!html]] element with the role <code>doc-toc</code>:</p>
 							<ol>
-								<li id="processing-toc-pep">
-									<p>if <var>document</var> is defined and no [[!html]] element of <var>document</var> has the role <code>doc-toc</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								<li id="processing-toc-res-var">
+									<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
 								</li>
-								<li id="processing-toc-resources">
-									<p>otherwise:</p>
-									<ol>
-										<li id="processing-toc-res-var">
-											<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
-										</li>
-										<li id="processing-toc-res-iterate">
-											<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
-												<var>resource</var> of <var>processed["resources"]</var>, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
-										</li>
-										<li id="processing-toc-res-result">
-											<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
-										</li>
-									</ol>
+								<li id="processing-toc-res-iterate">
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+										<var>resource</var> of <var>processed["resources"]</var>, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
+								</li>
+								<li id="processing-toc-res-result">
+									<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
