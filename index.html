@@ -543,18 +543,13 @@
 										<li id="processing-toc-res-var">
 											<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
 										</li>
-										<li id="processing-toc-res-list">
-											<p>let <var>resources</var> be a <a href="https://infra.spec.whatwg.org/#list">list</a> set to the value of <var>processed["readingOrder"]</var>. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
-												<var>resources</var> with <var>processed["resources"]</var>, when defined.</p>
-										</li>
 										<li id="processing-toc-res-iterate">
 											<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
-												<var>resource</var> of <var>resources</var>, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
+												<var>resource</var> of <var>processed["resources"]</var>, if <var>resource["rel"]</var> is defined and <a href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value <code>contents</code>, set <var>toc</var> to <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
 										</li>
 										<li id="processing-toc-res-result">
 											<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 										</li>
-
 									</ol>
 								</li>
 							</ol>
