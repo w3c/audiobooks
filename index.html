@@ -13,7 +13,7 @@
               wg: "Publishing Working Group",
               wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
               wgPublicList: "public-publ-wg",
-			  edDraftURI: "https://w3c.github.io/audiobooks/",
+			  edDraftURI: "https://w3c.github.io/audiobooks",
 			  previousPublishDate: "2019-09-11",
 			  previousMaturity: "WD",
               specStatus: "ED",
@@ -159,7 +159,7 @@
 
 			</section>
 
-			<section id="audio-type">
+			<section id="audio-conformance">
 				<h3>Publication Conformance</h3>
 
 				<p>The conformance URL expressed in the <a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code> term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks</code>".</p>
@@ -167,11 +167,25 @@
 				<pre class="example" title="Setting a publication's type to Audiobook.">
 						{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/"
+								"conformsTo" : "https://www.w3.org/TR/audiobooks"
 								&#8230;
 						}
 				</pre>
 
+			</section>
+
+			<section id="audio-type">
+				<h3>Publication Type</h3>
+
+				<p>The <dfn>Publication Type</dfn> is defined using the <code>type</code> term&#160;[[!pub-manifest]].</p>
+
+				<pre class="example" title="Setting a publication's type to Audiobook.">{
+    "@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+    "type"     : "Audiobook"
+    …
+}</pre>
+
+				<p>If a <code>type</code> is not specified <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[!schema.org]] is assumed as the default.</p>
 			</section>
 
 			<section id="audio-properties">
@@ -227,9 +241,6 @@
 									<a href="#audio-duration">duration</a>
 								</li>
 								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#links">links</a>
-								</li>
-								<li>
 									<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification date</a>
 								</li>
 								<li>
@@ -268,7 +279,7 @@
 
 					<pre class="example" title="Author of a book">
 		{
-		    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+		    "conformsTo" : "https://www.w3.org/TR/audiobooks",
 		    "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
 				"type" : "Audiobook",
 		    &#8230;
@@ -282,7 +293,7 @@
 
 					<pre class="example" title="Author and Narrator of an Audiobook">
 		{
-				"conformsTo" : "https://www.w3.org/TR/audiobooks/";
+				"conformsTo" : "https://www.w3.org/TR/audiobooks";
 				"@context": ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 				&#8230;
 				"url"	: "https://publisher.example.org/janeeyre",
@@ -310,7 +321,7 @@
 
 					<pre class="example" title="Duration of an Audiobook in Seconds">
 									{
-											"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+											"conformsTo" : "https://www.w3.org/TR/audiobooks",
 											"@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
 											&#8230;
 											"url" : "https://publisher.example.org/janeeyre",
@@ -336,7 +347,7 @@
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
 								"url" : "https://publisher.example.org/janeeyre",
 								"name" : "Jane Eyre",
 								"readingOrder" : [{
@@ -352,7 +363,7 @@
 				<pre class="example" title="Audiobook Reading Order for Multiple Resources">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
 								"url" : "https://publisher.example.org/janeeyre",
 								"name" : "Jane Eyre",
 								"readingOrder" : [{
@@ -383,7 +394,7 @@
 				<pre class="example" title="Audiobook with Supplemental Content">
 						{
 							"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-							"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+							"conformsTo" : "https://www.w3.org/TR/audiobooks",
 							"url" : "https://publisher.example.org/janeeyre",
 							"name" : "Jane Eyre",
 							"resources" : [
@@ -406,7 +417,7 @@
 				<pre class="example" title="Audiobook with an External Preview">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
 								"url"	: "https://publisher.example.org/janeeyre",
 								"name" : "Jane Eyre",
 								"resources" : [{
@@ -420,7 +431,7 @@
 				<pre class="example" title="Audiobook with an Internal Preview">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+								"conformsTo" : "https://www.w3.org/TR/audiobooks",
 								"url"	: "https://publisher.example.org/janeeyre",
 								"name" : "Jane Eyre",
 								"resources" : [{
@@ -453,7 +464,7 @@
 				<pre class="example" title="Audiobook with Synchronized Media">
 				{
 					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-					"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+					"conformsTo" : "https://www.w3.org/TR/audiobooks",
 					"url" : "https://publisher.example.org/janeeyre",
 					"name" : "Jane Eyre",
 					"readingOrder" : [{
@@ -493,7 +504,7 @@
 				<pre class="example" title="Audiobook with Alternate Text">
 				{
 					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-					"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+					"conformsTo" : "https://www.w3.org/TR/audiobooks",
 					"url" : "https://publisher.example.org/janeeyre",
 					"name" : "Jane Eyre",
 					"readingOrder" : {
@@ -567,6 +578,9 @@
 								</li>
 							</ol>
 						</li>
+						<li id="validate-type">
+							<p>(<a href="#publication-types"></a>) If <var>data["type"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a>validation error</a>, set to <code>«&#160;"Audiobook"&#160;»</code>.</p>
+						</li>
 						<li id="validate-rec-properties">
 							<p>(<a href="#audio-requirements"></a>) Check that each of the following properties is set. If not, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for each one.</p>
 							<ul>
@@ -581,7 +595,6 @@
 								<li><var>data["datePublished"]</var></li>
 								<li><var>data["id"]</var></li>
 								<li><var>data["inLanguage"]</var></li>
-								<li><var>data["links"]</var></li>
 								<li><var>data["name"]</var></li>
 								<li><var>data["readBy"]</var></li>
 								<li><var>data["readingProgression"]</var></li>
@@ -590,41 +603,8 @@
 							</ul>
 						</li>
 						<li id="validate-rec-relations">
-							<p>(<a href="#audio-requirements"></a>) Check that the recommended resources are included as follows:</p>
-							<ol>
-								<li id="validate-rel-list">
-									<p>Let <var>resources</var> be a <a href="https://infra.spec.whatwg.org/#list">list</a> set to the value of <var>data["readingOrder"]</var>. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
-										<var>resources</var> with <var>data["resources"]</var>, when defined. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
-										<var>resources</var> with <var>data["links"]</var>, when defined.</p>
-								</li>
-								<li id="validate-rel-var">
-									<p>Let <var>cover</var>, <var>a11y</var> and <var>privacy</var> be <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> values set to <code>false</code>.</p>
-								</li>
-								<li id="validate-rel-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-										<var>resource</var> of <var>resources</var>, if <var>resource["rel"]</var> is defined:</p>
-									<ol>
-										<li id="validate-rel-has-cover">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>cover</code>, set <var>cover</var> to true.</p>
-										</li>
-										<li id="validate-rel-has-a11y">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>accessibility-report</code>, set <var>a11y</var> to true.</p>
-										</li>
-										<li id="validate-rel-has-privacy">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>privacy-policy</code>, set <var>privacy</var> to true.</p>
-										</li>
-										<li id="validate-rel-break">
-											<p>if <var>cover</var>, <var>a11y</var> and <var>privacy</var> are <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a></p>
-										</li>
-									</ol>
-								</li>
-								<li id="validate-rel-err">
-									<p>If <var>cover</var>, <var>a11y</var> or <var>privacy</var> is <code>false</code>, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for the corresponding missing resource(s).</p>
-								</li>
-							</ol>
+							<p>(<a href="#audio-requirements"></a>) If no resource in <var>data["readingOrder"]</var> or <var>data["resources"]</var> has a <var>rel</var>
+								<a href="https://infra.spec.whatwg.org/#map-entry">entry</a> that <a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the relation <code>cover</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 						</li>
 						<li id="validate-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
@@ -640,7 +620,8 @@
 											<p>if <var>resource["duration"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 										</li>
 										<li id="validate-duration-res-invalid">
-											<p>otherwise, if <var>resource["duration"]</var> is not a valid duration value, per&#160;[[!iso8601]], <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, <a href="https://infra.spec.whatwg.org/#map-remove">remove</a> <var>resource["duration"]</var>.</p>
+											<p>otherwise, if <var>resource["duration"]</var> is not a valid duration value, per&#160;[[!iso8601]], <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, <a href="https://infra.spec.whatwg.org/#map-remove">remove</a>
+												<var>resource["duration"]</var>.</p>
 										</li>
 										<li id="validate-duration-add">
 											<p>otherwise, add <var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
@@ -733,7 +714,7 @@
 				<pre class="example">
 					{
 						"@context" : ["https://schema.org", "https://www.w3/org/ns/pub-context"],
-						"conformsTo" : "https://www.w3.org/TR/audiobooks/",
+						"conformsTo" : "https://www.w3.org/TR/audiobooks",
 						"id" : "https://publisher.example.com/janeeyre",
 						"url" : "https://publisher.example.com/janeeyre",
 						"name" : "Jane Eyre",
@@ -775,7 +756,7 @@
 				    &lt;script type="application/ld+json"&gt;
 				    {
 				        "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
-				        "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+				        "conformsTo" : "https://www.w3.org/TR/audiobooks",
 				        &#8230;
 				        "url" : "https://publisher.example.org/janeeyre",
 				        &#8230;
