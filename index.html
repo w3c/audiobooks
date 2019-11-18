@@ -112,7 +112,7 @@
 						<p>a table of contents SHOULD be included;</p>
 					</li>
 					<li>
-						<p>the table of contents SHOULD include a link to any of the<a href="#audio-resourcelist">resources</a>; and</p>
+						<p>the table of contents SHOULD include a link to any of the <a href="#audio-resourcelist">resources</a>; and</p>
 					</li>
 					<li>
 						<p>and all links SHOULD refer to <a href="https://www.w3.org/TR/pub-manifest/#publication-resources">publication resources</a>&#160;[[!pub-manifest]].</p>
@@ -165,7 +165,7 @@
 
 			</section>
 
-			<section id="audio-type">
+			<section id="audio-conformance">
 				<h3>Publication Conformance</h3>
 
 				<p>The conformance URL expressed in the <a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code> term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks</code>".</p>
@@ -178,6 +178,20 @@
 						}
 				</pre>
 
+			</section>
+
+			<section id="audio-type">
+				<h3>Publication Type</h3>
+
+				<p>The <dfn>Publication Type</dfn> is defined using the <code>type</code> term&#160;[[!pub-manifest]].</p>
+
+				<pre class="example" title="Setting a publication's type to Audiobook.">{
+    "@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+    "type"     : "Audiobook"
+    …
+}</pre>
+
+				<p>If a <code>type</code> is not specified, <a href="https://schema.org/Audiobook"><code>Audiobook</code></a>&#160;[[!schema.org]] is assumed as the default.</p>
 			</section>
 
 			<section id="audio-properties">
@@ -230,9 +244,6 @@
 									<a href="#audio-duration">duration</a>
 								</li>
 								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#links">links</a>
-								</li>
-								<li>
 									<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification date</a>
 								</li>
 								<li>
@@ -257,7 +268,7 @@
 						</dd>
 					</dl>
 
-					<p class="note">Some properties are implicitly required, as they are compiled from alternative information when not explicitly authored. See <a href="#app-internal-rep-data-model"></a> for more information.</p>
+					<p class="note">Some properties are implicitly required, as they are compiled from alternative information when not explicitly authored. Refer to the <a href="https://www.w3.org/TR/pub-manifest/#app-internal-rep-data-model">internal representation data models</a>&#160;[[pub-manifest]] for more information (the Audiobooks representation only differs in the default value for the <code>type</code> term).</p>
 				</section>
 
 				<section id="audio-creators">
@@ -575,6 +586,9 @@
 								</li>
 							</ol>
 						</li>
+						<li id="validate-type">
+							<p>(<a href="#audio-type"></a>) If <var>data["type"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, set to <code>«&#160;"Audiobook"&#160;»</code>.</p>
+						</li>
 						<li id="validate-rec-properties">
 							<p>(<a href="#audio-requirements"></a>) Check that each of the following properties is set. If not, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for each one.</p>
 							<ul>
@@ -584,63 +598,25 @@
 								<li><var>data["accessibilityFeature"]</var></li>
 								<li><var>data["accessibilityHazard"]</var></li>
 								<li><var>data["accessibilitySummary"]</var></li>
-								<li><var>data["url"]</var></li>
 								<li><var>data["author"]</var></li>
 								<li><var>data["dateModified"]</var></li>
 								<li><var>data["datePublished"]</var></li>
-								<li><var>data["duration"]</var></li>
 								<li><var>data["id"]</var></li>
 								<li><var>data["inLanguage"]</var></li>
-								<li><var>data["links"]</var></li>
 								<li><var>data["name"]</var></li>
 								<li><var>data["readBy"]</var></li>
 								<li><var>data["readingProgression"]</var></li>
 								<li><var>data["resources"]</var></li>
+								<li><var>data["url"]</var></li>
 							</ul>
 						</li>
 						<li id="validate-rec-relations">
-							<p>(<a href="#audio-requirements"></a>) Check that the recommended resources are included as follows:</p>
-							<ol>
-								<li id="validate-rel-list">
-									<p>Let <var>resources</var> be a <a href="https://infra.spec.whatwg.org/#list">list</a> set to the value of <var>data["readingOrder"]</var>. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
-										<var>resources</var> with <var>data["resources"]</var>, when defined. <a href="https://infra.spec.whatwg.org/#list-extend">Extend</a>
-										<var>resources</var> with <var>data["links"]</var>, when defined.</p>
-								</li>
-								<li id="validate-rel-var">
-									<p>Let <var>cover</var>, <var>a11y</var> and <var>privacy</var> be <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> values set to <code>false</code>.</p>
-								</li>
-								<li id="validate-rel-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-										<var>resource</var> of <var>resources</var>, if <var>resource["rel"]</var> is defined:</p>
-									<ol>
-										<li id="validate-rel-has-cover">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>cover</code>, set <var>cover</var> to true.</p>
-										</li>
-										<li id="validate-rel-has-a11y">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>accessibility-report</code>, set <var>a11y</var> to true.</p>
-										</li>
-										<li id="validate-rel-has-privacy">
-											<p>if <var>resource["rel"]</var>
-												<a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the value <code>privacy-policy</code>, set <var>privacy</var> to true.</p>
-										</li>
-										<li id="validate-rel-break">
-											<p>if <var>cover</var>, <var>a11y</var> and <var>privacy</var> are <code>true</code>, then <a href="https://infra.spec.whatwg.org/#iteration-break">break</a></p>
-										</li>
-									</ol>
-								</li>
-								<li id="validate-rel-err">
-									<p>If <var>cover</var>, <var>a11y</var> or <var>privacy</var> is <code>false</code>, issue a <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a> for the corresponding missing resource(s).</p>
-								</li>
-							</ol>
+							<p>(<a href="#audio-requirements"></a>) If no resource in <var>data["readingOrder"]</var> or <var>data["resources"]</var> has a <var>rel</var>
+								<a href="https://infra.spec.whatwg.org/#map-entry">entry</a> that <a href="https://infra.spec.whatwg.org/#list-contains">contains</a> the relation <code>cover</code>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 						</li>
 						<li id="validate-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li id="validate-duration-none">
-									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
-								</li>
 								<li id="validate-duration-var">
 									<p>Let <var>resourceDuration</var> hold the total duration of individual resources.</p>
 								</li>
@@ -651,13 +627,17 @@
 										<li id="validate-duration-res-none">
 											<p>if <var>resource["duration"]</var> is not defined, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 										</li>
+										<li id="validate-duration-res-invalid">
+											<p>otherwise, if <var>resource["duration"]</var> is not a valid duration value, per&#160;[[!iso8601]], <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, <a href="https://infra.spec.whatwg.org/#map-remove">remove</a>
+												<var>resource["duration"]</var>.</p>
+										</li>
 										<li id="validate-duration-add">
 											<p>otherwise, add <var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
 										</li>
 									</ol>
 								</li>
-								<li>
-									<p>If <var>data["duration"] is defined and </var><var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
+								<li id="validate-duration-total">
+									<p>If <var>data["duration"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>. Otherwise, if <var>resourceDuration</var> does not specify the same total duration as <var>data["duration"]</var>, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
