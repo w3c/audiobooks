@@ -1,0 +1,13 @@
+[{
+    "name" : "Wendy Reid",
+    "chair" : true,
+    "keep": false
+},{
+    "name" : "Tzviya Siegman",
+    "chair" : true,
+    "keep": true
+},{
+    "name" : "Garth Conboy",
+    "chair" : true,
+    "keep": true       
+}]
