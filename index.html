@@ -578,13 +578,16 @@
 						<li id="validate-readingorder">
 							<p>(<a href="#audio-readingorder"></a>) Check the reading order as follows:</p>
 							<ol>
-								<li id="validate-ro-empty">
-									<p>if <var>data["readingOrder"]</var> is not set or is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure. Otherwise, if <var>data["readingOrder"]</var> does not <a href="https://infra.spec.whatwg.org/#list-contain">contain</a> at least one <a href="https://infra.spec.whatwg.org/#list-item">item</a> with an audio media type, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>, return failure.</p>
+								<li id="validate-ro-none">
+									<p>if <var>data["readingOrder"]</var> is not set, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>.</p>
 								</li>
 								<li id="validate-ro-audio">
-									<p>otherwise, <a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
 										<var>resource</var> in <var>data["readingOrder"]</var>, if <var>resource</var> is not an audio resource, <a href="https://www.w3.org/TR/pub-manifest/#validation-error">validation error</a>, <a href="https://infra.spec.whatwg.org/#list-remove">remove</a>
 										<var>resource</var> from <var>data["readingOrder"]</var>.</p>
+								</li>
+								<li id="validate-ro-empty">
+									<p>if <var>data["readingOrder"]</var> is an empty <a href="https://infra.spec.whatwg.org/#list">list</a>, <a href="https://www.w3.org/TR/pub-manifest/#fatal-error">fatal error</a>.</p>
 								</li>
 							</ol>
 						</li>
