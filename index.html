@@ -463,15 +463,15 @@
 			<section id="audio-accessibility" class="informative">
 				<h3>Accessibility</h3>
 
-				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use the <a href="https://w3c.github.io/sync-media-pub/">Synchronized Media</a> note to create documents where text and audio can be completely synchronized.</p>
+				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible audiobook, it is recommended to use <a href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized Narration</a> to create documents where text and audio can be completely synchronized. Additional details on incorporating Synchronized Narration files into the publication are given in <a href="https://w3c.github.io/sync-media-pub/incorporating-synchronized-narration">Incorporating Synchronized Narration into a Publication Manifest</a>.</p>
 
-				<p>To create an accessible audiobook using Synchronized Media, you need to both reference the alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list the file in the <a href="#audio-resourcelist">resources</a>.</p>
+				<p>To create an accessible audiobook using Synchronized Narration, you need to both reference the alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list the file in the <a href="#audio-resourcelist">resources</a>.</p>
 
 				<p>Alternatively, a content creator can provide the text equivalent as HTML [[html]] resources in the <a href="#audio-resourcelist">resources</a>.</p>
 
-				<p class="ednote">At the time of this publication, a <a href="https://w3c.github.io/sync-media-pub">Synchronized Media</a> specification suitable for use in audiobooks is in development. It is believed this specification can already meet synchronization needs, though reliance on a developing specification clearly carries no guarantee of backward compatibility. Participation and comments from the digital publishing community, and especially from implementors are encouraged.</p>
+				<p class="ednote">At the time of this publication, a <a href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized Narration</a> specification suitable for use in audiobooks is in development. It is believed this specification can already meet synchronization needs, though reliance on a developing specification clearly carries no guarantee of backward compatibility. Participation and comments from the digital publishing community, and especially from implementors are encouraged.</p>
 
-				<pre class="example" title="Audiobook with Synchronized Media">
+				<pre class="example" title="Audiobook with Synchronized Narration">
 				{
 					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
 					"conformsTo" : "https://www.w3/org/TR/audiobooks/",
@@ -485,8 +485,8 @@
 						"duration" : "PT457.931S",
 						"alternate" : {
 							"type" : "LinkedResource",
-							"url" : "sync-media/part001-1.json",
-							"encodingFormat" : "application/vnd.wp-sync-media+json"}
+							"url" : "sync-narr/part001-1.json",
+							"encodingFormat" : "application/vnd.syncnarr+json"}
 					}, {
 						"type" : "LinkedResource",
 						"url" : "audio/part001.wav#t=457.932",
@@ -495,17 +495,17 @@
 						"duration" : "PT234.245S",
 						"alternate" : {
 							"type" : "LinkedResource",
-							"url" : "sync-media/part001-2.json",
-							"encodingFormat" : "application/vnd.wp-sync-media+json"}
+							"url" : "sync-narr/part001-2.json",
+							"encodingFormat" : "application/vnd.syncnarr+json"}
 					}],
 					"resources" : [{
 			      "type": "LinkedResource",
-			      "url": "sync-media/part001-1.json",
-			      "encodingFormat" : "application/vnd.wp-sync-media+json"
+			      "url": "sync-narr/part001-1.json",
+			      "encodingFormat" : "application/vnd.syncnarr+json"
 			    }, {
 						"type": "LinkedResource",
-						"url" : "sync-media/part001-2.json",
-						"encodingFormat" : "application/vnd.wp-sync-media+json"
+						"url" : "sync-narr/part001-2.json",
+						"encodingFormat" : "application/vnd.syncnarr+json"
 					}...
 					]
 				}
