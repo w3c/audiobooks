@@ -648,6 +648,23 @@
 				</dd>
 			</dl>
 		</section>
+		<section class=informative id="toc-algorithm-extension">
+			<h2>User Agent Processing of Machine-Processable Table of Contents</h2>
+
+			<p>This specification extends the Publication Manifest’s <a data-cite="pub-manifest#app-toc-ua">User Agent Processing Algorithm</a> for Machine-Processable Table of Contents [[pub-manifest]] to locate a table of content element as follows:</p>
+						
+			<ol>
+				<li>
+					If the <a>primary entry page</a> is available, then execute the algorithm locating the table of content element on the primary entry page.
+				</li>
+				<li>
+					If the previous step is not successful, locate the relevant resource, if available, in the manifest as described in <a data-cite="pub-manifest#pub-table-of-contents">§&nbsp;4.8.1.3&nbsp;Table of Contents</a> in [[pub-manifest]], and execute the same algorithm on that resource.
+				</li>
+			</ol>
+
+			<p>See also <a href="#audio-toc"></a> for further details.</p>
+
+		</section>
 		<section id="security-privacy">
 			<h2>Security and Privacy Considerations</h2>
 
@@ -708,6 +725,19 @@
 			</section>
 
 		</section>
+
+		<section>
+			<h2>Change Log</h2>
+
+			 <section>
+				<h3>Changes since Candidate Recommendation</h3>
+				<ul>
+					<li>xx-Dec-2019: A new (informative) section <a href="#toc-algorithm-extension"></a> has been added defining, the extension of the table of contents processing algorithm. See <a href='https://github.com/w3c/audiobooks/issues/63'>issue #63</a>
+					</li>
+				</ul>
+			</section>
+		</section>
+
 		<section id="audio-manifest-examples" class="appendix informative">
 			<h2>Manifest Examples</h2>
 
