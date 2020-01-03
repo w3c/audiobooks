@@ -548,12 +548,12 @@
 
 			<dl>
 				<dt>Generating the Internal Representation</dt>
-
 				<dd>
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension steps</a> are added for Audiobook manifests:</p>
 					<ol id="processing-toc">
 						<li>
-							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) If <var>document</var> is not defined or does not include an [[!html]] element with the role <code>doc-toc</code>:</p>
+							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>)
+								If <var>document</var> is not defined or does not include an [[!html]] element with the role <code>doc-toc</code>:</p>
 							<ol>
 								<li id="processing-toc-res-var">
 									<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean">boolean</a> value set to <code>false</code>.</p>
@@ -566,6 +566,14 @@
 									<p>if <var>toc</var> is not <code>true</code>, <a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation error</a>.</p>
 								</li>
 							</ol>
+						</li>
+						<li>
+							<p>(<a href="#audio-pep"></a>) If <var>document</var> is defined:</p>
+							<ol>
+								<p>
+									if <var>processed["uniqueResources"]</var> does not contain <a data-cite="!dom#concept-document-url"><var>document.URL</var></a>, <a href="https://infra.spec.whatwg.org/#set-append">append</a> <a data-cite="!dom#concept-document-url"><var>document.URL</var></a> to <var>processed["uniqueResources"]</var>.
+								</p>
+							</ol>						
 						</li>
 					</ol>
 				</dd>
@@ -650,6 +658,23 @@
 				</dd>
 			</dl>
 		</section>
+		<section class=informative id="toc-algorithm-extension">
+			<h2>User Agent Processing of Machine-Processable Table of Contents</h2>
+
+			<p>This specification extends the Publication Manifest’s <a data-cite="pub-manifest#app-toc-ua">User Agent Processing Algorithm</a> for Machine-Processable Table of Contents [[pub-manifest]] to locate a table of content element as follows:</p>
+						
+			<ol>
+				<li>
+					If the <a>primary entry page</a> is available, then execute the algorithm locating the table of content element on the primary entry page.
+				</li>
+				<li>
+					If the previous step is not successful, locate the relevant resource, if available, in the manifest as described in <a data-cite="pub-manifest#pub-table-of-contents">§&nbsp;4.8.1.3&nbsp;Table of Contents</a> in [[pub-manifest]], and execute the same algorithm on that resource.
+				</li>
+			</ol>
+
+			<p>See also <a href="#audio-toc"></a> for further details.</p>
+
+		</section>
 		<section id="security-privacy">
 			<h2>Security and Privacy Considerations</h2>
 
@@ -710,6 +735,22 @@
 			</section>
 
 		</section>
+
+		<section>
+			<h2>Change Log</h2>
+
+			 <section>
+				<h3>Changes since Candidate Recommendation</h3>
+				<ul>
+					<li>xx-Dec-2019: A new (informative) section <a href="#toc-algorithm-extension"></a> has been added defining, the extension of the table of contents processing algorithm. See <a href='https://github.com/w3c/audiobooks/issues/63'>issue #63</a>.
+					</li>
+					<li>xx-Dec-2019: Extra step in <a href="#audio-manifest-processing"></a> adding the PEP’s URL to the collection of unique resources in the manifest. See <a href='https://github.com/w3c/publ-tests/issues/7'>issue #7 for the test-suite</a>. 
+					</li>
+
+				</ul>
+			</section>
+		</section>
+
 		<section id="audio-manifest-examples" class="appendix informative">
 			<h2>Manifest Examples</h2>
 
