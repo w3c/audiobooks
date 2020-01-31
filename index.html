@@ -416,7 +416,9 @@
 
 				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple
 					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
-						fragments</a> [[media-frags]] to locate the exact starting point.</p>
+						fragments</a> [[media-frags]] to locate the exact starting and end points.</p>
+
+				<p class="note">It is important to note that a resource cannot be referenced more than once in the reading order. In the case where an audio file represents the content of multiple chapters or sections of the book, content creators should use a <a href="audio-toc">table of contents</a> to specify the starting and ending points of those chapters in the larger audio file, as demonstrated in example <a href="#toc-mediafragments">this example</a>.</p>
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
@@ -442,13 +444,13 @@
 								"name" : "Jane Eyre",
 								"readingOrder" : [{
 									"type": "LinkedResource",
-									"url" : "audio/part001.wav#0",
+									"url" : "audio/part001.wav#t=0,457.931",
 									"encodingFormat" : "audio/vnd-wav",
 									"name" : "Chapter 1",
 									"duration" : "PT457.931S"
 								}, {
 									"type" : "LinkedResource",
-									"url" : "audio/part001.wav#457.932",
+									"url" : "audio/part002.wav#t=457.932",
 									"encodingFormat" : "audio/vnd-wav",
 									"name" : "Chapter 2",
 									"duration" : "PT234.245S"
@@ -602,7 +604,7 @@
 					"name" : "Jane Eyre",
 					"readingOrder" : {
 						"type" : "LinkedResource",
-						"url" : "audio/part001.wav#0",
+						"url" : "audio/part001.wav#t=0",
 						"encodingFormat" : "audio/vnd-wav",
 						"name" : "Chapter 1",
 						"duration" : "PT457.931S",
@@ -1049,8 +1051,8 @@
 						&lt;h2>JANE EYRE&lt;/h2>
 
 						&lt;ol>
-							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3">Chapter 1&lt;/a>&lt;/li>
-							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=456.789">Chapter 2&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=0,456.788">Chapter 1&lt;/a>&lt;/li>
+							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=456.789,1234.566">Chapter 2&lt;/a>&lt;/li>
 							&lt;li>&lt;a href="https://example.publisher.org/janeeyre/part001.mp3#t=1234.567">Chapter 3&lt;/a>&lt;/li>
 						&lt;/ol>
 					&lt;/nav>
