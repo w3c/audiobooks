@@ -746,40 +746,32 @@
 						<li id="validate-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li id="validate-duration-var">
-									<p>Let <var>resourceDuration</var> hold the total duration of individual
-										resources.</p>
-								</li>
-								<li id="validate-duration-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
+								<li>
+									<p>If <var>data["duration"]</var> is set and is a valid duration value per
+										[ISO8601]:</p>
 									<ol>
-										<li id="validate-duration-res-none">
-											<p>if <var>resource["duration"]</var> is not defined, <a
+										<li id="validate-duration-var">
+											<p>Let <var>resourceDuration</var> hold the total duration of individual
+												resources.</p>
+										</li>
+										<li id="validate-duration-iterate">
+											<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
+												<var>resource</var> of <var>data["readingOrder"]</var>, if
+													<var>resource["duration"]</var> is a valid duration value,
+												per&#160;[[!iso8601]], add <var>resource["duration"]</var> to
+													<var>resourceDuration</var>.</p>
+										</li>
+										<li id="validate-duration-total">
+											<p>If <var>resourceDuration</var> does not specify the same total duration
+												as <var>data["duration"]</var>, <a
 													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
 													>validation error</a>.</p>
 										</li>
-										<li id="validate-duration-res-invalid">
-											<p>otherwise, if <var>resource["duration"]</var> is not a valid duration
-												value, per&#160;[[!iso8601]], <a
-													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
-													>validation error</a>, <a
-													href="https://infra.spec.whatwg.org/#map-remove">remove</a>
-												<var>resource["duration"]</var>.</p>
-										</li>
-										<li id="validate-duration-add">
-											<p>otherwise, add <var>resource["duration"]</var> to
-													<var>resourceDuration</var>.</p>
-										</li>
 									</ol>
 								</li>
-								<li id="validate-duration-total">
-									<p>If <var>data["duration"]</var> is not set, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>. Otherwise, if <var>resourceDuration</var> does not specify the
-										same total duration as <var>data["duration"]</var>, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>.</p>
+								<li>
+									<p>Othewise, <a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
+											>validation error</a>.</p>
 								</li>
 							</ol>
 						</li>
