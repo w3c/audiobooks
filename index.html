@@ -166,6 +166,92 @@
 
 			</section>
 
+			<section id="audio-requirements">
+				<h4>Requirements</h4>
+				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
+					follows:</p>
+
+				<p class="note">The list of required properities references <code>title</code>, however all examples use
+						<code>name</code> as described in [[schema.org]] and [[pub-manifest]].</p>
+
+				<dl>
+					<dt>REQUIRED:</dt>
+					<dd>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
+									order</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
+							</li>
+						</ul>
+					</dd>
+					<dt>RECOMMENDED:</dt>
+					<dd>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+							</li>
+							<li>
+								<a href="#audio-creators">author</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
+									identifier</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+							</li>
+							<li>
+								<a href="#audio-duration">duration</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification
+									date</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
+							</li>
+							<li>
+								<a href="#audio-creators">readBy</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
+									progression direction</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+
+				<p class="note">Some properties are implicitly required, as they are compiled from alternative
+					information when not explicitly authored. Refer to the <a
+						href="https://www.w3.org/TR/pub-manifest/#app-internal-rep-data-model">internal representation
+						data models</a>&#160;[[pub-manifest]] for more information (the Audiobooks representation only
+					differs in the default value for the <code>type</code> term).</p>
+			</section>
+
 			<section id="audio-context" class="normative">
 				<h3>Manifest Contexts</h3>
 
@@ -236,91 +322,6 @@
 
 			<section id="audio-properties">
 				<h3>Properties</h3>
-
-				<section id="audio-requirements">
-					<h4>Requirements</h4>
-					<p>The requirements for the expression of Audiobook properties are defined as follows:</p>
-
-					<p class="note">The list of required properities references <code>title</code>, however all examples
-						use <code>name</code> as described in [[schema.org]] and [[pub-manifest]].</p>
-
-					<dl>
-						<dt>REQUIRED:</dt>
-						<dd>
-							<ul>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
-										order</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
-								</li>
-							</ul>
-						</dd>
-						<dt>RECOMMENDED:</dt>
-						<dd>
-							<ul>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
-								</li>
-								<li>
-									<a href="#audio-creators">author</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
-										identifier</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
-								</li>
-								<li>
-									<a href="#audio-duration">duration</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last
-										modification date</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
-								</li>
-								<li>
-									<a href="#audio-creators">readBy</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
-										progression direction</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-
-					<p class="note">Some properties are implicitly required, as they are compiled from alternative
-						information when not explicitly authored. Refer to the <a
-							href="https://www.w3.org/TR/pub-manifest/#app-internal-rep-data-model">internal
-							representation data models</a>&#160;[[pub-manifest]] for more information (the Audiobooks
-						representation only differs in the default value for the <code>type</code> term).</p>
-				</section>
 
 				<section id="audio-creators">
 					<h4>Creators</h4>
