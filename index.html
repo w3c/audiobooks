@@ -6,7 +6,7 @@
 		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove" defer="defer"></script>
 		<script src="common/js/biblio.js" class="remove"></script>
 		<script src="common/js/wp.js" class="remove"></script>
-		<!-- <link href="../common/css/common.css" rel="stylesheet" type="text/css" /> -->
+		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 		<script class="remove">
           var respecConfig = {
 			  postProcess: [create_wp],
@@ -659,18 +659,57 @@
 											error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks for a table of contents in the resource list when an Audiobook
+									manifest is not linked to a <a>primary entry page</a> (i.e., when
+										<code>document</code> is not defined) or the entry page does not include a table
+									of contents.</p>
+							</details>
 						</li>
-						<li>
-							<p>(<a href="#audio-pep"></a>) If <var>document</var> is defined:</p>
+						<li id="processing-duration">
+							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li>
-									<p> if <var>processed["uniqueResources"]</var> does not contain <a
-											data-cite="!dom#concept-document-url"><var>document.URL</var></a>, <a
-											href="https://infra.spec.whatwg.org/#set-append">append</a>
-										<a data-cite="!dom#concept-document-url"><var>document.URL</var></a> to
-											<var>processed["uniqueResources"]</var>. </p>
+								<li id="processing-duration-var">
+									<p>Let <var>resourceDuration</var> hold the total duration of individual
+										resources.</p>
+								</li>
+								<li id="processing-duration-iterate">
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
+										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
+									<ol>
+										<li id="processing-duration-res-none">
+											<p>if <var>resource["duration"]</var> is not defined, <a
+													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
+													>validation error</a>.</p>
+										</li>
+										<li id="processing-duration-add">
+											<p>otherwise, if <var>resource["duration"]</var>, add
+													<var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
+										</li>
+									</ol>
+								</li>
+								<li id="processing-duration-total">
+									<p>If the values cannot be compared because <var>data["duration"]</var> is not set,
+											<a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
+											>validation error</a>.</p>
+									<p>Otherwise, if <var>resourceDuration</var> does not specify the same total
+										duration as <var>data["duration"]</var>, <a
+											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
+											error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This steps checks both that all resource in the reading order specify a duration and
+									that the sum of all those durations matches the total duration for the
+									publication.</p>
+								<p>A validation error is only emitted while checking each resource if the resource does
+									not specify a duration. The <a
+										href="https://www.w3.org/TR/pub-manifest/#validate-duration">validity of the
+										durations</a>&#160;[[pub-manifest]] is already checked in the publication
+									manifest algorithm so does not need to be repeated.</p>
+							</details>
 						</li>
 					</ol>
 				</dd>
@@ -685,12 +724,12 @@
 							<p>(<a href="#audio-readingorder"></a>) Check the reading order as follows:</p>
 							<ol>
 								<li id="validate-ro-none">
-									<p>if <var>data["readingOrder"]</var> is not set, <a
+									<p>If <var>data["readingOrder"]</var> is not set, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-fatal-errors">fatal
 										error</a>.</p>
 								</li>
 								<li id="validate-ro-audio">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
 										<var>resource</var> in <var>data["readingOrder"]</var>, if <var>resource</var>
 										is not an audio resource, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
@@ -698,18 +737,30 @@
 										<var>resource</var> from <var>data["readingOrder"]</var>.</p>
 								</li>
 								<li id="validate-ro-empty">
-									<p>if <var>data["readingOrder"]</var> is an empty <a
+									<p>If <var>data["readingOrder"]</var> is an empty <a
 											href="https://infra.spec.whatwg.org/#list">list</a>, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-fatal-errors">fatal
 										error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step ensures that only audio resources are listed in the reading order and
+									removes any that are not.</p>
+								<p>If the reading order does not contain any entries after checking each resource, a
+									fatal error is returned as the publication is not a valid audiobook.</p>
+							</details>
 						</li>
 						<li id="validate-type">
 							<p>(<a href="#audio-type"></a>) If <var>data["type"]</var> is not set or is an empty <a
 									href="https://infra.spec.whatwg.org/#list">list</a>, <a
 									href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
 									error</a>, set to <code>«&#160;"Audiobook"&#160;»</code>.</p>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step sets the default type of the publication to <code>Audiobook</code> when a
+										<var>type</var> property has not been specified.</p>
+							</details>
 						</li>
 						<li id="validate-rec-properties">
 							<p>(<a href="#audio-requirements"></a>) Check that each of the following properties is set.
@@ -733,6 +784,11 @@
 								<li><var>data["resources"]</var></li>
 								<li><var>data["url"]</var></li>
 							</ul>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks that all the recommended properties have been set. For more
+									information about these, refer to <a href="#audio-requirements"></a>.</p>
+							</details>
 						</li>
 						<li id="validate-rec-relations">
 							<p>(<a href="#audio-requirements"></a>) If no resource in <var>data["readingOrder"]</var> or
@@ -742,38 +798,12 @@
 									<code>cover</code>, <a
 									href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
 									error</a>.</p>
-						</li>
-						<li id="validate-duration">
-							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
-							<ol>
-								<li>
-									<p>If <var>data["duration"]</var> is set and is a valid duration value per
-										[ISO8601]:</p>
-									<ol>
-										<li id="validate-duration-var">
-											<p>Let <var>resourceDuration</var> hold the total duration of individual
-												resources.</p>
-										</li>
-										<li id="validate-duration-iterate">
-											<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-												<var>resource</var> of <var>data["readingOrder"]</var>, if
-													<var>resource["duration"]</var> is a valid duration value,
-												per&#160;[[!iso8601]], add <var>resource["duration"]</var> to
-													<var>resourceDuration</var>.</p>
-										</li>
-										<li id="validate-duration-total">
-											<p>If <var>resourceDuration</var> does not specify the same total duration
-												as <var>data["duration"]</var>, <a
-													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
-													>validation error</a>.</p>
-										</li>
-									</ol>
-								</li>
-								<li>
-									<p>Othewise, <a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
-											>validation error</a>.</p>
-								</li>
-							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks the reading order and resource list to verify that a cover has been
+									specified (i.e., an resource has the value <code>cover</code> in its
+										<code>rel</code> property).</p>
+							</details>
 						</li>
 					</ol>
 				</dd>
