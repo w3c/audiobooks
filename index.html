@@ -8,47 +8,43 @@
 		<script src="common/js/wp.js" class="remove"></script>
 		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 		<script class="remove">
-          var respecConfig = {
-			  postProcess: [create_wp],
-              wg: "Publishing Working Group",
-              wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
-              wgPublicList: "public-publ-wg",
-			  edDraftURI: "https://w3c.github.io/audiobooks/",
-			  previousPublishDate: "2020-01-28",
-			  previousMaturity: "CR",
-              specStatus: "ED",
-			  implementationReportURI: "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
-			  crEnd : "2020-03-31",
-              noRecTrack: false,
-              shortName: "audiobooks",
-              copyrightStart: "2019",
-              editors: [
-              	{
-              		name: "Wendy Reid",
-              		company: "Rakuten/Kobo",
-              		companyURL: "https://www.kobo.com/",
+			var respecConfig = {
+				postProcess:[create_wp],
+				wg: "Publishing Working Group",
+				wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
+				wgPublicList: "public-publ-wg",
+				edDraftURI: "https://w3c.github.io/audiobooks/",
+				previousPublishDate: "2020-01-28",
+				previousMaturity: "CR",
+				specStatus: "ED",
+				implementationReportURI: "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
+				crEnd: "2020-03-31",
+				noRecTrack: false,
+				shortName: "audiobooks",
+				copyrightStart: "2019",
+				editors:[ {
+					name: "Wendy Reid",
+					company: "Rakuten/Kobo",
+					companyURL: "https://www.kobo.com/",
 					"w3cid": 102009
-				},
-				{
+				}, {
 					"name": "Matt Garrish",
 					"company": "DAISY Consortium",
 					"companyURL": "https://daisy.org",
 					"w3cid": 51655
-				}
-              ],
-              processVersion: 2019,
-              includePermalinks: true,
-              permalinkEdge:     true,
-              permalinkHide:     false,
-              wgPatentURI:       "https://www.w3.org/2004/01/pp-impl/100074/status",
-              diffTool:          "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
-			github:			 {
-				repoURL: "https://github.com/w3c/audiobooks",
-				branch: "master"
-			},
-            localBiblio: localBiblio
-          };
-      </script>
+				}],
+				processVersion: 2019,
+				includePermalinks: true,
+				permalinkEdge: true,
+				permalinkHide: false,
+				wgPatentURI: "https://www.w3.org/2004/01/pp-impl/100074/status",
+				diffTool: "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
+				github: {
+					repoURL: "https://github.com/w3c/audiobooks",
+					branch: "master"
+				},
+				localBiblio: localBiblio
+			};</script>
 	</head>
 	<body>
 		<section id="abstract">
@@ -950,18 +946,37 @@
 		<section id="change-log">
 			<h2>Change Log</h2>
 
-			<section>
-				<h3>Changes since Candidate Recommendation</h3>
-				<p>The following substantive changes have been made since the last release:</p>
+			<section id="change-log-latest">
+				<h3>Substantive changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/">last
+						version</a></h3>
+
 				<ul>
-					<li>3-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension"></a> has been added
+					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
+						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
+						primary entry page not being listed in the unique resources has been removed as it is no checked
+						in the publication manifest algorithm. See <a href="https://github.com/w3c/audiobooks/issues/71"
+							>issue 71</a>.</li>
+					<li>12-Feb-2020: The use of fragments in the reading order was clarified to also include end
+						position. A number of examples were also fixed. See <a
+							href="https://github.com/w3c/audiobooks/pull/69">pull request 69</a>.</li>
+					<li>07-Feb-2020: The manifest requirements section was moved out of the properties section as it
+						also includes resource relations. See <a href="https://github.com/w3c/audiobooks/issues/70"
+							>issue 70</a>.</li>
+				</ul>
+			</section>
+
+			<section id="change-log-older">
+				<h3>Other substantive changes since Candidate Recommendation</h3>
+
+				<ul>
+					<li>03-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension"></a> has been added
 						defining, the extension of the table of contents processing algorithm. See <a
 							href="https://github.com/w3c/audiobooks/issues/63">issue #63</a>. </li>
-					<li>3-Jan-2020: Extra step in <a href="#audio-manifest-processing"></a> adding the PEP’s URL to the
+					<li>03-Jan-2020: Extra step in <a href="#audio-manifest-processing"></a> adding the PEP’s URL to the
 						collection of unique resources in the manifest. See <a
 							href="https://github.com/w3c/publ-tests/issues/7">issue #7 for the test-suite</a>. </li>
-					<li>10-Feb-2020: The spelling of “behaviour” has been changed from British to US.</li>
 				</ul>
+
 				<p>For a complete list of issues addressed, refer to the <a
 						href="https://github.com/w3c/audiobooks/issues?q=is%3Aissue+is%3Aclosed+sort%3Aupdated-desc"
 						>GitHub tracker</a>.</p>
