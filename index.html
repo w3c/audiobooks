@@ -420,6 +420,8 @@
 
 				<p class="note">It is important to note that a resource cannot be referenced more than once in the reading order. In the case where an audio file represents the content of multiple chapters or sections of the book, content creators should use a <a href="audio-toc">table of contents</a> to specify the starting and ending points of those chapters in the larger audio file, as demonstrated in example <a href="#toc-mediafragments">this example</a>.</p>
 
+				<p class="note">Annotations can also use media fragments to identify the location of the annotation in the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web Annotations</a> model. This method will only apply to audiobook manifests that are not packaged.</p> 
+
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
 								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
