@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="generator" content="ReSpec 25.1.0" />
+		<meta name="generator" content="ReSpec 25.4.1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<style>
 			/* --- EXAMPLES --- */
@@ -98,16 +98,6 @@
 				bottom: 2px;
 				border: none;
 				display: inline-block;
-			}
-			
-			.issue a.respec-label-dark {
-				color: #fff;
-				background-color: #000;
-			}
-			
-			.issue a.respec-label-light {
-				color: #000;
-				background-color: #fff;
 			}</style>
 		<style>
 			/* dfn popup panel that list all local references to a dfn */
@@ -180,8 +170,7 @@
 		<title>Audiobooks</title>
 
 
-
-
+		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 
 		<style id="respec-mainstyle">
 			/*****************************************************************
@@ -265,7 +254,7 @@
 			}
 			
 			code {
-				color: #c83500;
+				color: #c63501;
 			}
 			
 			th code {
@@ -476,7 +465,7 @@
 		<link rel="canonical" href="https://www.w3.org/TR/audiobooks/" />
 		<style>
 			/*
-Atom One Light by Daniel Gamage
+Adapted from Atom One Light by Daniel Gamage for ReSpec, with better color contrast
 Original One Light Syntax theme from https://github.com/atom/one-light-syntax
 base:    #fafafa
 mono-1:  #383a42
@@ -502,7 +491,7 @@ hue-6-2: #c18401
 			
 			.hljs-comment,
 			.hljs-quote {
-				color: #a0a1a7;
+				color: #717277;
 				font-style: italic;
 			}
 			
@@ -517,11 +506,12 @@ hue-6-2: #c18401
 			.hljs-selector-tag,
 			.hljs-deletion,
 			.hljs-subst {
-				color: #e45649;
+				color: #ca4706;
+				font-weight: bold;
 			}
 			
 			.hljs-literal {
-				color: #0184bb;
+				color: #0b76c5;
 			}
 			
 			.hljs-string,
@@ -529,12 +519,12 @@ hue-6-2: #c18401
 			.hljs-addition,
 			.hljs-attribute,
 			.hljs-meta-string {
-				color: #50a14f;
+				color: #42803C;
 			}
 			
 			.hljs-built_in,
 			.hljs-class .hljs-title {
-				color: #c18401;
+				color: #9a6a01;
 			}
 			
 			.hljs-attr,
@@ -554,7 +544,7 @@ hue-6-2: #c18401
 			.hljs-meta,
 			.hljs-selector-id,
 			.hljs-title {
-				color: #4078f2;
+				color: #336ae3;
 			}
 			
 			.hljs-emphasis {
@@ -614,103 +604,14 @@ hue-6-2: #c18401
 			var[data-type]:hover::before {
 				opacity: 1;
 			}</style>
-		<link rel="publication" href="#wp_manifest" />
-		<script type="application/ld+json" id="wp_manifest">{
-    "@context": [
-        "https://schema.org",
-        "https://www.w3.org/ns/wp-context"
-    ],
-    "type": "TechArticle",
-    "accessMode": [
-        "textual",
-        "diagramOnVisual"
-    ],
-    "accessModeSufficient": [
-        "textual"
-    ],
-    "resources": [
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/StyleSheets/TR/2016/logos/W3C",
-            "encodingFormat": "image/svg+xml",
-            "description": "W3C Logo"
-        },
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/StyleSheets/TR/2016/base.css",
-            "rel": "stylesheet",
-            "encodingFormat": "text/css",
-            "description": "Generic CSS file for W3C TR documents"
-        },
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/StyleSheets/TR/2016/W3C-CR",
-            "rel": "stylesheet",
-            "encodingFormat": "text/css",
-            "description": "CSS file depending on the status of the document"
-        },
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/StyleSheets/TR/2016/logos/CR",
-            "encodingFormat": "image/svg+xml",
-            "description": "Sidebar logo reflecting the status of the document"
-        }
-    ],
-    "links": [
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/Consortium/Legal/privacy-statement-20140324",
-            "encodingFormat": "text/html",
-            "rel": "privacy-policy"
-        },
-        {
-            "type": "LinkedResource",
-            "url": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-            "encodingFormat": "text/html",
-            "rel": "license describedby"
-        },
-        {
-            "type": "LinkedResource",
-            "url": "http://www.w3.org/Consortium/Legal/ipr-notice#Copyright",
-            "encodingFormat": "text/html",
-            "rel": "copyright"
-        }
-    ],
-    "id": "https://www.w3.org/TR/audiobooks/",
-    "url": "https://www.w3.org/TR/2020/CR-audiobooks-20200128/",
-    "datePublished": "2020-01-28",
-    "editor": [
-        {
-            "type": "Person",
-            "name": "Wendy Reid",
-            "affiliation": {
-                "type": "Organization",
-                "name": "Rakuten/Kobo",
-                "url": "https://www.kobo.com/"
-            }
-        },
-        {
-            "type": "Person",
-            "name": "Matt Garrish",
-            "affiliation": {
-                "type": "Organization",
-                "name": "DAISY Consortium",
-                "url": "https://daisy.org"
-            }
-        }
-    ]
-}</script>
 		<script id="initialUserConfig" type="application/json">{
-  "postProcess": [
-    null
-  ],
   "wg": "Publishing Working Group",
   "wgURI": "https://www.w3.org/publishing/groups/publ-wg/",
   "wgPublicList": "public-publ-wg",
   "edDraftURI": "https://w3c.github.io/audiobooks/",
-  "previousPublishDate": "2019-12-05",
+  "previousPublishDate": "2020-01-28",
   "previousMaturity": "CR",
-  "specStatus": "CR",
+  "specStatus": "WD",
   "implementationReportURI": "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
   "crEnd": "2020-03-31",
   "noRecTrack": false,
@@ -868,24 +769,24 @@ hue-6-2: #c18401
       "href": "http://www.bibtex.org/Format/"
     }
   },
-  "publishDate": "2020-01-28",
-  "publishISODate": "2020-01-28T00:00:00.000Z",
-  "generatedSubtitle": "Candidate Recommendation 28 January 2020"
+  "publishDate": "2020-03-17",
+  "publishISODate": "2020-03-17T00:00:00.000Z",
+  "generatedSubtitle": "Working Draft 17 March 2020"
 }</script>
-		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-CR" />
+		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD" />
 	</head>
 	<body class="h-entry"><div class="head">
 			<a class="logo" href="https://www.w3.org/"><img alt="W3C"
 					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72" height="48" /></a>
-			<h1 id="title" class="title p-name">Audiobooks</h1>
+			<h1 id="title" class="title">Audiobooks</h1>
 
-			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-01-28">28 January 2020</time>
+			<h2> W3C Working Draft <time class="dt-published" datetime="2020-03-17">17 March 2020</time>
 			</h2>
 			<dl>
 				<dt>This version:</dt>
 				<dd>
-					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200128/</a>
+					<a class="u-url" href="https://www.w3.org/TR/2020/WD-audiobooks-20200317/"
+						>https://www.w3.org/TR/2020/WD-audiobooks-20200317/</a>
 				</dd>
 				<dt>Latest published version:</dt>
 				<dd>
@@ -901,8 +802,8 @@ hue-6-2: #c18401
 				</dd>
 
 				<dt>Previous version:</dt>
-				<dd><a href="https://www.w3.org/TR/2019/CR-audiobooks-20191205/"
-						>https://www.w3.org/TR/2019/CR-audiobooks-20191205/</a></dd>
+				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200128/</a></dd>
 
 				<dt>Editors:</dt>
 				<dd class="p-author h-card vcard" data-editor-id="102009"><span class="p-name fn">Wendy Reid</span> (<a
@@ -954,25 +855,19 @@ hue-6-2: #c18401
 						href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical
 						reports index</a> at https://www.w3.org/TR/.</em></p>
 			<p> This document was published by the <a href="https://www.w3.org/publishing/groups/publ-wg/">Publishing
-					Working Group</a> as a Candidate Recommendation. This document is intended to become a <abbr
+					Working Group</a> as a Working Draft. This document is intended to become a <abbr
 					title="World Wide Web Consortium">W3C</abbr> Recommendation. </p>
 			<p>
 				<a href="https://github.com/w3c/audiobooks/issues/">GitHub Issues</a> are preferred for discussion of
 				this specification. Alternatively, you can send comments to our mailing list. Please send them to <a
 					href="mailto:public-publ-wg@w3.org">public-publ-wg@w3.org</a> (<a
 					href="https://lists.w3.org/Archives/Public/public-publ-wg/">archives</a>). </p>
-			<p>
-				<abbr title="World Wide Web Consortium">W3C</abbr> publishes a Candidate Recommendation to indicate that
-				the document is believed to be stable and to encourage implementation by the developer community. This
-				Candidate Recommendation is expected to advance to Proposed Recommendation no earlier than 31 March
-				2020. </p>
 			<p> Please see the Working Group's <a
 					href="https://www.w3.org/publishing/groups/publ-wg/implementation/results.html">implementation
 					report</a>. </p>
-			<p> Publication as a Candidate Recommendation does not imply endorsement by the <abbr
-					title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be
-				updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document
-				as other than work in progress. </p>
+			<p> Publication as a Working Draft does not imply endorsement by the <abbr title="World Wide Web Consortium"
+					>W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other
+				documents at any time. It is inappropriate to cite this document as other than work in progress. </p>
 			<p> This document was produced by a group operating under the <a
 					href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium"
 						>W3C</abbr> Patent Policy</a>. <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a
@@ -986,8 +881,7 @@ hue-6-2: #c18401
 			<p> This document is governed by the <a id="w3c_process_revision"
 					href="https://www.w3.org/2019/Process-20190301/">1 March 2019 <abbr
 						title="World Wide Web Consortium">W3C</abbr> Process Document</a>. </p>
-		</section><nav id="toc" role="doc-toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol
-				class="toc">
+		</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc">
 				<li class="tocline"><a class="tocxref" href="#intro"><bdi class="secno">1. </bdi>Introduction</a></li>
 				<li class="tocline"><a class="tocxref" href="#audio-terminology"><bdi class="secno">2.
 						</bdi>Terminology</a></li>
@@ -1004,30 +898,30 @@ hue-6-2: #c18401
 						</bdi>Manifest</a><ol class="toc">
 						<li class="tocline"><a class="tocxref" href="#audio-properties-intro"><bdi class="secno">5.1
 								</bdi>Introduction</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-context"><bdi class="secno">5.2
+						<li class="tocline"><a class="tocxref" href="#audio-requirements"><bdi class="secno">5.2
+								</bdi>Requirements</a></li>
+						<li class="tocline"><a class="tocxref" href="#audio-context"><bdi class="secno">5.3
 								</bdi>Manifest Contexts</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-conformance"><bdi class="secno">5.3
+						<li class="tocline"><a class="tocxref" href="#audio-conformance"><bdi class="secno">5.4
 								</bdi>Publication Conformance</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-type"><bdi class="secno">5.4
+						<li class="tocline"><a class="tocxref" href="#audio-type"><bdi class="secno">5.5
 								</bdi>Publication Type</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-properties"><bdi class="secno">5.5
+						<li class="tocline"><a class="tocxref" href="#audio-properties"><bdi class="secno">5.6
 								</bdi>Properties</a><ol class="toc">
-								<li class="tocline"><a class="tocxref" href="#audio-requirements"><bdi class="secno"
-											>5.5.1 </bdi>Requirements</a></li>
-								<li class="tocline"><a class="tocxref" href="#audio-creators"><bdi class="secno">5.5.2
+								<li class="tocline"><a class="tocxref" href="#audio-creators"><bdi class="secno">5.6.1
 										</bdi>Creators</a></li>
-								<li class="tocline"><a class="tocxref" href="#audio-duration"><bdi class="secno">5.5.3
+								<li class="tocline"><a class="tocxref" href="#audio-duration"><bdi class="secno">5.6.2
 										</bdi>Duration</a></li>
 							</ol></li>
-						<li class="tocline"><a class="tocxref" href="#audio-readingorder"><bdi class="secno">5.6
+						<li class="tocline"><a class="tocxref" href="#audio-readingorder"><bdi class="secno">5.7
 								</bdi>Default Reading Order</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-resourcelist"><bdi class="secno">5.7
+						<li class="tocline"><a class="tocxref" href="#audio-resourcelist"><bdi class="secno">5.8
 								</bdi>Resource List</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-preview"><bdi class="secno">5.8
+						<li class="tocline"><a class="tocxref" href="#audio-preview"><bdi class="secno">5.9
 								</bdi>Audiobook Previews</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-packaging"><bdi class="secno">5.9
+						<li class="tocline"><a class="tocxref" href="#audio-packaging"><bdi class="secno">5.10
 								</bdi>Packaging</a></li>
-						<li class="tocline"><a class="tocxref" href="#audio-accessibility"><bdi class="secno">5.10
+						<li class="tocline"><a class="tocxref" href="#audio-accessibility"><bdi class="secno">5.11
 								</bdi>Accessibility</a></li>
 					</ol></li>
 				<li class="tocline"><a class="tocxref" href="#audio-manifest-processing"><bdi class="secno">6.
@@ -1037,7 +931,7 @@ hue-6-2: #c18401
 				<li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">8. </bdi>Security and
 						Privacy Considerations</a></li>
 				<li class="tocline"><a class="tocxref" href="#audio-ua-behaviour"><bdi class="secno">9. </bdi>User Agent
-						Behaviours for Audiobooks</a><ol class="toc">
+						Behaviors for Audiobooks</a><ol class="toc">
 						<li class="tocline"><a class="tocxref" href="#audio-ua-navigation"><bdi class="secno">9.1
 								</bdi>Opening and Navigating the Contents of an Audiobook</a></li>
 						<li class="tocline"><a class="tocxref" href="#audio-ua-playback"><bdi class="secno">9.2
@@ -1049,8 +943,11 @@ hue-6-2: #c18401
 					</ol></li>
 				<li class="tocline"><a class="tocxref" href="#change-log"><bdi class="secno">10. </bdi>Change Log</a><ol
 						class="toc">
-						<li class="tocline"><a class="tocxref" href="#changes-since-candidate-recommendation"><bdi
-									class="secno">10.1 </bdi>Changes since Candidate Recommendation</a></li>
+						<li class="tocline"><a class="tocxref" href="#change-log-latest"><bdi class="secno">10.1
+								</bdi>Substantive changes since the <span class="formerLink">previous
+							version</span></a></li>
+						<li class="tocline"><a class="tocxref" href="#change-log-older"><bdi class="secno">10.2
+								</bdi>Other substantive changes since Candidate Recommendation</a></li>
 					</ol></li>
 				<li class="tocline"><a class="tocxref" href="#audio-manifest-examples"><bdi class="secno">A.
 						</bdi>Manifest Examples</a><ol class="toc">
@@ -1229,8 +1126,110 @@ hue-6-2: #c18401
 
 			</section>
 
+			<section id="audio-requirements">
+				<h3 id="x5-2-requirements"><bdi class="secno">5.2 </bdi>Requirements<a class="self-link" aria-label="§"
+						href="#audio-requirements"></a></h3>
+				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
+					follows:</p>
+
+				<div class="note" role="note" id="issue-container-generatedID-0">
+					<div role="heading" class="note-title marker" id="h-note-0" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">The list of required properities references <code>title</code>, however all examples use
+							<code>name</code> as described in [<cite><a class="bibref" data-link-type="biblio"
+								href="#bib-schema.org" title="Schema.org">schema.org</a></cite>] and [<cite><a
+								class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
+								title="Publication Manifest">pub-manifest</a></cite>].</p>
+				</div>
+
+				<dl>
+					<dt><em class="rfc2119" title="REQUIRED">REQUIRED</em>:</dt>
+					<dd>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
+									order</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
+							</li>
+						</ul>
+					</dd>
+					<dt><em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>:</dt>
+					<dd>
+						<ul>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+							</li>
+							<li>
+								<a href="#audio-creators">author</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
+									identifier</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+							</li>
+							<li>
+								<a href="#audio-duration">duration</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification
+									date</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
+							</li>
+							<li>
+								<a href="#audio-creators">readBy</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
+									progression direction</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+
+				<div class="note" role="note" id="issue-container-generatedID-1">
+					<div role="heading" class="note-title marker" id="h-note-1" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">Some properties are implicitly required, as they are compiled from alternative
+						information when not explicitly authored. Refer to the <a
+							href="https://www.w3.org/TR/pub-manifest/#app-internal-rep-data-model">internal
+							representation data models</a>&#160;[<cite><a class="bibref" data-link-type="biblio"
+								href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>] for more
+						information (the Audiobooks representation only differs in the default value for the
+							<code>type</code> term).</p>
+				</div>
+			</section>
+
 			<section id="audio-context" class="normative">
-				<h3 id="x5-2-manifest-contexts"><bdi class="secno">5.2 </bdi>Manifest Contexts<a class="self-link"
+				<h3 id="x5-3-manifest-contexts"><bdi class="secno">5.3 </bdi>Manifest Contexts<a class="self-link"
 						aria-label="§" href="#audio-context"></a></h3>
 
 				<p>An Audiobook manifest has to start by setting the JSON-LD context [<cite><a class="bibref"
@@ -1278,7 +1277,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-conformance">
-				<h3 id="x5-3-publication-conformance"><bdi class="secno">5.3 </bdi>Publication Conformance<a
+				<h3 id="x5-4-publication-conformance"><bdi class="secno">5.4 </bdi>Publication Conformance<a
 						class="self-link" aria-label="§" href="#audio-conformance"></a></h3>
 
 				<p>The conformance URL expressed in the <a
@@ -1303,7 +1302,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-type">
-				<h3 id="x5-4-publication-type"><bdi class="secno">5.4 </bdi>Publication Type<a class="self-link"
+				<h3 id="x5-5-publication-type"><bdi class="secno">5.5 </bdi>Publication Type<a class="self-link"
 						aria-label="§" href="#audio-type"></a></h3>
 
 				<p>The <dfn data-dfn-type="dfn" id="dfn-publication-type">Publication Type</dfn> is defined using the
@@ -1330,112 +1329,11 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-properties">
-				<h3 id="x5-5-properties"><bdi class="secno">5.5 </bdi>Properties<a class="self-link" aria-label="§"
+				<h3 id="x5-6-properties"><bdi class="secno">5.6 </bdi>Properties<a class="self-link" aria-label="§"
 						href="#audio-properties"></a></h3>
 
-				<section id="audio-requirements">
-					<h4 id="x5-5-1-requirements"><bdi class="secno">5.5.1 </bdi>Requirements<a class="self-link"
-							aria-label="§" href="#audio-requirements"></a></h4>
-					<p>The requirements for the expression of Audiobook properties are defined as follows:</p>
-
-					<div class="note" role="note" id="issue-container-generatedID-0">
-						<div role="heading" class="note-title marker" id="h-note-0" aria-level="5">
-							<span>Note</span>
-						</div>
-						<p class="">The list of required properities references <code>title</code>, however all examples
-							use <code>name</code> as described in [<cite><a class="bibref" data-link-type="biblio"
-									href="#bib-schema.org" title="Schema.org">schema.org</a></cite>] and [<cite><a
-									class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
-									title="Publication Manifest">pub-manifest</a></cite>].</p>
-					</div>
-
-					<dl>
-						<dt><em class="rfc2119" title="REQUIRED">REQUIRED</em>:</dt>
-						<dd>
-							<ul>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
-										order</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
-								</li>
-							</ul>
-						</dd>
-						<dt><em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>:</dt>
-						<dd>
-							<ul>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
-								</li>
-								<li>
-									<a href="#audio-creators">author</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
-										identifier</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
-								</li>
-								<li>
-									<a href="#audio-duration">duration</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last
-										modification date</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
-								</li>
-								<li>
-									<a href="#audio-creators">readBy</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
-										progression direction</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
-								</li>
-								<li>
-									<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-
-					<div class="note" role="note" id="issue-container-generatedID-1">
-						<div role="heading" class="note-title marker" id="h-note-1" aria-level="5">
-							<span>Note</span>
-						</div>
-						<p class="">Some properties are implicitly required, as they are compiled from alternative
-							information when not explicitly authored. Refer to the <a
-								href="https://www.w3.org/TR/pub-manifest/#app-internal-rep-data-model">internal
-								representation data models</a>&#160;[<cite><a class="bibref" data-link-type="biblio"
-									href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>] for
-							more information (the Audiobooks representation only differs in the default value for the
-								<code>type</code> term).</p>
-					</div>
-				</section>
-
 				<section id="audio-creators">
-					<h4 id="x5-5-2-creators"><bdi class="secno">5.5.2 </bdi>Creators<a class="self-link" aria-label="§"
+					<h4 id="x5-6-1-creators"><bdi class="secno">5.6.1 </bdi>Creators<a class="self-link" aria-label="§"
 							href="#audio-creators"></a></h4>
 
 					<p>A <dfn data-dfn-type="dfn" id="dfn-creator">creator</dfn> is an individual or entity responsible
@@ -1493,7 +1391,7 @@ hue-6-2: #c18401
 				</section>
 
 				<section id="audio-duration">
-					<h4 id="x5-5-3-duration"><bdi class="secno">5.5.3 </bdi>Duration<a class="self-link" aria-label="§"
+					<h4 id="x5-6-2-duration"><bdi class="secno">5.6.2 </bdi>Duration<a class="self-link" aria-label="§"
 							href="#audio-duration"></a></h4>
 
 					<p>A <dfn data-dfn-type="dfn" id="dfn-duration">duration</dfn> is the length of the audio resources
@@ -1534,7 +1432,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-readingorder">
-				<h3 id="x5-6-default-reading-order"><bdi class="secno">5.6 </bdi>Default Reading Order<a
+				<h3 id="x5-7-default-reading-order"><bdi class="secno">5.7 </bdi>Default Reading Order<a
 						class="self-link" aria-label="§" href="#audio-readingorder"></a></h3>
 
 				<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn data-dfn-type="dfn"
@@ -1552,7 +1450,28 @@ hue-6-2: #c18401
 					where multiple chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/"
 						>media fragments</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-media-frags"
 							title="Media Fragments URI 1.0 (basic)">media-frags</a></cite>] to locate the exact starting
-					point.</p>
+					and end points.</p>
+
+				<div class="note" role="note" id="issue-container-generatedID-2">
+					<div role="heading" class="note-title marker" id="h-note-2" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">It is important to note that a resource cannot be referenced more than once in the
+						reading order. In the case where an audio file represents the content of multiple chapters or
+						sections of the book, the <a href="audio-toc">table of contents</a> can be used to specify the
+						starting and ending points of those chapters in the larger audio file, as demonstrated in <a
+							href="#toc-mediafragments">this example</a>.</p>
+				</div>
+
+				<div class="note" role="note" id="issue-container-generatedID-3">
+					<div role="heading" class="note-title marker" id="h-note-3" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">Annotations can also use media fragments to identify the location of the annotation in
+						the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
+							Annotations</a> model. This method will only apply to audiobook manifests that are not
+						packaged.</p>
+				</div>
 
 				<div class="example" id="example-8-audiobook-reading-order-for-a-single-resource">
 					<div class="marker">
@@ -1590,13 +1509,13 @@ hue-6-2: #c18401
 	<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Jane Eyre"</span>,
 	<span class="hljs-attr">"readingOrder"</span> : [{
 		<span class="hljs-attr">"type"</span>: <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#0"</span>,
+		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#t=0,457.931"</span>,
 		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
 		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 1"</span>,
 		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT457.931S"</span>
 	}, {
 		<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#457.932"</span>,
+		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part002.wav#t=12.741"</span>,
 		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
 		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 2"</span>,
 		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT234.245S"</span>
@@ -1607,7 +1526,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-resourcelist">
-				<h3 id="x5-7-resource-list"><bdi class="secno">5.7 </bdi>Resource List<a class="self-link"
+				<h3 id="x5-8-resource-list"><bdi class="secno">5.8 </bdi>Resource List<a class="self-link"
 						aria-label="§" href="#audio-resourcelist"></a></h3>
 
 				<p>The <dfn data-dfn-type="dfn" id="dfn-resource-list">resource list</dfn> enumerates any additional
@@ -1638,7 +1557,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-preview">
-				<h3 id="x5-8-audiobook-previews"><bdi class="secno">5.8 </bdi>Audiobook Previews<a class="self-link"
+				<h3 id="x5-9-audiobook-previews"><bdi class="secno">5.9 </bdi>Audiobook Previews<a class="self-link"
 						aria-label="§" href="#audio-preview"></a></h3>
 
 				<p>Previews are a common way to provide users an experience of the full content before purchasing or
@@ -1694,7 +1613,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-packaging" class="informative">
-				<h3 id="x5-9-packaging"><bdi class="secno">5.9 </bdi>Packaging<a class="self-link" aria-label="§"
+				<h3 id="x5-10-packaging"><bdi class="secno">5.10 </bdi>Packaging<a class="self-link" aria-label="§"
 						href="#audio-packaging"></a></h3>
 				<p><em>This section is non-normative.</em></p>
 
@@ -1704,7 +1623,7 @@ hue-6-2: #c18401
 			</section>
 
 			<section id="audio-accessibility" class="informative">
-				<h3 id="x5-10-accessibility"><bdi class="secno">5.10 </bdi>Accessibility<a class="self-link"
+				<h3 id="x5-11-accessibility"><bdi class="secno">5.11 </bdi>Accessibility<a class="self-link"
 						aria-label="§" href="#audio-accessibility"></a></h3>
 				<p><em>This section is non-normative.</em></p>
 
@@ -1724,7 +1643,7 @@ hue-6-2: #c18401
 							data-link-type="biblio" href="#bib-html" title="HTML Standard">html</a></cite>] resources in
 					the <a href="#audio-resourcelist">resources</a>.</p>
 
-				<div class="note" id="issue-container-generatedID-2">
+				<div class="note" id="issue-container-generatedID-4">
 					<div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4">
 						<span>Editor's note</span>
 					</div>
@@ -1759,7 +1678,7 @@ hue-6-2: #c18401
 			<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.syncnarr+json"</span>}
 	}, {
 		<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#t=457.932"</span>,
+		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part002.wav#t=12.741"</span>,
 		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
 		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 2"</span>,
 		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT234.245S"</span>,
@@ -1793,7 +1712,7 @@ hue-6-2: #c18401
 	<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Jane Eyre"</span>,
 	<span class="hljs-attr">"readingOrder"</span> : {
 		<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#0"</span>,
+		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav#t=0"</span>,
 		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
 		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 1"</span>,
 		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT457.931S"</span>,
@@ -1857,21 +1776,60 @@ hue-6-2: #c18401
 											error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks for a table of contents in the resource list when an Audiobook
+									manifest is not linked to a <a href="#dfn-primary-entry-page" class="internalDFN"
+										data-link-type="dfn">primary entry page</a> (i.e., when <code>document</code> is
+									not defined) or the entry page does not include a table of contents.</p>
+							</details>
 						</li>
-						<li>
-							<p>(<a href="#audio-pep" class="sec-ref">§&#160;<bdi class="secno">4.1 </bdi>Primary Entry
-									Page</a>) If <var>document</var> is defined:</p>
+						<li id="processing-duration">
+							<p>(<a href="#audio-duration" class="sec-ref">§&#160;<bdi class="secno">5.6.2
+									</bdi>Duration</a>) Check the duration of the publication as follows:</p>
 							<ol>
-								<li>
-									<p> if <var>processed["uniqueResources"]</var> does not contain <a
-											href="https://dom.spec.whatwg.org/#concept-document-url"
-												><var>document.URL</var></a>, <a
-											href="https://infra.spec.whatwg.org/#set-append">append</a>
-										<a href="https://dom.spec.whatwg.org/#concept-document-url"
-												><var>document.URL</var></a> to <var>processed["uniqueResources"]</var>.
-									</p>
+								<li id="processing-duration-var">
+									<p>Let <var>resourceDuration</var> hold the total duration of individual
+										resources.</p>
+								</li>
+								<li id="processing-duration-iterate">
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
+										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
+									<ol>
+										<li id="processing-duration-res-none">
+											<p>if <var>resource["duration"]</var> is not defined, <a
+													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
+													>validation error</a>.</p>
+										</li>
+										<li id="processing-duration-add">
+											<p>otherwise, if <var>resource["duration"]</var>, add
+													<var>resource["duration"]</var> to <var>resourceDuration</var>.</p>
+										</li>
+									</ol>
+								</li>
+								<li id="processing-duration-total">
+									<p>If the values cannot be compared because <var>data["duration"]</var> is not set,
+											<a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
+											>validation error</a>.</p>
+									<p>Otherwise, if <var>resourceDuration</var> does not specify the same total
+										duration as <var>data["duration"]</var>, <a
+											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
+											error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This steps checks both that all resource in the reading order specify a duration and
+									that the sum of all those durations matches the total duration for the
+									publication.</p>
+								<p>A validation error is only emitted while checking each resource if the resource does
+									not specify a duration. The <a
+										href="https://www.w3.org/TR/pub-manifest/#validate-duration">validity of the
+										durations</a>&#160;[<cite><a class="bibref" data-link-type="biblio"
+											href="#bib-pub-manifest" title="Publication Manifest"
+										>pub-manifest</a></cite>] is already checked in the publication manifest
+									algorithm so does not need to be repeated.</p>
+							</details>
 						</li>
 					</ol>
 				</dd>
@@ -1883,16 +1841,16 @@ hue-6-2: #c18401
 							steps</a> are added for Audiobook manifests:</p>
 					<ol>
 						<li id="validate-readingorder">
-							<p>(<a href="#audio-readingorder" class="sec-ref">§&#160;<bdi class="secno">5.6
+							<p>(<a href="#audio-readingorder" class="sec-ref">§&#160;<bdi class="secno">5.7
 									</bdi>Default Reading Order</a>) Check the reading order as follows:</p>
 							<ol>
 								<li id="validate-ro-none">
-									<p>if <var>data["readingOrder"]</var> is not set, <a
+									<p>If <var>data["readingOrder"]</var> is not set, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-fatal-errors">fatal
 										error</a>.</p>
 								</li>
 								<li id="validate-ro-audio">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
+									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
 										<var>resource</var> in <var>data["readingOrder"]</var>, if <var>resource</var>
 										is not an audio resource, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
@@ -1900,22 +1858,34 @@ hue-6-2: #c18401
 										<var>resource</var> from <var>data["readingOrder"]</var>.</p>
 								</li>
 								<li id="validate-ro-empty">
-									<p>if <var>data["readingOrder"]</var> is an empty <a
+									<p>If <var>data["readingOrder"]</var> is an empty <a
 											href="https://infra.spec.whatwg.org/#list">list</a>, <a
 											href="https://www.w3.org/TR/pub-manifest/#dfn-fatal-errors">fatal
 										error</a>.</p>
 								</li>
 							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step ensures that only audio resources are listed in the reading order and
+									removes any that are not.</p>
+								<p>If the reading order does not contain any entries after checking each resource, a
+									fatal error is returned as the publication is not a valid audiobook.</p>
+							</details>
 						</li>
 						<li id="validate-type">
-							<p>(<a href="#audio-type" class="sec-ref">§&#160;<bdi class="secno">5.4 </bdi>Publication
+							<p>(<a href="#audio-type" class="sec-ref">§&#160;<bdi class="secno">5.5 </bdi>Publication
 									Type</a>) If <var>data["type"]</var> is not set or is an empty <a
 									href="https://infra.spec.whatwg.org/#list">list</a>, <a
 									href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
 									error</a>, set to <code>«&#160;"Audiobook"&#160;»</code>.</p>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step sets the default type of the publication to <code>Audiobook</code> when a
+										<var>type</var> property has not been specified.</p>
+							</details>
 						</li>
 						<li id="validate-rec-properties">
-							<p>(<a href="#audio-requirements" class="sec-ref">§&#160;<bdi class="secno">5.5.1
+							<p>(<a href="#audio-requirements" class="sec-ref">§&#160;<bdi class="secno">5.2
 									</bdi>Requirements</a>) Check that each of the following properties is set. If not,
 								issue a <a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
 									error</a> for each one.</p>
@@ -1937,9 +1907,15 @@ hue-6-2: #c18401
 								<li><var>data["resources"]</var></li>
 								<li><var>data["url"]</var></li>
 							</ul>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks that all the recommended properties have been set. For more
+									information about these, refer to <a href="#audio-requirements" class="sec-ref"
+											>§&#160;<bdi class="secno">5.2 </bdi>Requirements</a>.</p>
+							</details>
 						</li>
 						<li id="validate-rec-relations">
-							<p>(<a href="#audio-requirements" class="sec-ref">§&#160;<bdi class="secno">5.5.1
+							<p>(<a href="#audio-requirements" class="sec-ref">§&#160;<bdi class="secno">5.2
 									</bdi>Requirements</a>) If no resource in <var>data["readingOrder"]</var> or
 									<var>data["resources"]</var> has a <var>rel</var>
 								<a href="https://infra.spec.whatwg.org/#map-entry">entry</a> that <a
@@ -1947,50 +1923,12 @@ hue-6-2: #c18401
 									<code>cover</code>, <a
 									href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
 									error</a>.</p>
-						</li>
-						<li id="validate-duration">
-							<p>(<a href="#audio-duration" class="sec-ref">§&#160;<bdi class="secno">5.5.3
-									</bdi>Duration</a>) Check the duration of the publication as follows:</p>
-							<ol>
-								<li id="validate-duration-var">
-									<p>Let <var>resourceDuration</var> hold the total duration of individual
-										resources.</p>
-								</li>
-								<li id="validate-duration-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">For each</a>
-										<var>resource</var> of <var>data["readingOrder"]</var>:</p>
-									<ol>
-										<li id="validate-duration-res-none">
-											<p>if <var>resource["duration"]</var> is not defined, <a
-													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
-													>validation error</a>.</p>
-										</li>
-										<li id="validate-duration-res-invalid">
-											<p>otherwise, if <var>resource["duration"]</var> is not a valid duration
-												value, per&#160;[<cite><a class="bibref" data-link-type="biblio"
-														href="#bib-iso8601"
-														title="Representation of dates and times. ISO 8601:2004."
-														>iso8601</a></cite>], <a
-													href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
-													>validation error</a>, <a
-													href="https://infra.spec.whatwg.org/#map-remove">remove</a>
-												<var>resource["duration"]</var>.</p>
-										</li>
-										<li id="validate-duration-add">
-											<p>otherwise, add <var>resource["duration"]</var> to
-													<var>resourceDuration</var>.</p>
-										</li>
-									</ol>
-								</li>
-								<li id="validate-duration-total">
-									<p>If <var>data["duration"]</var> is not set, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>. Otherwise, if <var>resourceDuration</var> does not specify the
-										same total duration as <var>data["duration"]</var>, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>.</p>
-								</li>
-							</ol>
+							<details>
+								<summary>Explanation</summary>
+								<p>This step checks the reading order and resource list to verify that a cover has been
+									specified (i.e., an resource has the value <code>cover</code> in its
+										<code>rel</code> property).</p>
+							</details>
 						</li>
 					</ol>
 				</dd>
@@ -2042,18 +1980,18 @@ hue-6-2: #c18401
 
 		</section>
 		<section id="audio-ua-behaviour" class="informative">
-			<h2 id="x9-user-agent-behaviours-for-audiobooks"><bdi class="secno">9. </bdi>User Agent Behaviours for
+			<h2 id="x9-user-agent-behaviors-for-audiobooks"><bdi class="secno">9. </bdi>User Agent Behaviors for
 					Audiobooks<a class="self-link" aria-label="§" href="#audio-ua-behaviour"></a></h2>
 			<p><em>This section is non-normative.</em></p>
 
-			<p>This section outlines the expected user agent behaviours for implementation of audiobooks. For processing
+			<p>This section outlines the expected user agent behaviors for implementation of audiobooks. For processing
 				instructions, user agents should refer to the <a
 					href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a
-					Manifest</code></a> section of the Publication Manifest specification, and conform to any behaviour
+					Manifest</code></a> section of the Publication Manifest specification, and conform to any behavior
 				described there.</p>
 
-			<p>All user agent behaviours described in this section are intended to provide implementors with guidance,
-				not strict requirements. Behaviours in this document are taken mainly from the <a
+			<p>All user agent behaviors described in this section are intended to provide implementors with guidance,
+				not strict requirements. Behaviors in this document are taken mainly from the <a
 					href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note published by the working
 				group.</p>
 
@@ -2149,21 +2087,42 @@ hue-6-2: #c18401
 			<h2 id="x10-change-log"><bdi class="secno">10. </bdi>Change Log<a class="self-link" aria-label="§"
 					href="#change-log"></a></h2>
 
-			<section id="changes-since-candidate-recommendation">
-				<h3 id="x10-1-changes-since-candidate-recommendation"><bdi class="secno">10.1 </bdi>Changes since
-					Candidate Recommendation<a class="self-link" aria-label="§"
-						href="#changes-since-candidate-recommendation"></a></h3>
-				<p>The following substantive changes have been made since the last release:</p>
+			<section id="change-log-latest">
+				<h3 id="x10-1-substantive-changes-since-the-previous-version"><bdi class="secno">10.1 </bdi>Substantive
+					changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/">previous
+						version</a><a class="self-link" aria-label="§" href="#change-log-latest"></a></h3>
+
 				<ul>
-					<li>3-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension" class="sec-ref"
+					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
+						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
+						primary entry page not being listed in the unique resources has been removed as it is no checked
+						in the publication manifest algorithm. See <a href="https://github.com/w3c/audiobooks/issues/71"
+							>issue 71</a>.</li>
+					<li>12-Feb-2020: The use of fragments in the reading order was clarified to also include end
+						position. A number of examples were also fixed. See <a
+							href="https://github.com/w3c/audiobooks/pull/69">pull request 69</a>.</li>
+					<li>07-Feb-2020: The manifest requirements section was moved out of the properties section as it
+						also includes resource relations. See <a href="https://github.com/w3c/audiobooks/issues/70"
+							>issue 70</a>.</li>
+				</ul>
+			</section>
+
+			<section id="change-log-older">
+				<h3 id="x10-2-other-substantive-changes-since-candidate-recommendation"><bdi class="secno">10.2
+					</bdi>Other substantive changes since Candidate Recommendation<a class="self-link" aria-label="§"
+						href="#change-log-older"></a></h3>
+
+				<ul>
+					<li>03-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension" class="sec-ref"
 								>§&#160;<bdi class="secno">7. </bdi>User Agent Processing of Machine-Processable Table
 							of Contents</a> has been added defining, the extension of the table of contents processing
 						algorithm. See <a href="https://github.com/w3c/audiobooks/issues/63">issue #63</a>. </li>
-					<li>3-Jan-2020: Extra step in <a href="#audio-manifest-processing" class="sec-ref">§&#160;<bdi
+					<li>03-Jan-2020: Extra step in <a href="#audio-manifest-processing" class="sec-ref">§&#160;<bdi
 								class="secno">6. </bdi>Manifest Processing</a> adding the PEP’s URL to the collection of
 						unique resources in the manifest. See <a href="https://github.com/w3c/publ-tests/issues/7">issue
 							#7 for the test-suite</a>. </li>
 				</ul>
+
 				<p>For a complete list of issues addressed, refer to the <a
 						href="https://github.com/w3c/audiobooks/issues?q=is%3Aissue+is%3Aclosed+sort%3Aupdated-desc"
 						>GitHub tracker</a>.</p>
@@ -2260,8 +2219,7 @@ hue-6-2: #c18401
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Part 2, Sections 21 - 22"</span>
     }
   ]
-}
-</code></pre>
+}</code></pre>
 				</div>
 			</section>
 
@@ -2384,8 +2342,8 @@ hue-6-2: #c18401
 	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 
 	<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3"</span>&gt;</span>Chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#t=456.789"</span>&gt;</span>Chapter 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#t=0,456.788"</span>&gt;</span>Chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#t=456.789,1234.566"</span>&gt;</span>Chapter 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.publisher.org/janeeyre/part001.mp3#t=1234.567"</span>&gt;</span>Chapter 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></code></pre>
@@ -2518,12 +2476,6 @@ hue-6-2: #c18401
 					<dd><a href="https://infra.spec.whatwg.org/"><cite>Infra Standard</cite></a>. Anne van Kesteren;
 						Domenic Denicola. WHATWG. Living Standard. URL: <a href="https://infra.spec.whatwg.org/"
 							>https://infra.spec.whatwg.org/</a></dd>
-					<dt id="bib-iso8601">[iso8601]</dt>
-					<dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates
-								and times. ISO 8601:2004.</cite></a>. International Organization for Standardization
-						(ISO). 2004. ISO 8601:2004. URL: <a
-							href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"
-							>http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd>
 					<dt id="bib-json-ld">[json-ld]</dt>
 					<dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg
 						Kellogg; Markus Lanthaler. W3C. 16 January 2014. W3C Recommendation. URL: <a
@@ -2560,7 +2512,7 @@ hue-6-2: #c18401
 				<dl class="bibliography">
 					<dt id="bib-pwp-ucr">[PWP-UCR]</dt>
 					<dd><a href="https://www.w3.org/TR/pwp-ucr/"><cite>Web Publications Use Cases and
-								Requirements</cite></a>. Franco Alvarado; Joshua Pyle. W3C. 13 August 2019. W3C Note.
+								Requirements</cite></a>. Joshua Pyle; Franco Alvarado. W3C. 19 February 2019. W3C Note.
 						URL: <a href="https://www.w3.org/TR/pwp-ucr/">https://www.w3.org/TR/pwp-ucr/</a></dd>
 				</dl>
 			</section>
