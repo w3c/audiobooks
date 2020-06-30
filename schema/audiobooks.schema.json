@@ -202,7 +202,7 @@
 	"required": [
 		"@context",
 		"conformsTo",
-		"title",
+		"name",
 		"readingOrder"
 	]
 }
