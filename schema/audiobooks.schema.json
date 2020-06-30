@@ -17,22 +17,22 @@
 			"additionalItems": true,
 			"uniqueItems": true
 		},
-        "type": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "const": "Audiobook"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "contains": {
-                        "const": "Audiobook"
-                    }
-                }
-            ],
+		"type": {
+			"oneOf": [
+				{
+					"type": "string",
+					"const": "Audiobook"
+				},
+				{
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"contains": {
+						"const": "Audiobook"
+					}
+				}
+			],
 			"uniqueItems": true
 		},
 		"conformsTo" : {
