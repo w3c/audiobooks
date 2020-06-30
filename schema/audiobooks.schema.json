@@ -44,9 +44,11 @@
 				{
 					"type": "array",
 					"items": {
-						"type": "string",
+						"type": "string"
+					},
+					"contains": {
 						"const": "https://www.w3.org/TR/audiobooks/"
-					}		
+					}
 				}
 			]
 		},
