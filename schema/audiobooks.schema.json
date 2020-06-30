@@ -1,0 +1,206 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "audiobooks.schema.json",
+	"title": "Audiobooks Manifest",
+	"type": "object",
+	"properties": {
+		"@context": {
+			"type": "array",
+			"items": [
+				{
+					"const": "https://schema.org"
+				},
+				{
+					"const": "https://www.w3.org/ns/pub-context"
+				}
+			],
+			"additionalItems": true,
+			"uniqueItems": true
+		},
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "Audiobook"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "const": "Audiobook"
+                    }
+                }
+            ],
+			"uniqueItems": true
+		},
+		"conformsTo" : {
+			"oneOf": [
+				{
+					"type": "string",
+					"const": "https://www.w3.org/TR/audiobooks/"
+				},
+				{
+					"type": "array",
+					"items": {
+						"type": "string",
+						"const": "https://www.w3.org/TR/audiobooks/"
+					}		
+				}
+			]
+		},
+		"id": {
+			"type": "string"
+		},
+		"abridged": {
+			"type": "boolean"
+		},
+		"accessMode": {
+			"type": [
+				"string",
+				"array"
+			],
+			"items": {
+				"type": "string"
+			},
+			"uniqueItems": true
+		},
+		"accessModeSufficient": {
+			"oneOf": [
+				{
+					"$ref": "ItemList.schema.json"
+				},
+				{
+					"type": "array",
+					"items": {
+						"$ref": "ItemList.schema.json"
+					},
+					"uniqueItems": true
+				}
+			]
+		},
+		"accessibilityFeature": {
+			"type": [
+				"string",
+				"array"
+			],
+			"items": {
+				"type": "string"
+			},
+			"uniqueItems": true
+		},
+		"accessibilityHazard": {
+			"type": [
+				"string",
+				"array"
+			],
+			"items": {
+				"type": "string"
+			},
+			"uniqueItems": true
+		},
+		"accessibilitySummary": {
+			"$ref": "localizable.schema.json"
+		},
+		"artist": {
+			"$ref": "contributor.schema.json"
+		},
+		"author": {
+			"$ref": "contributor.schema.json"
+		},
+		"colorist": {
+			"$ref": "contributor.schema.json"
+		},
+		"contributor": {
+			"$ref": "contributor.schema.json"
+		},
+		"creator": {
+			"$ref": "contributor.schema.json"
+		},
+		"editor": {
+			"$ref": "contributor.schema.json"
+		},
+		"illustrator": {
+			"$ref": "contributor.schema.json"
+		},
+		"inker": {
+			"$ref": "contributor.schema.json"
+		},
+		"letterer": {
+			"$ref": "contributor.schema.json"
+		},
+		"penciler": {
+			"$ref": "contributor.schema.json"
+		},
+		"publisher": {
+			"$ref": "contributor.schema.json"
+		},
+		"readBy": {
+			"$ref": "contributor.schema.json"
+		},
+		"translator": {
+			"$ref": "contributor.schema.json"
+		},
+		"url": {
+			"$ref": "url.schema.json"
+		},
+		"duration": {
+			"type": "string",
+			"pattern": "^P(?!$)((\\d+Y)|(\\d+\\.\\d+Y$))?((\\d+M)|(\\d+\\.\\d+M$))?((\\d+W)|(\\d+\\.\\d+W$))?((\\d+D)|(\\d+\\.\\d+D$))?(T(?=\\d)((\\d+H)|(\\d+\\.\\d+H$))?((\\d+M)|(\\d+\\.\\d+M$))?(\\d+(\\.\\d+)?S)?)??$"
+		},
+		"inLanguage": {
+			"oneOf": [
+				{
+					"$ref": "bcp.schema.json"
+				},
+				{
+					"type": "array",
+					"items": {
+						"$ref": "bcp.schema.json"
+					}		
+				}
+			]
+		},
+		"dateModified": {
+			"type": "string",
+			"anyOf": [
+				{
+					"format": "date"
+				},
+				{
+					"format": "date-time"
+				}
+			]
+		},
+		"datePublished": {
+			"type": "string",
+			"anyOf": [
+				{
+					"format": "date"
+				},
+				{
+					"format": "date-time"
+				}
+			]
+		},
+		"name": {
+			"$ref": "localizable.schema.json"
+		},
+		"readingOrder": {
+			"$ref": "resource.categorization.schema.json"
+		},
+		"resources": {
+			"$ref": "resource.categorization.schema.json"
+		},
+		"links": {
+			"$ref": "resource.categorization.schema.json"
+		}
+	},
+	"required": [
+		"@context",
+		"conformsTo",
+		"title",
+		"readingOrder"
+	]
+}
