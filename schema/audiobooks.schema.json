@@ -5,17 +5,7 @@
 	"type": "object",
 	"properties": {
 		"@context": {
-			"type": "array",
-			"items": [
-				{
-					"const": "https://schema.org"
-				},
-				{
-					"const": "https://www.w3.org/ns/pub-context"
-				}
-			],
-			"additionalItems": true,
-			"uniqueItems": true
+			"$ref": "context.schema.json"
 		},
 		"type": {
 			"oneOf": [
@@ -59,48 +49,16 @@
 			"type": "boolean"
 		},
 		"accessMode": {
-			"type": [
-				"string",
-				"array"
-			],
-			"items": {
-				"type": "string"
-			},
-			"uniqueItems": true
+			"$ref": "strings.schema.json"
 		},
 		"accessModeSufficient": {
-			"oneOf": [
-				{
-					"$ref": "ItemList.schema.json"
-				},
-				{
-					"type": "array",
-					"items": {
-						"$ref": "ItemList.schema.json"
-					},
-					"uniqueItems": true
-				}
-			]
+			"$ref": "item-lists.schema.json"
 		},
 		"accessibilityFeature": {
-			"type": [
-				"string",
-				"array"
-			],
-			"items": {
-				"type": "string"
-			},
-			"uniqueItems": true
+			"$ref": "strings.schema.json"
 		},
 		"accessibilityHazard": {
-			"type": [
-				"string",
-				"array"
-			],
-			"items": {
-				"type": "string"
-			},
-			"uniqueItems": true
+			"$ref": "strings.schema.json"
 		},
 		"accessibilitySummary": {
 			"$ref": "localizable.schema.json"
@@ -145,46 +103,19 @@
 			"$ref": "contributor.schema.json"
 		},
 		"url": {
-			"$ref": "url.schema.json"
+			"$ref": "urls.schema.json"
 		},
 		"duration": {
-			"type": "string",
-			"pattern": "^P(?!$)((\\d+Y)|(\\d+\\.\\d+Y$))?((\\d+M)|(\\d+\\.\\d+M$))?((\\d+W)|(\\d+\\.\\d+W$))?((\\d+D)|(\\d+\\.\\d+D$))?(T(?=\\d)((\\d+H)|(\\d+\\.\\d+H$))?((\\d+M)|(\\d+\\.\\d+M$))?(\\d+(\\.\\d+)?S)?)??$"
+			"$ref": "duration.schema.json"
 		},
 		"inLanguage": {
-			"oneOf": [
-				{
-					"$ref": "bcp.schema.json"
-				},
-				{
-					"type": "array",
-					"items": {
-						"$ref": "bcp.schema.json"
-					}		
-				}
-			]
+			"$ref": "language.schema.json"
 		},
 		"dateModified": {
-			"type": "string",
-			"anyOf": [
-				{
-					"format": "date"
-				},
-				{
-					"format": "date-time"
-				}
-			]
+			"$ref": "date.schema.json"
 		},
 		"datePublished": {
-			"type": "string",
-			"anyOf": [
-				{
-					"format": "date"
-				},
-				{
-					"format": "date-time"
-				}
-			]
+			"$ref": "date.schema.json"
 		},
 		"name": {
 			"$ref": "localizable.schema.json"
