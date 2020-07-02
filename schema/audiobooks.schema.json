@@ -5,7 +5,7 @@
 	"type": "object",
 	"properties": {
 		"@context": {
-			"$ref": "context.schema.json"
+			"$ref": "./module/context.schema.json"
 		},
 		"type": {
 			"oneOf": [
@@ -49,85 +49,85 @@
 			"type": "boolean"
 		},
 		"accessMode": {
-			"$ref": "strings.schema.json"
+			"$ref": "./module/strings.schema.json"
 		},
 		"accessModeSufficient": {
-			"$ref": "item-lists.schema.json"
+			"$ref": "./module/item-lists.schema.json"
 		},
 		"accessibilityFeature": {
-			"$ref": "strings.schema.json"
+			"$ref": "./module/strings.schema.json"
 		},
 		"accessibilityHazard": {
-			"$ref": "strings.schema.json"
+			"$ref": "./module/strings.schema.json"
 		},
 		"accessibilitySummary": {
-			"$ref": "localizable.schema.json"
+			"$ref": "./module/localizable.schema.json"
 		},
 		"artist": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"author": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"colorist": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"contributor": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"creator": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"editor": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"illustrator": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"inker": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"letterer": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"penciler": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"publisher": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"readBy": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"translator": {
-			"$ref": "contributor.schema.json"
+			"$ref": "./module/contributor.schema.json"
 		},
 		"url": {
-			"$ref": "urls.schema.json"
+			"$ref": "./module/urls.schema.json"
 		},
 		"duration": {
-			"$ref": "duration.schema.json"
+			"$ref": "./module/duration.schema.json"
 		},
 		"inLanguage": {
-			"$ref": "language.schema.json"
+			"$ref": "./module/language.schema.json"
 		},
 		"dateModified": {
-			"$ref": "date.schema.json"
+			"$ref": "./module/date.schema.json"
 		},
 		"datePublished": {
-			"$ref": "date.schema.json"
+			"$ref": "./module/date.schema.json"
 		},
 		"name": {
-			"$ref": "localizable.schema.json"
+			"$ref": "./module/localizable.schema.json"
 		},
 		"readingOrder": {
-			"$ref": "resource.categorization.schema.json"
+			"$ref": "./module/resource.categorization.schema.json"
 		},
 		"resources": {
-			"$ref": "resource.categorization.schema.json"
+			"$ref": "./module/resource.categorization.schema.json"
 		},
 		"links": {
-			"$ref": "resource.categorization.schema.json"
+			"$ref": "./module/resource.categorization.schema.json"
 		}
 	},
 	"required": [
