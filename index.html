@@ -159,6 +159,11 @@
 					Publication Manifest [[pub-manifest]]. Where these properties are extended from the Publication
 					Manifest is specified in this section.</p>
 
+				<p class="note">The Audiobook manifest is defined as a specific "shape" of [[json-ld11]]. This shape is
+					also defined, informally, through a JSON schema&#160;[[json-schema]] that expresses the constraints
+					defined in this specification. This schema is maintained at <a
+						href="https://github.com/w3c/audiobook/blob/master/schema/"
+						>https://github.com/w3c/audiobook/blob/master/schema/</a>.</p>
 			</section>
 
 			<section id="audio-requirements">
@@ -420,7 +425,10 @@
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
 
-				<p class="note">Annotations can also use media fragments to identify the location of the annotation in the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web Annotations</a> model. This method will only apply to audiobook manifests that are not packaged.</p>
+				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
+					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
+						Annotations</a> model. This method will only apply to audiobook manifests that are not
+					packaged.</p>
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
@@ -824,8 +832,8 @@
 				<li> If the <a>primary entry page</a> is available, then execute the algorithm locating the table of
 					content element on the primary entry page. </li>
 				<li> If the previous step is not successful, locate the relevant resource, if available, in the manifest
-					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of
-						Contents</a> in [[pub-manifest]], and execute the same algorithm on that resource. </li>
+					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of Contents</a> in
+					[[pub-manifest]], and execute the same algorithm on that resource. </li>
 			</ol>
 
 			<p>See also <a href="#audio-toc"></a> for further details.</p>
