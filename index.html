@@ -166,75 +166,93 @@
 				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
 					follows:</p>
 
-				<p class="note">The list of required properities references <code>title</code>, however all examples use
-						<code>name</code> as described in [[schema.org]] and [[pub-manifest]].</p>
+				<p class="note">The list of properties uses the formal names for each property as described in
+					[[schema.org]] and [[pub-manifest]]. A descriptive label is included in parentheses where the
+					purpose of these properties might be unclear.</p>
 
 				<dl>
 					<dt>REQUIRED:</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"
+										><code>conformsTo</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context"><code>@context</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
-									order</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"
+										><code>readingOrder</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
-							</li>
+								<a href="https://www.w3.org/TR/pub-manifest/#pub-title"><code>name</code></a>
+								(publication title) </li>
 						</ul>
 					</dd>
 					<dt>RECOMMENDED:</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged"><code>abridged</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityFeature"
+										><code>accessibilityFeature</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityHazard"
+										><code>accessibilityHazard</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">author</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilitySummary"
+										><code>accessibilitySummary</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
-									identifier</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessMode"><code>accessMode</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessModeSufficient"
+										><code>accessModeSufficient</code></a>
 							</li>
 							<li>
-								<a href="#audio-duration">duration</a>
+								<a href="#audio-creators"><code>author</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification
-									date</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover"><code>cover</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
+								<a href="#audio-duration"><code>duration</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date"
+										><code>dateModified</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">readBy</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date"
+										><code>datePublished</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
-									progression direction</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier"><code>id</code></a>
+								(canonical identifier) </li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage"><code>inLanguage</code></a>
+								(publication language) </li>
+							<li>
+								<a href="#audio-creators"><code>readBy</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction"
+										><code>readingProgression</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list"><code>resources</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types"><code>type</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#address"><code>url</code></a> (address)
 							</li>
 						</ul>
 					</dd>
@@ -420,7 +438,10 @@
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
 
-				<p class="note">Annotations can also use media fragments to identify the location of the annotation in the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web Annotations</a> model. This method will only apply to audiobook manifests that are not packaged.</p>
+				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
+					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
+						Annotations</a> model. This method will only apply to audiobook manifests that are not
+					packaged.</p>
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
@@ -824,8 +845,8 @@
 				<li> If the <a>primary entry page</a> is available, then execute the algorithm locating the table of
 					content element on the primary entry page. </li>
 				<li> If the previous step is not successful, locate the relevant resource, if available, in the manifest
-					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of
-						Contents</a> in [[pub-manifest]], and execute the same algorithm on that resource. </li>
+					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of Contents</a> in
+					[[pub-manifest]], and execute the same algorithm on that resource. </li>
 			</ol>
 
 			<p>See also <a href="#audio-toc"></a> for further details.</p>
