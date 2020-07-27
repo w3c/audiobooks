@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://w3c.github.io/audiobook/schema/audiobooks.schema.json",
+	"$id": "https://www.w3.org/ns/audiobooks/schema/audiobooks.schema.json",
 	"title": "Audiobooks Manifest",
 	"type": "object",
 	"properties": {
