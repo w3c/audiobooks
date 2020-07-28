@@ -1,5 +1,5 @@
 {
-  "@context": ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+  "@context": ["https://schema.org", "https://www.w3.org/ns/pub-context"],
   "conformsTo" : "https://www.w3.org/TR/audiobooks/",
   "type": "Audiobook",
   "id": "https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/",
