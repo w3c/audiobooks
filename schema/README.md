@@ -10,7 +10,7 @@ The schema is updated to newer drafts as broad support in validators becomes ava
 
 The primary schema file `audiobooks.schema.json` requires the shared [component schemas](https://github.com/w3c/pub-manifest/tree/master/schema/) from the publication manifest repository. The `module` folder from that repository may need to be downloaded and placed in the same directory as the `audiobooks.schema.json` file depending on the validator used.
 
-In some cases, it may be possible to validate without downloading the physical schemas (i.e., if the validator can retrieve the schemas automatically). In these cases, only the URL `https://www.w3.org/ns/audiobooks/schema/audiobooks.schema.json` needs to be specified.
+In some cases, it may be possible to validate without downloading the physical schemas (i.e., if the validator can retrieve the schemas automatically). In these cases, only the URL `https://www.w3.org/ns/pub-schema/audiobooks/audiobooks.schema.json` needs to be specified.
 
 ## Validators
 
