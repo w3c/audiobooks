@@ -12,7 +12,7 @@
 				wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
 				wgPublicList: "public-publ-wg",
 				edDraftURI: "https://w3c.github.io/audiobooks/",
-				previousPublishDate: "2020-01-28",
+				previousPublishDate: "2020-03-17",
 				previousMaturity: "CR",
 				specStatus: "ED",
 				implementationReportURI: "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -36,6 +36,7 @@
 				permalinkEdge: true,
 				permalinkHide: false,
 				wgPatentURI: "https://www.w3.org/2004/01/pp-impl/100074/status",
+				wgId:     "100074",
 				diffTool: "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 				github: {
 					repoURL: "https://github.com/w3c/audiobooks",
@@ -158,6 +159,11 @@
 					Publication Manifest [[pub-manifest]]. Where these properties are extended from the Publication
 					Manifest is specified in this section.</p>
 
+				<p class="note">The Audiobook manifest is defined as a specific "shape" of [[json-ld11]]. This shape is
+					also defined, informally, through a JSON schema&#160;[[json-schema]] that expresses the constraints
+					defined in this specification. This schema is maintained at <a
+						href="https://www.w3.org/ns/pub-schema/audiobooks/"
+					>https://www.w3.org/ns/pub-schema/audiobooks/</a>.</p>
 			</section>
 
 			<section id="audio-requirements">
@@ -165,75 +171,93 @@
 				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
 					follows:</p>
 
-				<p class="note">The list of required properities references <code>title</code>, however all examples use
-						<code>name</code> as described in [[schema.org]] and [[pub-manifest]].</p>
+				<p class="note">The list of properties uses the formal names for each property as described in
+					[[schema.org]] and [[pub-manifest]]. A descriptive label is included in parentheses where the
+					purpose of these properties might be unclear.</p>
 
 				<dl>
 					<dt>REQUIRED:</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"
+										><code>conformsTo</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context"><code>@context</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
-									order</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"
+										><code>readingOrder</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
-							</li>
+								<a href="https://www.w3.org/TR/pub-manifest/#pub-title"><code>name</code></a>
+								(publication title) </li>
 						</ul>
 					</dd>
 					<dt>RECOMMENDED:</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged"><code>abridged</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityFeature"
+										><code>accessibilityFeature</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityHazard"
+										><code>accessibilityHazard</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">author</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilitySummary"
+										><code>accessibilitySummary</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
-									identifier</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessMode"><code>accessMode</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessModeSufficient"
+										><code>accessModeSufficient</code></a>
 							</li>
 							<li>
-								<a href="#audio-duration">duration</a>
+								<a href="#audio-creators"><code>author</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification
-									date</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover"><code>cover</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
+								<a href="#audio-duration"><code>duration</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date"
+										><code>dateModified</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">readBy</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date"
+										><code>datePublished</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
-									progression direction</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier"><code>id</code></a>
+								(canonical identifier) </li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage"><code>inLanguage</code></a>
+								(publication language) </li>
+							<li>
+								<a href="#audio-creators"><code>readBy</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction"
+										><code>readingProgression</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list"><code>resources</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types"><code>type</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#address"><code>url</code></a> (address)
 							</li>
 						</ul>
 					</dd>
@@ -286,7 +310,7 @@
 
 				<p>The conformance URL expressed in the <a
 						href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code>
-					term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks</code>".</p>
+					term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks/</code>".</p>
 
 				<pre class="example" title="Setting a publication's type to Audiobook.">
 						{
@@ -305,7 +329,7 @@
 					term&#160;[[!pub-manifest]].</p>
 
 				<pre class="example" title="Setting a publication's type to Audiobook.">{
-    "@context" : ["https://schema.org", "https://www.w3.org/ns/wp-context"],
+    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
     "type"     : "Audiobook"
     …
 }</pre>
@@ -419,7 +443,10 @@
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
 
-				<p class="note">Annotations can also use media fragments to identify the location of the annotation in the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web Annotations</a> model. This method will only apply to audiobook manifests that are not packaged.</p> 
+				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
+					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
+						Annotations</a> model. This method will only apply to audiobook manifests that are not
+					packaged.</p>
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
@@ -823,8 +850,8 @@
 				<li> If the <a>primary entry page</a> is available, then execute the algorithm locating the table of
 					content element on the primary entry page. </li>
 				<li> If the previous step is not successful, locate the relevant resource, if available, in the manifest
-					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of
-						Contents</a> in [[pub-manifest]], and execute the same algorithm on that resource. </li>
+					as described in <a data-cite="pub-manifest#contents">§&#160;4.8.1.3&#160;Table of Contents</a> in
+					[[pub-manifest]], and execute the same algorithm on that resource. </li>
 			</ol>
 
 			<p>See also <a href="#audio-toc"></a> for further details.</p>
@@ -910,7 +937,7 @@
 				<p>The <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note recommends that
 					content be available offline and that any packaged formats should not affect the iterations of the
 					publications. This means that even if the content is copied many times to many users via multiple
-					User Agents, the core manifest and it's identifier are never changed.</p>
+					User Agents, the core manifest and its identifier are never changed.</p>
 
 				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging
 						Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents
@@ -951,6 +978,19 @@
 						version</a></h3>
 
 				<ul>
+					<li>27-July-2020: Updated the reference schema URL to a W3C address. See <a
+							href="https://github.com/w3c/pub-manifest/issues/226">issue 226 in Publication
+						Manifest</a>.</li>
+					<li>2-July-2020: Added a note about the shape of the manifest being defined by the JSON schema to
+						the manifest introduction. See <a href="https://github.com/w3c/audiobooks/issues/71">issue
+							71</a>.</li>
+				</ul>
+			</section>
+
+			<section id="change-log-older">
+				<h3>Other substantive changes since Candidate Recommendation</h3>
+
+				<ul>
 					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
 						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
 						primary entry page not being listed in the unique resources has been removed as it is no checked
@@ -962,13 +1002,6 @@
 					<li>07-Feb-2020: The manifest requirements section was moved out of the properties section as it
 						also includes resource relations. See <a href="https://github.com/w3c/audiobooks/issues/70"
 							>issue 70</a>.</li>
-				</ul>
-			</section>
-
-			<section id="change-log-older">
-				<h3>Other substantive changes since Candidate Recommendation</h3>
-
-				<ul>
 					<li>03-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension"></a> has been added
 						defining, the extension of the table of contents processing algorithm. See <a
 							href="https://github.com/w3c/audiobooks/issues/63">issue #63</a>. </li>

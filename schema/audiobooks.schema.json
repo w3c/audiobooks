@@ -1,0 +1,139 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://www.w3.org/ns/pub-schema/audiobooks/audiobooks.schema.json",
+	"title": "Audiobooks Manifest",
+	"type": "object",
+	"properties": {
+		"@context": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/context.schema.json"
+		},
+		"type": {
+			"oneOf": [
+				{
+					"type": "string",
+					"const": "Audiobook"
+				},
+				{
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"contains": {
+						"const": "Audiobook"
+					}
+				}
+			],
+			"uniqueItems": true
+		},
+		"conformsTo" : {
+			"oneOf": [
+				{
+					"type": "string",
+					"const": "https://www.w3.org/TR/audiobooks/"
+				},
+				{
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"contains": {
+						"const": "https://www.w3.org/TR/audiobooks/"
+					}
+				}
+			]
+		},
+		"id": {
+			"type": "string"
+		},
+		"abridged": {
+			"type": "boolean"
+		},
+		"accessMode": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/strings.schema.json"
+		},
+		"accessModeSufficient": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/item-lists.schema.json"
+		},
+		"accessibilityFeature": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/strings.schema.json"
+		},
+		"accessibilityHazard": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/strings.schema.json"
+		},
+		"accessibilitySummary": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/localizable.schema.json"
+		},
+		"artist": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"author": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"colorist": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"contributor": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"creator": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"editor": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"illustrator": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"inker": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"letterer": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"penciler": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"publisher": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"readBy": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"translator": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/contributor.schema.json"
+		},
+		"url": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/urls.schema.json"
+		},
+		"duration": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/duration.schema.json"
+		},
+		"inLanguage": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/language.schema.json"
+		},
+		"dateModified": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/date.schema.json"
+		},
+		"datePublished": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/date.schema.json"
+		},
+		"name": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/localizable.schema.json"
+		},
+		"readingOrder": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/resource.categorization.schema.json"
+		},
+		"resources": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/resource.categorization.schema.json"
+		},
+		"links": {
+			"$ref": "https://www.w3.org/ns/pub-schema/manifest/module/resource.categorization.schema.json"
+		}
+	},
+	"required": [
+		"@context",
+		"conformsTo",
+		"name",
+		"readingOrder"
+	]
+}

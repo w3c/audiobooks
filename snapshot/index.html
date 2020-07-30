@@ -1,89 +1,94 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="generator" content="ReSpec 25.4.1" />
+		<meta name="generator" content="ReSpec 25.6.0" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<style>
-			/* --- EXAMPLES --- */
 			span.example-title {
-				text-transform: none;
+				text-transform: none
 			}
+			
 			aside.example,
 			div.example,
 			div.illegal-example {
-				padding: 0.5em;
+				padding: .5em;
 				margin: 1em 0;
 				position: relative;
-				clear: both;
+				clear: both
 			}
+			
 			div.illegal-example {
 				color: red
 			}
+			
 			div.illegal-example p {
-				color: black
+				color: #000
 			}
+			
 			aside.example,
 			div.example {
 				padding: .5em;
 				border-left-width: .5em;
 				border-left-style: solid;
 				border-color: #e0cb52;
-				background: #fcfaee;
+				background: #fcfaee
 			}
 			
 			aside.example div.example {
 				border-left-width: .1em;
 				border-color: #999;
-				background: #fff;
+				background: #fff
 			}
+			
 			aside.example div.example span.example-title {
-				color: #999;
+				color: #999
 			}</style>
 		<style>
-			/* --- ISSUES/NOTES --- */
 			.issue-label {
-				text-transform: initial;
+				text-transform: initial
 			}
 			
 			.warning > p:first-child {
 				margin-top: 0
 			}
+			
 			.warning {
 				padding: .5em;
 				border-left-width: .5em;
-				border-left-style: solid;
+				border-left-style: solid
 			}
+			
 			span.warning {
-				padding: .1em .5em .15em;
+				padding: .1em .5em .15em
 			}
 			
 			.issue.closed span.issue-number {
-				text-decoration: line-through;
+				text-decoration: line-through
 			}
 			
 			.warning {
 				border-color: #f11;
 				border-width: .2em;
 				border-style: solid;
-				background: #fbe9e9;
+				background: #fbe9e9
 			}
 			
 			.warning-title:before {
-				content: "⚠"; /*U+26A0 WARNING SIGN*/
+				content: "⚠";
 				font-size: 1.3em;
 				float: left;
 				padding-right: .3em;
-				margin-top: -0.3em;
+				margin-top: -.3em
 			}
 			
 			li.task-list-item {
-				list-style: none;
+				list-style: none
 			}
 			
 			input.task-list-item-checkbox {
-				margin: 0 0.35em 0.25em -1.6em;
-				vertical-align: middle;
+				margin: 0 .35em .25em -1.6em;
+				vertical-align: middle
 			}
 			
 			.issue a.respec-gh-label {
@@ -92,79 +97,12 @@
 				font-size: 10px;
 				text-transform: none;
 				text-decoration: none;
-				font-weight: bold;
+				font-weight: 700;
 				border-radius: 4px;
 				position: relative;
 				bottom: 2px;
 				border: none;
-				display: inline-block;
-			}</style>
-		<style>
-			/* dfn popup panel that list all local references to a dfn */
-			dfn {
-				cursor: pointer;
-			}
-			
-			.dfn-panel {
-				position: absolute;
-				left: var(--left); /* set via JS */
-				top: var(--top); /* set via JS */
-				z-index: 35;
-				height: auto;
-				width: max-content;
-				max-width: 300px;
-				max-height: 500px;
-				overflow: auto;
-				padding: 0.5em 0.75em;
-				font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-				background: #dddddd;
-				color: black;
-				border: outset 0.2em;
-			}
-			
-			.dfn-panel * {
-				margin: 0;
-			}
-			
-			.dfn-panel > b {
-				display: block;
-			}
-			
-			.dfn-panel ul a[href] {
-				color: black;
-			}
-			
-			.dfn-panel a:not(:hover) {
-				text-decoration: none !important;
-				border-bottom: none !important;
-			}
-			
-			.dfn-panel a[href]:hover {
-				border-bottom-width: 1px;
-			}
-			
-			.dfn-panel > b + b {
-				margin-top: 0.25em;
-			}
-			
-			.dfn-panel ul {
-				padding: 0;
-			}
-			
-			.dfn-panel li {
-				list-style: inside;
-			}
-			
-			.dfn-panel.docked {
-				display: inline-block;
-				position: fixed;
-				left: 0.5em;
-				top: unset;
-				bottom: 2em;
-				margin: 0 auto;
-				/* 0.75em from padding (x2), 0.5em from left position, 0.2em border (x2) */
-				max-width: calc(100vw - 0.75em * 2 - 0.5em - 0.2em * 2);
-				max-height: 30vh;
+				display: inline-block
 			}</style>
 
 		<title>Audiobooks</title>
@@ -173,229 +111,197 @@
 		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 
 		<style id="respec-mainstyle">
-			/*****************************************************************
- * ReSpec specific CSS
- *****************************************************************/
-			@keyframes pop {
-  0% {
-    transform: scale(1, 1);
-  }
-  25% {
-    transform: scale(1.25, 1.25);
-    opacity: 0.75;
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-			
-			/* Override code highlighter background */
+			@keyframes pop{0%{transform:scale(1,1)}25%{transform:scale(1.25,1.25);opacity:.75}100%{transform:scale(1,1)}}
 			.hljs {
-				background: transparent !important;
+				background: 0 0 !important
 			}
 			
-			/* --- INLINES --- */
+			a abbr,
 			h1 abbr,
 			h2 abbr,
 			h3 abbr,
 			h4 abbr,
 			h5 abbr,
-			h6 abbr,
-			a abbr {
-				border: none;
+			h6 abbr {
+				border: none
 			}
 			
 			dfn {
-				font-weight: bold;
+				font-weight: 700
 			}
 			
 			a.internalDFN {
 				color: inherit;
 				border-bottom: 1px solid #99c;
-				text-decoration: none;
+				text-decoration: none
 			}
 			
 			a.externalDFN {
 				color: inherit;
 				border-bottom: 1px dotted #ccc;
-				text-decoration: none;
+				text-decoration: none
 			}
 			
 			a.bibref {
-				text-decoration: none;
+				text-decoration: none
 			}
 			
 			.respec-offending-element:target {
-				animation: pop 0.25s ease-in-out 0s 1;
+				animation: pop .25s ease-in-out 0s 1
 			}
 			
 			.respec-offending-element,
 			a[href].respec-offending-element {
-				text-decoration: red wavy underline;
+				text-decoration: red wavy underline
 			}
-			@supports not (text-decoration: red wavy underline) {
-  .respec-offending-element:not(pre) {
-    display: inline-block;
-  }
-  .respec-offending-element {
-    /* Red squiggly line */
-    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
-      bottom repeat-x;
-  }
-}
 			
+			@supports not (text-decoration:red wavy underline){.respec-offending-element:not(pre){display:inline-block}.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}}
 			#references :target {
 				background: #eaf3ff;
-				animation: pop 0.4s ease-in-out 0s 1;
+				animation: pop .4s ease-in-out 0s 1
 			}
 			
 			cite .bibref {
-				font-style: normal;
+				font-style: normal
 			}
 			
 			code {
-				color: #c63501;
+				color: #c63501
 			}
 			
 			th code {
-				color: inherit;
+				color: inherit
 			}
 			
 			a[href].orcid {
 				padding-left: 4px;
-				padding-right: 4px;
+				padding-right: 4px
 			}
 			
 			a[href].orcid > svg {
-				margin-bottom: -2px;
+				margin-bottom: -2px
 			}
-			
-			/* --- TOC --- */
 			
 			.toc a,
 			.tof a {
-				text-decoration: none;
+				text-decoration: none
 			}
 			
-			a .secno,
-			a .figno {
-				color: #000;
+			a .figno,
+			a .secno {
+				color: #000
 			}
 			
-			ul.tof,
-			ol.tof {
-				list-style: none outside none;
+			ol.tof,
+			ul.tof {
+				list-style: none outside none
 			}
 			
 			.caption {
-				margin-top: 0.5em;
-				font-style: italic;
+				margin-top: .5em;
+				font-style: italic
 			}
-			
-			/* --- TABLE --- */
 			
 			table.simple {
 				border-spacing: 0;
 				border-collapse: collapse;
-				border-bottom: 3px solid #005a9c;
+				border-bottom: 3px solid #005a9c
 			}
 			
 			.simple th {
 				background: #005a9c;
 				color: #fff;
 				padding: 3px 5px;
-				text-align: left;
+				text-align: left
 			}
 			
 			.simple th a {
 				color: #fff;
 				padding: 3px 5px;
-				text-align: left;
+				text-align: left
 			}
 			
-			.simple th[scope = "row"] {
+			.simple th[scope = row] {
 				background: inherit;
 				color: inherit;
-				border-top: 1px solid #ddd;
+				border-top: 1px solid #ddd
 			}
 			
 			.simple td {
 				padding: 3px 10px;
-				border-top: 1px solid #ddd;
+				border-top: 1px solid #ddd
 			}
 			
 			.simple tr:nth-child(even) {
-				background: #f0f6ff;
+				background: #f0f6ff
 			}
 			
-			/* --- DL --- */
-			
 			.section dd > p:first-child {
-				margin-top: 0;
+				margin-top: 0
 			}
 			
 			.section dd > p:last-child {
-				margin-bottom: 0;
+				margin-bottom: 0
 			}
 			
 			.section dd {
-				margin-bottom: 1em;
+				margin-bottom: 1em
 			}
 			
 			.section dl.attrs dd,
 			.section dl.eldef dd {
-				margin-bottom: 0;
+				margin-bottom: 0
 			}
 			
 			#issue-summary > ul,
 			.respec-dfn-list {
-				column-count: 2;
+				column-count: 2
 			}
 			
 			#issue-summary li,
 			.respec-dfn-list li {
-				list-style: none;
+				list-style: none
 			}
 			
 			details.respec-tests-details {
 				margin-left: 1em;
 				display: inline-block;
-				vertical-align: top;
+				vertical-align: top
 			}
 			
 			details.respec-tests-details > * {
-				padding-right: 2em;
+				padding-right: 2em
 			}
 			
 			details.respec-tests-details[open] {
 				z-index: 999999;
 				position: absolute;
 				border: thin solid #cad3e2;
-				border-radius: 0.3em;
-				background-color: white;
-				padding-bottom: 0.5em;
+				border-radius: .3em;
+				background-color: #fff;
+				padding-bottom: .5em
 			}
 			
 			details.respec-tests-details[open] > summary {
 				border-bottom: thin solid #cad3e2;
 				padding-left: 1em;
 				margin-bottom: 1em;
-				line-height: 2em;
+				line-height: 2em
 			}
 			
 			details.respec-tests-details > ul {
 				width: 100%;
-				margin-top: -0.3em;
+				margin-top: -.3em
 			}
 			
 			details.respec-tests-details > li {
-				padding-left: 1em;
+				padding-left: 1em
 			}
 			
 			a[href].self-link:hover {
 				opacity: 1;
 				text-decoration: none;
-				background-color: transparent;
+				background-color: transparent
 			}
 			
 			h2,
@@ -403,11 +309,11 @@
 			h4,
 			h5,
 			h6 {
-				position: relative;
+				position: relative
 			}
 			
 			aside.example .marker > a.self-link {
-				color: inherit;
+				color: inherit
 			}
 			
 			h2 > a.self-link,
@@ -420,13 +326,13 @@
 				font-size: 83%;
 				height: 2em;
 				left: -1.6em;
-				opacity: 0.5;
+				opacity: .5;
 				position: absolute;
 				text-align: center;
 				text-decoration: none;
 				top: 0;
-				transition: opacity 0.2s;
-				width: 2em;
+				transition: opacity .2s;
+				width: 2em
 			}
 			
 			h2 > a.self-link::before,
@@ -435,28 +341,27 @@
 			h5 > a.self-link::before,
 			h6 > a.self-link::before {
 				content: "§";
-				display: block;
+				display: block
 			}
 			
 			@media (max-width : 767px) {
 				dd {
-					margin-left: 0;
+					margin-left: 0
 				}
 			
-				/* Don't position self-link in headings off-screen */
 				h2 > a.self-link,
 				h3 > a.self-link,
 				h4 > a.self-link,
 				h5 > a.self-link,
 				h6 > a.self-link {
 					left: auto;
-					top: auto;
+					top: auto
 				}
 			}
 			
 			@media print {
 				.removeOnSave {
-					display: none;
+					display: none
 				}
 			}</style>
 		<meta name="description"
@@ -464,152 +369,132 @@
 					Publication Manifest specification." />
 		<link rel="canonical" href="https://www.w3.org/TR/audiobooks/" />
 		<style>
-			/*
-Adapted from Atom One Light by Daniel Gamage for ReSpec, with better color contrast
-Original One Light Syntax theme from https://github.com/atom/one-light-syntax
-base:    #fafafa
-mono-1:  #383a42
-mono-2:  #686b77
-mono-3:  #a0a1a7
-hue-1:   #0184bb
-hue-2:   #4078f2
-hue-3:   #a626a4
-hue-4:   #50a14f
-hue-5:   #e45649
-hue-5-2: #c91243
-hue-6:   #986801
-hue-6-2: #c18401
-*/
-			
 			.hljs {
 				display: block;
 				overflow-x: auto;
-				padding: 0.5em;
+				padding: .5em;
 				color: #383a42;
-				background: #fafafa;
+				background: #fafafa
 			}
 			
 			.hljs-comment,
 			.hljs-quote {
 				color: #717277;
-				font-style: italic;
+				font-style: italic
 			}
 			
 			.hljs-doctag,
-			.hljs-keyword,
-			.hljs-formula {
-				color: #a626a4;
+			.hljs-formula,
+			.hljs-keyword {
+				color: #a626a4
 			}
 			
-			.hljs-section,
-			.hljs-name,
-			.hljs-selector-tag,
 			.hljs-deletion,
+			.hljs-name,
+			.hljs-section,
+			.hljs-selector-tag,
 			.hljs-subst {
 				color: #ca4706;
-				font-weight: bold;
+				font-weight: 700
 			}
 			
 			.hljs-literal {
-				color: #0b76c5;
+				color: #0b76c5
 			}
 			
-			.hljs-string,
-			.hljs-regexp,
 			.hljs-addition,
 			.hljs-attribute,
-			.hljs-meta-string {
-				color: #42803C;
+			.hljs-meta-string,
+			.hljs-regexp,
+			.hljs-string {
+				color: #42803c
 			}
 			
 			.hljs-built_in,
 			.hljs-class .hljs-title {
-				color: #9a6a01;
+				color: #9a6a01
 			}
 			
 			.hljs-attr,
-			.hljs-variable,
+			.hljs-number,
+			.hljs-selector-attr,
+			.hljs-selector-class,
+			.hljs-selector-pseudo,
 			.hljs-template-variable,
 			.hljs-type,
-			.hljs-selector-class,
-			.hljs-selector-attr,
-			.hljs-selector-pseudo,
-			.hljs-number {
-				color: #986801;
+			.hljs-variable {
+				color: #986801
 			}
 			
-			.hljs-symbol,
 			.hljs-bullet,
 			.hljs-link,
 			.hljs-meta,
 			.hljs-selector-id,
+			.hljs-symbol,
 			.hljs-title {
-				color: #336ae3;
+				color: #336ae3
 			}
 			
 			.hljs-emphasis {
-				font-style: italic;
+				font-style: italic
 			}
 			
 			.hljs-strong {
-				font-weight: bold;
+				font-weight: 700
 			}
 			
 			.hljs-link {
-				text-decoration: underline;
+				text-decoration: underline
 			}</style>
 		<style>
 			var {
 				position: relative;
-				cursor: pointer;
+				cursor: pointer
 			}
 			
-			var[data-type]::before,
-			var[data-type]::after {
+			var[data-type]::after,
+			var[data-type]::before {
 				position: absolute;
 				left: 50%;
 				top: -6px;
 				opacity: 0;
-				transition: opacity 0.4s;
-				pointer-events: none;
+				transition: opacity .4s;
+				pointer-events: none
 			}
 			
-			/* the triangle or arrow or caret or whatever */
 			var[data-type]::before {
 				content: "";
 				transform: translateX(-50%);
 				border-width: 4px 6px 0 6px;
 				border-style: solid;
 				border-color: transparent;
-				border-top-color: #000;
+				border-top-color: #000
 			}
 			
-			/* actual text */
 			var[data-type]::after {
 				content: attr(data-type);
 				transform: translateX(-50%) translateY(-100%);
 				background: #000;
 				text-align: center;
-				/* additional styling */
 				font-family: "Dank Mono", "Fira Code", monospace;
 				font-style: normal;
 				padding: 6px;
 				border-radius: 3px;
 				color: #daca88;
 				text-indent: 0;
-				font-weight: normal;
+				font-weight: 400
 			}
 			
 			var[data-type]:hover::after,
 			var[data-type]:hover::before {
-				opacity: 1;
+				opacity: 1
 			}</style>
 		<script id="initialUserConfig" type="application/json">{
   "wg": "Publishing Working Group",
   "wgURI": "https://www.w3.org/publishing/groups/publ-wg/",
   "wgPublicList": "public-publ-wg",
   "edDraftURI": "https://w3c.github.io/audiobooks/",
-  "previousPublishDate": "2020-01-28",
+  "previousPublishDate": "2020-03-17",
   "previousMaturity": "CR",
   "specStatus": "CR",
   "implementationReportURI": "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -636,6 +521,7 @@ hue-6-2: #c18401
   "permalinkEdge": true,
   "permalinkHide": false,
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/100074/status",
+  "wgId": "100074",
   "diffTool": "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
   "github": {
     "repoURL": "https://github.com/w3c/audiobooks",
@@ -769,24 +655,24 @@ hue-6-2: #c18401
       "href": "http://www.bibtex.org/Format/"
     }
   },
-  "publishDate": "2020-03-17",
-  "publishISODate": "2020-03-17T00:00:00.000Z",
-  "generatedSubtitle": "Candidate Recommendation 17 March 2020"
+  "publishDate": "2020-07-30",
+  "publishISODate": "2020-07-30T00:00:00.000Z",
+  "generatedSubtitle": "Candidate Recommendation 30 July 2020"
 }</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-CR" />
 	</head>
 	<body class="h-entry"><div class="head">
-			<a class="logo" href="https://www.w3.org/"><img alt="W3C"
-					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72" height="48" /></a>
+			<a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48"
+					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" /></a>
 			<h1 id="title" class="title">Audiobooks</h1>
 
-			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-03-17">17 March 2020</time>
+			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-07-30">30 July 2020</time>
 			</h2>
 			<dl>
 				<dt>This version:</dt>
 				<dd>
-					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200317/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200317/</a>
+					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200730/</a>
 				</dd>
 				<dt>Latest published version:</dt>
 				<dd>
@@ -802,8 +688,8 @@ hue-6-2: #c18401
 				</dd>
 
 				<dt>Previous version:</dt>
-				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200128/</a></dd>
+				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200317/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200317/</a></dd>
 
 				<dt>Editors:</dt>
 				<dd class="p-author h-card vcard" data-editor-id="102009"><span class="p-name fn">Wendy Reid</span> (<a
@@ -975,9 +861,9 @@ hue-6-2: #c18401
 				<li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol
 						class="toc">
 						<li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1
-								</bdi>Normative references</a></li>
+								</bdi> Normative references </a></li>
 						<li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2
-								</bdi>Informative references</a></li>
+								</bdi> Informative references </a></li>
 					</ol></li>
 			</ol></nav>
 		<section id="intro" class="informative">
@@ -1130,6 +1016,19 @@ hue-6-2: #c18401
 							title="Publication Manifest">pub-manifest</a></cite>]. Where these properties are extended
 					from the Publication Manifest is specified in this section.</p>
 
+				<div class="note" role="note" id="issue-container-generatedID-0">
+					<div role="heading" class="note-title marker" id="h-note-0" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">The Audiobook manifest is defined as a specific "shape" of [<cite><a class="bibref"
+								data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">json-ld11</a></cite>].
+						This shape is also defined, informally, through a JSON schema&#160;[<cite><a class="bibref"
+								data-link-type="biblio" href="#bib-json-schema"
+								title="JSON Schema: core definitions and terminology">json-schema</a></cite>] that
+						expresses the constraints defined in this specification. This schema is maintained at <a
+							href="https://www.w3.org/ns/pub-schema/audiobooks/"
+							>https://www.w3.org/ns/pub-schema/audiobooks/</a>.</p>
+				</div>
 			</section>
 
 			<section id="audio-requirements">
@@ -1138,15 +1037,16 @@ hue-6-2: #c18401
 				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
 					follows:</p>
 
-				<div class="note" role="note" id="issue-container-generatedID-0">
-					<div role="heading" class="note-title marker" id="h-note-0" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-1">
+					<div role="heading" class="note-title marker" id="h-note-1" aria-level="4">
 						<span>Note</span>
 					</div>
-					<p class="">The list of required properities references <code>title</code>, however all examples use
-							<code>name</code> as described in [<cite><a class="bibref" data-link-type="biblio"
-								href="#bib-schema.org" title="Schema.org">schema.org</a></cite>] and [<cite><a
-								class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
-								title="Publication Manifest">pub-manifest</a></cite>].</p>
+					<p class="">The list of properties uses the formal names for each property as described in [<cite><a
+								class="bibref" data-link-type="biblio" href="#bib-schema.org" title="Schema.org"
+								>schema.org</a></cite>] and [<cite><a class="bibref" data-link-type="biblio"
+								href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>]. A
+						descriptive label is included in parentheses where the purpose of these properties might be
+						unclear.</p>
 				</div>
 
 				<dl>
@@ -1154,74 +1054,91 @@ hue-6-2: #c18401
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">conformsTo</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"
+										><code>conformsTo</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">@context</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context"><code>@context</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">default reading
-									order</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"
+										><code>readingOrder</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#pub-title">title</a>
-							</li>
+								<a href="https://www.w3.org/TR/pub-manifest/#pub-title"><code>name</code></a>
+								(publication title) </li>
 						</ul>
 					</dd>
 					<dt><em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>:</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#abridged">abridged</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged"><code>abridged</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibility">accessibility</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityFeature"
+										><code>accessibilityFeature</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#address">address</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityHazard"
+										><code>accessibilityHazard</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">author</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilitySummary"
+										><code>accessibilitySummary</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier">canonical
-									identifier</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessMode"><code>accessMode</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#cover">cover</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessModeSufficient"
+										><code>accessModeSufficient</code></a>
 							</li>
 							<li>
-								<a href="#audio-duration">duration</a>
+								<a href="#audio-creators"><code>author</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">last modification
-									date</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover"><code>cover</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">publication date</a>
+								<a href="#audio-duration"><code>duration</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage">publication langage</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date"
+										><code>dateModified</code></a>
 							</li>
 							<li>
-								<a href="#audio-creators">readBy</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date"
+										><code>datePublished</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">reading
-									progression direction</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier"><code>id</code></a>
+								(canonical identifier) </li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage"><code>inLanguage</code></a>
+								(publication language) </li>
+							<li>
+								<a href="#audio-creators"><code>readBy</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">resource list</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction"
+										><code>readingProgression</code></a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">type</a>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list"><code>resources</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types"><code>type</code></a>
+							</li>
+							<li>
+								<a href="https://www.w3.org/TR/pub-manifest/#address"><code>url</code></a> (address)
 							</li>
 						</ul>
 					</dd>
 				</dl>
 
-				<div class="note" role="note" id="issue-container-generatedID-1">
-					<div role="heading" class="note-title marker" id="h-note-1" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-2">
+					<div role="heading" class="note-title marker" id="h-note-2" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">Some properties are implicitly required, as they are compiled from alternative
@@ -1290,7 +1207,7 @@ hue-6-2: #c18401
 						href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code>
 							term</a>&#160;[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
 							title="Publication Manifest">pub-manifest</a></cite>] <em class="rfc2119" title="MUST"
-						>MUST</em> be "<code>https://www.w3.org/TR/audiobooks</code>".</p>
+						>MUST</em> be "<code>https://www.w3.org/TR/audiobooks/</code>".</p>
 
 				<div class="example" id="example-3-setting-a-publication-s-type-to-audiobook">
 					<div class="marker">
@@ -1322,7 +1239,7 @@ hue-6-2: #c18401
 						<span class="example-title">: Setting a publication's type to Audiobook.</span>
 					</div>
 					<pre aria-busy="false"><code class="hljs json">{
-    <span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+    <span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/pub-context"</span>],
     <span class="hljs-attr">"type"</span>     : <span class="hljs-string">"Audiobook"</span>
     …
 }</code></pre>
@@ -1458,8 +1375,8 @@ hue-6-2: #c18401
 							title="Media Fragments URI 1.0 (basic)">media-frags</a></cite>] to locate the exact starting
 					and end points.</p>
 
-				<div class="note" role="note" id="issue-container-generatedID-2">
-					<div role="heading" class="note-title marker" id="h-note-2" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-3">
+					<div role="heading" class="note-title marker" id="h-note-3" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">It is important to note that a resource cannot be referenced more than once in the
@@ -1469,8 +1386,8 @@ hue-6-2: #c18401
 							href="#toc-mediafragments">this example</a>.</p>
 				</div>
 
-				<div class="note" role="note" id="issue-container-generatedID-3">
-					<div role="heading" class="note-title marker" id="h-note-3" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-4">
+					<div role="heading" class="note-title marker" id="h-note-4" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">Annotations can also use media fragments to identify the location of the annotation in
@@ -1649,7 +1566,7 @@ hue-6-2: #c18401
 							data-link-type="biblio" href="#bib-html" title="HTML Standard">html</a></cite>] resources in
 					the <a href="#audio-resourcelist">resources</a>.</p>
 
-				<div class="note" id="issue-container-generatedID-4">
+				<div class="note" id="issue-container-generatedID-5">
 					<div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4">
 						<span>Editor's note</span>
 					</div>
@@ -2055,7 +1972,7 @@ hue-6-2: #c18401
 				<p>The <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note recommends that
 					content be available offline and that any packaged formats should not affect the iterations of the
 					publications. This means that even if the content is copied many times to many users via multiple
-					User Agents, the core manifest and it's identifier are never changed.</p>
+					User Agents, the core manifest and its identifier are never changed.</p>
 
 				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging
 						Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents
@@ -2099,6 +2016,21 @@ hue-6-2: #c18401
 						version</a><a class="self-link" aria-label="§" href="#change-log-latest"></a></h3>
 
 				<ul>
+					<li>27-July-2020: Updated the reference schema URL to a <abbr title="World Wide Web Consortium"
+							>W3C</abbr> address. See <a href="https://github.com/w3c/pub-manifest/issues/226">issue 226
+							in Publication Manifest</a>.</li>
+					<li>2-July-2020: Added a note about the shape of the manifest being defined by the JSON schema to
+						the manifest introduction. See <a href="https://github.com/w3c/audiobooks/issues/71">issue
+							71</a>.</li>
+				</ul>
+			</section>
+
+			<section id="change-log-older">
+				<h3 id="x10-2-other-substantive-changes-since-candidate-recommendation"><bdi class="secno">10.2
+					</bdi>Other substantive changes since Candidate Recommendation<a class="self-link" aria-label="§"
+						href="#change-log-older"></a></h3>
+
+				<ul>
 					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
 						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
 						primary entry page not being listed in the unique resources has been removed as it is no checked
@@ -2110,15 +2042,6 @@ hue-6-2: #c18401
 					<li>07-Feb-2020: The manifest requirements section was moved out of the properties section as it
 						also includes resource relations. See <a href="https://github.com/w3c/audiobooks/issues/70"
 							>issue 70</a>.</li>
-				</ul>
-			</section>
-
-			<section id="change-log-older">
-				<h3 id="x10-2-other-substantive-changes-since-candidate-recommendation"><bdi class="secno">10.2
-					</bdi>Other substantive changes since Candidate Recommendation<a class="self-link" aria-label="§"
-						href="#change-log-older"></a></h3>
-
-				<ul>
 					<li>03-Jan-2020: A new (informative) section <a href="#toc-algorithm-extension" class="sec-ref"
 								>§&#160;<bdi class="secno">7. </bdi>User Agent Processing of Machine-Processable Table
 							of Contents</a> has been added defining, the extension of the table of contents processing
@@ -2150,10 +2073,10 @@ hue-6-2: #c18401
 						<a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs json">{
-  <span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/wp-context"</span>],
+  <span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/pub-context"</span>],
   <span class="hljs-attr">"conformsTo"</span> : <span class="hljs-string">"https://www.w3.org/TR/audiobooks/"</span>,
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Audiobook"</span>,
-  <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/"</span>,
   <span class="hljs-attr">"url"</span>: <span class="hljs-string">"https://w3c.github.io/wpub/experiments/audiobook/"</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Flatland: A Romance of Many Dimensions"</span>,
   <span class="hljs-attr">"author"</span>: <span class="hljs-string">"Edwin Abbott Abbott"</span>,
@@ -2413,7 +2336,7 @@ hue-6-2: #c18401
 				<li>Phil Madans (Hachette Livre)</li>
 				<li>Christopher Maden (University of Illinois at Urbana-Champaign)</li>
 				<li>Dmitry Markushevich (Evident Point Software)</li>
-				<li>keith mcfarland (Blackstone Audio, Inc.)</li>
+				<li>Keith McFarland (Blackstone Audio, Inc.)</li>
 				<li>Jonathan McGlone (University of Michigan)</li>
 				<li>Hugh McGuire (The Rebus Foundation)</li>
 				<li>Nellie McKesson (<abbr title="World Wide Web Consortium">W3C</abbr> Invited Expert)</li>
@@ -2461,8 +2384,8 @@ hue-6-2: #c18401
 			<h2 id="d-references"><bdi class="secno">D. </bdi>References<a class="self-link" aria-label="§"
 					href="#references"></a></h2>
 			<section id="normative-references">
-				<h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi>Normative references<a class="self-link"
-						aria-label="§" href="#normative-references"></a></h3>
+				<h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi> Normative references <a
+						class="self-link" aria-label="§" href="#normative-references"></a></h3>
 				<dl class="bibliography">
 					<dt id="bib-dom">[dom]</dt>
 					<dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren. WHATWG.
@@ -2513,16 +2436,26 @@ hue-6-2: #c18401
 				</dl>
 			</section>
 			<section id="informative-references">
-				<h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi>Informative references<a
+				<h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi> Informative references <a
 						class="self-link" aria-label="§" href="#informative-references"></a></h3>
 				<dl class="bibliography">
+					<dt id="bib-json-ld11">[json-ld11]</dt>
+					<dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg;
+						Pierre-Antoine Champin; Dave Longley. W3C. 7 May 2020. W3C Proposed Recommendation. URL: <a
+							href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd>
+					<dt id="bib-json-schema">[json-schema]</dt>
+					<dd><a href="https://tools.ietf.org/html/draft-zyp-json-schema"><cite>JSON Schema: core definitions
+								and terminology</cite></a>. K. Zyp. Internet Engineering Task Force (IETF). 31 January
+						2013. Internet-Draft. URL: <a href="https://tools.ietf.org/html/draft-zyp-json-schema"
+							>https://tools.ietf.org/html/draft-zyp-json-schema</a></dd>
 					<dt id="bib-pwp-ucr">[PWP-UCR]</dt>
 					<dd><a href="https://www.w3.org/TR/pwp-ucr/"><cite>Web Publications Use Cases and
-								Requirements</cite></a>. Joshua Pyle; Franco Alvarado. W3C. 19 February 2019. W3C Note.
+								Requirements</cite></a>. Franco Alvarado; Joshua Pyle. W3C. 13 August 2019. W3C Note.
 						URL: <a href="https://www.w3.org/TR/pwp-ucr/">https://www.w3.org/TR/pwp-ucr/</a></dd>
 				</dl>
 			</section>
-		</section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top"
-		>↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body>
+		</section><p role="navigation" id="back-to-top">
+			<a href="#title"><abbr title="Back to Top">↑</abbr></a>
+		</p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body>
 </html>
 
