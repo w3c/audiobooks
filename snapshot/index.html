@@ -494,7 +494,7 @@
   "wgURI": "https://www.w3.org/publishing/groups/publ-wg/",
   "wgPublicList": "public-publ-wg",
   "edDraftURI": "https://w3c.github.io/audiobooks/",
-  "previousPublishDate": "2020-03-17",
+  "previousPublishDate": "2020-07-30",
   "previousMaturity": "CR",
   "specStatus": "CR",
   "implementationReportURI": "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -655,9 +655,9 @@
       "href": "http://www.bibtex.org/Format/"
     }
   },
-  "publishDate": "2020-07-30",
-  "publishISODate": "2020-07-30T00:00:00.000Z",
-  "generatedSubtitle": "Candidate Recommendation 30 July 2020"
+  "publishDate": "2020-09-07",
+  "publishISODate": "2020-09-07T00:00:00.000Z",
+  "generatedSubtitle": "Candidate Recommendation 07 September 2020"
 }</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-CR" />
 	</head>
@@ -666,13 +666,13 @@
 					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" /></a>
 			<h1 id="title" class="title">Audiobooks</h1>
 
-			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-07-30">30 July 2020</time>
+			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-09-07">07 September 2020</time>
 			</h2>
 			<dl>
 				<dt>This version:</dt>
 				<dd>
-					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200730/</a>
+					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200907/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200907/</a>
 				</dd>
 				<dt>Latest published version:</dt>
 				<dd>
@@ -688,8 +688,8 @@
 				</dd>
 
 				<dt>Previous version:</dt>
-				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200317/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200317/</a></dd>
+				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200730/</a></dd>
 
 				<dt>Editors:</dt>
 				<dd class="p-author h-card vcard" data-editor-id="102009"><span class="p-name fn">Wendy Reid</span> (<a
@@ -1550,82 +1550,22 @@
 						aria-label="§" href="#audio-accessibility"></a></h3>
 				<p><em>This section is non-normative.</em></p>
 
-				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible
-					audiobook, it is recommended to use <a
-						href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized
-						Narration</a> to create documents where text and audio can be completely synchronized.
-					Additional details on incorporating Synchronized Narration files into a publication's fileset are
-					given in <a href="https://w3c.github.io/sync-media-pub/incorporating-synchronized-narration"
-						>Incorporating Synchronized Narration into a Publication Manifest</a>.</p>
+				<p>The history of the audiobook is rooted in the world of accessibility. Both purely audio publications
+					and publications that synchronize text and audio playback have long been used to assist users with
+					alternative reading needs and preferences.</p>
 
-				<p>To create an accessible audiobook using Synchronized Narration, you need to both reference the
-					alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list
-					the file in the <a href="#audio-resourcelist">resources</a>.</p>
+				<p>An approach for accessible synchronized media in publications is currently being done by the <a
+						href="https://www.w3.org/community/sync-media-pub/">Synchronized Multimedia for Publications
+						Community Group</a>. Refer to the work of that group for more information about creating such
+					content and incorporating it into an Audiobook.</p>
 
 				<p>Alternatively, a content creator can provide the text equivalent as HTML [<cite><a class="bibref"
 							data-link-type="biblio" href="#bib-html" title="HTML Standard">html</a></cite>] resources in
 					the <a href="#audio-resourcelist">resources</a>.</p>
 
-				<div class="note" id="issue-container-generatedID-5">
-					<div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4">
-						<span>Editor's note</span>
-					</div>
-					<p class="">At the time of this publication, a <a
-							href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized
-							Narration</a> specification suitable for use in audiobooks is in development. It is believed
-						this specification can already meet synchronization needs, though reliance on a developing
-						specification clearly carries no guarantee of backward compatibility. Participation and comments
-						from the digital publishing community, and especially from implementors are encouraged.</p>
-				</div>
-
-				<div class="example" id="example-13-audiobook-with-synchronized-narration">
+				<div class="example" id="example-13-audiobook-with-alternate-text">
 					<div class="marker">
-						<a class="self-link" href="#example-13-audiobook-with-synchronized-narration">Example<bdi>
-								13</bdi></a>
-						<span class="example-title">: Audiobook with Synchronized Narration</span>
-					</div>
-					<pre aria-busy="false"><code class="hljs json">{
-	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/pub-context"</span>],
-	<span class="hljs-attr">"conformsTo"</span> : <span class="hljs-string">"https://www.w3.org/TR/audiobooks/"</span>,
-	<span class="hljs-attr">"url"</span> : <span class="hljs-string">"https://publisher.example.org/janeeyre"</span>,
-	<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Jane Eyre"</span>,
-	<span class="hljs-attr">"readingOrder"</span> : [{
-		<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part001.wav"</span>,
-		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
-		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 1"</span>,
-		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT457.931S"</span>,
-		<span class="hljs-attr">"alternate"</span> : {
-			<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-			<span class="hljs-attr">"url"</span> : <span class="hljs-string">"sync-narr/part001-1.json"</span>,
-			<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.syncnarr+json"</span>}
-	}, {
-		<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"audio/part002.wav#t=12.741"</span>,
-		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"audio/vnd-wav"</span>,
-		<span class="hljs-attr">"name"</span> : <span class="hljs-string">"Chapter 2"</span>,
-		<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT234.245S"</span>,
-		<span class="hljs-attr">"alternate"</span> : {
-			<span class="hljs-attr">"type"</span> : <span class="hljs-string">"LinkedResource"</span>,
-			<span class="hljs-attr">"url"</span> : <span class="hljs-string">"sync-narr/part001-2.json"</span>,
-			<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.syncnarr+json"</span>}
-	}],
-	<span class="hljs-attr">"resources"</span> : [{
-     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"LinkedResource"</span>,
-     <span class="hljs-attr">"url"</span>: <span class="hljs-string">"sync-narr/part001-1.json"</span>,
-     <span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.syncnarr+json"</span>
-   }, {
-		<span class="hljs-attr">"type"</span>: <span class="hljs-string">"LinkedResource"</span>,
-		<span class="hljs-attr">"url"</span> : <span class="hljs-string">"sync-narr/part001-2.json"</span>,
-		<span class="hljs-attr">"encodingFormat"</span> : <span class="hljs-string">"application/vnd.syncnarr+json"</span>
-	}...
-	]
-}</code></pre>
-				</div>
-
-				<div class="example" id="example-14-audiobook-with-alternate-text">
-					<div class="marker">
-						<a class="self-link" href="#example-14-audiobook-with-alternate-text">Example<bdi> 14</bdi></a>
+						<a class="self-link" href="#example-13-audiobook-with-alternate-text">Example<bdi> 13</bdi></a>
 						<span class="example-title">: Audiobook with Alternate Text</span>
 					</div>
 					<pre aria-busy="false"><code class="hljs json">{
@@ -2012,16 +1952,13 @@
 
 			<section id="change-log-latest">
 				<h3 id="x10-1-substantive-changes-since-the-previous-version"><bdi class="secno">10.1 </bdi>Substantive
-					changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/">previous
+					changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/">previous
 						version</a><a class="self-link" aria-label="§" href="#change-log-latest"></a></h3>
 
 				<ul>
-					<li>27-July-2020: Updated the reference schema URL to a <abbr title="World Wide Web Consortium"
-							>W3C</abbr> address. See <a href="https://github.com/w3c/pub-manifest/issues/226">issue 226
-							in Publication Manifest</a>.</li>
-					<li>2-July-2020: Added a note about the shape of the manifest being defined by the JSON schema to
-						the manifest introduction. See <a href="https://github.com/w3c/audiobooks/issues/71">issue
-							71</a>.</li>
+					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
+						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
+						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
 				</ul>
 			</section>
 
@@ -2031,6 +1968,12 @@
 						href="#change-log-older"></a></h3>
 
 				<ul>
+					<li>27-July-2020: Updated the reference schema URL to a <abbr title="World Wide Web Consortium"
+							>W3C</abbr> address. See <a href="https://github.com/w3c/pub-manifest/issues/226">issue 226
+							in Publication Manifest</a>.</li>
+					<li>2-July-2020: Added a note about the shape of the manifest being defined by the JSON schema to
+						the manifest introduction. See <a href="https://github.com/w3c/audiobooks/issues/71">issue
+							71</a>.</li>
 					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
 						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
 						primary entry page not being listed in the unique resources has been removed as it is no checked
@@ -2068,9 +2011,9 @@
 				<p>A manifest for an audiobook. The <a
 						href="https://github.com/w3c/pub-manifest/blob/master/experiments/audiobook/flatland-canonical.json"
 						>canonical version</a> of this manifest is also available.</p>
-				<div class="example" id="example-15">
+				<div class="example" id="example-14">
 					<div class="marker">
-						<a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
+						<a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs json">{
   <span class="hljs-attr">"@context"</span>: [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3.org/ns/pub-context"</span>],
@@ -2158,9 +2101,9 @@
 
 				<p>A manifest for an audiobook with supplemental content.</p>
 
-				<div class="example" id="example-16">
+				<div class="example" id="example-15">
 					<div class="marker">
-						<a class="self-link" href="#example-16">Example<bdi> 16</bdi></a>
+						<a class="self-link" href="#example-15">Example<bdi> 15</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs json">{
 	<span class="hljs-attr">"@context"</span> : [<span class="hljs-string">"https://schema.org"</span>, <span class="hljs-string">"https://www.w3/org/ns/pub-context"</span>],
@@ -2203,9 +2146,9 @@
 					with a Table of Contents<a class="self-link" aria-label="§" href="#toc-pep"></a></h3>
 
 				<p>A primary entry page with a simple table of contents for an audiobook.</p>
-				<div class="example" id="example-17">
+				<div class="example" id="example-16">
 					<div class="marker">
-						<a class="self-link" href="#example-17">Example<bdi> 17</bdi></a>
+						<a class="self-link" href="#example-16">Example<bdi> 16</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs xml">	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     …
@@ -2240,9 +2183,9 @@
 						class="self-link" aria-label="§" href="#toc-simple"></a></h3>
 
 				<p>A table of contents for a simple audiobook.</p>
-				<div class="example" id="example-18">
+				<div class="example" id="example-17">
 					<div class="marker">
-						<a class="self-link" href="#example-18">Example<bdi> 18</bdi></a>
+						<a class="self-link" href="#example-17">Example<bdi> 17</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
 	 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
@@ -2263,9 +2206,9 @@
 
 				<p>A table of contents using media fragment references to locations in a single audio track.</p>
 
-				<div class="example" id="example-19">
+				<div class="example" id="example-18">
 					<div class="marker">
-						<a class="self-link" href="#example-19">Example<bdi> 19</bdi></a>
+						<a class="self-link" href="#example-18">Example<bdi> 18</bdi></a>
 					</div>
 					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-toc"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>JANE EYRE<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
