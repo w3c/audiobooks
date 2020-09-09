@@ -12,7 +12,8 @@
 				wgURI: "https://www.w3.org/publishing/groups/publ-wg/",
 				wgPublicList: "public-publ-wg",
 				edDraftURI: "https://w3c.github.io/audiobooks/",
-				previousPublishDate: "2020-03-17",
+				errata: "https://w3c.github.io/audiobooks/errata/",
+				previousPublishDate: "2020-09-09",
 				previousMaturity: "CR",
 				specStatus: "ED",
 				implementationReportURI: "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -36,7 +37,7 @@
 				permalinkEdge: true,
 				permalinkHide: false,
 				wgPatentURI: "https://www.w3.org/2004/01/pp-impl/100074/status",
-				wgId:     "100074",
+				wgId: "100074",
 				diffTool: "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 				github: {
 					repoURL: "https://github.com/w3c/audiobooks",
@@ -67,7 +68,7 @@
 
 			<p>This specification does not define how user agents are expected to render Audiobooks. Details about the
 				types of affordances that user agents can provide to enhance the reading experience for users are
-				instead defined in [[PWP-UCR]].</p>
+				instead defined in [[pwp-ucr]].</p>
 		</section>
 		<section id="audio-terminology">
 			<h3>Terminology</h3>
@@ -96,16 +97,19 @@
 			<section id="audio-pep">
 				<h3>Primary Entry Page</h3>
 
-				<p>The <dfn>primary entry page</dfn> represents the preferred starting <a href="#audio-resourcelist"
-						>resource</a> for an Audiobook and enables discovery of its manifest.</p>
+				<p>The <dfn>primary entry page</dfn> is an HTML <a href="#audio-resourcelist">resource</a> that
+					represents the preferred starting resource of an Audiobook and enables discovery of its manifest. It
+					typically introduces the audiobook and provides access to the content.</p>
 
-				<p>The primary entry page is an HTML resource that typically introduces the audiobook and provides
-					access to the content. It SHOULD contain the <a href="#audio-toc">table of contents</a>.</p>
+				<p>The primary entry page MUST include either a <a
+						href="https://www.w3.org/TR/pub-manifest/#manifest-link">link to the manifest</a> or <a
+						href="https://www.w3.org/TR/pub-manifest/#manifest-embed">embed the manifest</a>
+					[[!pub-manifest]]. It also SHOULD contain the <a href="#audio-toc">table of contents</a>.</p>
 
-				<p>It is not required that the primary entry page be included in the <a href="#audio-readingorder"
-						>default reading order</a>, as the Audiobooks profile requires that only audio resources be
-					present. The primary entry page should instead, if present, be included as a <a
-						href="#audio-resourcelist">resource</a>.</p>
+				<p>An Audiobook MUST include a primary entry page except when <a
+						href="https://www.w3.org/TR/audiobooks/#audio-packaging">packaging</a> allows alternative
+					discovery of the manifest. When present, the page MUST be included in the <a
+						href="#audio-resourcelist">resource list</a>.</p>
 			</section>
 
 			<section id="audio-toc">
@@ -163,7 +167,7 @@
 					also defined, informally, through a JSON schema&#160;[[json-schema]] that expresses the constraints
 					defined in this specification. This schema is maintained at <a
 						href="https://www.w3.org/ns/pub-schema/audiobooks/"
-					>https://www.w3.org/ns/pub-schema/audiobooks/</a>.</p>
+						>https://www.w3.org/ns/pub-schema/audiobooks/</a>.</p>
 			</section>
 
 			<section id="audio-requirements">
@@ -344,10 +348,10 @@
 				<section id="audio-creators">
 					<h4>Creators</h4>
 
-					<p>A <dfn>creator</dfn> is an individual or entity responsible for the creation of the Web
-						Publication. The Audiobooks profile can use the full list of <a
-							href="https://www.w3.org/TR/pub-manifest/#creators">creators</a> specified in Web
-						Publications.</p>
+					<p>A <dfn>creator</dfn> is an individual or entity responsible for the creation of the Audiobook.
+						The Audiobooks profile can use the full list of <a
+							href="https://www.w3.org/TR/pub-manifest/#creators">creators</a> defined in
+						[[!pub-manifest]].</p>
 
 					<p>The creators list includes two recommended creators for Audiobooks:</p>
 
@@ -393,8 +397,8 @@
 					<h4>Duration</h4>
 
 					<p>A <dfn>duration</dfn> is the length of the audio resources in an Audiobook. The duration property
-						is fully defined in the <a href="https://www.w3.org/TR/pub-manifest/#duration">Publication
-							Manifest</a> specification.</p>
+						is fully defined in <a href="https://www.w3.org/TR/pub-manifest/#duration">Publication
+							Manifest</a> [[!pub-manifest]].</p>
 
 					<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and
 						SHOULD be present at the item level in the <a href="#audio-readingorder">default reading
@@ -426,12 +430,13 @@
 				<h3>Default Reading Order</h3>
 
 				<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn>default reading
-							order</dfn></a> is a specific progression through the audio resources in the audiobook.</p>
+							order</dfn></a> [[!pub-manifest]] is a specific progression through the audio resources in
+					the audiobook.</p>
 
 				<p>The default reading order MUST contain at least one audio resource, which MAY be identified by the
 						<code>type</code> of <a href="https://www.w3.org/TR/pub-manifest/#value-linked-resource"
-							><code>LinkedResource</code></a>. The default reading order MUST NOT contain non-audio
-					resources.</p>
+							><code>LinkedResource</code></a> [[!pub-manifest]]. The default reading order MUST NOT
+					contain non-audio resources.</p>
 
 				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple
 					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
@@ -518,7 +523,7 @@
 					downloading the full audiobook.</p>
 
 				<p>A <a href="https://www.w3.org/TR/pub-manifest/#preview">preview</a> is identified using the
-						<code>preview</code> link relation, as defined in [[pub-manifest]].</p>
+						<code>preview</code> link relation, as defined in [[!pub-manifest]].</p>
 
 				<p>Previews MAY be located externally or included as a resource of the audiobook.</p>
 
@@ -555,74 +560,24 @@
 				<h3>Packaging</h3>
 
 				<p>Audiobooks will be packaged using the method described in the <a href="https://www.w3.org/TR/lpf/"
-						>Lightweight Packaging Format</a> note.</p>
+						>Lightweight Packaging Format</a> [[lpf]] note.</p>
 
 			</section>
 
 			<section id="audio-accessibility" class="informative">
 				<h3>Accessibility</h3>
 
-				<p>The history of the audiobook is rooted in the world of accessibility. To create a fully accessible
-					audiobook, it is recommended to use <a
-						href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized
-						Narration</a> to create documents where text and audio can be completely synchronized.
-					Additional details on incorporating Synchronized Narration files into a publication's fileset are
-					given in <a href="https://w3c.github.io/sync-media-pub/incorporating-synchronized-narration"
-						>Incorporating Synchronized Narration into a Publication Manifest</a>.</p>
+				<p>The history of the audiobook is rooted in the world of accessibility. Both purely audio publications
+					and publications that synchronize text and audio playback have long been used to assist users with
+					alternative reading needs and preferences.</p>
 
-				<p>To create an accessible audiobook using Synchronized Narration, you need to both reference the
-					alternative file on the item in the <a href="#audio-readingorder">reading order</a>, as well as list
-					the file in the <a href="#audio-resourcelist">resources</a>.</p>
+				<p>An approach for accessible synchronized media in publications is currently being done by the <a
+						href="https://www.w3.org/community/sync-media-pub/">Synchronized Multimedia for Publications
+						Community Group</a>. Refer to the work of that group for more information about creating such
+					content and incorporating it into an Audiobook.</p>
 
 				<p>Alternatively, a content creator can provide the text equivalent as HTML [[html]] resources in the <a
 						href="#audio-resourcelist">resources</a>.</p>
-
-				<p class="ednote">At the time of this publication, a <a
-						href="https://w3c.github.io/sync-media-pub/synchronized-narration.html">Synchronized
-						Narration</a> specification suitable for use in audiobooks is in development. It is believed
-					this specification can already meet synchronization needs, though reliance on a developing
-					specification clearly carries no guarantee of backward compatibility. Participation and comments
-					from the digital publishing community, and especially from implementors are encouraged.</p>
-
-				<pre class="example" title="Audiobook with Synchronized Narration">
-				{
-					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-					"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-					"url" : "https://publisher.example.org/janeeyre",
-					"name" : "Jane Eyre",
-					"readingOrder" : [{
-						"type" : "LinkedResource",
-						"url" : "audio/part001.wav",
-						"encodingFormat" : "audio/vnd-wav",
-						"name" : "Chapter 1",
-						"duration" : "PT457.931S",
-						"alternate" : {
-							"type" : "LinkedResource",
-							"url" : "sync-narr/part001-1.json",
-							"encodingFormat" : "application/vnd.syncnarr+json"}
-					}, {
-						"type" : "LinkedResource",
-						"url" : "audio/part002.wav#t=12.741",
-						"encodingFormat" : "audio/vnd-wav",
-						"name" : "Chapter 2",
-						"duration" : "PT234.245S",
-						"alternate" : {
-							"type" : "LinkedResource",
-							"url" : "sync-narr/part001-2.json",
-							"encodingFormat" : "application/vnd.syncnarr+json"}
-					}],
-					"resources" : [{
-			      "type": "LinkedResource",
-			      "url": "sync-narr/part001-1.json",
-			      "encodingFormat" : "application/vnd.syncnarr+json"
-			    }, {
-						"type": "LinkedResource",
-						"url" : "sync-narr/part001-2.json",
-						"encodingFormat" : "application/vnd.syncnarr+json"
-					}...
-					]
-				}
-			</pre>
 
 				<pre class="example" title="Audiobook with Alternate Text">
 				{
@@ -879,24 +834,24 @@
 			<p>This section outlines the expected user agent behaviors for implementation of audiobooks. For processing
 				instructions, user agents should refer to the <a
 					href="https://www.w3.org/TR/pub-manifest/#manifest-processing"><code>Processing a
-					Manifest</code></a> section of the Publication Manifest specification, and conform to any behavior
-				described there.</p>
+					Manifest</code></a> section of the Publication Manifest [[pub-manifest]] specification, and conform
+				to any behavior described there.</p>
 
 			<p>All user agent behaviors described in this section are intended to provide implementors with guidance,
 				not strict requirements. Behaviors in this document are taken mainly from the <a
-					href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note published by the working
-				group.</p>
+					href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> [[pwp-ucr]] note published by
+				the working group.</p>
 
 			<section id="audio-ua-navigation">
 				<h3>Opening and Navigating the Contents of an Audiobook</h3>
 
 				<p>When a user agent opens an Audiobook, and the manifest processes according to the rules laid out in
-						<a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>, it
-					should be opened by the User Agent. The <a href="#audio-readingorder">Reading Order</a> or, if
-					available, <a href="#audio-toc">Table of Contents</a> should be accessible to the user. A User Agent
-					should be able to provide a list of the contents of the audiobook available to the user when
-					requested. If a non-audio resource is present in the Reading Order, the User Agent can choose to
-					present it to the user or skip it.</p>
+						<a href="https://www.w3.org/TR/pub-manifest/#manifest-processing">Publication Manifest</a>
+					[[pub-manifest]], it should be opened by the User Agent. The <a href="#audio-readingorder">Reading
+						Order</a> or, if available, <a href="#audio-toc">Table of Contents</a> should be accessible to
+					the user. A User Agent should be able to provide a list of the contents of the audiobook available
+					to the user when requested. If a non-audio resource is present in the Reading Order, the User Agent
+					can choose to present it to the user or skip it.</p>
 
 				<p>User agents should provide a means of rendering non-audio resources within the Reading Order and
 					Resource list. If the content cannot be rendered by the user agent, it is recommended that the user
@@ -916,32 +871,32 @@
 			<section id="audio-ua-playback">
 				<h3>Audiobook Playability</h3>
 
-				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note, an
-					audiobook must be navigable in the User Agent. This means that a User Agent must provide methods for
-					the user to move through the audiobook in a linear or non-linear fashion by either moving through
-					the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing the <a
-						href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move
+				<p>As outlined in the <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a>
+					[[pwp-ucr]] note, an audiobook must be navigable in the User Agent. This means that a User Agent
+					must provide methods for the user to move through the audiobook in a linear or non-linear fashion by
+					either moving through the <a href="#audio-readingorder">Reading Order</a> seamlessly or by accessing
+					the <a href="#audio-toc">Table of Contents</a>. The User Agent should also allow the user to move
 					through individual audio files in short time increments.</p>
 
 				<p>For an audiobook, the User Agent should provide a <a href="https://www.w3.org/TR/pwp-ucr/#player"
-						>player interface</a> that will allow the user to navigate, play, or pause the audiobook. This
-					interface can be represented to the user in any way (i.e. physical buttons, visual interface,
-					keyboard input, or voice commands), but should be accessible at any point in the listening
-					experience.</p>
+						>player interface</a> [[pwp-ucr]] that will allow the user to navigate, play, or pause the
+					audiobook. This interface can be represented to the user in any way (i.e. physical buttons, visual
+					interface, keyboard input, or voice commands), but should be accessible at any point in the
+					listening experience.</p>
 
 			</section>
 
 			<section id="audio-ua-packaging">
 				<h3>Audiobook Packaging and Offlining</h3>
 
-				<p>The <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> note recommends that
-					content be available offline and that any packaged formats should not affect the iterations of the
-					publications. This means that even if the content is copied many times to many users via multiple
-					User Agents, the core manifest and its identifier are never changed.</p>
+				<p>The <a href="https://www.w3.org/TR/pwp-ucr/">Use Cases and Requirements</a> [[pwp-ucr]] note
+					recommends that content be available offline and that any packaged formats should not affect the
+					iterations of the publications. This means that even if the content is copied many times to many
+					users via multiple User Agents, the core manifest and its identifier are never changed.</p>
 
-				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf">Lightweight Packaging
-						Format</a> for packaging audiobook content, but this is not a requirement. Audiobook User Agents
-					should be able to ingest LPF files for play, and should display content according to the
+				<p>This specification recommends the <a href="https://www.w3.org/TR/lpf/">Lightweight Packaging
+						Format</a> [[lpf]] for packaging audiobook content, but this is not a requirement. Audiobook
+					User Agents should be able to ingest LPF files for play, and should display content according to the
 					requirements and recommendations in this document.</p>
 
 				<p>If a User Agent is serving the content directly from their service (i.e. as a retailer or repository
@@ -974,8 +929,21 @@
 			<h2>Change Log</h2>
 
 			<section id="change-log-latest">
-				<h3>Substantive changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200128/">previous
+				<h3>Substantive changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/">previous
 						version</a></h3>
+
+				<ul>
+					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does
+						not provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
+							61</a>.</li>
+					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
+						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
+						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
+				</ul>
+			</section>
+
+			<section id="change-log-older">
+				<h3>Other substantive changes since Candidate Recommendation</h3>
 
 				<ul>
 					<li>27-July-2020: Updated the reference schema URL to a W3C address. See <a
@@ -984,13 +952,6 @@
 					<li>2-July-2020: Added a note about the shape of the manifest being defined by the JSON schema to
 						the manifest introduction. See <a href="https://github.com/w3c/audiobooks/issues/71">issue
 							71</a>.</li>
-				</ul>
-			</section>
-
-			<section id="change-log-older">
-				<h3>Other substantive changes since Candidate Recommendation</h3>
-
-				<ul>
 					<li>12-Feb-2020: The algorithm step to check and compare resource durations to the total audiobook
 						duration was moved to avoid duplicate validity checks. The algorithm step to warn about the
 						primary entry page not being listed in the unique resources has been removed as it is no checked
@@ -1041,7 +1002,7 @@
 						"author" : "Charlotte Bronte",
 						"readBy" : "Jane Doe",
 						"duration" : "PT123456.789S",
-						"abridged" : "false",
+						"abridged" : false,
 						"inLanguage" : "en",
 						"dateModified" : "2019-03-29T15:59:00Z",
 						"datePublished" : "2019-03-29",
