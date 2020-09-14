@@ -621,36 +621,6 @@
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension
 							steps</a> are added for Audiobook manifests:</p>
 					<ol id="processing-toc">
-						<li>
-							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) If <var>document</var> is not
-								defined or does not include an [[!html]] element with the role <code>doc-toc</code>:</p>
-							<ol>
-								<li id="processing-toc-res-var">
-									<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean"
-											>boolean</a> value set to <code>false</code>.</p>
-								</li>
-								<li id="processing-toc-res-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
-										<var>resource</var> of <var>processed["resources"]</var>, if
-											<var>resource["rel"]</var> is defined and <a
-											href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value
-											<code>contents</code>, set <var>toc</var> to <code>true</code>, then <a
-											href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
-								</li>
-								<li id="processing-toc-res-result">
-									<p>if <var>toc</var> is not <code>true</code>, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>.</p>
-								</li>
-							</ol>
-							<details>
-								<summary>Explanation</summary>
-								<p>This step checks for a table of contents in the resource list when an Audiobook
-									manifest is not linked to a <a>primary entry page</a> (i.e., when
-										<code>document</code> is not defined) or the entry page does not include a table
-									of contents.</p>
-							</details>
-						</li>
 						<li id="processing-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
@@ -932,6 +902,9 @@
 						version</a></h3>
 
 				<ul>
+					<li>12-Sept-2020: Removed the manifest processing step that warns if a table of contents is not
+						found as the requirement is dependent on the presence of supplementary resources which cannot be
+						reliably tested. See <a href="https://github.com/w3c/audiobooks/issues/93">issue 93</a>.</li>
 					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does not
 						provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
 							61</a>.</li>
