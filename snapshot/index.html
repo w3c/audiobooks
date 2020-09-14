@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="generator" content="ReSpec 25.6.0" />
+		<meta name="generator" content="ReSpec 25.15.1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<style>
 			span.example-title {
@@ -104,14 +104,116 @@
 				border: none;
 				display: inline-block
 			}</style>
+		<style>
+			dfn {
+				cursor: pointer
+			}
+			
+			.dfn-panel {
+				position: absolute;
+				z-index: 35;
+				min-width: 300px;
+				max-width: 500px;
+				padding: .5em .75em;
+				margin-top: .6em;
+				font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+				background: #fff;
+				color: #000;
+				box-shadow: 0 1em 3em -.4em rgba(0, 0, 0, .3), 0 0 1px 1px rgba(0, 0, 0, .05);
+				border-radius: 2px
+			}
+			
+			.dfn-panel:not(.docked) > .caret {
+				position: absolute;
+				top: -9px
+			}
+			
+			.dfn-panel:not(.docked) > .caret::after,
+			.dfn-panel:not(.docked) > .caret::before {
+				content: "";
+				position: absolute;
+				border: 10px solid transparent;
+				border-top: 0;
+				border-bottom: 10px solid #fff;
+				top: 0
+			}
+			
+			.dfn-panel:not(.docked) > .caret::before {
+				border-bottom: 9px solid #a2a9b1
+			}
+			
+			.dfn-panel * {
+				margin: 0
+			}
+			
+			.dfn-panel b {
+				display: block;
+				color: #000;
+				margin-top: .25em
+			}
+			
+			.dfn-panel ul a[href] {
+				color: #333
+			}
+			
+			.dfn-panel a.self-link {
+				font-weight: 700
+			}
+			
+			.dfn-panel .dfn-exported {
+				float: right;
+				padding: .1em;
+				border-radius: .2em;
+				text-align: center;
+				white-space: nowrap;
+				font-size: 90%;
+				background: #d1edfd;
+				color: #040b1c;
+				box-shadow: 0 0 0 .125em #1ca5f940
+			}
+			
+			.dfn-panel a:not(:hover) {
+				text-decoration: none !important;
+				border-bottom: none !important
+			}
+			
+			.dfn-panel a[href]:hover {
+				border-bottom-width: 1px
+			}
+			
+			.dfn-panel ul {
+				padding: 0
+			}
+			
+			.dfn-panel li {
+				margin-left: 1em
+			}
+			
+			.dfn-panel.docked {
+				position: fixed;
+				left: .5em;
+				top: unset;
+				bottom: 2em;
+				margin: 0 auto;
+				max-width: calc(100vw - .75em * 2 - .5em - .2em * 2);
+				max-height: 30vh;
+				overflow: auto
+			}</style>
+
 
 		<title>Audiobooks</title>
 
 
+
 		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 
+
 		<style id="respec-mainstyle">
-			@keyframes pop{0%{transform:scale(1,1)}25%{transform:scale(1.25,1.25);opacity:.75}100%{transform:scale(1,1)}}
+			@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
 			.hljs {
 				background: 0 0 !important
 			}
@@ -155,7 +257,10 @@
 				text-decoration: red wavy underline
 			}
 			
-			@supports not (text-decoration:red wavy underline){.respec-offending-element:not(pre){display:inline-block}.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}}
+			@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
 			#references :target {
 				background: #eaf3ff;
 				animation: pop .4s ease-in-out 0s 1
@@ -495,7 +600,7 @@
   "wgPublicList": "public-publ-wg",
   "edDraftURI": "https://w3c.github.io/audiobooks/",
   "errata": "https://w3c.github.io/audiobooks/errata/",
-  "previousPublishDate": "2020-07-30",
+  "previousPublishDate": "2020-09-09",
   "previousMaturity": "CR",
   "specStatus": "CR",
   "implementationReportURI": "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -517,7 +622,7 @@
       "w3cid": 51655
     }
   ],
-  "processVersion": 2019,
+  "processVersion": 2020,
   "includePermalinks": true,
   "permalinkEdge": true,
   "permalinkHide": false,
@@ -657,9 +762,9 @@
       "href": "http://www.bibtex.org/Format/"
     }
   },
-  "publishDate": "2020-09-09",
-  "publishISODate": "2020-09-09T00:00:00.000Z",
-  "generatedSubtitle": "Candidate Recommendation 09 September 2020"
+  "publishDate": "2020-09-14",
+  "publishISODate": "2020-09-14T00:00:00.000Z",
+  "generatedSubtitle": "Candidate Recommendation 14 September 2020"
 }</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-CR" />
 	</head>
@@ -668,13 +773,13 @@
 					src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" /></a>
 			<h1 id="title" class="title">Audiobooks</h1>
 
-			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-09-09">09 September 2020</time>
+			<h2> W3C Candidate Recommendation <time class="dt-published" datetime="2020-09-14">14 September 2020</time>
 			</h2>
 			<dl>
 				<dt>This version:</dt>
 				<dd>
-					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200909/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200909/</a>
+					<a class="u-url" href="https://www.w3.org/TR/2020/CR-audiobooks-20200914/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200914/</a>
 				</dd>
 				<dt>Latest published version:</dt>
 				<dd>
@@ -690,8 +795,8 @@
 				</dd>
 
 				<dt>Previous version:</dt>
-				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/"
-						>https://www.w3.org/TR/2020/CR-audiobooks-20200730/</a></dd>
+				<dd><a href="https://www.w3.org/TR/2020/CR-audiobooks-20200909/"
+						>https://www.w3.org/TR/2020/CR-audiobooks-20200909/</a></dd>
 
 				<dt>Editors:</dt>
 				<dd class="p-author h-card vcard" data-editor-id="102009"><span class="p-name fn">Wendy Reid</span> (<a
@@ -734,7 +839,7 @@
 		<section id="abstract" class="introductory">
 			<h2>Abstract</h2>
 			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the <dfn
-					data-dfn-type="dfn" id="dfn-publication-manifest">Publication Manifest</dfn> specification.</p>
+					id="dfn-publication-manifest">Publication Manifest</dfn> specification.</p>
 		</section>
 		<section id="sotd" class="introductory">
 			<h2>Status of This Document</h2>
@@ -864,9 +969,9 @@
 				<li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol
 						class="toc">
 						<li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1
-								</bdi> Normative references </a></li>
+								</bdi>Normative references</a></li>
 						<li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2
-								</bdi> Informative references </a></li>
+								</bdi>Informative references</a></li>
 					</ol></li>
 			</ol></nav>
 		<section id="intro" class="informative">
@@ -904,8 +1009,7 @@
 			<p>In addition, the following terminology is defined for use in this specification:</p>
 
 			<dl class="termlist">
-				<dt><dfn id="dfn-file-name" data-lt="File Names|Supplemental Content" data-dfn-type="dfn">Supplemental
-						Content</dfn></dt>
+				<dt><dfn id="dfn-file-name" data-lt="File Names|Supplemental Content">Supplemental Content</dfn></dt>
 				<dd>
 					<p>Supplemental content is any content relating to the audiobook content but not required for the
 						full experience of the publication. Examples of supplemental content include photographs,
@@ -916,8 +1020,8 @@
 		<section id="conformance">
 			<h2 id="x3-conformance"><bdi class="secno">3. </bdi>Conformance<a class="self-link" aria-label="§"
 					href="#conformance"></a></h2>
-			<p> As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in
-				this specification are non-normative. Everything else in this specification is normative. </p>
+			<p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in
+				this specification are non-normative. Everything else in this specification is normative.</p>
 			<p> The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST
 					NOT</em>, <em class="rfc2119">RECOMMENDED</em>, <em class="rfc2119">REQUIRED</em>, and <em
 					class="rfc2119">SHOULD</em> in this document are to be interpreted as described in <a
@@ -935,22 +1039,22 @@
 				<h3 id="x4-1-primary-entry-page"><bdi class="secno">4.1 </bdi>Primary Entry Page<a class="self-link"
 						aria-label="§" href="#audio-pep"></a></h3>
 
-				<p>The <dfn data-dfn-type="dfn" id="dfn-primary-entry-page">primary entry page</dfn> is an HTML <a
+				<p>The <dfn id="dfn-primary-entry-page">primary entry page</dfn> is an HTML <a
 						href="#audio-resourcelist">resource</a> that represents the preferred starting resource of an
 					Audiobook and enables discovery of its manifest. It typically introduces the audiobook and provides
 					access to the content.</p>
 
-				<p>The primary entry page <em class="rfc2119" title="MUST">MUST</em> include either a <a
+				<p>The primary entry page <em class="rfc2119">MUST</em> include either a <a
 						href="https://www.w3.org/TR/pub-manifest/#manifest-link">link to the manifest</a> or <a
 						href="https://www.w3.org/TR/pub-manifest/#manifest-embed">embed the manifest</a> [<cite><a
 							class="bibref" data-link-type="biblio" href="#bib-pub-manifest" title="Publication Manifest"
-							>pub-manifest</a></cite>]. It also <em class="rfc2119" title="SHOULD">SHOULD</em> contain
-					the <a href="#audio-toc">table of contents</a>.</p>
+							>pub-manifest</a></cite>]. It also <em class="rfc2119">SHOULD</em> contain the <a
+						href="#audio-toc">table of contents</a>.</p>
 
-				<p>An Audiobook <em class="rfc2119" title="MUST">MUST</em> include a primary entry page except when <a
+				<p>An Audiobook <em class="rfc2119">MUST</em> include a primary entry page except when <a
 						href="https://www.w3.org/TR/audiobooks/#audio-packaging">packaging</a> allows alternative
-					discovery of the manifest. When present, the page <em class="rfc2119" title="MUST">MUST</em> be
-					included in the <a href="#audio-resourcelist">resource list</a>.</p>
+					discovery of the manifest. When present, the page <em class="rfc2119">MUST</em> be included in the
+						<a href="#audio-resourcelist">resource list</a>.</p>
 			</section>
 
 			<section id="audio-toc">
@@ -962,35 +1066,33 @@
 
 				<p>The table of contents is expressed via an [<cite><a class="bibref" data-link-type="biblio"
 							href="#bib-html" title="HTML Standard">html</a></cite>] element (typically a nav element) in
-					one of the resources. This element <em class="rfc2119" title="MUST">MUST</em> be identified by the
-					role attribute [<cite><a class="bibref" data-link-type="biblio" href="#bib-html"
-							title="HTML Standard">html</a></cite>] value <code>"doc-toc"</code> [<cite><a class="bibref"
+					one of the resources. This element <em class="rfc2119">MUST</em> be identified by the role attribute
+							[<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard"
+							>html</a></cite>] value <code>"doc-toc"</code> [<cite><a class="bibref"
 							data-link-type="biblio" href="#bib-dpub-aria-1.0"
 							title="Digital Publishing WAI-ARIA Module 1.0">dpub-aria-1.0</a></cite>].</p>
 
 				<p>If the table of contents is located in the <a href="#audio-pep">primary entry page</a>, the table of
-					contents <em class="rfc2119" title="MUST">MUST</em> be the first element in the document — in
-					document tree order [<cite><a class="bibref" data-link-type="biblio" href="#bib-dom"
-							title="DOM Standard">dom</a></cite>] — with that role value. Otherwise, the manifest <em
-						class="rfc2119" title="SHOULD">SHOULD</em> identify the resource that contains the
-					structure.</p>
+					contents <em class="rfc2119">MUST</em> be the first element in the document — in document tree order
+							[<cite><a class="bibref" data-link-type="biblio" href="#bib-dom" title="DOM Standard"
+							>dom</a></cite>] — with that role value. Otherwise, the manifest <em class="rfc2119"
+						>SHOULD</em> identify the resource that contains the structure.</p>
 
 				<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the
-					manifest <em class="rfc2119" title="SHOULD">SHOULD</em> identify the resource that contains the
-					structure.</p>
+					manifest <em class="rfc2119">SHOULD</em> identify the resource that contains the structure.</p>
 
 				<p>When an Audiobook contains additional resources (i.e. supplemental content):</p>
 
 				<ul>
 					<li>
-						<p>a table of contents <em class="rfc2119" title="SHOULD">SHOULD</em> be included;</p>
+						<p>a table of contents <em class="rfc2119">SHOULD</em> be included;</p>
 					</li>
 					<li>
-						<p>the table of contents <em class="rfc2119" title="SHOULD">SHOULD</em> include a link to any of
-							the <a href="#audio-resourcelist">resources</a>; and</p>
+						<p>the table of contents <em class="rfc2119">SHOULD</em> include a link to any of the <a
+								href="#audio-resourcelist">resources</a>; and</p>
 					</li>
 					<li>
-						<p>and all links <em class="rfc2119" title="SHOULD">SHOULD</em> refer to <a
+						<p>all links <em class="rfc2119">SHOULD</em> refer to <a
 								href="https://www.w3.org/TR/pub-manifest/#publication-resources">publication
 								resources</a>&#160;[<cite><a class="bibref" data-link-type="biblio"
 									href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>].</p>
@@ -1004,6 +1106,16 @@
 					<p class="">When including supplemental content, be aware that users might not have access to this
 						content unless it is linked to from the table of contents. It is strongly advised to provide
 						links to all content that is not in the default reading order.</p>
+				</div>
+
+				<div class="note" role="note" id="issue-container-generatedID-0">
+					<div role="heading" class="note-title marker" id="h-note-0" aria-level="4">
+						<span>Note</span>
+					</div>
+					<p class="">For more guidance on the structure and formatting for tables of contents, consult <a
+							href="https://w3c.github.io/pub-manifest/#app-toc-structure">Publication Manifest -
+							Machine-Processable Table of Contents</a> [<cite><a class="bibref" data-link-type="biblio"
+								href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>].</p>
 				</div>
 
 			</section>
@@ -1023,8 +1135,8 @@
 							title="Publication Manifest">pub-manifest</a></cite>]. Where these properties are extended
 					from the Publication Manifest is specified in this section.</p>
 
-				<div class="note" role="note" id="issue-container-generatedID-0">
-					<div role="heading" class="note-title marker" id="h-note-0" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-1">
+					<div role="heading" class="note-title marker" id="h-note-1" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">The Audiobook manifest is defined as a specific "shape" of [<cite><a class="bibref"
@@ -1044,8 +1156,8 @@
 				<p>The requirements for the expression of Audiobook properties and resource relations are defined as
 					follows:</p>
 
-				<div class="note" role="note" id="issue-container-generatedID-1">
-					<div role="heading" class="note-title marker" id="h-note-1" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-2">
+					<div role="heading" class="note-title marker" id="h-note-2" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">The list of properties uses the formal names for each property as described in [<cite><a
@@ -1057,7 +1169,7 @@
 				</div>
 
 				<dl>
-					<dt><em class="rfc2119" title="REQUIRED">REQUIRED</em>:</dt>
+					<dt><em class="rfc2119">REQUIRED</em>:</dt>
 					<dd>
 						<ul>
 							<li>
@@ -1076,7 +1188,7 @@
 								(publication title) </li>
 						</ul>
 					</dd>
-					<dt><em class="rfc2119" title="RECOMMENDED">RECOMMENDED</em>:</dt>
+					<dt><em class="rfc2119">RECOMMENDED</em>:</dt>
 					<dd>
 						<ul>
 							<li>
@@ -1144,8 +1256,8 @@
 					</dd>
 				</dl>
 
-				<div class="note" role="note" id="issue-container-generatedID-2">
-					<div role="heading" class="note-title marker" id="h-note-2" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-3">
+					<div role="heading" class="note-title marker" id="h-note-3" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">Some properties are implicitly required, as they are compiled from alternative
@@ -1213,8 +1325,8 @@
 				<p>The conformance URL expressed in the <a
 						href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code>
 							term</a>&#160;[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
-							title="Publication Manifest">pub-manifest</a></cite>] <em class="rfc2119" title="MUST"
-						>MUST</em> be "<code>https://www.w3.org/TR/audiobooks/</code>".</p>
+							title="Publication Manifest">pub-manifest</a></cite>] <em class="rfc2119">MUST</em> be
+						"<code>https://www.w3.org/TR/audiobooks/</code>".</p>
 
 				<div class="example" id="example-3-setting-a-publication-s-type-to-audiobook">
 					<div class="marker">
@@ -1235,9 +1347,9 @@
 				<h3 id="x5-5-publication-type"><bdi class="secno">5.5 </bdi>Publication Type<a class="self-link"
 						aria-label="§" href="#audio-type"></a></h3>
 
-				<p>The <dfn data-dfn-type="dfn" id="dfn-publication-type">Publication Type</dfn> is defined using the
-						<code>type</code> term&#160;[<cite><a class="bibref" data-link-type="biblio"
-							href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>].</p>
+				<p>The <dfn id="dfn-publication-type">Publication Type</dfn> is defined using the <code>type</code>
+							term&#160;[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
+							title="Publication Manifest">pub-manifest</a></cite>].</p>
 
 				<div class="example" id="example-4-setting-a-publication-s-type-to-audiobook">
 					<div class="marker">
@@ -1266,8 +1378,8 @@
 					<h4 id="x5-6-1-creators"><bdi class="secno">5.6.1 </bdi>Creators<a class="self-link" aria-label="§"
 							href="#audio-creators"></a></h4>
 
-					<p>A <dfn data-dfn-type="dfn" id="dfn-creator">creator</dfn> is an individual or entity responsible
-						for the creation of the Audiobook. The Audiobooks profile can use the full list of <a
+					<p>A <dfn id="dfn-creator">creator</dfn> is an individual or entity responsible for the creation of
+						the Audiobook. The Audiobooks profile can use the full list of <a
 							href="https://www.w3.org/TR/pub-manifest/#creators">creators</a> defined in [<cite><a
 								class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
 								title="Publication Manifest">pub-manifest</a></cite>].</p>
@@ -1325,20 +1437,19 @@
 					<h4 id="x5-6-2-duration"><bdi class="secno">5.6.2 </bdi>Duration<a class="self-link" aria-label="§"
 							href="#audio-duration"></a></h4>
 
-					<p>A <dfn data-dfn-type="dfn" id="dfn-duration">duration</dfn> is the length of the audio resources
-						in an Audiobook. The duration property is fully defined in <a
-							href="https://www.w3.org/TR/pub-manifest/#duration">Publication Manifest</a> [<cite><a
-								class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
-								title="Publication Manifest">pub-manifest</a></cite>].</p>
+					<p>A <dfn id="dfn-duration">duration</dfn> is the length of the audio resources in an Audiobook. The
+						duration property is fully defined in <a href="https://www.w3.org/TR/pub-manifest/#duration"
+							>Publication Manifest</a> [<cite><a class="bibref" data-link-type="biblio"
+								href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>].</p>
 
-					<p>Duration <em class="rfc2119" title="SHOULD">SHOULD</em> be expressed for the entirety of the
-						audiobook as part of the manifest, and <em class="rfc2119" title="SHOULD">SHOULD</em> be present
-						at the item level in the <a href="#audio-readingorder">default reading order</a>.</p>
+					<p>Duration <em class="rfc2119">SHOULD</em> be expressed for the entirety of the audiobook as part
+						of the manifest, and <em class="rfc2119">SHOULD</em> be present at the item level in the <a
+							href="#audio-readingorder">default reading order</a>.</p>
 
 					<p>When a content creator specifies both the duration for the audiobook and item-level duration in
 						the <a href="#audio-readingorder">default reading order</a> the resource-level duration <em
-							class="rfc2119" title="SHOULD">SHOULD</em> be equal to the sum of the durations of the items
-						in the reading order.</p>
+							class="rfc2119">SHOULD</em> be equal to the sum of the durations of the items in the reading
+						order.</p>
 
 					<div class="example" id="example-7-duration-of-an-audiobook-in-seconds">
 						<div class="marker">
@@ -1367,18 +1478,18 @@
 				<h3 id="x5-7-default-reading-order"><bdi class="secno">5.7 </bdi>Default Reading Order<a
 						class="self-link" aria-label="§" href="#audio-readingorder"></a></h3>
 
-				<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn data-dfn-type="dfn"
+				<p>The <a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"><dfn
 							id="dfn-default-reading-order">default reading order</dfn></a> [<cite><a class="bibref"
 							data-link-type="biblio" href="#bib-pub-manifest" title="Publication Manifest"
 							>pub-manifest</a></cite>] is a specific progression through the audio resources in the
 					audiobook.</p>
 
-				<p>The default reading order <em class="rfc2119" title="MUST">MUST</em> contain at least one audio
-					resource, which <em class="rfc2119" title="MAY">MAY</em> be identified by the <code>type</code> of
-						<a href="https://www.w3.org/TR/pub-manifest/#value-linked-resource"
-						><code>LinkedResource</code></a> [<cite><a class="bibref" data-link-type="biblio"
-							href="#bib-pub-manifest" title="Publication Manifest">pub-manifest</a></cite>]. The default
-					reading order <em class="rfc2119" title="MUST NOT">MUST NOT</em> contain non-audio resources.</p>
+				<p>The default reading order <em class="rfc2119">MUST</em> contain at least one audio resource, which
+						<em class="rfc2119">MAY</em> be identified by the <code>type</code> of <a
+						href="https://www.w3.org/TR/pub-manifest/#value-linked-resource"><code>LinkedResource</code></a>
+							[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
+							title="Publication Manifest">pub-manifest</a></cite>]. The default reading order <em
+						class="rfc2119">MUST NOT</em> contain non-audio resources.</p>
 
 				<p>An audio resource can be referenced in its entirety via a URL [<cite><a class="bibref"
 							data-link-type="biblio" href="#bib-url" title="URL Standard">url</a></cite>], or for content
@@ -1387,8 +1498,8 @@
 							title="Media Fragments URI 1.0 (basic)">media-frags</a></cite>] to locate the exact starting
 					and end points.</p>
 
-				<div class="note" role="note" id="issue-container-generatedID-3">
-					<div role="heading" class="note-title marker" id="h-note-3" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-4">
+					<div role="heading" class="note-title marker" id="h-note-4" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">It is important to note that a resource cannot be referenced more than once in the
@@ -1398,8 +1509,8 @@
 							href="#toc-mediafragments">this example</a>.</p>
 				</div>
 
-				<div class="note" role="note" id="issue-container-generatedID-4">
-					<div role="heading" class="note-title marker" id="h-note-4" aria-level="4">
+				<div class="note" role="note" id="issue-container-generatedID-5">
+					<div role="heading" class="note-title marker" id="h-note-5" aria-level="4">
 						<span>Note</span>
 					</div>
 					<p class="">Annotations can also use media fragments to identify the location of the annotation in
@@ -1464,12 +1575,12 @@
 				<h3 id="x5-8-resource-list"><bdi class="secno">5.8 </bdi>Resource List<a class="self-link"
 						aria-label="§" href="#audio-resourcelist"></a></h3>
 
-				<p>The <dfn data-dfn-type="dfn" id="dfn-resource-list">resource list</dfn> enumerates any additional
-					resources used in the processing and rendering of an audiobook that are not listed in the reading
-					order. It is expressed using the <code>resources</code> property.</p>
+				<p>The <dfn id="dfn-resource-list">resource list</dfn> enumerates any additional resources used in the
+					processing and rendering of an audiobook that are not listed in the reading order. It is expressed
+					using the <code>resources</code> property.</p>
 
-				<p>If an audiobook includes supplemental content it <em class="rfc2119" title="MUST">MUST</em> be
-					referenced in the resource list.</p>
+				<p>If an audiobook includes supplemental content it <em class="rfc2119">MUST</em> be referenced in the
+					resource list.</p>
 
 				<div class="example" id="example-10-audiobook-with-supplemental-content">
 					<div class="marker">
@@ -1503,8 +1614,8 @@
 							data-link-type="biblio" href="#bib-pub-manifest" title="Publication Manifest"
 							>pub-manifest</a></cite>].</p>
 
-				<p>Previews <em class="rfc2119" title="MAY">MAY</em> be located externally or included as a resource of
-					the audiobook.</p>
+				<p>Previews <em class="rfc2119">MAY</em> be located externally or included as a resource of the
+					audiobook.</p>
 
 				<div class="example" id="example-11-audiobook-with-an-external-preview">
 					<div class="marker">
@@ -1626,40 +1737,6 @@
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension
 							steps</a> are added for Audiobook manifests:</p>
 					<ol id="processing-toc">
-						<li>
-							<p>(<a href="#audio-pep" class="sec-ref">§&#160;<bdi class="secno">4.1 </bdi>Primary Entry
-									Page</a> and <a href="#audio-toc" class="sec-ref">§&#160;<bdi class="secno">4.2
-									</bdi>Table of Contents</a>) If <var>document</var> is not defined or does not
-								include an [<cite><a class="bibref" data-link-type="biblio" href="#bib-html"
-										title="HTML Standard">html</a></cite>] element with the role
-									<code>doc-toc</code>:</p>
-							<ol>
-								<li id="processing-toc-res-var">
-									<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean"
-											>boolean</a> value set to <code>false</code>.</p>
-								</li>
-								<li id="processing-toc-res-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
-										<var>resource</var> of <var>processed["resources"]</var>, if
-											<var>resource["rel"]</var> is defined and <a
-											href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value
-											<code>contents</code>, set <var>toc</var> to <code>true</code>, then <a
-											href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
-								</li>
-								<li id="processing-toc-res-result">
-									<p>if <var>toc</var> is not <code>true</code>, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>.</p>
-								</li>
-							</ol>
-							<details>
-								<summary>Explanation</summary>
-								<p>This step checks for a table of contents in the resource list when an Audiobook
-									manifest is not linked to a <a href="#dfn-primary-entry-page" class="internalDFN"
-										data-link-type="dfn">primary entry page</a> (i.e., when <code>document</code> is
-									not defined) or the entry page does not include a table of contents.</p>
-							</details>
-						</li>
 						<li id="processing-duration">
 							<p>(<a href="#audio-duration" class="sec-ref">§&#160;<bdi class="secno">5.6.2
 									</bdi>Duration</a>) Check the duration of the publication as follows:</p>
@@ -1695,7 +1772,7 @@
 							</ol>
 							<details>
 								<summary>Explanation</summary>
-								<p>This steps checks both that all resource in the reading order specify a duration and
+								<p>This step checks both that all resources in the reading order specify a duration and
 									that the sum of all those durations matches the total duration for the
 									publication.</p>
 								<p>A validation error is only emitted while checking each resource if the resource does
@@ -1823,9 +1900,9 @@
 				of content element as follows:</p>
 
 			<ol>
-				<li> If the <a href="#dfn-primary-entry-page" class="internalDFN" data-link-type="dfn">primary entry
-						page</a> is available, then execute the algorithm locating the table of content element on the
-					primary entry page. </li>
+				<li> If the <a href="#dfn-primary-entry-page" class="internalDFN" data-link-type="dfn"
+						id="ref-for-dfn-primary-entry-page-1">primary entry page</a> is available, then execute the
+					algorithm locating the table of content element on the primary entry page. </li>
 				<li> If the previous step is not successful, locate the relevant resource, if available, in the manifest
 					as described in <a href="https://www.w3.org/TR/pub-manifest/#contents">§&#160;4.8.1.3&#160;Table of
 						Contents</a> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-manifest"
@@ -1975,16 +2052,16 @@
 
 			<section id="change-log-latest">
 				<h3 id="x10-1-substantive-changes-since-the-previous-version"><bdi class="secno">10.1 </bdi>Substantive
-					changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/">previous
+					changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200909/">previous
 						version</a><a class="self-link" aria-label="§" href="#change-log-latest"></a></h3>
 
 				<ul>
-					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does not
-						provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
-							61</a>.</li>
-					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
-						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
-						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
+					<li>14-Sept-2020: Added a note that informative information about the table of contents structure
+						and formatting information is available in the Publication Manifest specification. See <a
+							href="https://github.com/w3c/audiobooks/issues/97">issue 97</a>.</li>
+					<li>12-Sept-2020: Removed the manifest processing step that warns if a table of contents is not
+						found as the requirement is dependent on the presence of supplementary resources which cannot be
+						reliably tested. See <a href="https://github.com/w3c/audiobooks/issues/93">issue 93</a>.</li>
 				</ul>
 			</section>
 
@@ -1994,6 +2071,12 @@
 						href="#change-log-older"></a></h3>
 
 				<ul>
+					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does not
+						provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
+							61</a>.</li>
+					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
+						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
+						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
 					<li>27-July-2020: Updated the reference schema URL to a <abbr title="World Wide Web Consortium"
 							>W3C</abbr> address. See <a href="https://github.com/w3c/pub-manifest/issues/226">issue 226
 							in Publication Manifest</a>.</li>
@@ -2140,7 +2223,7 @@
 	<span class="hljs-attr">"author"</span> : <span class="hljs-string">"Charlotte Bronte"</span>,
 	<span class="hljs-attr">"readBy"</span> : <span class="hljs-string">"Jane Doe"</span>,
 	<span class="hljs-attr">"duration"</span> : <span class="hljs-string">"PT123456.789S"</span>,
-	<span class="hljs-attr">"abridged"</span> : <span class="hljs-string">false</span>,
+	<span class="hljs-attr">"abridged"</span> : <span class="hljs-literal">false</span>,
 	<span class="hljs-attr">"inLanguage"</span> : <span class="hljs-string">"en"</span>,
 	<span class="hljs-attr">"dateModified"</span> : <span class="hljs-string">"2019-03-29T15:59:00Z"</span>,
 	<span class="hljs-attr">"datePublished"</span> : <span class="hljs-string">"2019-03-29"</span>,
@@ -2353,8 +2436,8 @@
 			<h2 id="d-references"><bdi class="secno">D. </bdi>References<a class="self-link" aria-label="§"
 					href="#references"></a></h2>
 			<section id="normative-references">
-				<h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi> Normative references <a
-						class="self-link" aria-label="§" href="#normative-references"></a></h3>
+				<h3 id="d-1-normative-references"><bdi class="secno">D.1 </bdi>Normative references<a class="self-link"
+						aria-label="§" href="#normative-references"></a></h3>
 				<dl class="bibliography">
 					<dt id="bib-dom">[dom]</dt>
 					<dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren. WHATWG.
@@ -2405,7 +2488,7 @@
 				</dl>
 			</section>
 			<section id="informative-references">
-				<h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi> Informative references <a
+				<h3 id="d-2-informative-references"><bdi class="secno">D.2 </bdi>Informative references<a
 						class="self-link" aria-label="§" href="#informative-references"></a></h3>
 				<dl class="bibliography">
 					<dt id="bib-json-ld11">[json-ld11]</dt>
@@ -2429,6 +2512,221 @@
 			</section>
 		</section><p role="navigation" id="back-to-top">
 			<a href="#title"><abbr title="Back to Top">↑</abbr></a>
-		</p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body>
+		</p><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-publication-manifest">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-publication-manifest">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-file-name">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-file-name">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-primary-entry-page">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-primary-entry-page">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>
+					<a href="#ref-for-dfn-primary-entry-page-1">7. User Agent Processing of Machine-Processable Table of
+						Contents</a>
+				</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-publication-type">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-publication-type">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-creator">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-creator">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-duration">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-duration">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-default-reading-order">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-default-reading-order">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-resource-list">
+			<span class="caret"></span>
+			<div>
+				<a class="self-link" href="#dfn-resource-list">Permalink</a>
+
+			</div>
+			<b>Referenced in:</b>
+			<ul>
+				<li>Not referenced in this document.</li>
+			</ul>
+		</aside><script id="respec-dfn-panel">
+			//<![CDATA[
+			(() => {
+				// @ts-check
+				if (document.respecIsReady) {
+					document.respecIsReady.then(dfnPanel);
+				} else {
+					dfnPanel();
+				}
+				
+				function dfnPanel() {
+					/** @type {HTMLElement} */
+					let panel;
+					document.body.addEventListener("click", event => {
+						if (!(event.target instanceof HTMLElement)) return;
+						
+						/** @type {HTMLElement} */
+						const el = event.target;
+						
+						const action = deriveAction(el);
+						switch (action) {
+							case "show": {
+								if (panel) hidePanel(panel);
+								/** @type {HTMLElement} */
+								const dfn = el.closest("dfn, .index-term");
+								panel = document.getElementById(`dfn - panel - for - $ {
+									dfn.id
+								}
+								`);
+								displayPanel(dfn, panel, {
+									x: event.clientX, y: event.clientY
+								});
+								break;
+							}
+							case "dock": {
+								panel.style.left = null;
+								panel.style.top = null;
+								panel.classList.add("docked");
+								break;
+							}
+							case "hide": {
+								hidePanel(panel);
+								break;
+							}
+						}
+					});
+				}
+				
+				/** @param {HTMLElement} clickTarget */
+				function deriveAction(clickTarget) {
+					const hitALink = ! ! clickTarget.closest("a");
+					if (clickTarget.closest("dfn, .index-term")) {
+						return hitALink ? null: "show";
+					}
+					if (clickTarget.closest(".dfn-panel")) {
+						if (hitALink) {
+							const clickedSelfLink = clickTarget.classList.contains("self-link");
+							return clickedSelfLink ? "hide": "dock";
+						}
+						const panel = clickTarget.closest(".dfn-panel");
+						return panel.classList.contains("docked") ? "hide": null;
+					}
+					if (document.querySelector(".dfn-panel:not([hidden])")) {
+						return "hide";
+					}
+					return null;
+				}
+				
+				/**
+				 * @param {HTMLElement} dfn
+				 * @param {HTMLElement} panel
+				 * @param {{ x: number, y: number }} clickPosition
+				 */
+				function displayPanel(dfn, panel, { x, y
+				}) {
+					panel.hidden = false;
+					// distance (px) between edge of panel and the pointing triangle (caret)
+					const MARGIN = 20;
+					
+					const dfnRects = dfn.getClientRects();
+					// Find the `top` offset when the `dfn` can be spread across multiple lines
+					let closestTop = 0;
+					let minDiff = Infinity;
+					for (const rect of dfnRects) {
+						const {
+							top, bottom
+						} = rect;
+						const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+						if (diffFromClickY < minDiff) {
+							minDiff = diffFromClickY;
+							closestTop = top;
+						}
+					}
+					
+					const top = window.scrollY + closestTop + dfnRects[0].height;
+					const left = x - MARGIN;
+					panel.style.left = `$ {
+						left
+					}
+					px`;
+					panel.style.top = `$ {
+						top
+					}
+					px`;
+					
+					// Find if the panel is flowing out of the window
+					const panelRect = panel.getBoundingClientRect();
+					const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+					if (panelRect.right > SCREEN_WIDTH) {
+						const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+						const newCaretOffset = left - newLeft;
+						panel.style.left = `$ {
+							newLeft
+						}
+						px`;
+						/** @type {HTMLElement} */
+						const caret = panel.querySelector(".caret");
+						caret.style.left = `$ {
+							newCaretOffset
+						}
+						px`;
+					}
+				}
+				
+				/** @param {HTMLElement} panel */
+				function hidePanel(panel) {
+					panel.hidden = true;
+					panel.classList.remove("docked");
+				}
+			})()//]]>
+    </script>
+		<script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+	</body>
 </html>
 

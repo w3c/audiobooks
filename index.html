@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Audiobooks</title>
-		<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove" defer="defer"></script>
+		<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer="defer"></script>
 		<script src="common/js/biblio.js" class="remove"></script>
 		<link href="common/css/common.css" rel="stylesheet" type="text/css" />
 		<script class="remove">
@@ -13,7 +13,7 @@
 				wgPublicList: "public-publ-wg",
 				edDraftURI: "https://w3c.github.io/audiobooks/",
 				errata: "https://w3c.github.io/audiobooks/errata/",
-				previousPublishDate: "2020-09-09",
+				previousPublishDate: "2020-09-14",
 				previousMaturity: "CR",
 				specStatus: "ED",
 				implementationReportURI: "https://www.w3.org/publishing/groups/publ-wg/implementation/results.html",
@@ -32,7 +32,7 @@
 					"companyURL": "https://daisy.org",
 					"w3cid": 51655
 				}],
-				processVersion: 2019,
+				processVersion: 2020,
 				includePermalinks: true,
 				permalinkEdge: true,
 				permalinkHide: false,
@@ -140,15 +140,18 @@
 								>resources</a>; and</p>
 					</li>
 					<li>
-						<p>and all links SHOULD refer to <a
-								href="https://www.w3.org/TR/pub-manifest/#publication-resources">publication
-								resources</a>&#160;[[!pub-manifest]].</p>
+						<p>all links SHOULD refer to <a href="https://www.w3.org/TR/pub-manifest/#publication-resources"
+								>publication resources</a>&#160;[[!pub-manifest]].</p>
 					</li>
 				</ul>
 
 				<p class="note">When including supplemental content, be aware that users might not have access to this
 					content unless it is linked to from the table of contents. It is strongly advised to provide links
 					to all content that is not in the default reading order.</p>
+
+				<p class="note">For more guidance on the structure and formatting for tables of contents, consult <a
+						href="https://w3c.github.io/pub-manifest/#app-toc-structure">Publication Manifest -
+						Machine-Processable Table of Contents</a> [[pub-manifest]].</p>
 
 			</section>
 		</section>
@@ -622,36 +625,6 @@
 					<p>The following <a href="https://www.w3.org/TR/pub-manifest/#processing-extension">extension
 							steps</a> are added for Audiobook manifests:</p>
 					<ol id="processing-toc">
-						<li>
-							<p>(<a href="#audio-pep"></a> and <a href="#audio-toc"></a>) If <var>document</var> is not
-								defined or does not include an [[!html]] element with the role <code>doc-toc</code>:</p>
-							<ol>
-								<li id="processing-toc-res-var">
-									<p>let <var>toc</var> be a <a href="https://infra.spec.whatwg.org/#boolean"
-											>boolean</a> value set to <code>false</code>.</p>
-								</li>
-								<li id="processing-toc-res-iterate">
-									<p><a href="https://infra.spec.whatwg.org/#list-iterate">for each</a>
-										<var>resource</var> of <var>processed["resources"]</var>, if
-											<var>resource["rel"]</var> is defined and <a
-											href="https://infra.spec.whatwg.org/#list-contain">contains</a> the value
-											<code>contents</code>, set <var>toc</var> to <code>true</code>, then <a
-											href="https://infra.spec.whatwg.org/#iteration-break">break</a>.</p>
-								</li>
-								<li id="processing-toc-res-result">
-									<p>if <var>toc</var> is not <code>true</code>, <a
-											href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors">validation
-											error</a>.</p>
-								</li>
-							</ol>
-							<details>
-								<summary>Explanation</summary>
-								<p>This step checks for a table of contents in the resource list when an Audiobook
-									manifest is not linked to a <a>primary entry page</a> (i.e., when
-										<code>document</code> is not defined) or the entry page does not include a table
-									of contents.</p>
-							</details>
-						</li>
 						<li id="processing-duration">
 							<p>(<a href="#audio-duration"></a>) Check the duration of the publication as follows:</p>
 							<ol>
@@ -686,7 +659,7 @@
 							</ol>
 							<details>
 								<summary>Explanation</summary>
-								<p>This steps checks both that all resource in the reading order specify a duration and
+								<p>This step checks both that all resources in the reading order specify a duration and
 									that the sum of all those durations matches the total duration for the
 									publication.</p>
 								<p>A validation error is only emitted while checking each resource if the resource does
@@ -929,16 +902,16 @@
 			<h2>Change Log</h2>
 
 			<section id="change-log-latest">
-				<h3>Substantive changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200730/">previous
+				<h3>Substantive changes since the <a href="https://www.w3.org/TR/2020/CR-audiobooks-20200909/">previous
 						version</a></h3>
 
 				<ul>
-					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does
-						not provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
-							61</a>.</li>
-					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
-						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
-						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
+					<li>14-Sept-2020: Added a note that informative information about the table of contents structure
+						and formatting information is available in the Publication Manifest specification. See <a
+							href="https://github.com/w3c/audiobooks/issues/97">issue 97</a>.</li>
+					<li>12-Sept-2020: Removed the manifest processing step that warns if a table of contents is not
+						found as the requirement is dependent on the presence of supplementary resources which cannot be
+						reliably tested. See <a href="https://github.com/w3c/audiobooks/issues/93">issue 93</a>.</li>
 				</ul>
 			</section>
 
@@ -946,6 +919,12 @@
 				<h3>Other substantive changes since Candidate Recommendation</h3>
 
 				<ul>
+					<li>8-Sept-2020: Clarified that the primary entry page is only required when the packaging does not
+						provide an alternative method. See <a href="https://github.com/w3c/audiobooks/issues/61">issue
+							61</a>.</li>
+					<li>26-Aug-2020: Removed the example of synchronized narration and updated reference to the work of
+						the Synchronized Multimedia for Publications Community Group to reflect the early nature of that
+						work. See <a href="https://github.com/w3c/audiobooks/issues/87">issue 87</a>.</li>
 					<li>27-July-2020: Updated the reference schema URL to a W3C address. See <a
 							href="https://github.com/w3c/pub-manifest/issues/226">issue 226 in Publication
 						Manifest</a>.</li>
