@@ -368,7 +368,7 @@
 		{
 		    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
 		    "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
-				"type" : "Audiobook",
+		    "type" : "Audiobook",
 		    &#8230;
 		    "url" : "https://publisher.example.org/janeeyre",
 		    "author" : {
@@ -596,9 +596,9 @@
 				        "name" : "Chapter 1",
 				        "duration" : "PT457.931S",
 				        "alternate" : {
-				            "type" : "LinkedResource"
+				            "type" : "LinkedResource",
 				            "url" : "text/part001-1.html",
-					          "encodingFormat" : "text/html"}
+					          "encodingFormat" : "text/html"},
 				    },
 				    "resources" : [{
 			          "type": "LinkedResource",
@@ -1002,9 +1002,9 @@
 
 				<p>A primary entry page with a simple table of contents for an audiobook.</p>
 				<pre class="example">
-					&lt;head&gt;
-				    &#8230;
-				    &lt;script type="application/ld+json"&gt;
+				    &lt;head&gt;
+				        &#8230;
+				        &lt;script type="application/ld+json"&gt;
 				    {
 				        "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
 				        "conformsTo" : "https://www.w3.org/TR/audiobooks/",
@@ -1018,12 +1018,12 @@
 				&lt;body&gt;
 				    &#8230;
 				    &lt;section role="doc-toc"&gt;
-							&lt;ol>
-							 &lt;li>&lt;a href="audio/chapter001.wav">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
-							 &lt;li>&lt;a href="audio/chapter002.wav">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
-							 &lt;li>&lt;a href="audio/chapter003.wav">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
-							 &#8230;
-							&lt;/ol>
+				        &lt;ol>
+				            &lt;li>&lt;a href="audio/chapter001.wav">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
+				            &lt;li>&lt;a href="audio/chapter002.wav">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
+				            &lt;li>&lt;a href="audio/chapter003.wav">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
+				            &#8230;
+			          &lt;/ol>
 				    &lt;/section&gt;
 				    &#8230;
 				&lt;/body&gt;
@@ -1035,16 +1035,16 @@
 
 				<p>A table of contents for a simple audiobook.</p>
 				<pre class="example">
-					&lt;nav role="doc-toc">
-						 &lt;h2>JANE EYRE&lt;/h2>
+				&lt;nav role="doc-toc">
+				    &lt;h2>JANE EYRE&lt;/h2>
 
-						 &lt;ol>
-							&lt;li>&lt;a href="audio/chapter001.mp3">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
-							&lt;li>&lt;a href="audio/chapter002.mp3">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
-							&lt;li>&lt;a href="audio/chapter003.mp3">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
-							&#8230;
-						 &lt;/ol>
-						&lt;/nav>
+				    &lt;ol>
+				        &lt;li>&lt;a href="audio/chapter001.mp3">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
+				        &lt;li>&lt;a href="audio/chapter002.mp3">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
+				        &lt;li>&lt;a href="audio/chapter003.mp3">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
+				        &#8230;
+				    &lt;/ol>
+				&lt;/nav>
 				</pre>
 			</section>
 
