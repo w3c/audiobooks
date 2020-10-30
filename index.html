@@ -289,8 +289,8 @@
 
 				<pre class="example" title="The context declaration.">
 		{
-			"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-			&#8230;
+		    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+		    &#8230;
 		}
 				</pre>
 
@@ -300,12 +300,12 @@
 
 				<pre class="example" title="Declaring French as the default language for the manifest">
 						{
-							"@context" : [
-								"https://schema.org",
-								"https://www.w3.org/ns/pub-context",
-								{"language":"fr"}
-							]
-							...
+						    "@context" : [
+						        "https://schema.org",
+						        "https://www.w3.org/ns/pub-context",
+						        {"language":"fr"}
+						    ]
+						    &#8230;
 						}
 				</pre>
 
@@ -318,11 +318,11 @@
 						href="https://www.w3.org/TR/pub-manifest/#profile-conformance"><code>conformsTo</code>
 					term</a>&#160;[[!pub-manifest]] MUST be "<code>https://www.w3.org/TR/audiobooks/</code>".</p>
 
-				<pre class="example" title="Setting a publication's type to Audiobook.">
+				<pre class="example" title="Setting a publication's conformance to Audiobook.">
 						{
-								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/"
-								&#8230;
+						    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+						    "conformsTo" : "https://www.w3.org/TR/audiobooks/"
+						    &#8230;
 						}
 				</pre>
 
@@ -334,11 +334,13 @@
 				<p>The <dfn>Publication Type</dfn> is defined using the <code>type</code>
 					term&#160;[[!pub-manifest]].</p>
 
-				<pre class="example" title="Setting a publication's type to Audiobook.">{
-    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-    "type"     : "Audiobook"
-    …
-}</pre>
+				<pre class="example" title="Setting a publication's type to Audiobook.">
+					{
+					    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+					    "type"     : "Audiobook"
+							&#8230;
+					}
+				</pre>
 
 				<p>If a <code>type</code> is not specified, <a href="https://schema.org/Audiobook"
 							><code>Audiobook</code></a>&#160;[[!schema.org]] is assumed as the default.</p>
@@ -378,19 +380,19 @@
 
 					<pre class="example" title="Author and Narrator of an Audiobook">
 		{
-				"conformsTo" : "https://www.w3.org/TR/audiobooks/";
-				"@context": ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-				&#8230;
-				"url"	: "https://publisher.example.org/janeeyre",
-				"author" : {
-						"type": "Person",
-						"name": "Charlotte Bronte"
-				}
-				"readBy" : {
-						"type": "Person",
-						"name": "Ivan Herman",
-						"id"	: "https://www.w3.org/People/Ivan/"
-				}
+		    "conformsTo" : "https://www.w3.org/TR/audiobooks/";
+		    "@context": ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+		    &#8230;
+		    "url"	: "https://publisher.example.org/janeeyre",
+		    "author" : {
+		        "type": "Person",
+		        "name": "Charlotte Bronte"
+		    }
+		    "readBy" : {
+		        "type": "Person",
+		        "name": "Ivan Herman",
+		        "id"	: "https://www.w3.org/People/Ivan/"
+		    }
 		}
 					</pre>
 				</section>
@@ -412,15 +414,15 @@
 
 					<pre class="example" title="Duration of an Audiobook in Seconds">
 									{
-											"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-											"@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
-											&#8230;
-											"url" : "https://publisher.example.org/janeeyre",
-											"author" : {
-													"type"  : "Person",
-													"name"  : "Charlotte Bronte"
-											},
-											"duration" : "PT12345.235S"
+									    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+									    "@context" : ["https://schema.org","https://www.w3.org/ns/pub-context"],
+									    &#8230;
+									    "url" : "https://publisher.example.org/janeeyre",
+									    "author" : {
+									         "type"  : "Person",
+									         "name"  : "Charlotte Bronte"
+									    },
+									    "duration" : "PT12345.235S"
 									}
 					</pre>
 
@@ -457,39 +459,39 @@
 
 				<pre class="example" title="Audiobook Reading Order for a Single Resource">
 							{
-								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-								"url" : "https://publisher.example.org/janeeyre",
-								"name" : "Jane Eyre",
-								"readingOrder" : [{
-									"type" : "LinkedResource",
-									"url" : "audio/janeeyre.mp3",
-									"encodingFormat" : "audio/mp3",
-									"name" : "Jane Eyre",
-									"duration" : "PT124503.123S"
-								}]
+							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+							    "url" : "https://publisher.example.org/janeeyre",
+							    "name" : "Jane Eyre",
+							    "readingOrder" : [{
+							        "type" : "LinkedResource",
+							        "url" : "audio/janeeyre.mp3",
+							        "encodingFormat" : "audio/mp3",
+							        "name" : "Jane Eyre",
+							        "duration" : "PT124503.123S"
+							    }]
 							}
 					</pre>
 
 				<pre class="example" title="Audiobook Reading Order for Multiple Resources using Media Fragments">
 							{
-								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-								"url" : "https://publisher.example.org/janeeyre",
-								"name" : "Jane Eyre",
-								"readingOrder" : [{
-									"type": "LinkedResource",
-									"url" : "audio/part001.wav#t=0,457.931",
-									"encodingFormat" : "audio/vnd-wav",
-									"name" : "Chapter 1",
-									"duration" : "PT457.931S"
-								}, {
-									"type" : "LinkedResource",
-									"url" : "audio/part002.wav#t=12.741",
-									"encodingFormat" : "audio/vnd-wav",
-									"name" : "Chapter 2",
-									"duration" : "PT234.245S"
-								}]
+							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+							    "url" : "https://publisher.example.org/janeeyre",
+							    "name" : "Jane Eyre",
+							    "readingOrder" : [{
+							        "type": "LinkedResource",
+							        "url" : "audio/part001.wav#t=0,457.931",
+							        "encodingFormat" : "audio/vnd-wav",
+							        "name" : "Chapter 1",
+							        "duration" : "PT457.931S"
+							    }, {
+							        "type" : "LinkedResource",
+							        "url" : "audio/part002.wav#t=12.741",
+							        "encodingFormat" : "audio/vnd-wav",
+							        "name" : "Chapter 2",
+							        "duration" : "PT234.245S"
+							    }]
 							}
 						</pre>
 
@@ -506,15 +508,15 @@
 
 				<pre class="example" title="Audiobook with Supplemental Content">
 						{
-							"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-							"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-							"url" : "https://publisher.example.org/janeeyre",
-							"name" : "Jane Eyre",
-							"resources" : [
-								"cover.jpg",
-								"portrait_CB.jpg",
-								"supplement.pdf"
-							]
+						    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+						    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+						    "url" : "https://publisher.example.org/janeeyre",
+						    "name" : "Jane Eyre",
+						    "resources" : [
+						        "cover.jpg",
+						        "portrait_CB.jpg",
+						        "supplement.pdf"
+						    ]
 						}</pre>
 			</section>
 
@@ -531,30 +533,30 @@
 
 				<pre class="example" title="Audiobook with an External Preview">
 							{
-								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-								"url"	: "https://publisher.example.org/janeeyre",
-								"name" : "Jane Eyre",
-								"resources" : [{
-									"type" : "LinkedResource",
-									"url" : "https://publisher.example.org/jane-eyre-preview.wav",
-									"encodingFormat" : "audio/wav",
-									"rel" : "preview"
-								}]
+							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+							    "url"	: "https://publisher.example.org/janeeyre",
+							    "name" : "Jane Eyre",
+							    "resources" : [{
+							        "type" : "LinkedResource",
+							        "url" : "https://publisher.example.org/jane-eyre-preview.wav",
+							        "encodingFormat" : "audio/wav",
+							        "rel" : "preview"
+							    }]
 							}</pre>
 
 				<pre class="example" title="Audiobook with an Internal Preview">
 							{
-								"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-								"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-								"url"	: "https://publisher.example.org/janeeyre",
-								"name" : "Jane Eyre",
-								"resources" : [{
-									"type" : "LinkedResource",
-									"url"	: "preview.wav",
-									"encodingFormat" : "audio/wav",
-									"rel"	: "preview"
-								}]
+							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+							    "url"	: "https://publisher.example.org/janeeyre",
+							    "name" : "Jane Eyre",
+							    "resources" : [{
+							        "type" : "LinkedResource",
+							        "url"	: "preview.wav",
+							        "encodingFormat" : "audio/wav",
+							        "rel"	: "preview"
+							    }]
 							}</pre>
 			</section>
 
@@ -583,27 +585,27 @@
 
 				<pre class="example" title="Audiobook with Alternate Text">
 				{
-					"@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-					"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-					"url" : "https://publisher.example.org/janeeyre",
-					"name" : "Jane Eyre",
-					"readingOrder" : {
-						"type" : "LinkedResource",
-						"url" : "audio/part001.wav#t=0",
-						"encodingFormat" : "audio/vnd-wav",
-						"name" : "Chapter 1",
-						"duration" : "PT457.931S",
-						"alternate" : {
-							"type" : "LinkedResource"
-							"url" : "text/part001-1.html",
-							"encodingFormat" : "text/html"}
-					},
-					"resources" : [{
-			      "type": "LinkedResource",
-			      "url": "text/part001-1.html",
-			      "encodingFormat" : "text/html"
-			    }...
-					]
+				    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
+				    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+				    "url" : "https://publisher.example.org/janeeyre",
+				    "name" : "Jane Eyre",
+				    "readingOrder" : {
+				        "type" : "LinkedResource",
+				        "url" : "audio/part001.wav#t=0",
+				        "encodingFormat" : "audio/vnd-wav",
+				        "name" : "Chapter 1",
+				        "duration" : "PT457.931S",
+				        "alternate" : {
+				            "type" : "LinkedResource"
+				            "url" : "text/part001-1.html",
+					          "encodingFormat" : "text/html"}
+				    },
+				    "resources" : [{
+			          "type": "LinkedResource",
+			          "url": "text/part001-1.html",
+			          "encodingFormat" : "text/html"
+			      }&#8230;
+				    ]
 				}
 			</pre>
 			</section>
@@ -962,32 +964,32 @@
 
 				<pre class="example">
 					{
-						"@context" : ["https://schema.org", "https://www.w3/org/ns/pub-context"],
-						"conformsTo" : "https://www.w3.org/TR/audiobooks/",
-						"id" : "https://publisher.example.com/janeeyre",
-						"url" : "https://publisher.example.com/janeeyre",
-						"name" : "Jane Eyre",
-						"author" : "Charlotte Bronte",
-						"readBy" : "Jane Doe",
-						"duration" : "PT123456.789S",
-						"abridged" : false,
-						"inLanguage" : "en",
-						"dateModified" : "2019-03-29T15:59:00Z",
-						"datePublished" : "2019-03-29",
+					    "@context" : ["https://schema.org", "https://www.w3/org/ns/pub-context"],
+					    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
+					    "id" : "https://publisher.example.com/janeeyre",
+					    "url" : "https://publisher.example.com/janeeyre",
+					    "name" : "Jane Eyre",
+					    "author" : "Charlotte Bronte",
+					    "readBy" : "Jane Doe",
+					    "duration" : "PT123456.789S",
+					    "abridged" : false,
+					    "inLanguage" : "en",
+					    "dateModified" : "2019-03-29T15:59:00Z",
+					    "datePublished" : "2019-03-29",
 
-						"readingOrder": [
-							{"url": "audio/chapter001.aac", "encodingFormat": "audio/aac", "name": "Chapter 1", "duration": "PT1234.567S"},
-							{"url": "audio/chapter002.aac", "encodingFormat": "audio/aac", "name": "Chapter 2", "duration": "PT890.123S"},
-							{"url": "audio/chapter003.aac", "encodingFormat": "audio/aac", "name": "Chapter 3", "duration": "PT456.789S"},
-							{"url": "audio/chapter004.aac", "encodingFormat": "audio/aac", "name": "Chapter 4", "duration": "PT987.654S"},
-							{"url": "audio/chapter005.aac", "encodingFormat": "audio/aac", "name": "Chapter 5", "duration": "PT321.987S"}
-						],
+					    "readingOrder": [
+					        {"url": "audio/chapter001.aac", "encodingFormat": "audio/aac", "name": "Chapter 1", "duration": "PT1234.567S"},
+					        {"url": "audio/chapter002.aac", "encodingFormat": "audio/aac", "name": "Chapter 2", "duration": "PT890.123S"},
+					        {"url": "audio/chapter003.aac", "encodingFormat": "audio/aac", "name": "Chapter 3", "duration": "PT456.789S"},
+					        {"url": "audio/chapter004.aac", "encodingFormat": "audio/aac", "name": "Chapter 4", "duration": "PT987.654S"},
+					        {"url": "audio/chapter005.aac", "encodingFormat": "audio/aac", "name": "Chapter 5", "duration": "PT321.987S"}
+					    ],
 
-						"resources": [
-						{"rel": "cover", "url": "images/cover.jpg", "encordingFormat": "image/jpeg"},
-						{"rel": "contents", "url": "toc.html", "encodingFormat": "text/html"},
-						{"url": "haworth_house.pdf", "encodingFormat": "application/pdf"}
-						]
+				      "resources": [
+					        {"rel": "cover", "url": "images/cover.jpg", "encordingFormat": "image/jpeg"},
+					        {"rel": "contents", "url": "toc.html", "encodingFormat": "text/html"},
+					        {"url": "haworth_house.pdf", "encodingFormat": "application/pdf"}
+					    ]
 					}
 				</pre>
 			</section>
