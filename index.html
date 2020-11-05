@@ -42,8 +42,12 @@
 					repoURL: "https://github.com/w3c/audiobooks",
 					branch: "master"
 				},
-				localBiblio: localBiblio
-			};</script>
+				localBiblio: localBiblio,
+				alternateFormats: [{
+				    "uri": "audiobooks.epub",
+				    "label": "EPUB"
+				}]
+		};</script>
 	</head>
 	<body>
 		<section id="abstract">
@@ -81,7 +85,9 @@
 			<p>In addition, the following terminology is defined for use in this specification:</p>
 
 			<dl class="termlist">
-				<dt><dfn id="dfn-file-name" data-lt="File Names">Supplemental Content</dfn></dt>
+				<dt>
+					<dfn id="dfn-file-name" data-lt="File Names">Supplemental Content</dfn>
+				</dt>
 				<dd>
 					<p>Supplemental content is any content relating to the audiobook content but not required for the
 						full experience of the publication. Examples of supplemental content include photographs,
@@ -186,15 +192,19 @@
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance"
-										><code>conformsTo</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#profile-conformance">
+									<code>conformsTo</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context"><code>@context</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#manifest-context">
+									<code>@context</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order"
-										><code>readingOrder</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#default-reading-order">
+									<code>readingOrder</code>
+								</a>
 							</li>
 							<li>
 								<a href="https://www.w3.org/TR/pub-manifest/#pub-title"><code>name</code></a>
@@ -205,43 +215,59 @@
 					<dd>
 						<ul>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#abridged"><code>abridged</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#abridged">
+									<code>abridged</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityFeature"
-										><code>accessibilityFeature</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityFeature">
+									<code>accessibilityFeature</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityHazard"
-										><code>accessibilityHazard</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilityHazard">
+									<code>accessibilityHazard</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessibilitySummary"
-										><code>accessibilitySummary</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessibilitySummary">
+									<code>accessibilitySummary</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessMode"><code>accessMode</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessMode">
+									<code>accessMode</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#accessModeSufficient"
-										><code>accessModeSufficient</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#accessModeSufficient">
+									<code>accessModeSufficient</code>
+								</a>
 							</li>
 							<li>
-								<a href="#audio-creators"><code>author</code></a>
+								<a href="#audio-creators">
+									<code>author</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#cover"><code>cover</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#cover">
+									<code>cover</code>
+								</a>
 							</li>
 							<li>
-								<a href="#audio-duration"><code>duration</code></a>
+								<a href="#audio-duration">
+									<code>duration</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date"
-										><code>dateModified</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#last-modification-date">
+									<code>dateModified</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-date"
-										><code>datePublished</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-date">
+									<code>datePublished</code>
+								</a>
 							</li>
 							<li>
 								<a href="https://www.w3.org/TR/pub-manifest/#canonical-identifier"><code>id</code></a>
@@ -250,17 +276,24 @@
 								<a href="https://www.w3.org/TR/pub-manifest/#inLanguage"><code>inLanguage</code></a>
 								(publication language) </li>
 							<li>
-								<a href="#audio-creators"><code>readBy</code></a>
+								<a href="#audio-creators">
+									<code>readBy</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction"
-										><code>readingProgression</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#reading-progression-direction">
+									<code>readingProgression</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#resource-list"><code>resources</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#resource-list">
+									<code>resources</code>
+								</a>
 							</li>
 							<li>
-								<a href="https://www.w3.org/TR/pub-manifest/#publication-types"><code>type</code></a>
+								<a href="https://www.w3.org/TR/pub-manifest/#publication-types">
+									<code>type</code>
+								</a>
 							</li>
 							<li>
 								<a href="https://www.w3.org/TR/pub-manifest/#address"><code>url</code></a> (address)
@@ -360,8 +393,12 @@
 					<p>The creators list includes two recommended creators for Audiobooks:</p>
 
 					<ul>
-						<li><a href="https://schema.org/author">author</a></li>
-						<li><a href="https://schema.org/readBy">readBy</a></li>
+						<li>
+							<a href="https://schema.org/author">author</a>
+						</li>
+						<li>
+							<a href="https://schema.org/readBy">readBy</a>
+						</li>
 					</ul>
 
 					<pre class="example" title="Author of a book">
@@ -614,7 +651,9 @@
 		<section id="audio-manifest-processing">
 			<h2>Manifest Processing</h2>
 
-			<p><em>This section depends on the Infra Standard [[!infra]].</em></p>
+			<p>
+				<em>This section depends on the Infra Standard [[!infra]].</em>
+			</p>
 
 			<p>The specification extends the Publication Manifest <a
 					href="https://www.w3.org/TR/pub-manifest/#manifest-processing">processing
@@ -726,22 +765,54 @@
 								If not, issue a <a href="https://www.w3.org/TR/pub-manifest/#dfn-validation-errors"
 									>validation error</a> for each one.</p>
 							<ul>
-								<li><var>data["abridged"]</var></li>
-								<li><var>data["accessMode"]</var></li>
-								<li><var>data["accessModeSufficient"]</var></li>
-								<li><var>data["accessibilityFeature"]</var></li>
-								<li><var>data["accessibilityHazard"]</var></li>
-								<li><var>data["accessibilitySummary"]</var></li>
-								<li><var>data["author"]</var></li>
-								<li><var>data["dateModified"]</var></li>
-								<li><var>data["datePublished"]</var></li>
-								<li><var>data["id"]</var></li>
-								<li><var>data["inLanguage"]</var></li>
-								<li><var>data["name"]</var></li>
-								<li><var>data["readBy"]</var></li>
-								<li><var>data["readingProgression"]</var></li>
-								<li><var>data["resources"]</var></li>
-								<li><var>data["url"]</var></li>
+								<li>
+									<var>data["abridged"]</var>
+								</li>
+								<li>
+									<var>data["accessMode"]</var>
+								</li>
+								<li>
+									<var>data["accessModeSufficient"]</var>
+								</li>
+								<li>
+									<var>data["accessibilityFeature"]</var>
+								</li>
+								<li>
+									<var>data["accessibilityHazard"]</var>
+								</li>
+								<li>
+									<var>data["accessibilitySummary"]</var>
+								</li>
+								<li>
+									<var>data["author"]</var>
+								</li>
+								<li>
+									<var>data["dateModified"]</var>
+								</li>
+								<li>
+									<var>data["datePublished"]</var>
+								</li>
+								<li>
+									<var>data["id"]</var>
+								</li>
+								<li>
+									<var>data["inLanguage"]</var>
+								</li>
+								<li>
+									<var>data["name"]</var>
+								</li>
+								<li>
+									<var>data["readBy"]</var>
+								</li>
+								<li>
+									<var>data["readingProgression"]</var>
+								</li>
+								<li>
+									<var>data["resources"]</var>
+								</li>
+								<li>
+									<var>data["url"]</var>
+								</li>
 							</ul>
 							<details>
 								<summary>Explanation</summary>
