@@ -442,7 +442,7 @@
 							Manifest</a> [[!pub-manifest]].</p>
 
 					<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and
-						SHOULD be present at the item level in the <a href="#audio-readingorder">default reading
+						MUST be present at the item level in the <a href="#audio-readingorder">default reading
 							order</a>.</p>
 
 					<p>When a content creator specifies both the duration for the audiobook and item-level duration in
@@ -482,6 +482,8 @@
 				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple
 					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
 						fragments</a> [[media-frags]] to locate the exact starting and end points.</p>
+
+						<p class="issue" data-number="110">There is a proposed solution for this issue, that we remove fragment identifiers from <code>url</code> properties. However, this poses an issue for the scenario where a single audio file contains multiple chapters of content. A possible solution for this is the requirement of the <a href="#audio-toc">Table of Contents</a>, but more discussion is required.</p>
 
 				<p class="note">It is important to note that a resource cannot be referenced more than once in the
 					reading order. In the case where an audio file represents the content of multiple chapters or
@@ -1136,6 +1138,18 @@
 				&lt;/nav>
 				</pre>
 			</section>
+		</section>
+		<section id="change-log" class="appendix informative"> 
+			<h2>Change Log</h2>
+
+			<p>This change log identifies substantive changes since the publication of Audiobooks on Nov 10, 2020.</p>
+
+			<p>For a list of all issues addressed during maintenance, refer to the <a href="https://www.github.com/w3c/audiobooks/issues">Working Group's issue tracker</a>.</p>
+		
+			<ul>
+				<li>19-Jan-2022: Duration for items in the reading order is now a MUST, see <a href="https://www.github.com/w3c/audiobooks/issues/108">issue 108</a>.</li>
+				<li>19-Jan-2022: Corrected a syntax error in the <a href="#audio-simple">simple audiobook</a> sample file, see <a href="https://www.github.com/w3c/audiobooks/issues/109">issue 109</a>.</li>
+			</ul>
 		</section>
 		<div data-include="common/html/acknowledgements.html" data-include-replace="true"></div>
 	</body>
