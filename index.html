@@ -445,6 +445,11 @@
 						MUST be present at the item level in the <a href="#audio-readingorder">default reading
 							order</a>.</p>
 
+						<div class="proposed correction">
+							<span class="marker">Proposed Correction 1.1</span>
+							<p>We have updated the normative requirement for the duration property on the item level, to address implementer feedback in regards to facilitating streaming. This normative requirement is now a MUST.</p>
+						</div>
+
 					<p>When a content creator specifies both the duration for the audiobook and item-level duration in
 						the <a href="#audio-readingorder">default reading order</a> the resource-level duration SHOULD
 						be equal to the sum of the durations of the items in the reading order.</p>
@@ -486,6 +491,11 @@
 					sections of the book, the <a href="#audio-toc">table of contents</a> should be used to specify the
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
+					
+					<div class="proposed correction">
+						<span class="marker">Proposed Correction 1.1</span>
+						<p>Update previously non-normative statement about the use of media fragments to allow for referencing of audio files that span multiple chapters. The previous statement contradicted the note on referencing an audio file more than once in the reading order. The new normative statement will require that media fragments not be used on the <code>url</code> property in the Reading Order.</p>
+					</div>
 
 				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
 					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
@@ -507,29 +517,6 @@
 							    }]
 							}
 					</pre>
-
-				<pre class="example" title="Audiobook Reading Order for Multiple Resources using Media Fragments">
-							{
-							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
-							    "url" : "https://publisher.example.org/janeeyre",
-							    "name" : "Jane Eyre",
-							    "readingOrder" : [{
-							        "type": "LinkedResource",
-							        "url" : "audio/part001.wav#t=0,457.931",
-							        "encodingFormat" : "audio/vnd-wav",
-							        "name" : "Chapter 1",
-							        "duration" : "PT457.931S"
-							    }, {
-							        "type" : "LinkedResource",
-							        "url" : "audio/part002.wav#t=12.741",
-							        "encodingFormat" : "audio/vnd-wav",
-							        "name" : "Chapter 2",
-							        "duration" : "PT234.245S"
-							    }]
-							}
-						</pre>
-
 			</section>
 
 			<section id="audio-resourcelist">
