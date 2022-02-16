@@ -479,15 +479,11 @@
 							><code>LinkedResource</code></a> [[!pub-manifest]]. The default reading order MUST NOT
 					contain non-audio resources.</p>
 
-				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple
-					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
-						fragments</a> [[media-frags]] to locate the exact starting and end points.</p>
-
-						<p class="issue" data-number="110">There is a proposed solution for this issue, that we remove fragment identifiers from <code>url</code> properties. However, this poses an issue for the scenario where a single audio file contains multiple chapters of content. A possible solution for this is the requirement of the <a href="#audio-toc">Table of Contents</a>, but more discussion is required.</p>
+				<p>An audio resource MUST be referenced in its entirety via a URL [[url]].</p>
 
 				<p class="note">It is important to note that a resource cannot be referenced more than once in the
 					reading order. In the case where an audio file represents the content of multiple chapters or
-					sections of the book, the <a href="#audio-toc">table of contents</a> can be used to specify the
+					sections of the book, the <a href="#audio-toc">table of contents</a> should be used to specify the
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
 
@@ -978,6 +974,7 @@
 			<p>Substantive changes since <a href="https://www.w3.org/TR/audiobooks">Recommendation</a> publication.</p>
 
 			<ul>
+				<li>16-Feb-2022: To address <a href="https://www.github.com/w3c/audiobooks/issues/110">issue 110</a>, media fragments can no longer be used in the <code>url</code> property in the Reading Order.</li>
 				<li>19-Jan-2022: Duration for items in the reading order is now a MUST, see <a href="https://www.github.com/w3c/audiobooks/issues/108">issue 108</a>.</li>
 				<li>19-Jan-2022: Corrected a syntax error in the <a href="#audio-simple">simple audiobook</a> sample file, see <a href="https://www.github.com/w3c/audiobooks/issues/109">issue 109</a>.</li>
 			</ul>
@@ -1097,14 +1094,14 @@
 				&lt;/head&gt;
 				&lt;body&gt;
 				    &#8230;
-				    &lt;section role="doc-toc"&gt;
+				    &lt;nav role="doc-toc"&gt;
 				        &lt;ol>
 				            &lt;li>&lt;a href="audio/chapter001.wav">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
 				            &lt;li>&lt;a href="audio/chapter002.wav">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
 				            &lt;li>&lt;a href="audio/chapter003.wav">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
 				            &#8230;
 			          &lt;/ol>
-				    &lt;/section&gt;
+				    &lt;/nav&gt;
 				    &#8230;
 				&lt;/body&gt;
 					</pre>
