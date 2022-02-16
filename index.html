@@ -134,7 +134,7 @@
 				<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the
 					manifest SHOULD identify the resource that contains the structure.</p>
 
-				<p>When an Audiobook contains additional resources (i.e. supplemental content):</p>
+				<p>When an Audiobook contains audio resources that include multiple chapters or parts, or if the audiobook contains supplemental content:</p>
 
 				<ul>
 					<li>
@@ -149,6 +149,8 @@
 								>publication resources</a>&#160;[[!pub-manifest]].</p>
 					</li>
 				</ul>
+
+				<p class="note">Some Audiobooks may have audio resources that contain more than one chapter or section of the book content. It is strongly recommended that content creators provide a table of contents using <a href="https://www.w3.org/TR/media-frags/">media fragments</a> [[media-frags]] to provide the user with access to the structure of the Audiobook.</p>
 
 				<p class="note">When including supplemental content, be aware that users might not have access to this
 					content unless it is linked to from the table of contents. It is strongly advised to provide links
