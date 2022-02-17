@@ -54,7 +54,9 @@
 			<p>This specification describes the requirements for the creation of audiobooks, using a profile of the
 					<dfn>Publication Manifest</dfn> specification.</p>
 		</section>
-		<section id="sotd"></section>
+		<section id="sotd">
+			<p class="proposed correction">Proposed corrections are marked in the document.</p>
+		</section>
 		<section id="intro" class="informative">
 			<h3>Introduction</h3>
 
@@ -443,14 +445,15 @@
 						is fully defined in <a href="https://www.w3.org/TR/pub-manifest/#duration">Publication
 							Manifest</a> [[!pub-manifest]].</p>
 
+					<div class="proposed correction" id="change_1">
+						<span class="marker">Proposed Correction 1.1</span>
+						<p>We have updated the normative requirement for the duration property on the item level, to address implementer feedback in regards to facilitating streaming. This normative requirement is now a MUST.</p>
+					</div>
+	
 					<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and
-						MUST be present at the item level in the <a href="#audio-readingorder">default reading
+						<del cite="#change_1">SHOULD</del> <ins cite="#change_1">MUST</ins> be present at the item level in the <a href="#audio-readingorder">default reading
 							order</a>.</p>
 
-						<div class="proposed correction">
-							<span class="marker">Proposed Correction 1.1</span>
-							<p>We have updated the normative requirement for the duration property on the item level, to address implementer feedback in regards to facilitating streaming. This normative requirement is now a MUST.</p>
-						</div>
 
 					<p>When a content creator specifies both the duration for the audiobook and item-level duration in
 						the <a href="#audio-readingorder">default reading order</a> the resource-level duration SHOULD
@@ -486,7 +489,15 @@
 							><code>LinkedResource</code></a> [[!pub-manifest]]. The default reading order MUST NOT
 					contain non-audio resources.</p>
 
-				<p>An audio resource MUST be referenced in its entirety via a URL [[url]].</p>
+				<div class="proposed correction" id="change_2">
+					<span class="marker">Proposed Correction 1.1</span>
+					<p>Update previously non-normative statement about the use of media fragments to allow for referencing of audio files that span multiple chapters. The previous statement contradicted the note on referencing an audio file more than once in the reading order. The new normative statement will require that media fragments not be used on the <code>url</code> property in the Reading Order.</p>
+				</div>
+
+				<p>An audio resource <del cite="#change_2">can</del><ins cite="#change_2">MUST</ins> be referenced in its entirety via a URL [[url]]<ins cite="#change_2">.</ins><del cite="#change_2">, or for content where multiple
+					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
+						fragments</a> [[media-frags]] to locate the exact starting and end points.</del>
+				</p>
 
 				<p class="note">It is important to note that a resource cannot be referenced more than once in the
 					reading order. In the case where an audio file represents the content of multiple chapters or
@@ -494,10 +505,6 @@
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
 					
-					<div class="proposed correction">
-						<span class="marker">Proposed Correction 1.1</span>
-						<p>Update previously non-normative statement about the use of media fragments to allow for referencing of audio files that span multiple chapters. The previous statement contradicted the note on referencing an audio file more than once in the reading order. The new normative statement will require that media fragments not be used on the <code>url</code> property in the Reading Order.</p>
-					</div>
 
 				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
 					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
