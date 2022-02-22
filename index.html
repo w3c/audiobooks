@@ -134,7 +134,7 @@
 				<p>If the table of contents is not located in the <a href="#audio-pep">primary entry page</a>, the
 					manifest SHOULD identify the resource that contains the structure.</p>
 
-				<p>When an Audiobook contains additional resources (i.e. supplemental content):</p>
+				<p>When an Audiobook contains audio resources that include multiple chapters or parts, or if the audiobook contains supplemental content:</p>
 
 				<ul>
 					<li>
@@ -142,21 +142,23 @@
 					</li>
 					<li>
 						<p>the table of contents SHOULD include a link to any of the <a href="#audio-resourcelist"
-								>resources</a>; and</p>
+							>resources</a>; and</p>
 					</li>
 					<li>
 						<p>all links SHOULD refer to <a href="https://www.w3.org/TR/pub-manifest/#publication-resources"
-								>publication resources</a>&#160;[[!pub-manifest]].</p>
+							>publication resources</a>&#160;[[!pub-manifest]].</p>
 					</li>
-				</ul>
-
+					</ul>
+	
+				<p class="note">Some Audiobooks may have audio resources that contain more than one chapter or section of the book content. It is strongly recommended that content creators provide a table of contents using <a href="https://www.w3.org/TR/media-frags/">media fragments</a> [[media-frags]] to provide the user with access to the structure of the Audiobook.</p>
+	
 				<p class="note">When including supplemental content, be aware that users might not have access to this
 					content unless it is linked to from the table of contents. It is strongly advised to provide links
 					to all content that is not in the default reading order.</p>
-
+	
 				<p class="note">For more guidance on the structure and formatting for tables of contents, consult <a
-						href="https://w3c.github.io/pub-manifest/#app-toc-structure">Publication Manifest -
-						Machine-Processable Table of Contents</a> [[pub-manifest]].</p>
+					href="https://w3c.github.io/pub-manifest/#app-toc-structure">Publication Manifest -
+					Machine-Processable Table of Contents</a> [[pub-manifest]].</p>
 
 			</section>
 		</section>
