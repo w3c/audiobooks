@@ -30,47 +30,47 @@
     {
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_1_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1371,
+      "duration": "PT1371S",
       "name": "Part 1, Sections 1 - 3"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1669,
+      "duration": "PT1669S",
       "name": "Part 1, Sections 4 - 5"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_3_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1506,
+      "duration": "PT1506S",
       "name": "Part 1, Sections 6 - 7"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_4_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1669,
+      "duration": "PT1669S",
       "name": "Part 1, Sections 8 - 10"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_5_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1506,
+      "duration": "PT1506S",
       "name": "Part 1, Sections 11 - 12"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_6_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1798,
+      "duration": "PT1798S",
       "name": "Part 2, Sections 13 - 14"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_7_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1225,
+      "duration": "PT1225S",
       "name": "Part 2, Sections 15 - 17"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_8_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1371,
+      "duration": "PT1371S",
       "name": "Part 2, Sections 18 - 20"
     },{
       "url": "http://www.archive.org/download/flatland_rg_librivox/flatland_9_abbott.mp3",
       "encodingFormat": "audio/mpeg",
-      "duration": 1659,
+      "duration": "PT1659S",
       "name": "Part 2, Sections 21 - 22"
     }
   ]

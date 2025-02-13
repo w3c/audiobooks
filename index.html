@@ -444,8 +444,13 @@
 							Manifest</a> [[!pub-manifest]].</p>
 
 					<p>Duration SHOULD be expressed for the entirety of the audiobook as part of the manifest, and
-						SHOULD be present at the item level in the <a href="#audio-readingorder">default reading
+						MUST be present at the item level in the <a href="#audio-readingorder">default reading
 							order</a>.</p>
+
+						<div class="proposed correction">
+							<span class="marker">Proposed Correction 1.1</span>
+							<p>We have updated the normative requirement for the duration property on the item level, to address implementer feedback in regards to facilitating streaming. This normative requirement is now a MUST.</p>
+						</div>
 
 					<p>When a content creator specifies both the duration for the audiobook and item-level duration in
 						the <a href="#audio-readingorder">default reading order</a> the resource-level duration SHOULD
@@ -481,15 +486,18 @@
 							><code>LinkedResource</code></a> [[!pub-manifest]]. The default reading order MUST NOT
 					contain non-audio resources.</p>
 
-				<p>An audio resource can be referenced in its entirety via a URL [[url]], or for content where multiple
-					chapters occupy a single file by using <a href="https://www.w3.org/TR/media-frags/">media
-						fragments</a> [[media-frags]] to locate the exact starting and end points.</p>
+				<p>An audio resource MUST be referenced in its entirety via a URL [[url]].</p>
 
 				<p class="note">It is important to note that a resource cannot be referenced more than once in the
 					reading order. In the case where an audio file represents the content of multiple chapters or
-					sections of the book, the <a href="#audio-toc">table of contents</a> can be used to specify the
+					sections of the book, the <a href="#audio-toc">table of contents</a> should be used to specify the
 					starting and ending points of those chapters in the larger audio file, as demonstrated in <a
 						href="#toc-mediafragments">this example</a>.</p>
+					
+					<div class="proposed correction">
+						<span class="marker">Proposed Correction 1.1</span>
+						<p>Update previously non-normative statement about the use of media fragments to allow for referencing of audio files that span multiple chapters. The previous statement contradicted the note on referencing an audio file more than once in the reading order. The new normative statement will require that media fragments not be used on the <code>url</code> property in the Reading Order.</p>
+					</div>
 
 				<p class="note">Annotations can also use media fragments to identify the location of the annotation in
 					the resource, and are compatible with the <a href="https://www.w3.org/TR/annotation-model/">Web
@@ -511,29 +519,6 @@
 							    }]
 							}
 					</pre>
-
-				<pre class="example" title="Audiobook Reading Order for Multiple Resources using Media Fragments">
-							{
-							    "@context" : ["https://schema.org", "https://www.w3.org/ns/pub-context"],
-							    "conformsTo" : "https://www.w3.org/TR/audiobooks/",
-							    "url" : "https://publisher.example.org/janeeyre",
-							    "name" : "Jane Eyre",
-							    "readingOrder" : [{
-							        "type": "LinkedResource",
-							        "url" : "audio/part001.wav#t=0,457.931",
-							        "encodingFormat" : "audio/vnd-wav",
-							        "name" : "Chapter 1",
-							        "duration" : "PT457.931S"
-							    }, {
-							        "type" : "LinkedResource",
-							        "url" : "audio/part002.wav#t=12.741",
-							        "encodingFormat" : "audio/vnd-wav",
-							        "name" : "Chapter 2",
-							        "duration" : "PT234.245S"
-							    }]
-							}
-						</pre>
-
 			</section>
 
 			<section id="audio-resourcelist">
@@ -975,6 +960,14 @@
 		<section id="change-log">
 			<h2>Change Log</h2>
 
+			<p>Substantive changes since <a href="https://www.w3.org/TR/audiobooks">Recommendation</a> publication.</p>
+
+			<ul>
+				<li>16-Feb-2022: To address <a href="https://www.github.com/w3c/audiobooks/issues/110">issue 110</a>, media fragments can no longer be used in the <code>url</code> property in the Reading Order.</li>
+				<li>19-Jan-2022: Duration for items in the reading order is now a MUST, see <a href="https://www.github.com/w3c/audiobooks/issues/108">issue 108</a>.</li>
+				<li>19-Jan-2022: Corrected a syntax error in the <a href="#audio-simple">simple audiobook</a> sample file, see <a href="https://www.github.com/w3c/audiobooks/issues/109">issue 109</a>.</li>
+			</ul>
+
 			<p>Substantive changes since the <a href="https://www.w3.org/TR/2019/WD-audiobooks-20190620/">First Public
 					Working Draft</a>:</p>
 
@@ -1090,14 +1083,14 @@
 				&lt;/head&gt;
 				&lt;body&gt;
 				    &#8230;
-				    &lt;section role="doc-toc"&gt;
+				    &lt;nav role="doc-toc"&gt;
 				        &lt;ol>
 				            &lt;li>&lt;a href="audio/chapter001.wav">Chapter 1. There was no possibility of taking a walk that day...&lt;/a>&lt;/li>
 				            &lt;li>&lt;a href="audio/chapter002.wav">Chapter 2. I resisted all the way:...&lt;/a>&lt;/li>
 				            &lt;li>&lt;a href="audio/chapter003.wav">Chapter 3. The next thing I remember is,...&lt;/a>&lt;/li>
 				            &#8230;
 			          &lt;/ol>
-				    &lt;/section&gt;
+				    &lt;/nav&gt;
 				    &#8230;
 				&lt;/body&gt;
 					</pre>
